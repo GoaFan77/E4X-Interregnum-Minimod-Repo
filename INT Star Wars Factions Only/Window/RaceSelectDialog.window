@@ -1,0 +1,199 @@
+TXT
+backdropDimPercentage 0.90
+backdropBrush "ICOGameLobbyScreenBackdrop"
+titleOverlayBrush ""
+size [1064 , 808]
+contentRefArea [0, 0, 1064, 808]
+titleRefArea [90, 40, 508, 30]
+titleOverlayRefArea [0, 0, 693, 90]
+numFactionWindows 2
+	factionSelectWindowDef
+		backdropBrush "RaceSelectDialogBackground"
+		backdropArea [40,30,946,717]
+		smallFactionPortraitOverlay "RaceSelectSmallPortraitOverlay"
+		smallFactionPortraitOffset [0,0]
+		previousFactionPortraitBrush "RaceSelectAlliancePortraitSmall"
+		previousFactionPortraitArea [64, 215, 65, 40]
+		nextFactionPortraitBrush "RaceSelectAlliancePortraitSmall"
+		nextFactionPortraitArea [896, 215, 65, 40]
+		leftPlayer "Player_ING_GalacticEmpire"
+		rightPlayer "Player_ING_ImperialWarlords"
+		raceNameFont "WindowTitle"
+		raceNameID "IDS_PLAYERRACENAME_ING_Empire"
+		raceNameArea [507,75,0,0]
+		raceDescriptionFont "ListItemSmall"
+		raceDescriptionID "IDS_RACESELECTDIALOG_EMP_DESCRIPTION"
+		raceDescriptionArea [420,27,190,190]
+		leftPlayerNameArea [270,315,0,0]
+		rightPlayerNameArea [754,315,0,0]
+		playerDescriptionFont "ButtonLabel"
+		leftPlayerDescriptionID "IDS_RACESELECTDIALOG_GALACTICEMPIRE_DESCRIPTION"
+		leftPlayerDescriptionArea [70,140,400,500]
+		rightPlayerDescriptionID "IDS_RACESELECTDIALOG_IMPERIALWARLORDS_DESCRIPTION"
+		rightPlayerDescriptionArea [560,140,400,500]
+		portraitOverlayBrush "PlayerScreenPortraitOverlay"
+		portraitUnderlayBrush "PlayerScreenPortraitUnderlay"
+		portraitBackdropBrush "PlayerScreenHappinessBackdropForHumanPlayer"
+		frameOffset [0,-26]
+		backdropOffset [0,168]
+		leftPlayerPortraitBrush "RaceSelectDialogGalacticEmpirePortrait"
+		leftPlayerPortraitArea [174,52,195,219]
+		rightPlayerPortraitBrush "RaceSelectDialogImperialWarlordsPortrait"
+		rightPlayerPortraitArea [660,52,195,219]
+		techButtonDef
+			backdrop "ResearchWindowButtonBackdrop"
+			overlay ""
+		sharedTechsStartPosition [364,200]
+		spaceBetweenSharedTechs 6
+			sharedTechOne "Research_ING_RacialBonusEmpire"
+			sharedTechTwo "Research_ING_MoffCouncil"
+			sharedTechThree "Research_ING_BaseDeltaZero"
+			sharedTechFour "Research_ING_CapitalshipMultipleTargets"
+		sharedCapitalShipsStartPosition [441,270]
+		spaceBetweenSharedCapitalShips 2
+			sharedCapitalShipOne "CAPITALSHIP_ING_EmpVSD1"
+			sharedCapitalShipTwo "CAPITALSHIP_ING_EmpVSD2"
+			sharedCapitalShipThree "CAPITALSHIP_ING_EmpVenator"
+			sharedCapitalShipFour "CAPITALSHIP_ING_EmpISD2"
+			sharedCapitalShipFive "CAPITALSHIP_ING_EmpTector"
+			sharedCapitalShipSix "CAPITALSHIP_ING_EmpInterdictorSD"
+		spaceBetweenFactionTechs 8
+		leftFactionTechsStartPosition [373, 578]
+			leftFactionTechOne "Research_ING_FactionBonusGalacticEmpire"
+			leftFactionTechTwo "Research_ING_SymbolicVictory"
+			leftFactionTechThree "Research_ING_Enslavement"
+			leftFactionTechFour "Research_ING_Inquisitorius"
+			leftFactionTechFive "Research_ING_BattleMeditation"
+			leftFactionTechSix "Research_ING_TitanAccess_ExecutorClass"
+		rightFactionTechsStartPosition [553, 578]
+			rightFactionTechOne "Research_ING_FactionBonusImperialWarlords"
+			rightFactionTechTwo "Research_ING_Cloning"
+			rightFactionTechThree "Research_ING_AbilityAccess_BlackmarketTechnology"
+			rightFactionTechFour "Research_ING_Modernization"
+			rightFactionTechFive "Research_ING_FighterAccess_EmpDefender"
+			rightFactionTechSix "Research_ING_TitanAccess_ExecutorClass"
+		selectLeftButton
+			area [68, 585, 230 , 105]
+			underlayBrush "RaceSelect_ING_GalEmpTitan"
+			buttonTextFont "ButtonLabel"
+			buttonTextID "IDS_RACESELECTDIALOG_SELECTGALACTICEMPIRE"
+			buttonTextArea [18,-20,50,100]
+		selectRightButton
+			area [730, 585, 230 , 105]
+			underlayBrush "RaceSelect_ING_EmpWarlordTitan"
+			buttonTextFont "ButtonLabel"
+			buttonTextID "IDS_RACESELECTDIALOG_SELECTIMPERIALWARLORDS"
+			buttonTextArea [162,-20,50,100]
+		selectRandomButton
+			area [483, 698, 65, 40]
+			underlayBrush "RaceSelectRandom"
+			buttonTextFont "TextEntry"
+			buttonTextID "IDS_RACESELECTDIALOG_SELECTRANDOM"
+			buttonTextArea [-9,-8,80,50]
+		previousRaceButton
+			area [55, 284, 65, 40]
+			underlayBrush "RaceSelectLeftButton"
+			buttonTextFont "ButtonLabel"
+			buttonTextID ""
+			buttonTextArea [0,0,0,0]
+		nextRaceButton
+			area [905, 284, 65, 40]
+			underlayBrush "RaceSelectRightButton"
+			buttonTextFont "ButtonLabel"
+			buttonTextID ""
+			buttonTextArea [0,0,0,0]
+	factionSelectWindowDef
+		backdropBrush "RaceSelectDialogBackground"
+		backdropArea [40,30,946,717]
+		smallFactionPortraitOverlay "RaceSelectSmallPortraitOverlay"
+		smallFactionPortraitOffset [0,0]
+		previousFactionPortraitBrush "RaceSelectGalacticEmpirePortraitSmall"
+		previousFactionPortraitArea [64, 215, 65, 40]
+		nextFactionPortraitBrush "RaceSelectGalacticEmpirePortraitSmall"
+		nextFactionPortraitArea [896, 215, 65, 40]
+		leftPlayer "Player_ING_RebelAlliance"
+		rightPlayer "Player_ING_RebelAlliance"
+		raceNameFont "WindowTitle"
+		raceNameID "IDS_PLAYERRACENAME_ING_Alliance"
+		raceNameArea [507,75,0,0]
+		raceDescriptionFont "ListItemSmall"
+		raceDescriptionID "IDS_RACESELECTDIALOG_ALL_DESCRIPTION"
+		raceDescriptionArea [420,27,190,190]
+		leftPlayerNameArea [270,315,0,0]
+		rightPlayerNameArea [754,315,0,0]
+		playerDescriptionFont "ButtonLabel"
+		leftPlayerDescriptionID "IDS_RACESELECTDIALOG_RebelAlliance_DESCRIPTION"
+		leftPlayerDescriptionArea [70,140,400,500]
+		rightPlayerDescriptionID "IDS_RACESELECTDIALOG_RebelAlliance_DESCRIPTION"
+		rightPlayerDescriptionArea [560,140,400,500]
+		portraitOverlayBrush "PlayerScreenPortraitOverlay"
+		portraitUnderlayBrush "PlayerScreenPortraitUnderlay"
+		portraitBackdropBrush "PlayerScreenHappinessBackdropForHumanPlayer"
+		frameOffset [0,-26]
+		backdropOffset [0,168]
+		leftPlayerPortraitBrush "RaceSelectDialogNewRepublicPortrait"
+		leftPlayerPortraitArea [174,52,195,219]
+		rightPlayerPortraitBrush "RaceSelectDialogRebelAlliancePortrait"
+		rightPlayerPortraitArea [660,52,195,219]
+		techButtonDef
+			backdrop "ResearchWindowButtonBackdrop"
+			overlay ""
+		sharedTechsStartPosition [364,200]
+		spaceBetweenSharedTechs 6
+			sharedTechOne "Research_ING_RacialBonusAlliance"
+			sharedTechTwo "Research_ING_ShieldCalibration"
+			sharedTechThree "Research_ING_WeaponDamage_TorpedoAll3"
+			sharedTechFour "Research_ING_AbilityAccess_BuildIonCannons"
+		sharedCapitalShipsStartPosition [441,270]
+		spaceBetweenSharedCapitalShips 2
+			sharedCapitalShipOne "CAPITALSHIP_ING_AllColony"
+			sharedCapitalShipTwo "CAPITALSHIP_ING_AllWingedMC80"
+			sharedCapitalShipThree "CAPITALSHIP_ING_AllMC80B"
+			sharedCapitalShipFour "CAPITALSHIP_ING_AllMC80"
+			sharedCapitalShipFive "CAPITALSHIP_ING_AllMC80A"
+			sharedCapitalShipSix "CAPITALSHIP_ING_AllDauntless"
+		spaceBetweenFactionTechs 8
+		leftFactionTechsStartPosition [373, 578]
+			leftFactionTechOne "Research_ING_FactionBonusRebelAlliance"
+			leftFactionTechTwo "Research_ING_OnTheJobTraining"
+			leftFactionTechThree "Research_ING_AbilityAccess_BuildConstructionBase"
+			leftFactionTechFour "Research_ING_SmugglerContacts"
+			leftFactionTechFive "Research_ING_StarfighterDoctrine"
+			leftFactionTechSix "Research_ING_TitanAccess_AllHome1"
+		rightFactionTechsStartPosition [553, 578]
+			rightFactionTechOne "Research_ING_FactionBonusRebelAlliance"
+			rightFactionTechTwo "Research_ING_OnTheJobTraining"
+			rightFactionTechThree "Research_ING_AbilityAccess_BuildConstructionBase"
+			rightFactionTechFour "Research_ING_SmugglerContacts"
+			rightFactionTechFive "Research_ING_StarfighterDoctrine"
+			rightFactionTechSix "Research_ING_TitanAccess_AllHome1"
+		selectLeftButton
+			area [68, 585, 230 , 105]
+			underlayBrush "RaceSelect_ING_AllTitan"
+			buttonTextFont "ButtonLabel"
+			buttonTextID "IDS_RACESELECTDIALOG_SelectRebelAlliance"
+			buttonTextArea [18,-20,50,100]
+		selectRightButton
+			area [730, 585, 230 , 105]
+			underlayBrush "RaceSelect_ING_NRTitan"
+			buttonTextFont "ButtonLabel"
+			buttonTextID "IDS_RACESELECTDIALOG_SelectRebelAlliance"
+			buttonTextArea [162,-20,50,100]
+		selectRandomButton
+			area [483, 698, 65, 40]
+			underlayBrush "RaceSelectRandom"
+			buttonTextFont "TextEntry"
+			buttonTextID "IDS_RACESELECTDIALOG_SELECTRANDOM"
+			buttonTextArea [-9,-8,80,50]
+		previousRaceButton
+			area [55, 284, 65, 40]
+			underlayBrush "RaceSelectLeftButton"
+			buttonTextFont "ButtonLabel"
+			buttonTextID ""
+			buttonTextArea [0,0,0,0]
+		nextRaceButton
+			area [905, 284, 65, 40]
+			underlayBrush "RaceSelectRightButton"
+			buttonTextFont "ButtonLabel"
+			buttonTextID ""
+			buttonTextArea [0,0,0,0]

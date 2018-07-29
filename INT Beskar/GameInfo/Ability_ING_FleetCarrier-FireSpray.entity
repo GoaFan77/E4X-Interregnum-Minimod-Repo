@@ -1,0 +1,53 @@
+﻿TXT
+entityType "Ability"
+buffInstantActionType "CreateFrigate"
+instantActionTriggerType "AlwaysPerform"
+frigateType "Corvette_ING_ManCorvette"
+numFrigates
+	Level:0 4.000000
+	Level:1 6.000000
+	Level:2 8.000000
+	Level:3 10.000000
+matchOwnerDamageState FALSE
+impulse 35000.000000
+expiryTime
+	Level:0 300.000000
+	Level:1 300.000000
+	Level:2 300.000000
+	Level:3 300.000000
+spawnFrigateSoundID "EFFECT_DEPLOYCOMBATTURRET"
+postSpawnBuff ""
+needsToFaceTarget FALSE
+canCollideWithTarget TRUE
+moveThruTarget FALSE
+isUltimateAbility TRUE
+maxNumLevels 4
+levelSourceType "FixedLevel0"
+aiUseTime "OnlyWhenOrbitingEnemyPlanet"
+aiUseTargetCondition "Any"
+isAutoCastAvailable TRUE
+isAutoCastOnByDefault TRUE
+pickRandomPlanetToExploreForAutoCastTarget FALSE
+ignoreNonCombatShipsForAutoCastTarget TRUE
+onlyAutoCastWhenDamageTakenExceedsPerc 0.000000
+useCostType "AntiMatter"
+antiMatterCost
+	Level:0 120.000000
+	Level:1 120.000000
+	Level:2 120.000000
+	Level:3 120.000000
+cooldownTime
+	Level:0 240.000000
+	Level:1 240.000000
+	Level:2 340.000000
+	Level:3 340.000000
+orderAcknowledgementType "ONGENERALORDERISSUED"
+researchPrerequisites
+	NumResearchPrerequisites 0
+	RequiredFactionNameID ""
+	RequiredCompletedResearchSubjects 0
+nameStringID "IDS_Ability_ING_FleetCarrier-FireSpray_NAME"
+descStringID "IDS_Ability_ING_FleetCarrier-FireSpray_DESC"
+hudIcon "HUDICON_ING_ManCorvette"
+smallHudIcon "HUDICON_ING_ManCorvette"
+infoCardIcon ""
