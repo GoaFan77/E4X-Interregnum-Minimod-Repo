@@ -359,8 +359,8 @@ planetElevatorData
 musicThemeData
 	startupMusicThemeCount 0
 	neutralMusicThemeCount 2
-	musicTheme "Music_ING_Mandalorian_Battle_1"	
-	musicTheme "Music_ING_Mandalorian_Battle_2"	
+	musicTheme "Music_ING_Mandalorian_Battle_1"
+	musicTheme "Music_ING_Mandalorian_Battle_2"
 	scareThemeCount 0
 	announcementCount 1
 	musicTheme "Music_ING_Mandalorian_Announcement"
@@ -544,7 +544,7 @@ hudSkinData
 	UserActionIconUpgradePlanetTacticalModules "ActionIconPlanetUpgradeTacticalModules"
 	UserActionIconUpgradePlanetSocial "ActionIconPlanetUpgradeSocial"
 	UserActionIconUpgradePlanetIndustry "ActionIconPlanetUpgradeIndustry"
-	UserActionIconUpgradePlanetSmuggler "ActionIconPlanetUpgradeSmuggler"	
+	UserActionIconUpgradePlanetSmuggler "ActionIconPlanetUpgradeSmuggler"
 	UserActionIconBuildResourceAsteroidExtractor "ActionIconBuildResourceAsteroidExtractor"
 	UserActionIconPing "BottomWindowButtonPing"
 	UserActionIconPingAllyAttack "ActionIconPingAllyAttack"

@@ -21,7 +21,7 @@ spawnShips
 		maxCount 3
 	randomShipCount 0
 spawnShipsArrivalDelayTime 10.000000
-spawnShipsHyperspaceSpawnType "FleetBeacon"	
+spawnShipsHyperspaceSpawnType "FleetBeacon"
 needsToFaceTarget FALSE
 canCollideWithTarget TRUE
 moveThruTarget FALSE

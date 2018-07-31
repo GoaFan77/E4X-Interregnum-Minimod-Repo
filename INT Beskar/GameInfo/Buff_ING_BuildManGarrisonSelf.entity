@@ -31,7 +31,7 @@ instantAction
 	instantActionTriggerType "OnDelay"
 	delayTime 0.000000
 	planetModuleType "PLANETMODULE_ING_AllMetalExtractor"
-	spawnPlanetModuleSoundID "EFFECT_DEPLOYSIEGETURRET"		
+	spawnPlanetModuleSoundID "EFFECT_DEPLOYSIEGETURRET"
 numPeriodicActions 0
 numOverTimeActions 0
 numEntityModifiers 0

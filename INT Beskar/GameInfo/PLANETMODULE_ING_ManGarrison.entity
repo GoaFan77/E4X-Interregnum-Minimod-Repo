@@ -7,7 +7,7 @@ ability:2 "Ability_ING_MandalCombatGroupAM"
 ability:3 "Ability_ING_MandalSupportGroupAM"
 ability:4 "Ability_ING_ManGarrison"
 MaxAntiMatter 300.000000
-AntiMatterRestoreRate 1.50000
+AntiMatterRestoreRate 1.500000
 numRandomDebrisLarge 5
 numRandomDebrisSmall 16
 numSpecificDebris 0
@@ -70,4 +70,3 @@ maxShadow 0.400000
 formationRank 3
 baseBuildTime 65.000000
 buildEffectName ""
-

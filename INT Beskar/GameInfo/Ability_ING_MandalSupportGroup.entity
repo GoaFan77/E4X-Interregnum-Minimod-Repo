@@ -17,7 +17,7 @@ spawnShips
 		maxCount 5
 	randomShipCount 0
 spawnShipsArrivalDelayTime 10.000000
-spawnShipsHyperspaceSpawnType "FleetBeacon"	
+spawnShipsHyperspaceSpawnType "FleetBeacon"
 needsToFaceTarget FALSE
 canCollideWithTarget TRUE
 moveThruTarget FALSE
@@ -33,9 +33,9 @@ ignoreNonCombatShipsForAutoCastTarget TRUE
 onlyAutoCastWhenDamageTakenExceedsPerc 0.000000
 useCostType "ResourcesAndMustHaveShipSlots"
 resourceCost
-	credits 2000.0000
-	metal 275.0000
-	crystal 200.0000
+	credits 2000.000000
+	metal 275.000000
+	crystal 200.000000
 requiredShipSlots
 	Level:0 50.000000
 	Level:1 50.000000

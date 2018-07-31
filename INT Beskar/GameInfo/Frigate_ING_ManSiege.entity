@@ -15,30 +15,30 @@ bombTransitTime 10.000000
 bombEffectCount 3
 bombEffectAngleVariance 25.000000
 bombEffectsDef
-		weaponType "Missile"
-		burstCount 1
-		burstDelay 1.000000
-		fireDelay 0.000000
-		muzzleEffectName ""
-		muzzleSoundMinRespawnTime 0.500000
-		muzzleSounds
-			soundCount 1
-			sound "EFFECT_BOARDINGPODS_TECH"
-		hitEffectName "Weapon_ING_SmallPlanetExplosions_Hit"
-		hitHullEffectSounds
-			soundCount 3
-			sound "EXPLOSION_SUB4"
-			sound "EXPLOSION_SUB4_ALT1"
-			sound "EXPLOSION_SUB4_ALT2"
-		hitShieldsEffectSounds
-			soundCount 3
-			sound "EXPLOSION_SUB4"
-			sound "EXPLOSION_SUB4_ALT1"
-			sound "EXPLOSION_SUB4_ALT2"
-		missileTravelEffectName "Particle_ING_GuantletPlanetBombing"
-		missileStartTurningDistance 100.000000
-		missileSlowTurnRate 2.208997
-		missileMaxSlowTurnTime 3.000000
+	weaponType "Missile"
+	burstCount 1
+	burstDelay 1.000000
+	fireDelay 0.000000
+	muzzleEffectName ""
+	muzzleSoundMinRespawnTime 0.500000
+	muzzleSounds
+		soundCount 1
+		sound "EFFECT_BOARDINGPODS_TECH"
+	hitEffectName "Weapon_ING_SmallPlanetExplosions_Hit"
+	hitHullEffectSounds
+		soundCount 3
+		sound "EXPLOSION_SUB4"
+		sound "EXPLOSION_SUB4_ALT1"
+		sound "EXPLOSION_SUB4_ALT2"
+	hitShieldsEffectSounds
+		soundCount 3
+		sound "EXPLOSION_SUB4"
+		sound "EXPLOSION_SUB4_ALT1"
+		sound "EXPLOSION_SUB4_ALT2"
+	missileTravelEffectName "Particle_ING_GuantletPlanetBombing"
+	missileStartTurningDistance 100.000000
+	missileSlowTurnRate 2.208997
+	missileMaxSlowTurnTime 3.000000
 typeCount 1
 frigateRoleType "Siege"
 statCountType "FrigateSiege"
