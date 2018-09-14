@@ -244,15 +244,15 @@ GameplayConstants
 		DamagePercentBonus:ANTIVERYHEAVY:Module 0.50
 		DamagePercentBonus:ANTIVERYHEAVY:Pirate 0.50
 		DamagePercentBonus:ANTIVERYHEAVY:Titan 0.55	
-		DamagePercentBonus:ANTIMODULE:CapitalShip 0.5
-		DamagePercentBonus:ANTIMODULE:VeryLight 0.03
+		DamagePercentBonus:ANTIMODULE:CapitalShip 0.4
+		DamagePercentBonus:ANTIMODULE:VeryLight 0.01
 		DamagePercentBonus:ANTIMODULE:Light 0.05
-		DamagePercentBonus:ANTIMODULE:Medium 0.10
+		DamagePercentBonus:ANTIMODULE:Medium 0.05
 		DamagePercentBonus:ANTIMODULE:Heavy 0.15
-		DamagePercentBonus:ANTIMODULE:VeryHeavy 0.25
+		DamagePercentBonus:ANTIMODULE:VeryHeavy 0.20
 		DamagePercentBonus:ANTIMODULE:Module 2.0
 		DamagePercentBonus:ANTIMODULE:Pirate 0.20
-		DamagePercentBonus:ANTIMODULE:Titan 1.000000
+		DamagePercentBonus:ANTIMODULE:Titan 1.00000	
 		DamagePercentBonus:COMPOSITE:CapitalShip 0.75
 		DamagePercentBonus:COMPOSITE:VeryLight 1.0
 		DamagePercentBonus:COMPOSITE:Light 1.5
