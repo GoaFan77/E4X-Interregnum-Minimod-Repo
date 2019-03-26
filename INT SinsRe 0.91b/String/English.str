@@ -1,8 +1,44 @@
 TXT
-NumStrings 10222
+NumStrings 10236
 StringInfo
 	ID "IDSOptionsScreenEffectOptionsIsPostProcessSceneEnabled"
 	Value "Bloom & Post Processing"
+StringInfo
+	ID "IDS_Ability_ING_MinorFactionSellCapitalShipChelandion_NAME"
+	Value "Buy Chelandion Cruiser"
+StringInfo
+	ID "IDS_Ability_ING_MinorFactionSellCapitalShipChelandion_DESC"
+	Value "The Hutt Cartel sells you a Chelandion Assault Cruiser. The most powerful ship type constructed by the Hutts in recent memory, the Chelandion is somewhat small for a flagship but pacts a potent combination of force and crude cunning."
+StringInfo
+	ID "IDS_CAPITALSHIP_ING_HuttAssaultCruiser_NAME"
+	Value "Chelandion Assault Cruiser"
+StringInfo
+	ID "IDS_CAPITALSHIP_ING_HuttAssaultCruiser_DESC"
+	Value "The most powerful self built ships of the Hutt Fleet, the Chelandion Assault Cruiser is a small but potent capitalship with a variety of underhanded tricks up their sleeves, much like their designers."
+StringInfo
+	ID "IDS_Ability_ING_CorruptFighter_NAME"
+	Value "Corrupt Fighter"
+StringInfo
+	ID "IDS_Ability_ING_CorruptFighter_DESC"
+	Value "Never strict about safety standards, the Hutts allow the Chelandion to inject a piece of refined Coaxium into its reactor. This ability costs credits, but greatly increases shield and antimatter regeneration, weapon reload, and speed."
+StringInfo
+	ID "IDS_Ability_ING_UnderworldMuscle_NAME"
+	Value "Underworld Muscle"
+StringInfo
+	ID "IDS_Ability_ING_UnderworldMuscle_DESC"
+	Value "The flagships and most powerful enforcers of the Hutt Fleet, the Chelandion can be cunning and brutish combatants, though they lack in executing more complex maneuvers. Increases damage and defense at the expense of weapon range."
+StringInfo
+	ID "IDS_Ability_ING_RemoteDetonation_NAME"
+	Value "Remote Detonation"
+StringInfo
+	ID "IDS_Ability_ING_RemoteDetonation_DESC"
+	Value "Often relying on mercenary soldiers, the Hutts have developed many devious ways of ensure control of their investments. One such device is a special injector in a ships Hypermatter reactor that allows a Hutt to destroy the vessel at will, which can be used to both prevent theft of the warship or unexpectedly deal heavy damage to the enemy."
+StringInfo
+	ID "IDS_Ability_ING_HitList_NAME"
+	Value "Hit List"
+StringInfo
+	ID "IDS_Ability_ING_HitList_DESC"
+	Value "The Hutts have a fondness for hiring bounty hunters and settling scores, which makes them highly dangerous for anyone to cross them. Places a bounty on any player that destroys ships and structures in range."
 StringInfo
 		ID "IDS_PLANETMODULE_ING_MilRepairPlatform_NAME"
 		Value "Repair Yard"
@@ -6384,6 +6420,12 @@ StringInfo
 StringInfo
         ID "IDSMainMenuScreenTitle"
         Value "Star Wars: Interregnum"
+StringInfo
+        ID "IDS_Ability_E4X_MinorFactionTradeCreditsForCrystalBetterRate_NAME"
+        Value "Sell Bulk Crystal"
+StringInfo
+        ID "IDS_Ability_E4X_MinorFactionTradeCreditsForMetalBetterRate_NAME"
+        Value "Sell Bulk Metal"        
 StringInfo
         ID "IDS_Ability_E4X_MinorFactionSpreadCultureGeneric_NAME"
         Value "Cultural Cooperation"
