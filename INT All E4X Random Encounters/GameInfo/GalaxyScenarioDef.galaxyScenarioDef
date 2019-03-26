@@ -1,4 +1,5 @@
-TXT
+TXT2
+SinsArchiveVersion 193
 starTypeCount 12
 starType
 	designName "RandomStar"
@@ -35,7 +36,7 @@ starType
 	orbitBodyType "OrangeStar"
 starType
 	designName "RandomSpecialStar"
-	designStringId "IDSGalaxyScenarioTypeStarRandomNonGreen"
+	designStringId "IDSGalaxyScenarioTypeStarSpecialStar"
 	orbitBodyTypeCount 3
 	orbitBodyType "NeutronStar"
 	orbitBodyType "BlackHoleStar"
@@ -57,7 +58,7 @@ starType
 	orbitBodyType "YellowStar"
 starType
 	designName "OrangeStar"
-	designStringId "IDSGalaxyScenarioTypeStarYellow"
+	designStringId "IDSGalaxyScenarioTypeStarOrange"
 	orbitBodyTypeCount 1
 	orbitBodyType "OrangeStar"
 starType
@@ -682,19 +683,21 @@ planetType
 planetType
 	designName "RandomIceVolcanic"
 	designStringId "IDSGalaxyScenarioTypeRandomIceVolcanic"
-	orbitBodyTypeCount 4
+	orbitBodyTypeCount 5
 	orbitBodyType "Ice"	
 	orbitBodyType "Volcanic"
 	orbitBodyType "Cyro"	
 	orbitBodyType "Igneous"
+	orbitBodyType "Alpine"
 planetType
 	designName "RandomIceVolcanicFair"
 	designStringId "IDSGalaxyScenarioTypeRandomIceVolcanicFair"
-	orbitBodyTypeCount 4
+	orbitBodyTypeCount 5
 	orbitBodyType "IceFair"	
 	orbitBodyType "VolcanicFair"
 	orbitBodyType "CyroFair"	
-	orbitBodyType "IgneousFair"	
+	orbitBodyType "IgneousFair"
+	orbitBodyType "AlpineFair"
 planetType
 	designName "RandomExplicitIceVolcanic"
 	designStringId "IDSGalaxyScenarioTypeExplicitIceVolcanic"
@@ -704,10 +707,13 @@ planetType
 planetType
 	designName "RandomCrystal"
 	designStringId "IDSGalaxyScenarioTypeRandomCrystal"
-	orbitBodyTypeCount 4
+	orbitBodyTypeCount 7
 	orbitBodyType "Ice"	
 	orbitBodyType "Cyro"
 	orbitBodyType "Oceanic"
+	orbitBodyType "Ice"	
+	orbitBodyType "Cyro"
+	orbitBodyType "Oceanic"	
 	orbitBodyType "Toxic"
 planetType
 	designName "RandomMetal"
@@ -1593,7 +1599,7 @@ orbitBodyType
 	typeName "Kessel"
 	entityDefName "Planet_ING_Kessel"
 	defaultTemplateName "Template:Kessel"		
-planetItemTypeCount 488
+planetItemTypeCount 515
 planetItemType
 	designName "All:Module:CapitalShipFactory"
 	entityDefName "PLANETMODULE_ING_AllCapitalshipFactory"
@@ -1703,7 +1709,7 @@ planetItemType
 	designName "All:Frigate:MC40"
 	entityDefName "Frigate_ING_AllMC40"
 planetItemType
-	designName "All:Frigate:ModuleConstructor"
+	designName "All:Frigate:Constructor"
 	entityDefName "Frigate_ING_AllModuleConstructor"
 planetItemType
 	designName "All:Frigate:Scout"
@@ -1868,6 +1874,9 @@ planetItemType
 	designName "Emp:Frigate:LongRange"
 	entityDefName "Frigate_ING_EmpLongRange"
 planetItemType
+	designName "Emp:Frigate:Raider"
+	entityDefName "Frigate_ING_EmpRaider"
+planetItemType
 	designName "Emp:Frigate:Scout"
 	entityDefName "Frigate_ING_EmpScout"
 planetItemType
@@ -1883,8 +1892,38 @@ planetItemType
 	designName "Emp:Frigate:Constructor"
 	entityDefName "Frigate_ING_EmpModuleConstructor"
 planetItemType 
+	designName "Man:Module:CapitalShipFactory"
+	entityDefName "PLANETMODULE_ING_ManCapitalshipFactory"
+planetItemType
+	designName "Man:Module:CrystalExtractor"
+	entityDefName "PLANETMODULE_ING_ManCrystalExtractor"
+planetItemType
+	designName "Man:Module:FrigateFactory"
+	entityDefName "PLANETMODULE_ING_ManFrigateFactory"
+planetItemType
+	designName "Man:Module:MetalExtractor"
+	entityDefName "PLANETMODULE_ING_ManMetalExtractor"
+planetItemType 
 	designName "Man:Module:Hangar"
 	entityDefName "PLANETMODULE_ING_ManHangar"
+planetItemType 
+	designName "Man:Module:Refinery"
+	entityDefName "PLANETMODULE_ING_ManRefinery"
+planetItemType
+	designName "Man:Module:RepairPlatform"
+	entityDefName "PLANETMODULE_ING_ManRepairPlatform"
+planetItemType
+	designName "Man:Module:ShieldGenerator"
+	entityDefName "PLANETMODULE_ING_ManShieldGenerator"
+planetItemType
+	designName "Man:Module:SpaceMine"
+	entityDefName "SpaceMine_ING_Man"
+planetItemType
+	designName "Man:Module:TorpedoTurret"
+	entityDefName "PLANETMODULE_ING_ManTorpedoTurret"
+planetItemType
+	designName "Man:Module:TradePort"
+	entityDefName "PLANETMODULE_ING_ManTradePort"
 planetItemType 
 	designName "Man:Module:TurbolaserTurret"
 	entityDefName "PLANETMODULE_ING_ManTurbolaserTurret"	
@@ -1916,8 +1955,44 @@ planetItemType
 	designName "Man:Frigate:Siege"
 	entityDefName "Frigate_ING_ManSiege"
 planetItemType
+	designName "Man:Frigate:Constructor"
+	entityDefName "Frigate_ING_ManModuleConstructor"
+planetItemType
+	designName "Mil:Module:CapitalShipFactory"
+	entityDefName "PLANETMODULE_ING_MilCapitalshipFactory"
+planetItemType
+	designName "Mil:Module:CrystalExtractor"
+	entityDefName "PLANETMODULE_ING_MilCrystalExtractor"
+planetItemType
+	designName "Mil:Module:FrigateFactory"
+	entityDefName "PLANETMODULE_ING_MilFrigateFactory"
+planetItemType
 	designName "Mil:Module:Hangar"
 	entityDefName "PLANETMODULE_ING_MilHangar"
+planetItemType
+	designName "Mil:Module:MetalExtractor"
+	entityDefName "PLANETMODULE_ING_MilMetalExtractor"
+planetItemType
+	designName "Mil:Module:AllRefinery"
+	entityDefName "PLANETMODULE_ING_MilRefineryAll"
+planetItemType
+	designName "Mil:Module:EmpRefinery"
+	entityDefName "PLANETMODULE_ING_MilRefineryEmp"
+planetItemType
+	designName "Mil:Module:RepairPlatform"
+	entityDefName "PLANETMODULE_ING_MilRepairPlatform"
+planetItemType
+	designName "Mil:Module:TorpedoTurret"
+	entityDefName "PLANETMODULE_ING_MilTorpedoTurret"
+planetItemType
+	designName "Mil:Module:AllTradePort"
+	entityDefName "PLANETMODULE_ING_MilTradePortAll"
+planetItemType
+	designName "Mil:Module:EmpTradePort"
+	entityDefName "PLANETMODULE_ING_MilTradePortEmp"
+planetItemType 
+	designName "Mil:Module:TurbolaserTurret"
+	entityDefName "PLANETMODULE_ING_MilTurbolaserTurret"
 planetItemType
 	designName "Mil:Module:SpaceMine"
 	entityDefName "SpaceMine_ING_Mil"
@@ -1939,6 +2014,9 @@ planetItemType
 planetItemType
 	designName "Mil:Frigate:Siege"
 	entityDefName "Frigate_ING_MilSiege"
+planetItemType
+	designName "Mil:Frigate:Constructor"
+	entityDefName "Frigate_ING_MilModuleConstructor"
 planetItemType
 	designName "Phase:Module:MineExplosive"
 	entityDefName "SpaceMinePhaseExplosive"
@@ -2161,6 +2239,9 @@ planetItemType
 planetItemType
 	designName "Phase:Frigate:Constructor"
 	entityDefName "FrigatePhaseModuleConstructor"	
+planetItemType
+	designName "Phase::Frigate::MineLayer"
+	entityDefName "FrigatePhaseMineLayer"	
 planetItemType
 	designName "Phase:Corvette:Loyalist"
 	entityDefName "CorvettePhaseLoyalist"
@@ -3008,11 +3089,17 @@ planetItemType
 	designName "Other:Flag:Grant1000XP"
 	entityDefName "SpaceMine_E4X_XP1000"
 planetItemType
+	designName "Other:Flag:TECPlanetaryDefenses"
+	entityDefName "SpaceMine_E4X_TECPlanetDefensesFlag"
+planetItemType
 	designName "Other:Capitalship:Venator"
 	entityDefName "CAPITALSHIP_ING_N_Venator"	
 planetItemType
 	designName "Other:Capitalship:Providence"
 	entityDefName "CAPITALSHIP_ING_N_Providence"		
+planetItemType
+	designName "Other:Capitalship:Lucrehulk"
+	entityDefName "CAPITALSHIP_ING_N_Lucrehulk"	
 planetItemType
 	designName "Other:Frigate:Dreadnaught"
 	entityDefName "Frigate_ING_CaptureableDreadnaught"
@@ -3092,57 +3179,48 @@ playerType
 playerType	
 	designName "MandalorianRaiders"
 	entityDefName "Player_ING_MandalorianRaiders"	
-planetItemsTemplateCount 92
+planetItemsTemplateCount 93
 planetItemsTemplate
 	templateName "Empty"
 	subTemplates 0
 	groups 0		
 planetItemsTemplate
 	templateName "Template:DefaultHomePlanetSetup"
-	subTemplates 0
-	groups 38
+	subTemplates 1
+		template "Template:DefaultMinorFaction"
+	groups 20
 		group
 			condition
 				type "PlanetOwnerIsRaceNormalStart"
 				param "TechLoyalist"
 			owner "PlanetOwner"
 			colonizeChance 1
-			items 6
+			items 7
 				item "Tech:Module:FrigateFactory"
 				item "Tech:Module:FrigateFactory"
 				item "Tech:Frigate:Constructor"
 				item "Tech:Frigate:Constructor"
 				item "Tech:Module:CommandCenterLoyalists"
 				item "Tech:Frigate:StarBaseConstructorLoyalistStart"
+				item "Bonus:TECHomeworld"
 		group
 			condition
 				type "PlanetOwnerIsRaceNormalStart"
 				param "TechRebel"
 			owner "PlanetOwner"
 			colonizeChance 1
-			items 6
+			items 7
 				item "Tech:Module:FrigateFactory"
 				item "Tech:Module:FrigateFactory"
 				item "Tech:Frigate:Constructor"
 				item "Tech:Frigate:Constructor"
 				item "Tech:Module:CommandCenter"
 				item "Tech:Module:PirateEmbassy"
+				item "Bonus:TECHomeworld"
 		group
 			condition
 				type "PlanetOwnerIsRaceNormalStart"
 				param "PsiLoyalist"
-			owner "PlanetOwner"
-			colonizeChance 1
-			items 5
-				item "Psi:Module:FrigateFactory"
-				item "Psi:Module:FrigateFactory"
-				item "Psi:Frigate:Constructor"
-				item "Psi:Frigate:Constructor"
-				item "Psi:Module:CommandCenterLoyalist"
-		group
-			condition
-				type "PlanetOwnerIsRaceNormalStart"
-				param "PsiRebel"
 			owner "PlanetOwner"
 			colonizeChance 1
 			items 6
@@ -3150,12 +3228,41 @@ planetItemsTemplate
 				item "Psi:Module:FrigateFactory"
 				item "Psi:Frigate:Constructor"
 				item "Psi:Frigate:Constructor"
+				item "Psi:Module:CommandCenterLoyalist"
+				item "Bonus:AdventHomeworld"
+		group
+			condition
+				type "PlanetOwnerIsRaceNormalStart"
+				param "PsiRebel"
+			owner "PlanetOwner"
+			colonizeChance 1
+			items 7
+				item "Psi:Module:FrigateFactory"
+				item "Psi:Module:FrigateFactory"
+				item "Psi:Frigate:Constructor"
+				item "Psi:Frigate:Constructor"
 				item "Psi:Module:CommandCenter"
 				item "Psi:Module:AntiMatterRechargerRebel"
+				item "Bonus:AdventHomeworld"
 		group
 			condition
 				type "PlanetOwnerIsRaceNormalStart"
 				param "PhaseLoyalist"
+			owner "PlanetOwner"
+			colonizeChance 1
+			items 8
+				item "Phase:Module:FrigateFactory"
+				item "Phase:Module:FrigateFactory"
+				item "Phase:Frigate:Constructor"
+				item "Phase:Frigate:Constructor"
+				item "Phase:Module:CommandCenter"
+				item "Phase:Module:TitanFactory"
+				item "Phase:Frigate:ColonyLoyalists"
+				item "Bonus:VasariHomeworld"
+		group
+			condition
+				type "PlanetOwnerIsRaceNormalStart"
+				param "PhaseRebel"
 			owner "PlanetOwner"
 			colonizeChance 1
 			items 7
@@ -3164,90 +3271,81 @@ planetItemsTemplate
 				item "Phase:Frigate:Constructor"
 				item "Phase:Frigate:Constructor"
 				item "Phase:Module:CommandCenter"
-				item "Phase:Module:TitanFactory"
-				item "Phase:Frigate:ColonyLoyalists"
-		group
-			condition
-				type "PlanetOwnerIsRaceNormalStart"
-				param "PhaseRebel"
-			owner "PlanetOwner"
-			colonizeChance 1
-			items 6
-				item "Phase:Module:FrigateFactory"
-				item "Phase:Module:FrigateFactory"
-				item "Phase:Frigate:Constructor"
-				item "Phase:Frigate:Constructor"
-				item "Phase:Module:CommandCenter"
 				item "Phase:Module:PhaseGateRebels"
+				item "Bonus:VasariHomeworld"
 		group
 			condition
 				type "PlanetOwnerIsRaceNormalStart"
 				param "GalacticEmpire"
 			owner "PlanetOwner"
 			colonizeChance 1
-			items 6
+			items 7
 				item "Emp:Module:FrigateFactory"
 				item "Emp:Module:FrigateFactory"
 				item "Emp:Frigate:Constructor"
 				item "Emp:Frigate:Constructor"
 				item "Emp:Module:ShieldGenerator"
 				item "Emp:Module:CommandCenter"
+				item "Bonus:EmpireHomeworld"
 		group
 			condition
 				type "PlanetOwnerIsRaceNormalStart"
 				param "ImperialWarlords"
 			owner "PlanetOwner"
 			colonizeChance 1
-			items 6
+			items 7
 				item "Emp:Module:FrigateFactory"
 				item "Emp:Module:FrigateFactory"
 				item "Emp:Module:CombatLabWarlordsStart"
 				item "Emp:Frigate:Constructor"
 				item "Emp:Frigate:Constructor"
 				item "Emp:Module:CommandCenterWarlords"
+				item "Bonus:EmpireHomeworld"
 		group
 			condition
 				type "PlanetOwnerIsRaceNormalStart"
 				param "RebelAlliance"
 			owner "PlanetOwner"
 			colonizeChance 1
-			items 9
+			items 10
 				item "All:Module:FrigateFactory"
 				item "All:Module:FrigateFactory"
-				item "All:Frigate:ModuleConstructor"
-				item "All:Frigate:ModuleConstructor"
+				item "All:Frigate:Constructor"
+				item "All:Frigate:Constructor"
 				item "All:Module:RepairPlatform"
 				item "All:Frigate:Light"
  				item "All:Frigate:Light"	
  				item "All:Frigate:Support"
 				item "All:Module:CommandCenter"
+				item "Bonus:AllianceHomeworld"
 		group
 			condition
 				type "PlanetOwnerIsRaceQuickStart"
 				param "TechLoyalist"
 			owner "PlanetOwner"
 			colonizeChance 1
-			items 13
+			items 14
 				item "Tech:Module:FrigateFactory"
 				item "Tech:Module:FrigateFactory"
 				item "Tech:Module:CapitalShipFactory"
 				item "Tech:Module:MetalExtractor"
 				item "Tech:Module:MetalExtractor"
 				item "Tech:Module:CrystalExtractor"
-				item "Tech:Module:CrystalExtractor"
+				item "Tech:Module:CrystalExtractor"				
 				item "Tech:Module:CommandCenterLoyalists"
 				item "Tech:Frigate:StarBaseConstructorLoyalistStart"
 				item "Tech:Frigate:Constructor"
 				item "Tech:Frigate:Constructor"
 				item "Tech:Frigate:Scout"
 				item "Tech:Frigate:Scout"
+				item "Bonus:TECHomeworld"
 		group
 			condition
 				type "PlanetOwnerIsRaceQuickStart"
 				param "PsiLoyalist"
 			owner "PlanetOwner"
 			colonizeChance 1
-			items 12
+			items 13
 				item "Psi:Module:FrigateFactory"
 				item "Psi:Module:FrigateFactory"
 				item "Psi:Module:CapitalShipFactory"
@@ -3260,10 +3358,75 @@ planetItemsTemplate
 				item "Psi:Frigate:Constructor"
 				item "Psi:Frigate:Scout"
 				item "Psi:Frigate:Scout"
+				item "Bonus:AdventHomeworld"
 		group
 			condition
 				type "PlanetOwnerIsRaceQuickStart"
 				param "PhaseLoyalist"
+			owner "PlanetOwner"
+			colonizeChance 1
+			items 15
+				item "Phase:Module:FrigateFactory"
+				item "Phase:Module:FrigateFactory"
+				item "Phase:Module:CapitalShipFactory"
+				item "Phase:Module:MetalExtractor"
+				item "Phase:Module:MetalExtractor"
+				item "Phase:Module:CrystalExtractor"
+				item "Phase:Module:CrystalExtractor"
+				item "Phase:Module:CommandCenter"
+				item "Phase:Frigate:Constructor"
+				item "Phase:Frigate:Constructor"
+				item "Phase:Frigate:Scout"
+				item "Phase:Frigate:Scout"
+				item "Phase:Module:TitanFactory"
+				item "Phase:Frigate:ColonyLoyalists"
+				item "Bonus:VasariHomeworld"
+		group
+			condition
+				type "PlanetOwnerIsRaceQuickStart"
+				param "TechRebel"
+			owner "PlanetOwner"
+			colonizeChance 1
+			items 14
+				item "Tech:Module:FrigateFactory"
+				item "Tech:Module:FrigateFactory"
+				item "Tech:Module:CapitalShipFactory"
+				item "Tech:Module:MetalExtractor"
+				item "Tech:Module:MetalExtractor"
+				item "Tech:Module:CrystalExtractor"
+				item "Tech:Module:CrystalExtractor"
+				item "Tech:Module:CommandCenter"
+				item "Tech:Module:PirateEmbassy"
+				item "Tech:Frigate:Constructor"
+				item "Tech:Frigate:Constructor"
+				item "Tech:Frigate:Scout"
+				item "Tech:Frigate:Scout"
+				item "Bonus:TECHomeworld"
+		group
+			condition
+				type "PlanetOwnerIsRaceQuickStart"
+				param "PsiRebel"
+			owner "PlanetOwner"
+			colonizeChance 1
+			items 14
+				item "Psi:Module:FrigateFactory"
+				item "Psi:Module:FrigateFactory"
+				item "Psi:Module:CapitalShipFactory"
+				item "Psi:Module:MetalExtractor"
+				item "Psi:Module:MetalExtractor"
+				item "Psi:Module:CrystalExtractor"
+				item "Psi:Module:CrystalExtractor"
+				item "Psi:Module:CommandCenter"
+				item "Psi:Frigate:Constructor"
+				item "Psi:Frigate:Constructor"
+				item "Psi:Frigate:Scout"
+				item "Psi:Frigate:Scout"
+				item "Psi:Module:AntiMatterRechargerRebel"
+				item "Bonus:AdventHomeworld"
+		group
+			condition
+				type "PlanetOwnerIsRaceQuickStart"
+				param "PhaseRebel"
 			owner "PlanetOwner"
 			colonizeChance 1
 			items 14
@@ -3279,75 +3442,15 @@ planetItemsTemplate
 				item "Phase:Frigate:Constructor"
 				item "Phase:Frigate:Scout"
 				item "Phase:Frigate:Scout"
-				item "Phase:Module:TitanFactory"
-				item "Phase:Frigate:ColonyLoyalists"
-		group
-			condition
-				type "PlanetOwnerIsRaceQuickStart"
-				param "TechRebel"
-			owner "PlanetOwner"
-			colonizeChance 1
-			items 13
-				item "Tech:Module:FrigateFactory"
-				item "Tech:Module:FrigateFactory"
-				item "Tech:Module:CapitalShipFactory"
-				item "Tech:Module:MetalExtractor"
-				item "Tech:Module:MetalExtractor"
-				item "Tech:Module:CrystalExtractor"
-				item "Tech:Module:CrystalExtractor"
-				item "Tech:Module:CommandCenter"
-				item "Tech:Module:PirateEmbassy"
-				item "Tech:Frigate:Constructor"
-				item "Tech:Frigate:Constructor"
-				item "Tech:Frigate:Scout"
-				item "Tech:Frigate:Scout"
-		group
-			condition
-				type "PlanetOwnerIsRaceQuickStart"
-				param "PsiRebel"
-			owner "PlanetOwner"
-			colonizeChance 1
-			items 13
-				item "Psi:Module:FrigateFactory"
-				item "Psi:Module:FrigateFactory"
-				item "Psi:Module:CapitalShipFactory"
-				item "Psi:Module:MetalExtractor"
-				item "Psi:Module:MetalExtractor"
-				item "Psi:Module:CrystalExtractor"
-				item "Psi:Module:CrystalExtractor"
-				item "Psi:Module:CommandCenter"
-				item "Psi:Frigate:Constructor"
-				item "Psi:Frigate:Constructor"
-				item "Psi:Frigate:Scout"
-				item "Psi:Frigate:Scout"
-				item "Psi:Module:AntiMatterRechargerRebel"
-		group
-			condition
-				type "PlanetOwnerIsRaceQuickStart"
-				param "PhaseRebel"
-			owner "PlanetOwner"
-			colonizeChance 1
-			items 13
-				item "Phase:Module:FrigateFactory"
-				item "Phase:Module:FrigateFactory"
-				item "Phase:Module:CapitalShipFactory"
-				item "Phase:Module:MetalExtractor"
-				item "Phase:Module:MetalExtractor"
-				item "Phase:Module:CrystalExtractor"
-				item "Phase:Module:CrystalExtractor"
-				item "Phase:Module:CommandCenter"
-				item "Phase:Frigate:Constructor"
-				item "Phase:Frigate:Constructor"
-				item "Phase:Frigate:Scout"
-				item "Phase:Frigate:Scout"
 				item "Phase:Module:PhaseGateRebels"
+				item "Bonus:VasariHomeworld"
 		group
 			condition
 				type "PlanetOwnerIsRaceQuickStart"
 				param "GalacticEmpire"
 			owner "PlanetOwner"
 			colonizeChance 1
-			items 13
+			items 14
 				item "Emp:Module:FrigateFactory"
 				item "Emp:Module:FrigateFactory"
 				item "Emp:Module:CapitalShipFactory"
@@ -3361,13 +3464,14 @@ planetItemsTemplate
 				item "Emp:Module:ShieldGenerator"
 				item "Emp:Frigate:Scout"
 				item "Emp:Frigate:Scout"
+				item "Bonus:EmpireHomeworld"
 		group
 			condition
 				type "PlanetOwnerIsRaceQuickStart"
 				param "ImperialWarlords"
 			owner "PlanetOwner"
 			colonizeChance 1
-			items 13
+			items 14
 				item "Emp:Module:FrigateFactory"
 				item "Emp:Module:FrigateFactory"
 				item "Emp:Module:CapitalShipFactory"
@@ -3381,13 +3485,14 @@ planetItemsTemplate
 				item "Emp:Module:CombatLabWarlordsStart"
 				item "Emp:Frigate:Scout"
 				item "Emp:Frigate:Scout"
+				item "Bonus:EmpireHomeworld"
 		group
 			condition
 				type "PlanetOwnerIsRaceQuickStart"
 				param "RebelAlliance"
 			owner "PlanetOwner"
 			colonizeChance 1
-			items 16
+			items 17
 				item "All:Module:FrigateFactory"
 				item "All:Module:FrigateFactory"
 				item "All:Module:CapitalShipFactory"
@@ -3395,8 +3500,8 @@ planetItemsTemplate
 				item "All:Module:MetalExtractor"
 				item "All:Module:CrystalExtractor"
 				item "All:Module:CrystalExtractor"
-				item "All:Frigate:ModuleConstructor"
-				item "All:Frigate:ModuleConstructor"
+				item "All:Frigate:Constructor"
+				item "All:Frigate:Constructor"
 				item "All:Module:CommandCenter"
 				item "All:Module:RepairPlatform"
 				item "All:Frigate:Light"
@@ -3404,153 +3509,10 @@ planetItemsTemplate
  				item "All:Frigate:Support"
 				item "All:Frigate:Scout"
 				item "All:Frigate:Scout"
-		group
-			condition
-				type "PlanetOwnerIsRaceQuickStart"
-				param "TechLoyalist"
-			owner "NoOwner"
-			colonizeChance 0
-			items 1
-				item "Bonus:TECHomeworld"
-		group
-			condition
-				type "PlanetOwnerIsRaceNormalStart"
-				param "TechLoyalist"
-			owner "NoOwner"
-			colonizeChance 0
-			items 1
-				item "Bonus:TECHomeworld"				
-		group
-			condition
-				type "PlanetOwnerIsRaceQuickStart"
-				param "PsiLoyalist"
-			owner "NoOwner"
-			colonizeChance 0
-			items 1		
-				item "Bonus:AdventHomeworld"
-		group
-			condition
-				type "PlanetOwnerIsRaceNormalStart"
-				param "PsiLoyalist"
-			owner "NoOwner"
-			colonizeChance 0
-			items 1		
-				item "Bonus:AdventHomeworld"
-		group
-			condition
-				type "PlanetOwnerIsRaceQuickStart"
-				param "PhaseLoyalist"
-			owner "NoOwner"
-			colonizeChance 0
-			items 1
-				item "Bonus:VasariHomeworld"
-		group
-			condition
-				type "PlanetOwnerIsRaceNormalStart"
-				param "PhaseLoyalist"
-			owner "NoOwner"
-			colonizeChance 0
-			items 1
-				item "Bonus:VasariHomeworld"
-		group
-			condition
-				type "PlanetOwnerIsRaceQuickStart"
-				param "TechRebel"
-			owner "NoOwner"
-			colonizeChance 0
-			items 1
-				item "Bonus:TECHomeworld"
-		group
-			condition
-				type "PlanetOwnerIsRaceNormalStart"
-				param "TechRebel"
-			owner "NoOwner"
-			colonizeChance 0
-			items 1
-				item "Bonus:TECHomeworld"				
-		group
-			condition
-				type "PlanetOwnerIsRaceQuickStart"
-				param "PsiRebel"
-			owner "NoOwner"
-			colonizeChance 0
-			items 1		
-				item "Bonus:AdventHomeworld"
-		group
-			condition
-				type "PlanetOwnerIsRaceNormalStart"
-				param "PsiRebel"
-			owner "NoOwner"
-			colonizeChance 0
-			items 1		
-				item "Bonus:AdventHomeworld"
-		group
-			condition
-				type "PlanetOwnerIsRaceQuickStart"
-				param "PhaseRebel"
-			owner "NoOwner"
-			colonizeChance 0
-			items 1
-				item "Bonus:VasariHomeworld"
-		group
-			condition
-				type "PlanetOwnerIsRaceNormalStart"
-				param "PhaseRebel"
-			owner "NoOwner"
-			colonizeChance 0
-			items 1
-				item "Bonus:VasariHomeworld"
-		group
-			condition
-				type "PlanetOwnerIsRaceQuickStart"
-				param "GalacticEmpire"
-			owner "NoOwner"
-			colonizeChance 0
-			items 1
-				item "Bonus:EmpireHomeworld"
-		group
-			condition
-				type "PlanetOwnerIsRaceNormalStart"
-				param "GalacticEmpire"
-			owner "NoOwner"
-			colonizeChance 0
-			items 1
-				item "Bonus:EmpireHomeworld"
-		group
-			condition
-				type "PlanetOwnerIsRaceQuickStart"
-				param "ImperialWarlords"
-			owner "NoOwner"
-			colonizeChance 0
-			items 1
-				item "Bonus:EmpireHomeworld"
-		group
-			condition
-				type "PlanetOwnerIsRaceNormalStart"
-				param "ImperialWarlords"
-			owner "NoOwner"
-			colonizeChance 0
-			items 1
-				item "Bonus:EmpireHomeworld"
-		group
-			condition
-				type "PlanetOwnerIsRaceQuickStart"
-				param "RebelAlliance"
-			owner "NoOwner"
-			colonizeChance 0
-			items 1
 				item "Bonus:AllianceHomeworld"
 		group
 			condition
-				type "PlanetOwnerIsRaceNormalStart"
-				param "RebelAlliance"
-			owner "NoOwner"
-			colonizeChance 0
-			items 1
-				item "Bonus:AllianceHomeworld"
-		group
-			condition
-				type "Always"
+				type "PlanetHasAnyOwner"
 				param ""
 			owner "PlanetOwner"
 			colonizeChance 0
@@ -3607,7 +3569,8 @@ planetItemsTemplate
 	groups 0
 planetItemsTemplate
 	templateName "Template:DefaultStart_DeadAsteroid"
-	subTemplates 2
+	subTemplates 3
+		template "Template:DefaultHomePlanetSetup"
 		template "Template:LocalMilitia_DeadAsteroid"
 		template "Template:BeaconNetwork"
 	groups 0
@@ -3969,7 +3932,7 @@ planetItemsTemplate
 			condition
 				type "Always"
 				param ""
-			owner "Rebel"
+			owner "Unknown"
 			colonizeChance 0
 			items 1
 				item "Other:Flag:Beacon"
@@ -4338,14 +4301,14 @@ planetItemsTemplate
 planetItemsTemplate
 	templateName "Template:LocalMilitia_EmpireStrong"
 	subTemplates 0
-	groups 3
+	groups 1
 		group
 			condition
 				type "NoPlanetOwnerWithChance"
 				param "0.333333"
 			owner "RandomEncounterEmpire"
 			colonizeChance 1.0
-			items 13
+			items 14
 				item "Emp:Frigate:Light"
 				item "Emp:Frigate:AntiFighter"
 				item "Emp:Frigate:AntiFighter"
@@ -4359,22 +4322,7 @@ planetItemsTemplate
 				item "Emp:Module:MetalExtractor"
 				item "Emp:Module:MetalExtractor"
 				item "Emp:Module:CrystalExtractor"					
-		group
-			condition
-				type "PlanetOwnerIsRaceNormalStart"
-				param "GalacticEmpire"
-			owner "NoOwner"
-			colonizeChance 0.0
-			items 1
 				item "Bonus:ImperialBase"
-		group
-			condition
-				type "PlanetOwnerIsRaceQuickStart"
-				param "GalacticEmpire"
-			owner "NoOwner"
-			colonizeChance 0.0
-			items 1
-				item "Bonus:ImperialBase"	
 planetItemsTemplate
 	templateName "Template:LocalMilitia_EmpireIndustrialShipyard"
 	subTemplates 0
@@ -4436,14 +4384,14 @@ planetItemsTemplate
 	templateName "Template:Kessel"
 	subTemplates 1
 		template "Template:BeaconNetwork"
-	groups 2
+	groups 1
 		group
 			condition
-				type "Always"
-				param "0.000000"
+				type "NoPlanetOwner"
+				param ""
 			owner "RandomMilitia"
 			colonizeChance 1.0
-			items 79
+			items 81
 				item "Other:Capitalship:Providence"
 				item "Other:Capitalship:Providence"
 				item "Other:Capitalship:Venator"								
@@ -4523,26 +4471,19 @@ planetItemsTemplate
 				item "Mil:Module:Hangar"	
 				item "Mil:Module:Hangar"	
 				item "Mil:Module:Hangar"		
-		group
-			condition
-				type "Always"
-				param ""
-			owner "RandomEncounterEmpire"
-			colonizeChance 0
-			items 2
 				item "Other:Flag:Grant1000XP"		
 				item "Other:Flag:Grant1000XP"																							
 planetItemsTemplate
 	templateName "Template:LocalMilitia_AllianceStrong"
 	subTemplates 0
-	groups 3
+	groups 1
 		group
 			condition
 				type "NoPlanetOwnerWithChance"
 				param "0.333333"
 			owner "RandomEncounterAlliance"
 			colonizeChance 1.0
-			items 17
+			items 18
 				item "All:Frigate:Light"
 				item "All:Frigate:Light"
 				item "All:Frigate:Light"
@@ -4560,34 +4501,19 @@ planetItemsTemplate
 				item "All:Module:Refinery"				
 				item "All:Module:CrystalExtractor"
 				item "All:Module:CrystalExtractor"			
-		group
-			condition
-				type "PlanetOwnerIsRaceNormalStart"
-				param "RebelAlliance"
-			owner "NoOwner"
-			colonizeChance 0.0
-			items 1
-				item "Bonus:LocalGovernment"
-		group
-			condition
-				type "PlanetOwnerIsRaceQuickStart"
-				param "RebelAlliance"
-			owner "NoOwner"
-			colonizeChance 0.0
-			items 1
 				item "Bonus:LocalGovernment"		
 planetItemsTemplate
 	templateName "Template:RandomEncounterKuat"
 	subTemplates 1
 		template "Template:BeaconNetwork"
-	groups 3
+	groups 1
 		group
 			condition
 				type "NoPlanetOwner"
 				param ""
 			owner "RandomEncounterEmpire"
 			colonizeChance 1.0
-			items 40
+			items 43
 				item "Emp:Frigate:Light"
 				item "Emp:Frigate:Light"
 				item "Emp:Frigate:Light"
@@ -4628,23 +4554,6 @@ planetItemsTemplate
 				item "Emp:Module:RepairPlatform"
 				item "Emp:Module:RepairPlatform"
 				item "Other:Module:KuatShipyards"
-		group
-			condition
-				type "PlanetOwnerIsRaceNormalStart"
-				param "GalacticEmpire"
-			owner "RandomMilitia"
-			colonizeChance 0.0
-			items 3
-				item "Other:Flag:Grant1000XP"
-				item "Other:Flag:Grant1000XP"
-				item "Other:Flag:Grant1000XP"
-		group
-			condition
-				type "PlanetOwnerIsRaceQuickStart"
-				param "GalacticEmpire"
-			owner "RandomMilitia"
-			colonizeChance 0.0
-			items 3
 				item "Other:Flag:Grant1000XP"
 				item "Other:Flag:Grant1000XP"
 				item "Other:Flag:Grant1000XP"
@@ -4652,14 +4561,14 @@ planetItemsTemplate
 	templateName "Template:RandomEncounterMonCalamari"
 	subTemplates 1
 		template "Template:BeaconNetwork"
-	groups 3
+	groups 1
 		group
 			condition
 				type "NoPlanetOwner"
 				param ""
 			owner "RandomEncounterMonCalamari"
 			colonizeChance 1.0
-			items 52
+			items 55
 				item "All:Frigate:Light"
 				item "All:Frigate:Light"
 				item "All:Frigate:Light"
@@ -4712,26 +4621,9 @@ planetItemsTemplate
 				item "All:Module:RepairPlatform"
 				item "All:Module:RepairPlatform"
 				item "All:Module:RepairPlatform"
-		group
-			condition
-				type "PlanetOwnerIsRaceNormalStart"
-				param "RebelAlliance"
-			owner "RandomMilitia"
-			colonizeChance 0.0
-			items 3
 				item "Other:Flag:Grant1000XP"
 				item "Other:Flag:Grant1000XP"
-				item "Other:Flag:Grant1000XP"
-		group
-			condition
-				type "PlanetOwnerIsRaceQuickStart"
-				param "RebelAlliance"
-			owner "RandomMilitia"
-			colonizeChance 0.0
-			items 3
-				item "Other:Flag:Grant1000XP"
-				item "Other:Flag:Grant1000XP"
-				item "Other:Flag:Grant1000XP"								
+				item "Other:Flag:Grant1000XP"					
 planetItemsTemplate
 	templateName "Template:LocalMilitiaStrongFair"
 	subTemplates 0
@@ -4825,46 +4717,31 @@ planetItemsTemplate
 planetItemsTemplate
 	templateName "Template:RandomAdventArtifact"
 	subTemplates 0
-	groups 3
+	groups 1
 		group
 			condition
 				type "NoPlanetOwnerWithChance"
 				param "0.2"
 			owner "RandomEncounterPsi"
 			colonizeChance 1
-			items 5
+			items 6
 				item "Psi:Frigate:Light"
 				item "Psi:Frigate:Light"
 				item "Psi:Frigate:AntiFighter"
 				item "Psi:Frigate:Carrier"
 				item "Psi:Frigate:Colony"
-		group
-			condition
-				type "PlanetOwnerIsRaceQuickStart"
-				param "PsiLoyalist"
-			owner "NoOwner"
-			colonizeChance 0
-			items 1
-				item "Artifact:AntimatterRegen"
-		group
-			condition
-				type "PlanetOwnerIsRaceNormalStart"
-				param "PsiLoyalist"
-			owner "NoOwner"
-			colonizeChance 0
-			items 1
 				item "Artifact:AntimatterRegen"
 planetItemsTemplate
 	templateName "Template:RandomTechMinerColony"
 	subTemplates 0
-	groups 3
+	groups 1
 		group
 			condition
 				type "NoPlanetOwnerWithChance"
 				param "0.1"
 			owner "RandomEncounterTEC"
 			colonizeChance 1
-			items 19
+			items 21
 				item "Tech:CapitalShip:Colony"
 				item "Tech:Frigate:Light"
 				item "Tech:Corvette:Loyalist"
@@ -4884,33 +4761,19 @@ planetItemsTemplate
 				item "Tech:Module:GaussDefense"
 				item "Tech:Module:GaussDefense"
 				item "Other:Flag:TECMilitia"
-		group
-			condition
-				type "PlanetOwnerIsMilitia"
-				param ""
-			owner "NoOwner"
-			colonizeChance 0
-			items 1
-				item "Bonus:MetalMiners"
-		group
-			condition
-				type "PlanetOwnerIsMilitia"
-				param ""
-			owner "RandomMilitia"
-			colonizeChance 0
-			items 1
 				item "Other:Flag:Grant200XP"
+				item "Bonus:MetalMiners"
 planetItemsTemplate
 	templateName "Template:RandomVasariWeaponsTesting"
 	subTemplates 0
-	groups 5
+	groups 1
 		group
 			condition
 				type "NoPlanetOwnerWithChance"
 				param "0.1"
 			owner "RandomEncounterPhase"
 			colonizeChance 1
-			items 26
+			items 30
 				item "Phase:CapitalShip:Scout"
 				item "Phase:Frigate:Utility1"
 				item "Phase:Module:HangarDefense"
@@ -4937,53 +4800,21 @@ planetItemsTemplate
 				item "Phase:Frigate:Siege"
 				item "Phase:Frigate:AntiFighter"	
 				item "Phase:Module:HangarDefense"
-		group
-			condition
-				type "PlanetOwnerIsRaceNormalStart"
-				param "PhaseLoyalist"
-			owner "RandomMilitia"
-			colonizeChance 0
-			items 3
 				item "Other:Flag:Grant200XP"
 				item "Other:Flag:Grant200XP"
 				item "Other:Flag:Grant200XP"
-		group
-			condition
-				type "PlanetOwnerIsRaceQuickStart"
-				param "PhaseLoyalist"
-			owner "RandomMilitia"
-			colonizeChance 0
-			items 3
-				item "Other:Flag:Grant200XP"
-				item "Other:Flag:Grant200XP"
-				item "Other:Flag:Grant200XP"
-		group
-			condition
-				type "PlanetOwnerIsRaceQuickStart"
-				param "PhaseLoyalist"
-			owner "NoOwner"
-			colonizeChance 0
-			items 1
-				item "Bonus:WeaponTestGrounds"
-		group
-			condition
-				type "PlanetOwnerIsRaceNormalStart"
-				param "PhaseLoyalist"
-			owner "NoOwner"
-			colonizeChance 0
-			items 1
 				item "Bonus:WeaponTestGrounds"
 planetItemsTemplate
 	templateName "Template:RandomAdventSpicePlanet"
 	subTemplates 0
-	groups 5
+	groups 1
 		group
 			condition
 				type "NoPlanetOwnerWithChance"
 				param "0.1"
 			owner "RandomEncounterPsi"
 			colonizeChance 1
-			items 24
+			items 28
 				item "Psi:CapitalShip:BattlePsionic"
 				item "Psi:Frigate:Colony"
 				item "Psi:Frigate:Light"
@@ -5008,41 +4839,9 @@ planetItemsTemplate
 				item "Psi:Frigate:Heavy"
 				item "Psi:Frigate:Heavy"	
 				item "Psi:Module:HangarDefense"		
-		group
-			condition
-				type "PlanetOwnerIsRaceNormalStart"
-				param "PsiLoyalist"
-			owner "RandomMilitia"
-			colonizeChance 0
-			items 3
 				item "Other:Flag:Grant200XP"
 				item "Other:Flag:Grant200XP"
 				item "Other:Flag:Grant200XP"
-		group
-			condition
-				type "PlanetOwnerIsRaceQuickStart"
-				param "PsiLoyalist"
-			owner "RandomMilitia"
-			colonizeChance 0
-			items 3
-				item "Other:Flag:Grant200XP"
-				item "Other:Flag:Grant200XP"
-				item "Other:Flag:Grant200XP"
-		group
-			condition
-				type "PlanetOwnerIsRaceQuickStart"
-				param "PsiLoyalist"
-			owner "NoOwner"
-			colonizeChance 0
-			items 1
-				item "Bonus:SpiceTrade"
-		group
-			condition
-				type "PlanetOwnerIsRaceNormalStart"
-				param "PsiLoyalist"
-			owner "NoOwner"
-			colonizeChance 0
-			items 1
 				item "Bonus:SpiceTrade"
 planetItemsTemplate
 	templateName "Template:PirateTradeSector"
@@ -5066,8 +4865,8 @@ planetItemsTemplate
 				item "Man:Frigate:AntiFighter"
 				item "Man:Frigate:Light"
 				item "Man:Frigate:Light"
-				item "Mil:Module:SpaceMine"
-				item "Mil:Module:SpaceMine"
+				item "Man:Module:SpaceMine"
+				item "Man:Module:SpaceMine"
 planetItemsTemplate
 	templateName "Template:KatanaFleet"
 	subTemplates 0
@@ -5298,7 +5097,8 @@ planetItemsTemplate
 	groups 0
 planetItemsTemplate
 	templateName "Template:LocalMilitia_Tier1"
-	subTemplates 3
+	subTemplates 4
+		template "Template:DefaultHomePlanetSetup"
 		template "Template:LocalMilitiaMedium"
 		template "Template:ArtifactEntities"
 		template "Template:BeaconNetwork"
@@ -5378,14 +5178,14 @@ planetItemsTemplate
 	templateName "Template:PirateBase"
 	subTemplates 1
 			template "Template:BeaconNetwork"
-	groups 2
+	groups 1
 		group
 			condition
 				type "Always"
 				param ""
 			owner "Pirate"
 			colonizeChance 1
-			items 84
+			items 86
 				item "Pirate:Frigate:Heavy"
 				item "Pirate:Frigate:Heavy"
 				item "Pirate:Frigate:Heavy"
@@ -5470,27 +5270,20 @@ planetItemsTemplate
 				item "Other:Module:NeutralTradePort"
 				item "Pirate:Module:PirateCommandCenter"
 				item "Pirate:Capitalship:PirateLeader"
-		group
-			condition
-				type "Always"
-				param ""
-			owner "RandomMilitia"
-			colonizeChance 0
-			items 2
 				item "Other:Flag:Grant200XP"
 				item "Other:Flag:Grant1000XP"	
 planetItemsTemplate
 	templateName "Template:Mandalore"
 	subTemplates 1
 			template "Template:BeaconNetwork"
-	groups 2
+	groups 1
 		group
 			condition
-				type "Always"
+				type "NoPlanetOwner"
 				param ""
 			owner "MandalorianRaiders"
 			colonizeChance 1
-			items 102
+			items 105
 				item "Man:Capitalship:Keldabe"
 				item "Man:Capitalship:Keldabe"
 				item "Man:Capitalship:Keldabe"
@@ -5568,7 +5361,7 @@ planetItemsTemplate
 				item "All:Module:RepairPlatform"	
 				item "All:Module:RepairPlatform"	
 				item "All:Module:RepairPlatform"
-				item "All:Module:ShieldGenerator"		
+				item "Man:Module:ShieldGenerator"		
 				item "Man:Corvette:Firespray"
 				item "Man:Corvette:Firespray"
 				item "Man:Corvette:Firespray"
@@ -5579,27 +5372,20 @@ planetItemsTemplate
 				item "Man:Corvette:Firespray"
 				item "Man:Corvette:Firespray"
 				item "Man:Corvette:Firespray"
-				item "All:Module:SpaceMine"
-				item "All:Module:SpaceMine"
-				item "All:Module:SpaceMine"
-				item "All:Module:SpaceMine"
-				item "All:Module:SpaceMine"
-				item "All:Module:Refinery"				
+				item "Man:Module:SpaceMine"
+				item "Man:Module:SpaceMine"
+				item "Man:Module:SpaceMine"
+				item "Man:Module:SpaceMine"
+				item "Man:Module:SpaceMine"
+				item "Man:Module:Refinery"				
 				item "Man:Module:Hangar"
 				item "Man:Module:Hangar"
 				item "Man:Module:Hangar"
 				item "Man:Module:Hangar"
-				item "All:Module:TradePort"	
-				item "All:Module:MetalExtractor"
-				item "All:Module:MetalExtractor"				
+				item "Man:Module:TradePort"	
+				item "Man:Module:MetalExtractor"
+				item "Man:Module:MetalExtractor"				
 				item "Other:Module:MandalMotors"
-		group
-			condition
-				type "Always"
-				param ""
-			owner "RandomMilitia"
-			colonizeChance 0
-			items 3
 				item "Other:Flag:Grant1000XP"
 				item "Other:Flag:Grant1000XP"
 				item "Other:Flag:Grant1000XP"			
@@ -5607,14 +5393,14 @@ planetItemsTemplate
 	templateName "Template:MandalorianBase"
 	subTemplates 1
 			template "Template:BeaconNetwork"
-	groups 2
+	groups 1
 		group
 			condition
-				type "Always"
+				type "NoPlanetOwner"
 				param ""
 			owner "MandalorianRaiders"
 			colonizeChance 1
-			items 87
+			items 89
 				item "Man:Capitalship:Keldabe"
 				item "Man:Capitalship:Venator"
 				item "Man:Frigate:Dreadnaught"
@@ -5676,10 +5462,10 @@ planetItemsTemplate
 				item "Man:Module:TurbolaserTurret"		
 				item "Man:Module:TurbolaserTurret"		
 				item "Man:Module:TurbolaserTurret"
-				item "All:Module:RepairPlatform"	
-				item "All:Module:RepairPlatform"	
-				item "All:Module:RepairPlatform"
-				item "All:Module:ShieldGenerator"		
+				item "Man:Module:RepairPlatform"	
+				item "Man:Module:RepairPlatform"	
+				item "Man:Module:RepairPlatform"
+				item "Man:Module:ShieldGenerator"		
 				item "Man:Corvette:Firespray"
 				item "Man:Corvette:Firespray"
 				item "Man:Corvette:Firespray"
@@ -5690,25 +5476,18 @@ planetItemsTemplate
 				item "Man:Corvette:Firespray"
 				item "Man:Corvette:Firespray"
 				item "Man:Corvette:Firespray"
-				item "All:Module:SpaceMine"
-				item "All:Module:SpaceMine"
-				item "All:Module:SpaceMine"
+				item "Man:Module:SpaceMine"
+				item "Man:Module:SpaceMine"
+				item "Man:Module:SpaceMine"
 				item "Man:Module:Hangar"
 				item "Man:Module:Hangar"
 				item "Man:Module:Hangar"
 				item "Man:Module:Hangar"
 				item "Other:Module:MandalHypernautics"
-				item "All:Module:TradePort"				
-				item "All:Module:MetalExtractor"
-				item "All:Module:MetalExtractor"					
-				item "All:Module:CrystalExtractor"				
-		group
-			condition
-				type "Always"
-				param ""
-			owner "RandomMilitia"
-			colonizeChance 0
-			items 2
+				item "Man:Module:TradePort"				
+				item "Man:Module:MetalExtractor"
+				item "Man:Module:MetalExtractor"					
+				item "Man:Module:CrystalExtractor"				
 				item "Other:Flag:Grant1000XP"
 				item "Other:Flag:Grant1000XP"				
 planetItemsTemplate
@@ -5756,14 +5535,14 @@ planetItemsTemplate
 	templateName "Template:OccupiedPlanet"
 	subTemplates 1
 			template "Template:BeaconNetwork"
-	groups 2
+	groups 1
 		group
 			condition
 				type "Always"
 				param ""
 			owner "Occupation"
 			colonizeChance 1
-			items 52
+			items 53
 				item "Phase:StarBase"
 				item "Phase:Titan:Rebel"
 				item "Phase:Frigate:LongRange"
@@ -5816,30 +5595,19 @@ planetItemsTemplate
 				item "Phase:Corvette:Rebel"
 				item "Phase:Corvette:Rebel"
 				item "Phase:Corvette:Rebel"
-		group
-			condition
-				type "Always"
-				param ""
-			owner "RandomMilitia"
-			colonizeChance 0
-			items 5
-				item "Other:Flag:Grant200XP"
-				item "Other:Flag:Grant200XP"
-				item "Other:Flag:Grant200XP"
-				item "Other:Flag:Grant200XP"
-				item "Other:Flag:Grant200XP"
+				item "Other:Flag:Grant1000XP"
 planetItemsTemplate
 	templateName "Template:Coruscant"
 	subTemplates 1
 			template "Template:BeaconNetwork"
-	groups 2
+	groups 1
 		group
 			condition
 				type "Always"
 				param ""
 			owner "Occupation"
 			colonizeChance 1
-			items 41
+			items 43
 				item "Emp:Starbase:Jovan"
 				item "Emp:Titan:Bellator"
 				item "Emp:Capitalship:ImperialII"
@@ -5881,15 +5649,970 @@ planetItemsTemplate
 				item "Emp:Starbase:Jovan"
 				item "Emp:Frigate:Siege"
 				item "Emp:Frigate:Siege"
-		group
-			condition
-				type "Always"
-				param ""
-			owner "RandomMilitia"
-			colonizeChance 0
-			items 2
 				item "Other:Flag:Grant1000XP"
 				item "Other:Flag:Grant200XP"
+planetItemsTemplate
+	templateName "Template:DefaultMinorFaction"
+	subTemplates 0
+	groups 24
+		group
+			condition
+				type "PlanetOwnerIsMinorFactionWithFactionName"
+				param "DefaultTech"
+			owner "PlanetOwner"
+			colonizeChance 1
+			items 27
+				item "Tech:Module:FrigateFactory"
+				item "Tech:Module:CapitalShipFactory"
+				item "Tech:Module:TradePort"
+				item "Tech:Module:RepairPlatform"
+				item "Tech:Module:GaussDefense"	
+				item "Tech:Module:GaussDefense"
+				item "Tech:Module:GaussDefense"	
+				item "Tech:Module:GaussDefense"				
+				item "Tech:Module:HangarDefense"
+				item "Tech:Module:CrystalExtractor"
+				item "Tech:Module:CrystalExtractor"
+				item "Tech:Module:CrystalExtractor"
+				item "Tech:Module:CrystalExtractor"
+				item "Tech:Module:CrystalExtractor"				
+				item "Tech:Module:MetalExtractor"
+				item "Tech:Module:MetalExtractor"
+				item "Tech:Module:MetalExtractor"
+				item "Tech:Module:MetalExtractor"
+				item "Tech:Module:MetalExtractor"				
+				item "Tech:Frigate:Light"
+				item "Tech:Frigate:Light"
+				item "Tech:Frigate:LongRange"
+				item "Tech:Frigate:AntiFighter"
+				item "Tech:Frigate:AntiFighter"				
+				item "Tech:Frigate:Heavy"
+				item "Tech:Frigate:Constructor"
+				item "Tech:Frigate:Constructor"	
+		group
+			condition
+				type "PlanetOwnerIsMinorFactionWithFactionName"
+				param "DefaultPsi"
+			owner "PlanetOwner"
+			colonizeChance 1
+			items 25
+				item "Psi:Module:FrigateFactory"
+				item "Psi:Module:CapitalShipFactory"
+				item "Psi:Module:TradePort"
+				item "Psi:Module:RepairPlatform"
+				item "Psi:Module:BeamDefense"	
+				item "Psi:Module:BeamDefense"
+				item "Psi:Module:HangarDefense"
+				item "Psi:Module:CrystalExtractor"
+				item "Psi:Module:CrystalExtractor"
+				item "Psi:Module:CrystalExtractor"
+				item "Psi:Module:CrystalExtractor"
+				item "Psi:Module:CrystalExtractor"
+				item "Psi:Module:MetalExtractor"
+				item "Psi:Module:MetalExtractor"
+				item "Psi:Module:MetalExtractor"
+				item "Psi:Module:MetalExtractor"
+				item "Psi:Module:MetalExtractor"
+				item "Psi:Frigate:Light"
+				item "Psi:Frigate:Light"
+				item "Psi:Frigate:LongRange"
+				item "Psi:Frigate:AntiFighter"
+				item "Psi:Frigate:AntiFighter"
+				item "Psi:Frigate:Heavy"
+				item "Psi:Frigate:Constructor"
+				item "Psi:Frigate:Constructor"
+		group
+			condition
+				type "PlanetOwnerIsMinorFactionWithFactionName"
+				param "DefaultPhase"
+			owner "PlanetOwner"
+			colonizeChance 1
+			items 35
+				item "Phase:Module:FrigateFactory"
+				item "Phase:Module:CapitalShipFactory"
+				item "Phase:Module:TradePort"
+				item "Phase:Module:RepairPlatform"
+				item "Phase:Module:MissileDefense"	
+				item "Phase:Module:MissileDefense"	
+				item "Phase:Module:MissileDefense"	
+				item "Phase:Module:MissileDefense"	
+				item "Phase:Module:HangarDefense"				
+				item "Phase:Module:CrystalExtractor"
+				item "Phase:Module:CrystalExtractor"
+				item "Phase:Module:CrystalExtractor"
+				item "Phase:Module:CrystalExtractor"
+				item "Phase:Module:CrystalExtractor"
+				item "Phase:Module:MetalExtractor"
+				item "Phase:Module:MetalExtractor"
+				item "Phase:Module:MetalExtractor"
+				item "Phase:Module:MetalExtractor"
+				item "Phase:Module:MetalExtractor"
+				item "Phase:Module:Refinery"
+				item "Phase:CapitalShip:BattleShip"
+				item "Phase:Frigate:Light"
+				item "Phase:Frigate:Light"
+				item "Phase:Frigate:Light"
+				item "Phase:Frigate:LongRange"
+				item "Phase:Frigate:AntiFighter"
+				item "Phase:Frigate:AntiFighter"
+				item "Phase:Frigate:Heavy"
+				item "Phase:Frigate:Heavy"
+				item "Phase:Corvette:Loyalist"
+				item "Phase:Corvette:Loyalist""
+				item "Phase:Corvette:Loyalist"
+				item "Phase:Frigate:Constructor"
+				item "Phase:Frigate:Constructor"
+				item "Other:Flag:Grant200XP"
+		group
+			condition
+				type "PlanetOwnerIsMinorFactionWithFactionName"
+				param "TechMiners"
+			owner "PlanetOwner"
+			colonizeChance 1
+			items 33
+				item "Tech:Module:FrigateFactory"
+				item "Tech:Module:CapitalShipFactory"
+				item "Tech:Module:TradePort"
+				item "Tech:Module:RepairPlatform"
+				item "Tech:Module:GaussDefense"	
+				item "Tech:Module:GaussDefense"
+				item "Tech:Module:GaussDefense"	
+				item "Tech:Module:GaussDefense"	
+				item "Tech:Module:HangarDefense"				
+				item "Tech:Module:CrystalExtractor"
+				item "Tech:Module:CrystalExtractor"
+				item "Tech:Module:CrystalExtractor"
+				item "Tech:Module:CrystalExtractor"
+				item "Tech:Module:CrystalExtractor"
+				item "Tech:Module:MetalExtractor"
+				item "Tech:Module:MetalExtractor"
+				item "Tech:Module:MetalExtractor"
+				item "Tech:Module:MetalExtractor"
+				item "Tech:Module:MetalExtractor"
+				item "Tech:Module:Refinery"
+				item "Tech:CapitalShip:Colony"
+				item "Tech:Frigate:Light"
+				item "Tech:Frigate:Light"
+				item "Tech:Frigate:Light"
+				item "Tech:Frigate:LongRange"
+				item "Tech:Frigate:LongRange"
+				item "Tech:Frigate:AntiFighter"
+				item "Tech:Frigate:AntiFighter"
+				item "Tech:Frigate:Utility1"
+				item "Tech:Frigate:Heavy"
+				item "Tech:Frigate:Utility1"
+				item "Tech:Frigate:Constructor"
+				item "Tech:Frigate:Constructor"
+		group
+			condition
+				type "PlanetOwnerIsMinorFactionWithFactionName"
+				param "TechScrappers"
+			owner "PlanetOwner"
+			colonizeChance 1
+			items 30
+				item "Tech:Module:FrigateFactory"
+				item "Tech:Module:CapitalShipFactory"
+				item "Tech:Module:TradePort"
+				item "Tech:Module:RepairPlatform"
+				item "Tech:Module:RepairPlatform"
+				item "Tech:Module:GaussDefense"	
+				item "Tech:Module:GaussDefense"
+				item "Tech:Module:HangarDefense"				
+				item "Tech:Module:CrystalExtractor"
+				item "Tech:Module:CrystalExtractor"
+				item "Tech:Module:CrystalExtractor"
+				item "Tech:Module:CrystalExtractor"
+				item "Tech:Module:CrystalExtractor"
+				item "Tech:Module:MetalExtractor"
+				item "Tech:Module:MetalExtractor"
+				item "Tech:Module:MetalExtractor"
+				item "Tech:Module:MetalExtractor"
+				item "Tech:Module:MetalExtractor"
+				item "Tech:Module:NonCombatLab"
+				item "Tech:CapitalShip:Transport"
+				item "Tech:Frigate:Light"
+				item "Tech:Frigate:Light"
+				item "Tech:Frigate:LongRange"
+				item "Tech:Frigate:AntiFighter"
+				item "Tech:Frigate:AntiFighter"				
+				item "Tech:Frigate:Heavy"
+				item "Tech:Frigate:Heavy"
+				item "Tech:Frigate:Utility1"
+				item "Tech:Frigate:Constructor"
+				item "Tech:Frigate:Constructor"
+		group
+			condition
+				type "PlanetOwnerIsMinorFactionWithFactionName"
+				param "TechSiegeRaiders"
+			owner "PlanetOwner"
+			colonizeChance 1
+			items 36
+				item "Tech:Module:FrigateFactory"
+				item "Tech:Module:CapitalShipFactory"
+				item "Tech:Module:TradePort"
+				item "Tech:Module:GaussDefense"	
+				item "Tech:Module:GaussDefense"	
+				item "Tech:Module:GaussDefense"	
+				item "Tech:Module:GaussDefense"
+				item "Tech:Module:GaussDefense"	
+				item "Tech:Module:GaussDefense"				
+				item "Tech:Module:HangarDefense"				
+				item "Tech:Module:CrystalExtractor"
+				item "Tech:Module:CrystalExtractor"
+				item "Tech:Module:CrystalExtractor"
+				item "Tech:Module:CrystalExtractor"
+				item "Tech:Module:CrystalExtractor"
+				item "Tech:Module:MetalExtractor"
+				item "Tech:Module:MetalExtractor"
+				item "Tech:Module:MetalExtractor"
+				item "Tech:Module:MetalExtractor"
+				item "Tech:Module:MetalExtractor"
+				item "Tech:Module:CombatLab"
+				item "Tech:CapitalShip:Siege"
+				item "Tech:Frigate:Light"
+				item "Tech:Frigate:Light"
+				item "Tech:Frigate:Light"
+				item "Tech:Frigate:LongRange"
+				item "Tech:Frigate:LongRange"
+				item "Tech:Frigate:AntiFighter"
+				item "Tech:Frigate:Heavy"
+				item "Tech:Frigate:Heavy"
+				item "Tech:Frigate:Siege"
+				item "Tech:Frigate:Siege"
+				item "Tech:Frigate:Utility0"
+				item "Tech:Frigate:Constructor"
+				item "Tech:Frigate:Constructor"
+				item "Other:Flag:Grant200XP"
+		group
+			condition
+				type "PlanetOwnerIsMinorFactionWithFactionName"
+				param "TechDemolitionists"
+			owner "PlanetOwner"
+			colonizeChance 1
+			items 33
+				item "Tech:Module:FrigateFactory"
+				item "Tech:Module:CapitalShipFactory"
+				item "Tech:Module:TradePort"
+				item "Tech:Module:RepairPlatform"
+				item "Tech:Module:RepairPlatform"
+				item "Tech:Module:GaussDefense"	
+				item "Tech:Module:GaussDefense"
+				item "Tech:Module:HangarDefense"				
+				item "Tech:Module:CrystalExtractor"
+				item "Tech:Module:CrystalExtractor"
+				item "Tech:Module:CrystalExtractor"
+				item "Tech:Module:CrystalExtractor"
+				item "Tech:Module:CrystalExtractor"
+				item "Tech:Module:MetalExtractor"
+				item "Tech:Module:MetalExtractor"
+				item "Tech:Module:MetalExtractor"
+				item "Tech:Module:MetalExtractor"
+				item "Tech:Module:MetalExtractor"
+				item "Tech:Module:CombatLab"
+				item "Tech:CapitalShip:BattleShip"
+				item "Tech:Frigate:Light"
+				item "Tech:Frigate:Light"
+				item "Tech:Frigate:LongRange"
+				item "Tech:Frigate:LongRange"
+				item "Tech:Frigate:LongRange"
+				item "Tech:Frigate:AntiFighter"
+				item "Tech:Frigate:Heavy"
+				item "Tech:Frigate:Utility0"
+				item "Tech:Frigate:AntiModule"
+				item "Tech:Frigate:AntiModule"
+				item "Tech:Frigate:Constructor"
+				item "Tech:Frigate:Constructor"
+				item "Other:Flag:Grant200XP"
+		group
+			condition
+				type "PlanetOwnerIsMinorFactionWithFactionName"
+				param "TechXenophobes"
+			owner "PlanetOwner"
+			colonizeChance 1
+			items 35
+				item "Tech:Module:FrigateFactory"
+				item "Tech:Module:CapitalShipFactory"
+				item "Tech:Module:TradePort"
+				item "Tech:Module:RepairPlatform"
+				item "Tech:Module:GaussDefense"
+				item "Tech:Module:GaussDefense"	
+				item "Tech:Module:GaussDefense"
+				item "Tech:Module:GaussDefense"				
+				item "Tech:Module:HangarDefense"				
+				item "Tech:Module:CrystalExtractor"
+				item "Tech:Module:CrystalExtractor"
+				item "Tech:Module:CrystalExtractor"
+				item "Tech:Module:CrystalExtractor"
+				item "Tech:Module:CrystalExtractor"
+				item "Tech:Module:MetalExtractor"
+				item "Tech:Module:MetalExtractor"
+				item "Tech:Module:MetalExtractor"
+				item "Tech:Module:MetalExtractor"
+				item "Tech:Module:MetalExtractor"
+				item "Tech:Module:CultureCenter"
+				item "Tech:CapitalShip:Support"
+				item "Tech:Frigate:Light"
+				item "Tech:Frigate:Light"
+				item "Tech:Frigate:Light"
+				item "Tech:Frigate:LongRange"
+				item "Tech:Frigate:LongRange"
+				item "Tech:Frigate:AntiFighter"
+				item "Tech:Frigate:AntiFighter"
+				item "Tech:Frigate:Heavy"
+				item "Tech:Frigate:Heavy"
+				item "Tech:Corvette:Rebel"
+				item "Tech:Corvette:Rebel"
+				item "Tech:Corvette:Rebel"
+				item "Tech:Frigate:Constructor"
+				item "Tech:Frigate:Constructor"
+		group
+			condition
+				type "PlanetOwnerIsMinorFactionWithFactionName"
+				param "TechDefensive"
+			owner "PlanetOwner"
+			colonizeChance 1
+			items 34
+				item "Tech:Module:FrigateFactory"
+				item "Tech:Module:CapitalShipFactory"
+				item "Tech:Module:TradePort"
+				item "Tech:Module:RepairPlatform"
+				item "Tech:Module:ShieldGenerator"
+				item "Tech:Module:GaussDefense"
+				item "Tech:Module:GaussDefense"	
+				item "Tech:Module:GaussDefense"
+				item "Tech:Module:GaussDefense"				
+				item "Tech:Module:HangarDefense"				
+				item "Tech:Module:CrystalExtractor"
+				item "Tech:Module:CrystalExtractor"
+				item "Tech:Module:CrystalExtractor"
+				item "Tech:Module:CrystalExtractor"
+				item "Tech:Module:CrystalExtractor"
+				item "Tech:Module:MetalExtractor"
+				item "Tech:Module:MetalExtractor"
+				item "Tech:Module:MetalExtractor"
+				item "Tech:Module:MetalExtractor"
+				item "Tech:Module:MetalExtractor"
+				item "Tech:StarBase"
+				item "Tech:Module:Mine"
+				item "Tech:Module:Mine"
+				item "Tech:Frigate:Light"
+				item "Tech:Frigate:Light"
+				item "Tech:Frigate:Utility1"
+				item "Tech:Frigate:LongRange"
+				item "Tech:Frigate:AntiFighter"
+				item "Tech:Frigate:AntiFighter"
+				item "Tech:Corvette:Loyalist"
+				item "Tech:Corvette:Loyalist"
+				item "Tech:Frigate:Heavy"
+				item "Tech:Frigate:Constructor"
+				item "Tech:Frigate:Constructor"
+		group
+			condition
+				type "PlanetOwnerIsMinorFactionWithFactionName"
+				param "TechUsedFrigates"
+			owner "PlanetOwner"
+			colonizeChance 1
+			items 34
+				item "Psi:Module:FrigateFactory"
+				item "Phase:Module:FrigateFactory"
+				item "Tech:Module:CapitalShipFactory"
+				item "Tech:Module:TradePort"
+				item "Tech:Module:RepairPlatform"
+				item "Psi:Module:RepairPlatform"
+				item "Psi:Module:BeamDefense"
+				item "Phase:Module:MissileDefense"
+				item "Tech:Module:HangarDefense"
+				item "Phase:Module:HangarDefense"
+				item "Tech:Module:RepairPlatform"
+				item "Tech:Module:CrystalExtractor"
+				item "Phase:Module:CrystalExtractor"
+				item "Psi:Module:CrystalExtractor"
+				item "Tech:Module:CrystalExtractor"
+				item "Psi:Module:CrystalExtractor"
+				item "Phase:Module:MetalExtractor"
+				item "Psi:Module:MetalExtractor"
+				item "Tech:Module:MetalExtractor"
+				item "Phase:Module:MetalExtractor"
+				item "Tech:Module:MetalExtractor"
+				item "Tech:CapitalShip:Carrier"
+				item "Tech:Frigate:Light"
+				item "Psi:Frigate:Light"
+				item "Phase:Frigate:Light"
+				item "Tech:Frigate:LongRange"
+				item "Phase:Frigate:LongRange"
+				item "Tech:Frigate:AntiFighter"
+				item "Psi:Frigate:AntiFighter"
+				item "Psi:Frigate:Heavy"
+				item "Tech:Frigate:Utility0"
+				item "Phase:Frigate:Utility0"
+				item "Tech:Frigate:Constructor"
+				item "Tech:Frigate:Constructor"
+		group
+			condition
+				type "PlanetOwnerIsMinorFactionWithFactionName"
+				param "PsiPacifists"
+			owner "PlanetOwner"
+			colonizeChance 1
+			items 29
+				item "Psi:Module:FrigateFactory"
+				item "Psi:Module:CapitalShipFactory"
+				item "Psi:Module:TradePort"
+				item "Psi:Module:RepairPlatform"
+				item "Psi:Module:AntiMatterRecharger"
+				item "Psi:Module:BeamDefense"	
+				item "Psi:Module:BeamDefense"
+				item "Psi:Module:HangarDefense"
+				item "Psi:Module:CrystalExtractor"
+				item "Psi:Module:CrystalExtractor"
+				item "Psi:Module:CrystalExtractor"
+				item "Psi:Module:CrystalExtractor"
+				item "Psi:Module:CrystalExtractor"
+				item "Psi:Module:MetalExtractor"
+				item "Psi:Module:MetalExtractor"
+				item "Psi:Module:MetalExtractor"
+				item "Psi:Module:MetalExtractor"
+				item "Psi:Module:MetalExtractor"
+				item "Psi:Module:NonCombatLab"
+				item "Psi:CapitalShip:PlanetPsionic"
+				item "Psi:Frigate:Light"
+				item "Psi:Frigate:Light"
+				item "Psi:Frigate:LongRange"
+				item "Psi:Frigate:LongRange"
+				item "Psi:Frigate:AntiFighter"
+				item "Psi:Frigate:Heavy"
+				item "Psi:Frigate:Carrier"
+				item "Psi:Frigate:Constructor"
+				item "Psi:Frigate:Constructor"
+		group
+			condition
+				type "PlanetOwnerIsMinorFactionWithFactionName"
+				param "PsiCulture"
+			owner "PlanetOwner"
+			colonizeChance 1
+			items 33
+				item "Psi:Module:FrigateFactory"
+				item "Psi:Module:CapitalShipFactory"
+				item "Psi:Module:TradePort"
+				item "Psi:Module:RepairPlatform"
+				item "Psi:Module:AntiMatterRecharger"
+				item "Psi:Module:BeamDefense"	
+				item "Psi:Module:BeamDefense"
+				item "Psi:Module:HangarDefense"
+				item "Psi:Module:CrystalExtractor"
+				item "Psi:Module:CrystalExtractor"
+				item "Psi:Module:CrystalExtractor"
+				item "Psi:Module:CrystalExtractor"
+				item "Psi:Module:CrystalExtractor"
+				item "Psi:Module:MetalExtractor"
+				item "Psi:Module:MetalExtractor"
+				item "Psi:Module:MetalExtractor"
+				item "Psi:Module:MetalExtractor"
+				item "Psi:Module:MetalExtractor"
+				item "Psi:CapitalShip:Colony"
+				item "Psi:Module:CultureCenter"
+				item "Psi:Frigate:Light"
+				item "Psi:Frigate:Light"
+				item "Psi:Frigate:Light"
+				item "Psi:Frigate:LongRange"
+				item "Psi:Frigate:LongRange"
+				item "Psi:Frigate:AntiFighter"
+				item "Psi:Frigate:AntiFighter"
+				item "Psi:Frigate:Heavy"
+				item "Psi:Frigate:Utility0"
+				item "Psi:Corvette:Loyalist"
+				item "Psi:Corvette:Loyalist"
+				item "Psi:Frigate:Constructor"
+				item "Psi:Frigate:Constructor"
+		group
+			condition
+				type "PlanetOwnerIsMinorFactionWithFactionName"
+				param "PsiDoomCult"
+			owner "PlanetOwner"
+			colonizeChance 1
+			items 31
+				item "Psi:Module:FrigateFactory"
+				item "Psi:Module:CapitalShipFactory"
+				item "Psi:Module:TradePort"
+				item "Psi:Module:RepairPlatform"
+				item "Psi:Module:BeamDefense"	
+				item "Psi:Module:BeamDefense"
+				item "Psi:Module:HangarDefense"
+				item "Psi:Module:CrystalExtractor"
+				item "Psi:Module:CrystalExtractor"
+				item "Psi:Module:CrystalExtractor"
+				item "Psi:Module:CrystalExtractor"
+				item "Psi:Module:CrystalExtractor"
+				item "Psi:Module:MetalExtractor"
+				item "Psi:Module:MetalExtractor"
+				item "Psi:Module:MetalExtractor"
+				item "Psi:Module:MetalExtractor"
+				item "Psi:Module:MetalExtractor"
+				item "Psi:Module:TradePort"
+				item "Psi:CapitalShip:BattleShip2"
+				item "Psi:Frigate:Light"
+				item "Psi:Frigate:Light"
+				item "Psi:Frigate:Light"
+				item "Psi:Frigate:LongRange"
+				item "Psi:Frigate:LongRange"
+				item "Psi:Frigate:AntiFighter"
+				item "Psi:Frigate:Heavy"
+				item "Psi:Frigate:Heavy"
+				item "Psi:Frigate:Utility1"
+				item "Psi:Frigate:Constructor"
+				item "Psi:Frigate:Constructor"
+				item "Other:Flag:Grant200XP"
+		group
+			condition
+				type "PlanetOwnerIsMinorFactionWithFactionName"
+				param "PsiSiegeRaiders"
+			owner "PlanetOwner"
+			colonizeChance 1
+			items 34
+				item "Psi:Module:FrigateFactory"
+				item "Psi:Module:CapitalShipFactory"
+				item "Psi:Module:TradePort"
+				item "Psi:Module:BeamDefense"
+				item "Psi:Module:BeamDefense"	
+				item "Psi:Module:BeamDefense"
+				item "Psi:Module:BeamDefense"
+				item "Psi:Module:HangarDefense"
+				item "Psi:Module:CrystalExtractor"
+				item "Psi:Module:CrystalExtractor"
+				item "Psi:Module:CrystalExtractor"
+				item "Psi:Module:CrystalExtractor"
+				item "Psi:Module:CrystalExtractor"
+				item "Psi:Module:MetalExtractor"
+				item "Psi:Module:MetalExtractor"
+				item "Psi:Module:MetalExtractor"
+				item "Psi:Module:MetalExtractor"
+				item "Psi:Module:MetalExtractor"
+				item "Psi:Module:CombatLab"
+				item "Psi:CapitalShip:BattleShip"
+				item "Psi:Frigate:Light"
+				item "Psi:Frigate:Light"
+				item "Psi:Frigate:Light"
+				item "Psi:Frigate:LongRange"
+				item "Psi:Frigate:LongRange"
+				item "Psi:Frigate:LongRange"
+				item "Psi:Frigate:AntiFighter"
+				item "Psi:Frigate:Heavy"
+				item "Psi:Frigate:Heavy"
+				item "Psi:Frigate:AntiModule"
+				item "Psi:Frigate:Siege"
+				item "Psi:Frigate:Constructor"
+				item "Psi:Frigate:Constructor"
+				item "Other:Flag:Grant200XP"
+		group
+			condition
+				type "PlanetOwnerIsMinorFactionWithFactionName"
+				param "PhaseTransporters"
+			owner "PlanetOwner"
+			colonizeChance 1
+			items 29
+				item "Phase:Module:FrigateFactory"
+				item "Phase:Module:CapitalShipFactory"
+				item "Phase:Module:TradePort"
+				item "Phase:Module:RepairPlatform"
+				item "Phase:Module:MissileDefense"	
+				item "Phase:Module:MissileDefense"
+				item "Phase:Module:HangarDefense"	
+				item "Phase:Module:CrystalExtractor"
+				item "Phase:Module:CrystalExtractor"
+				item "Phase:Module:CrystalExtractor"
+				item "Phase:Module:CrystalExtractor"
+				item "Phase:Module:CrystalExtractor"				
+				item "Phase:Module:MetalExtractor"
+				item "Phase:Module:MetalExtractor"
+				item "Phase:Module:MetalExtractor"
+				item "Phase:Module:MetalExtractor"
+				item "Phase:Module:MetalExtractor"				
+				item "Phase:Module:PhaseGate"
+				item "Phase:CapitalShip:Scout"
+				item "Phase:Frigate:Light"
+				item "Phase:Frigate:Light"
+				item "Phase:Frigate:LongRange"
+				item "Phase:Frigate:AntiFighter"
+				item "Phase:Frigate:Heavy"
+				item "Phase:Frigate:Carrier"
+				item "Phase:Corvette:Rebel"
+				item "Phase:Corvette:Rebel"
+				item "Phase:Frigate:Constructor"
+				item "Phase:Frigate:Constructor"
+		group
+			condition
+				type "PlanetOwnerIsMinorFactionWithFactionName"
+				param "PhaseExpedition"
+			owner "PlanetOwner"
+			colonizeChance 1
+			items 35
+				item "Phase:Module:FrigateFactory"
+				item "Phase:Module:CapitalShipFactory"
+				item "Phase:Module:TradePort"
+				item "Phase:Module:RepairPlatform"
+				item "Phase:Module:MissileDefense"	
+				item "Phase:Module:MissileDefense"
+				item "Phase:Module:HangarDefense"
+				item "Phase:Module:NanoWeaponJammer"
+				item "Phase:Module:CrystalExtractor"
+				item "Phase:Module:CrystalExtractor"
+				item "Phase:Module:CrystalExtractor"
+				item "Phase:Module:CrystalExtractor"
+				item "Phase:Module:CrystalExtractor"				
+				item "Phase:Module:MetalExtractor"
+				item "Phase:Module:MetalExtractor"
+				item "Phase:Module:MetalExtractor"
+				item "Phase:Module:MetalExtractor"
+				item "Phase:Module:MetalExtractor"	
+				item "Phase:Module:NonCombatLab"			
+				item "Phase:CapitalShip:Colony"
+				item "Phase:Frigate:Light"
+				item "Phase:Frigate:Light"
+				item "Phase:Frigate:Light"
+				item "Phase:Frigate:LongRange"
+				item "Phase:Frigate:AntiFighter"
+				item "Phase:Frigate:Heavy"
+				item "Phase:Frigate:Scout"
+				item "Phase:Frigate:Scout"
+				item "Phase:Frigate:Utility0"
+				item "Phase:Corvette:Loyalist"
+				item "Phase:Corvette:Loyalist"	
+				item "Phase:Corvette:Loyalist"			
+				item "Phase:Frigate:Constructor"
+				item "Phase:Frigate:Constructor"
+				item "Other:Flag:Grant200XP"
+		group
+			condition
+				type "PlanetOwnerIsMinorFactionWithFactionName"
+				param "PhaseArmsDealers"
+			owner "PlanetOwner"
+			colonizeChance 1
+			items 32
+				item "Phase:Module:FrigateFactory"
+				item "Phase:Module:CapitalShipFactory"
+				item "Phase:Module:TradePort"
+				item "Phase:Module:RepairPlatform"
+				item "Phase:Module:MissileDefense"	
+				item "Phase:Module:MissileDefense"
+				item "Phase:Module:MissileDefense"	
+				item "Phase:Module:MissileDefense"
+				item "Phase:Module:HangarDefense"
+				item "Phase:Module:CrystalExtractor"
+				item "Phase:Module:CrystalExtractor"
+				item "Phase:Module:CrystalExtractor"
+				item "Phase:Module:CrystalExtractor"
+				item "Phase:Module:CrystalExtractor"				
+				item "Phase:Module:MetalExtractor"
+				item "Phase:Module:MetalExtractor"
+				item "Phase:Module:MetalExtractor"
+				item "Phase:Module:MetalExtractor"
+				item "Phase:Module:MetalExtractor"
+				item "Phase:Module:CombatLab"		
+				item "Phase:CapitalShip:Siege"
+				item "Phase:Frigate:Light"
+				item "Phase:Frigate:Light"
+				item "Phase:Frigate:LongRange"
+				item "Phase:Frigate:LongRange"
+				item "Phase:Frigate:AntiFighter"
+				item "Phase:Frigate:Heavy"
+				item "Phase:Frigate:Heavy"
+				item "Phase:Frigate:Siege"
+				item "Phase:Frigate:Constructor"
+				item "Phase:Frigate:Constructor"
+				item "Other:Flag:Grant200XP"
+		group
+			condition
+				type "PlanetOwnerIsMinorFactionWithFactionName"
+				param "AllIndependent"
+			owner "PlanetOwner"
+			colonizeChance 1
+			items 32
+				item "All:Module:FrigateFactory"
+				item "All:Module:CapitalShipFactory"
+				item "All:Module:TradePort"
+				item "All:Module:RepairPlatform"
+				item "All:Module:TorpedoTurret"	
+				item "All:Module:TorpedoTurret"
+				item "All:Module:TorpedoTurret"	
+				item "All:Module:TorpedoTurret"
+				item "All:Module:HangarDefense"
+				item "All:Module:CrystalExtractor"
+				item "All:Module:CrystalExtractor"
+				item "All:Module:CrystalExtractor"
+				item "All:Module:CrystalExtractor"
+				item "All:Module:CrystalExtractor"				
+				item "All:Module:MetalExtractor"
+				item "All:Module:MetalExtractor"
+				item "All:Module:MetalExtractor"
+				item "All:Module:MetalExtractor"
+				item "All:Module:MetalExtractor"
+				item "All:Module:CultureCenter"		
+				item "All:Starbase:Starbase"
+				item "All:Frigate:Light"
+				item "All:Frigate:Light"
+				item "All:Frigate:LongRange"
+				item "All:Frigate:LongRange"
+				item "All:Frigate:BulkCruiser"
+				item "All:Frigate:AntiFighter"
+				item "All:Frigate:Heavy"
+				item "All:Frigate:Carrier"
+				item "All:Frigate:Constructor"
+				item "All:Frigate:Constructor"
+				item "Bonus:LocalGovernment"
+		group
+			condition
+				type "PlanetOwnerIsMinorFactionWithFactionName"
+				param "HuttCartel"
+			owner "PlanetOwner"
+			colonizeChance 1
+			items 33
+				item "Mil:Module:FrigateFactory"
+				item "Mil:Module:CapitalShipFactory"
+				item "Mil:Module:AllTradePort"
+				item "All:Module:RepairPlatform"
+				item "Mil:Module:TorpedoTurret"	
+				item "Mil:Module:TorpedoTurret"
+				item "Mil:Module:TorpedoTurret"	
+				item "Mil:Module:TorpedoTurret"
+				item "Mil:Module:Hangar"
+				item "Mil:Module:CrystalExtractor"
+				item "Mil:Module:CrystalExtractor"
+				item "Mil:Module:CrystalExtractor"
+				item "Mil:Module:CrystalExtractor"
+				item "Mil:Module:CrystalExtractor"				
+				item "Mil:Module:MetalExtractor"
+				item "Mil:Module:MetalExtractor"
+				item "Mil:Module:MetalExtractor"
+				item "Mil:Module:MetalExtractor"
+				item "Mil:Module:MetalExtractor"
+				item "Mil:Module:AllTradePort"		
+				item "Other:Capitalship:Providence"
+				item "Mil:Frigate:Light"
+				item "Mil:Frigate:Light"
+				item "Mil:Frigate:LongRange"
+				item "Mil:Frigate:LongRange"
+				item "Mil:Frigate:Dreadnaught"
+				item "Mil:Frigate:AntiFighter"
+				item "Mil:Frigate:AntiFighter"
+				item "Mil:Corvette:Skipray"
+				item "Mil:Corvette:Skipray"
+				item "Mil:Corvette:Skipray"
+				item "Mil:Frigate:Constructor"
+				item "Mil:Frigate:Constructor"
+		group
+			condition
+				type "PlanetOwnerIsMinorFactionWithFactionName"
+				param "AllCorellia"
+			owner "PlanetOwner"
+			colonizeChance 1
+			items 37
+				item "All:Module:FrigateFactory"
+				item "All:Module:FrigateFactory"
+				item "All:Module:CapitalShipFactory"
+				item "All:Module:TradePort"
+				item "All:Module:RepairPlatform"
+				item "All:Module:RepairPlatform"
+				item "All:Module:TorpedoTurret"
+				item "All:Module:TorpedoTurret"
+				item "All:Module:TorpedoTurret"	
+				item "All:Module:TorpedoTurret"
+				item "All:Module:HangarDefense"
+				item "All:Module:HangarDefense"			
+				item "All:Module:CrystalExtractor"
+				item "All:Module:CrystalExtractor"
+				item "All:Module:CrystalExtractor"
+				item "All:Module:CrystalExtractor"
+				item "All:Module:CrystalExtractor"
+				item "All:Module:MetalExtractor"
+				item "All:Module:MetalExtractor"
+				item "All:Module:MetalExtractor"
+				item "All:Module:MetalExtractor"
+				item "All:Module:MetalExtractor"
+				item "All:Capitalship:Dauntless"
+				item "All:Frigate:Scout"
+				item "All:Frigate:Scout"
+				item "All:Frigate:Light"
+				item "All:Frigate:Light"
+				item "All:Frigate:Light"
+				item "Mil:Frigate:Light"
+				item "Mil:Frigate:Light"
+				item "Mil:Frigate:Light"
+				item "All:Frigate:AntiFighter"
+				item "All:Frigate:AntiFighter"
+				item "All:Frigate:AntiFighter"
+				item "All:Frigate:BulkCruiser"
+				item "All:Frigate:Constructor"
+				item "All:Frigate:Constructor"
+		group
+			condition
+				type "PlanetOwnerIsMinorFactionWithFactionName"
+				param "EmpCiutric"
+			owner "PlanetOwner"
+			colonizeChance 1
+			items 34
+				item "Emp:Module:FrigateFactory"
+				item "Emp:Module:CapitalShipFactory"
+				item "Emp:Module:TradePort"
+				item "Emp:Module:Refinery"
+				item "Emp:Module:RepairPlatform"
+				item "Emp:Module:GolanIII"
+				item "Emp:Module:GolanIII"
+				item "Emp:Module:CrystalExtractor"
+				item "Emp:Module:CrystalExtractor"
+				item "Emp:Module:CrystalExtractor"
+				item "Emp:Module:CrystalExtractor"
+				item "Emp:Module:CrystalExtractor"
+				item "Emp:Module:MetalExtractor"
+				item "Emp:Module:MetalExtractor"
+				item "Emp:Module:MetalExtractor"
+				item "Emp:Module:MetalExtractor"
+				item "Emp:Module:MetalExtractor"
+				item "Emp:Module:NonCombatLabWarlords"
+				item "Emp:Module:CultureCenter"
+				item "Emp:Capitalship:ImperialII"
+				item "Emp:Frigate:Light"
+				item "Emp:Frigate:Light"
+				item "Emp:Frigate:Light"
+				item "Emp:Frigate:LongRange"
+				item "Emp:Frigate:LongRange"
+				item "Emp:Frigate:Raider"
+				item "Emp:Frigate:Raider"	
+				item "Emp:Frigate:Raider"			
+				item "Emp:Frigate:Enforcer"
+				item "Emp:Frigate:Enforcer"
+				item "Emp:Frigate:Dreadnaught"
+				item "Emp:Frigate:Support"
+				item "Emp:Frigate:Constructor"
+				item "Emp:Frigate:Constructor"
+		group
+			condition
+				type "PlanetOwnerIsMinorFactionWithFactionName"
+				param "EmpMaldrood"
+			owner "PlanetOwner"
+			colonizeChance 1
+			items 36
+				item "Emp:Module:FrigateFactory"
+				item "Emp:Module:CapitalShipFactory"
+				item "Emp:Module:TradePort"
+				item "Emp:Module:Refinery"
+				item "Emp:Module:GolanIII"
+				item "Emp:Module:GolanIII"
+				item "Emp:Module:GolanIII"			
+				item "Emp:Module:CrystalExtractor"
+				item "Emp:Module:CrystalExtractor"
+				item "Emp:Module:CrystalExtractor"
+				item "Emp:Module:CrystalExtractor"
+				item "Emp:Module:CrystalExtractor"
+				item "Emp:Module:MetalExtractor"
+				item "Emp:Module:MetalExtractor"
+				item "Emp:Module:MetalExtractor"
+				item "Emp:Module:MetalExtractor"
+				item "Emp:Module:MetalExtractor"
+				item "Emp:Module:CombatLabWarlords"
+				item "Emp:Capitalship:VictoryII"
+				item "Emp:Frigate:Light"
+				item "Emp:Frigate:Light"
+				item "Emp:Frigate:Light"
+				item "Emp:Frigate:LongRange"
+				item "Emp:Frigate:LongRange"
+				item "Emp:Frigate:Raider"
+				item "Emp:Frigate:Raider"
+				item "Emp:Frigate:Enforcer"
+				item "Emp:Frigate:Enforcer"
+				item "Emp:Frigate:Enforcer"
+				item "Emp:Frigate:Dreadnaught"
+				item "Emp:Frigate:Siege"
+				item "Emp:Frigate:Siege"
+				item "Emp:Frigate:Interdictor"
+				item "Emp:Frigate:Constructor"
+				item "Emp:Frigate:Constructor"
+				item "Other:Flag:Grant200XP"
+		group
+			condition
+				type "PlanetOwnerIsMinorFactionWithFactionName"
+				param "ManDxunMercs"
+			owner "PlanetOwner"
+			colonizeChance 1
+			items 38
+				item "Man:Module:FrigateFactory"
+				item "Man:Module:CapitalShipFactory"
+				item "Man:Module:Refinery"
+				item "Man:Module:TurbolaserTurret"
+				item "Man:Module:TurbolaserTurret"
+				item "Man:Module:TurbolaserTurret"
+				item "Man:Module:TorpedoTurret"
+				item "Man:Module:TorpedoTurret"
+				item "Man:Module:Hangar"				
+				item "Man:Module:CrystalExtractor"
+				item "Man:Module:CrystalExtractor"
+				item "Man:Module:CrystalExtractor"
+				item "Man:Module:CrystalExtractor"
+				item "Man:Module:CrystalExtractor"
+				item "Man:Module:MetalExtractor"
+				item "Man:Module:MetalExtractor"
+				item "Man:Module:MetalExtractor"
+				item "Man:Module:MetalExtractor"
+				item "Man:Module:MetalExtractor"
+				item "Man:Capitalship:Keldabe"
+				item "Man:Frigate:Light"
+				item "Man:Frigate:Light"
+				item "Man:Frigate:Light"
+				item "Man:Frigate:LongRange"
+				item "Man:Frigate:LongRange"
+				item "Man:Frigate:AntiFighter"
+				item "Man:Frigate:AntiFighter"
+				item "Man:Frigate:Dreadnaught"
+				item "Man:Frigate:Siege"
+				item "Man:Frigate:Siege"
+				item "Man:Frigate:Siege"
+				item "Man:Corvette:Firespray"
+				item "Man:Corvette:Firespray"
+				item "Man:Corvette:Firespray"
+				item "Man:Frigate:Antimodule"
+				item "Man:Frigate:Constructor"
+				item "Man:Frigate:Constructor"
+				item "Other:Flag:Grant200XP"
+		group
+			condition
+				type "PlanetOwnerIsMinorFactionWithFactionName"
+				param "CSA"
+			owner "PlanetOwner"
+			colonizeChance 1
+			items 35
+				item "Mil:Module:FrigateFactory"
+				item "Mil:Module:CapitalShipFactory"
+				item "Mil:Module:EmpTradePort"
+				item "Mil:Module:Hangar"
+				item "Mil:Module:TurbolaserTurret"	
+				item "Mil:Module:TurbolaserTurret"
+				item "Mil:Module:TurbolaserTurret"	
+				item "Mil:Module:TurbolaserTurret"
+				item "Mil:Module:TurbolaserTurret"
+				item "Mil:Module:TurbolaserTurret"
+				item "Mil:Module:CrystalExtractor"
+				item "Mil:Module:CrystalExtractor"
+				item "Mil:Module:CrystalExtractor"
+				item "Mil:Module:CrystalExtractor"
+				item "Mil:Module:CrystalExtractor"				
+				item "Mil:Module:MetalExtractor"
+				item "Mil:Module:MetalExtractor"
+				item "Mil:Module:MetalExtractor"
+				item "Mil:Module:MetalExtractor"
+				item "Mil:Module:MetalExtractor"
+				item "Mil:Module:EmpRefinery"		
+				item "Other:Capitalship:Lucrehulk"
+				item "Mil:Frigate:Light"
+				item "Mil:Frigate:Light"
+				item "Mil:Frigate:LongRange"
+				item "Mil:Frigate:LongRange"
+				item "Mil:Frigate:LongRange"
+				item "Mil:Frigate:LongRange"
+				item "Mil:Frigate:Dreadnaught"
+				item "Mil:Frigate:Dreadnaught"
+				item "Mil:Frigate:AntiFighter"
+				item "Mil:Corvette:Skipray"
+				item "Mil:Corvette:Skipray"
+				item "Mil:Frigate:Constructor"
+				item "Mil:Frigate:Constructor"
 validPictureGroups 3
 pictureGroup "PlayerPhase"
 pictureGroup "PlayerPsi"
@@ -5899,7 +6622,7 @@ themeGroup "PlayerPhase"
 themeGroup "PlayerPsi"
 themeGroup "PlayerTech"
 themeGroup "NPC"
-autoAddPlayers 12
+npcPlayers 35
 player
 	designName "Pirate"
 	inGameName "IDSScenarioPlayerNamePirates"
@@ -5908,11 +6631,7 @@ player
 	startingCredits 1000
 	startingMetal 300
 	startingCrystal 100
-	isNormalPlayer FALSE
-	isRaidingPlayer FALSE
-	isInsurgentPlayer TRUE
-	isOccupationPlayer FALSE
-	isMadVasariPlayer FALSE
+	playerType "NPCRebel"
 	themeGroup "SpecialNPC"
 	themeIndex 0
 	pictureGroup "NPC"
@@ -5925,13 +6644,9 @@ player
 	startingCredits 1000
 	startingMetal 300
 	startingCrystal 100
-	isNormalPlayer FALSE
-	isRaidingPlayer TRUE
-	isInsurgentPlayer FALSE
-	isOccupationPlayer FALSE
-	isMadVasariPlayer FALSE
-	themeGroup "SpecialNPC"
-	themeIndex 2
+	playerType "NPCPirateRaider"
+	themeGroup "ING_NPC"
+	themeIndex 0
 	pictureGroup "Player_ING_Man"
 	pictureIndex 0	
 player
@@ -5942,11 +6657,7 @@ player
 	startingCredits 1000
 	startingMetal 300
 	startingCrystal 100
-	isNormalPlayer FALSE
-	isRaidingPlayer FALSE
-	isInsurgentPlayer TRUE
-	isOccupationPlayer FALSE
-	isMadVasariPlayer FALSE
+	playerType "NPCRebel"
 	themeGroup "SpecialNPC"
 	themeIndex 1
 	pictureGroup "NPC"
@@ -5959,11 +6670,7 @@ player
 	startingCredits 0
 	startingMetal 0
 	startingCrystal 0
-	isNormalPlayer FALSE
-	isRaidingPlayer FALSE
-	isInsurgentPlayer FALSE
-	isOccupationPlayer TRUE
-	isMadVasariPlayer FALSE
+	playerType "NPCOccupationVictory"
 	themeGroup "NPC"
 	themeIndex 16
 	pictureGroup "NPC"
@@ -5976,11 +6683,7 @@ player
 	startingCredits 0
 	startingMetal 0
 	startingCrystal 0
-	isNormalPlayer FALSE
-	isRaidingPlayer FALSE
-	isInsurgentPlayer FALSE
-	isOccupationPlayer FALSE
-	isMadVasariPlayer TRUE
+	playerType "NPCMadVasari"
 	themeGroup "PlayerPhase"
 	themeIndex 15
 	pictureGroup "PlayerPhase"
@@ -5993,11 +6696,7 @@ player
 	startingCredits 10000
 	startingMetal 5000
 	startingCrystal 1000
-	isNormalPlayer FALSE
-	isRaidingPlayer TRUE
-	isInsurgentPlayer FALSE
-	isOccupationPlayer FALSE
-	isMadVasariPlayer FALSE
+	playerType "NPCPirateRaider"
 	themeGroup "NPC"
 	themeIndex 15
 	pictureGroup "PlayerTech"
@@ -6010,11 +6709,7 @@ player
 	startingCredits 10000
 	startingMetal 5000
 	startingCrystal 1000
-	isNormalPlayer FALSE
-	isRaidingPlayer TRUE
-	isInsurgentPlayer FALSE
-	isOccupationPlayer FALSE
-	isMadVasariPlayer FALSE
+	playerType "NPCPirateRaider"
 	themeGroup "NPC"
 	themeIndex 3
 	pictureGroup "PlayerPsi"
@@ -6027,11 +6722,7 @@ player
 	startingCredits 10000
 	startingMetal 5000
 	startingCrystal 1000
-	isNormalPlayer FALSE
-	isRaidingPlayer TRUE
-	isInsurgentPlayer FALSE
-	isOccupationPlayer FALSE
-	isMadVasariPlayer FALSE
+	playerType "NPCPirateRaider"
 	themeGroup "NPC"
 	themeIndex 4
 	pictureGroup "PlayerPhase"
@@ -6044,11 +6735,7 @@ player
 	startingCredits 10000
 	startingMetal 5000
 	startingCrystal 1000
-	isNormalPlayer FALSE
-	isRaidingPlayer FALSE
-	isInsurgentPlayer TRUE
-	isOccupationPlayer FALSE
-	isMadVasariPlayer FALSE
+	playerType "NPCPirateRaider"
 	themeGroup "NPC"
 	themeIndex 0
 	pictureGroup "PlayerTech"
@@ -6061,13 +6748,9 @@ player
 	startingCredits 10000
 	startingMetal 5000
 	startingCrystal 1000
-	isNormalPlayer FALSE
-	isRaidingPlayer TRUE
-	isInsurgentPlayer FALSE
-	isOccupationPlayer FALSE
-	isMadVasariPlayer FALSE
-	themeGroup "NPC"
-	themeIndex 16
+	playerType "NPCPirateRaider"
+	themeGroup "ING_NPC"
+	themeIndex 13
 	pictureGroup "NPC"
 	pictureIndex 0
 player
@@ -6078,13 +6761,9 @@ player
 	startingCredits 10000
 	startingMetal 5000
 	startingCrystal 1000
-	isNormalPlayer FALSE
-	isRaidingPlayer TRUE
-	isInsurgentPlayer FALSE
-	isOccupationPlayer FALSE
-	isMadVasariPlayer FALSE
-	themeGroup "NPC"
-	themeIndex 5
+	playerType "NPCPirateRaider"
+	themeGroup "ING_NPC"
+	themeIndex 3
 	pictureGroup "NPC"
 	pictureIndex 0
 player
@@ -6095,17 +6774,11 @@ player
 	startingCredits 10000
 	startingMetal 5000
 	startingCrystal 1000
-	isNormalPlayer FALSE
-	isRaidingPlayer TRUE
-	isInsurgentPlayer FALSE
-	isOccupationPlayer FALSE
-	isMadVasariPlayer FALSE
-	themeGroup "NPC"
+	playerType "NPCPirateRaider"
+	themeGroup "ING_NPC"
 	themeIndex 2
 	pictureGroup "NPC"
 	pictureIndex 0
-autoAddMiltiaPlayerCountPerGalaxy 1
-autoAddMilitiaPlayers 1
 player
 	designName "Militia0"
 	inGameName "IDS_ING_ScenarioPlayerName_Militia"
@@ -6114,12 +6787,317 @@ player
 	startingCredits 1000
 	startingMetal 300
 	startingCrystal 100
-	isNormalPlayer FALSE
-	isRaidingPlayer FALSE
-	isInsurgentPlayer FALSE
-	isOccupationPlayer FALSE
-	isMadVasariPlayer FALSE
-	themeGroup "NPC"
+	playerType "NPCMilitia"
+	themeGroup "ING_NPC"
 	themeIndex 1
 	pictureGroup "NPC"
 	pictureIndex 0
+player
+	designName "MinorFaction0"
+	inGameName "IDSScenarioPlayerNameMinorFactionTech0"
+	overrideRaceName "TechLoyalist"
+	teamIndex -1
+	startingCredits 1000
+	startingMetal 300
+	startingCrystal 100
+	playerType "NPCMinorFaction"
+	minorFactionPlayerDefName "TechMiners"
+	themeGroup "NPCMinorFactions"
+	themeIndex 11
+	pictureGroup "NPC"
+	pictureIndex 2
+player
+	designName "MinorFaction1"
+	inGameName "IDSScenarioPlayerNameMinorFactionTech1"
+	overrideRaceName "TechLoyalist"
+	teamIndex -1
+	startingCredits 1000
+	startingMetal 300
+	startingCrystal 100
+	playerType "NPCMinorFaction"
+	minorFactionPlayerDefName "TechScrappers"
+	themeGroup "NPCMinorFactions"
+	themeIndex 1
+	pictureGroup "NPC"
+	pictureIndex 2
+player
+	designName "MinorFaction2"
+	inGameName "IDSScenarioPlayerNameMinorFactionTech2"
+	overrideRaceName "TechRebel"
+	teamIndex -1
+	startingCredits 1000
+	startingMetal 300
+	startingCrystal 100
+	playerType "NPCMinorFaction"
+	minorFactionPlayerDefName "TechSiegeRaiders"
+	themeGroup "NPCMinorFactions"
+	themeIndex 2
+	pictureGroup "NPC"
+	pictureIndex 2
+player
+	designName "MinorFaction3"
+	inGameName "IDSScenarioPlayerNameMinorFactionTech3"
+	overrideRaceName "TechRebel"
+	teamIndex -1
+	startingCredits 1000
+	startingMetal 300
+	startingCrystal 100
+	playerType "NPCMinorFaction"
+	minorFactionPlayerDefName "TechDemolitionists"
+	themeGroup "NPCMinorFactions"
+	themeIndex 10
+	pictureGroup "NPC"
+	pictureIndex 2
+player
+	designName "MinorFaction4"
+	inGameName "IDSScenarioPlayerNameMinorFactionTech4"
+	overrideRaceName "TechRebel"
+	teamIndex -1
+	startingCredits 1000
+	startingMetal 300
+	startingCrystal 100
+	playerType "NPCMinorFaction"
+	minorFactionPlayerDefName "TechXenophobes"
+	themeGroup "NPCMinorFactions"
+	themeIndex 3
+	pictureGroup "NPC"
+	pictureIndex 2
+player
+	designName "MinorFaction5"
+	inGameName "IDSScenarioPlayerNameMinorFactionTech5"
+	overrideRaceName "TechLoyalist"
+	teamIndex -1
+	startingCredits 1000
+	startingMetal 300
+	startingCrystal 100
+	playerType "NPCMinorFaction"
+	minorFactionPlayerDefName "TechUsedFrigates"
+	themeGroup "NPCMinorFactions"
+	themeIndex 9
+	pictureGroup "NPC"
+	pictureIndex 2
+player
+	designName "MinorFaction6"
+	inGameName "IDSScenarioPlayerNameMinorFactionTech6"
+	overrideRaceName "TechLoyalist"
+	teamIndex -1
+	startingCredits 1000
+	startingMetal 300
+	startingCrystal 100
+	playerType "NPCMinorFaction"
+	minorFactionPlayerDefName "TechDefensive"
+	themeGroup "NPCMinorFactions"
+	themeIndex 4
+	pictureGroup "NPC"
+	pictureIndex 2
+player
+	designName "MinorFaction7"
+	inGameName "IDSScenarioPlayerNameMinorFactionPsi0"
+	overrideRaceName "PsiRebel"
+	teamIndex -1
+	startingCredits 1000
+	startingMetal 300
+	startingCrystal 100
+	playerType "NPCMinorFaction"
+	minorFactionPlayerDefName "PsiPacifists"
+	themeGroup "NPCMinorFactions"
+	themeIndex 8
+	pictureGroup "NPC"
+	pictureIndex 2
+player
+	designName "MinorFaction8"
+	inGameName "IDSScenarioPlayerNameMinorFactionPsi1"
+	overrideRaceName "PsiRebel"
+	teamIndex -1
+	startingCredits 1000
+	startingMetal 300
+	startingCrystal 100
+	playerType "NPCMinorFaction"
+	minorFactionPlayerDefName "PsiCulture"
+	themeGroup "NPCMinorFactions"
+	themeIndex 12
+	pictureGroup "NPC"
+	pictureIndex 2
+player
+	designName "MinorFaction9"
+	inGameName "IDSScenarioPlayerNameMinorFactionPsi2"
+	overrideRaceName "PsiRebel"
+	teamIndex -1
+	startingCredits 1000
+	startingMetal 300
+	startingCrystal 100
+	playerType "NPCMinorFaction"
+	minorFactionPlayerDefName "PsiDoomCult"
+	themeGroup "NPCMinorFactions"
+	themeIndex 14
+	pictureGroup "NPC"
+	pictureIndex 2
+player
+	designName "MinorFaction10"
+	inGameName "IDSScenarioPlayerNameMinorFactionPsi3"
+	overrideRaceName "PsiLoyalist"
+	teamIndex -1
+	startingCredits 1000
+	startingMetal 300
+	startingCrystal 100
+	playerType "NPCMinorFaction"
+	minorFactionPlayerDefName "PsiSiegeRaiders"
+	themeGroup "NPCMinorFactions"
+	themeIndex 5
+	pictureGroup "NPC"
+	pictureIndex 2
+player
+	designName "MinorFaction11"
+	inGameName "IDSScenarioPlayerNameMinorFactionPhase0"
+	overrideRaceName "PhaseRebel"
+	teamIndex -1
+	startingCredits 1000
+	startingMetal 300
+	startingCrystal 100
+	playerType "NPCMinorFaction"
+	minorFactionPlayerDefName "PhaseTransporters"
+	themeGroup "NPCMinorFactions"
+	themeIndex 13
+	pictureGroup "NPC"
+	pictureIndex 2
+player
+	designName "MinorFaction12"
+	inGameName "IDSScenarioPlayerNameMinorFactionPhase1"
+	overrideRaceName "PhaseLoyalist"
+	teamIndex -1
+	startingCredits 1000
+	startingMetal 300
+	startingCrystal 100
+	playerType "NPCMinorFaction"
+	minorFactionPlayerDefName "PhaseExpedition"
+	themeGroup "NPCMinorFactions"
+	themeIndex 0
+	pictureGroup "NPC"
+	pictureIndex 2
+player
+	designName "MinorFaction13"
+	inGameName "IDSScenarioPlayerNameMinorFactionPhase2"
+	overrideRaceName "PhaseRebel"
+	teamIndex -1
+	startingCredits 1000
+	startingMetal 300
+	startingCrystal 100
+	playerType "NPCMinorFaction"
+	minorFactionPlayerDefName "PhaseArmsDealers"
+	themeGroup "NPCMinorFactions"
+	themeIndex 7
+	pictureGroup "NPC"
+	pictureIndex 2
+player
+	designName "MinorFaction14"
+	inGameName "IDSScenarioPlayerNameMinorFactionPhase3"
+	overrideRaceName "PhaseLoyalist"
+	teamIndex -1
+	startingCredits 1000
+	startingMetal 300
+	startingCrystal 100
+	playerType "NPCMinorFaction"
+	minorFactionPlayerDefName "DefaultPhase"
+	themeGroup "NPCMinorFactions"
+	themeIndex 6
+	pictureGroup "NPC"
+	pictureIndex 2
+player
+	designName "MinorFaction_ING_All0"
+	inGameName "IDS_ING_ScenarioPlayerNameMinorFaction_All0"
+	overrideRaceName "RebelAlliance"
+	teamIndex -1
+	startingCredits 1000
+	startingMetal 300
+	startingCrystal 100
+	playerType "NPCMinorFaction"
+	minorFactionPlayerDefName "AllIndependent"
+	themeGroup "ING_NPC"
+	themeIndex 16
+	pictureGroup "NPC"
+	pictureIndex 0
+player
+	designName "MinorFaction_ING_HuttCartel"
+	inGameName "IDS_ING_ScenarioPlayerNameMinorFaction_HuttCartel"
+	overrideRaceName "Pirate"
+	teamIndex -1
+	startingCredits 1000
+	startingMetal 300
+	startingCrystal 100
+	playerType "NPCMinorFaction"
+	minorFactionPlayerDefName "HuttCartel"
+	themeGroup "ING_NPC"
+	themeIndex 7
+	pictureGroup "NPC"
+	pictureIndex 0	
+player
+	designName "MinorFaction_ING_All1"
+	inGameName "IDS_ING_ScenarioPlayerNameMinorFaction_All1"
+	overrideRaceName "RebelAlliance"
+	teamIndex -1
+	startingCredits 1000
+	startingMetal 300
+	startingCrystal 100
+	playerType "NPCMinorFaction"
+	minorFactionPlayerDefName "AllCorellia"
+	themeGroup "ING_NPC"
+	themeIndex 4
+	pictureGroup "NPC"
+	pictureIndex 0
+player
+	designName "MinorFaction_ING_Emp0"
+	inGameName "IDS_ING_ScenarioPlayerNameMinorFaction_Emp0"
+	overrideRaceName "ImperialWarlords"
+	teamIndex -1
+	startingCredits 1000
+	startingMetal 300
+	startingCrystal 100
+	playerType "NPCMinorFaction"
+	minorFactionPlayerDefName "EmpCiutric"
+	themeGroup "ING_NPC"
+	themeIndex 12
+	pictureGroup "NPC"
+	pictureIndex 0
+player
+	designName "MinorFaction_ING_Emp1"
+	inGameName "IDS_ING_ScenarioPlayerNameMinorFaction_Emp1"
+	overrideRaceName "ImperialWarlords"
+	teamIndex -1
+	startingCredits 1000
+	startingMetal 300
+	startingCrystal 100
+	playerType "NPCMinorFaction"
+	minorFactionPlayerDefName "EmpMaldrood"
+	themeGroup "ING_NPC"
+	themeIndex 11
+	pictureGroup "NPC"
+	pictureIndex 0
+player
+	designName "MinorFaction_ING_Man0"
+	inGameName "IDS_ING_ScenarioPlayerNameMinorFaction_Man0"
+	overrideRaceName "MandalorianRaiders"
+	teamIndex -1
+	startingCredits 1000
+	startingMetal 300
+	startingCrystal 100
+	playerType "NPCMinorFaction"
+	minorFactionPlayerDefName "ManDxunMercs"
+	themeGroup "ING_NPC"
+	themeIndex 15
+	pictureGroup "NPC"
+	pictureIndex 0
+player
+	designName "MinorFaction_ING_CSA"
+	inGameName "IDS_ING_ScenarioPlayerNameMinorFaction_CSA"
+	overrideRaceName "Pirate"
+	teamIndex -1
+	startingCredits 1000
+	startingMetal 300
+	startingCrystal 100
+	playerType "NPCMinorFaction"
+	minorFactionPlayerDefName "CSA"
+	themeGroup "ING_NPC"
+	themeIndex 6
+	pictureGroup "NPC"
+	pictureIndex 0
+npcMiltiaPlayerCountPerGalaxy 4

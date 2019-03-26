@@ -214,8 +214,7 @@ Weapon
 			soundCount 3
 			sound "WEAPON_TECHCAPITALLASERMEDIUM_MUZZLE"
 			sound "WEAPON_TECHCAPITALLASERMEDIUM_MUZZLE_ALT1"
-			sound "
-"
+			sound ""
 		hitEffectName "Weapon_TechCapitalLaserMedium_Hit"
 		hitHullEffectSounds
 			soundCount 1
