@@ -1,8 +1,5 @@
 TXT
-NumStrings 10246
-StringInfo
-	ID "IDSOptionsScreenEffectOptionsIsPostProcessSceneEnabled"
-	Value "Bloom & Post Processing"
+NumStrings 10245
 StringInfo
 	ID "IDS_Ability_ING_BuiltOnHope_NAME"
 	Value "Built on Hope"
@@ -8408,8 +8405,7 @@ StringInfo
 	Value "Matriarchs are typically the head of Advent battle groups or dioceses, a role that is as symbolic as it is powerful. Usually ranked based on their psionic abilities, Matriarch Celestia is among the strongest, capable of forming billions of psionic connections with her followers. This telepathic strength gives her unrivaled abilities to support fleets under her command, causing TEC Command to offer a reward to the crew that kills her Rapture Battlecruiser in combat."
 StringInfo
 	ID "IDS_Capitalship_E4X_HeroLeaderPsi_TACT"
-	Value "Matriarch Celestia is the ultimate centerpiece to base your fleet around. All of her main abilities buff nearby allies, so positioning her in the center of a battleball is crucial. She can give a powerful boost to strikecraft, and can both boost the defense (especially against Phase Missiles) and offense of her fleet. Use her ultimate ability to give important ships a long boost, including other heroes. She is very vulnerable to interruptions however, so 
- she is well escorted."
+	Value "Matriarch Celestia is the ultimate centerpiece to base your fleet around. All of her main abilities buff nearby allies, so positioning her in the center of a battleball is crucial. She can give a powerful boost to strikecraft, and can both boost the defense (especially against Phase Missiles) and offense of her fleet. Use her ultimate ability to give important ships a long boost, including other heroes. She is very vulnerable to interruptions however, so she is well escorted."
 StringInfo
 	ID "IDS_Ability_E4X_JointPrecognition_NAME"
 	Value "Joint Precognition"
