@@ -1514,8 +1514,8 @@ minorFactionsData
 				name "HuttCartel"
 				planetAbilities
 					ability:0 "Ability_ING_MinorFactionIllegalCargo"
-					ability:1 "AbilityMinorFactionTradeCrystalForCreditsBetterRate"
-					ability:2 ""
+					ability:1 "Ability_E4X_MinorFactionTradeCreditsForCrystalBetterRate"
+					ability:2 "Ability_ING_MinorFactionSellCapitalShipChelandion"
 					ability:3 ""
 					ability:4 ""
 			minorFactionPlayerDef		

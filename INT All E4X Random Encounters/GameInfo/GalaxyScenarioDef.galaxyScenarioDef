@@ -1599,7 +1599,7 @@ orbitBodyType
 	typeName "Kessel"
 	entityDefName "Planet_ING_Kessel"
 	defaultTemplateName "Template:Kessel"		
-planetItemTypeCount 515
+planetItemTypeCount 516
 planetItemType
 	designName "All:Module:CapitalShipFactory"
 	entityDefName "PLANETMODULE_ING_AllCapitalshipFactory"
@@ -3099,7 +3099,10 @@ planetItemType
 	entityDefName "CAPITALSHIP_ING_N_Providence"		
 planetItemType
 	designName "Other:Capitalship:Lucrehulk"
-	entityDefName "CAPITALSHIP_ING_N_Lucrehulk"	
+	entityDefName "CAPITALSHIP_ING_N_Lucrehulk"
+planetItemType
+	designName "Other:Capitalship:HuttAssaultCruiser"
+	entityDefName "CAPITALSHIP_ING_HuttAssaultCruiser"
 planetItemType
 	designName "Other:Frigate:Dreadnaught"
 	entityDefName "Frigate_ING_CaptureableDreadnaught"
@@ -4391,10 +4394,11 @@ planetItemsTemplate
 				param ""
 			owner "RandomMilitia"
 			colonizeChance 1.0
-			items 81
+			items 80
 				item "Other:Capitalship:Providence"
-				item "Other:Capitalship:Providence"
-				item "Other:Capitalship:Venator"								
+				item "Other:Capitalship:Lucrehulk"
+				item "Other:Capitalship:Venator"
+				item "Other:Capitalship:HuttAssaultCruiser"								
 				item "Mil:Frigate:AntiFighter"
 				item "Mil:Frigate:AntiFighter"
 				item "Mil:Frigate:AntiFighter"
@@ -4424,8 +4428,7 @@ planetItemsTemplate
 				item "Mil:Frigate:Light" 
 				item "Mil:Frigate:Light"
 				item "Mil:Frigate:Light"
-				item "Mil:Frigate:Light" 
-				item "Mil:Frigate:Light"																
+				item "Mil:Frigate:Light" 																
 				item "Mil:Corvette:Skipray"
 				item "Mil:Corvette:Skipray"
 				item "Mil:Corvette:Skipray"
@@ -4442,8 +4445,7 @@ planetItemsTemplate
 				item "Mil:Corvette:Skipray"
 				item "Mil:Corvette:Skipray"
 				item "Mil:Corvette:Skipray"
-				item "Mil:Corvette:Skipray"
-				item "Mil:Corvette:Skipray"																				
+				item "Mil:Corvette:Skipray"																			
 				item "Mil:Frigate:Siege"
 				item "Mil:Frigate:Siege"	
 				item "Mil:Frigate:Siege"
@@ -4472,7 +4474,7 @@ planetItemsTemplate
 				item "Mil:Module:Hangar"	
 				item "Mil:Module:Hangar"		
 				item "Other:Flag:Grant1000XP"		
-				item "Other:Flag:Grant1000XP"																							
+				item "Other:Flag:Grant200XP"																							
 planetItemsTemplate
 	templateName "Template:LocalMilitia_AllianceStrong"
 	subTemplates 0
@@ -5358,9 +5360,9 @@ planetItemsTemplate
 				item "Man:Module:TurbolaserTurret"		
 				item "Man:Module:TurbolaserTurret"		
 				item "Man:Module:TurbolaserTurret"
-				item "All:Module:RepairPlatform"	
-				item "All:Module:RepairPlatform"	
-				item "All:Module:RepairPlatform"
+				item "Man:Module:RepairPlatform"	
+				item "Man:Module:RepairPlatform"	
+				item "Man:Module:RepairPlatform"
 				item "Man:Module:ShieldGenerator"		
 				item "Man:Corvette:Firespray"
 				item "Man:Corvette:Firespray"
@@ -6385,7 +6387,7 @@ planetItemsTemplate
 				item "Mil:Module:MetalExtractor"
 				item "Mil:Module:MetalExtractor"
 				item "Mil:Module:AllTradePort"		
-				item "Other:Capitalship:Providence"
+				item "Other:Capitalship:HuttAssaultCruiser"
 				item "Mil:Frigate:Light"
 				item "Mil:Frigate:Light"
 				item "Mil:Frigate:LongRange"
@@ -6671,8 +6673,8 @@ player
 	startingMetal 0
 	startingCrystal 0
 	playerType "NPCOccupationVictory"
-	themeGroup "NPC"
-	themeIndex 16
+	themeGroup "ING_NPC"
+	themeIndex 13
 	pictureGroup "NPC"
 	pictureIndex 0
 player
