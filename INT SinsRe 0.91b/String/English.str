@@ -1,5 +1,11 @@
 TXT
-NumStrings 10245
+NumStrings 10247
+StringInfo
+	ID "IDS_Ability_ING_LoadIonTorpedoes_NAME"
+	Value "Load Ion Torpedoes"
+StringInfo
+	ID "IDS_Ability_ING_LoadIonTorpedoes_DESC"
+	Value "Instructs all Starfighters near the MC75 to switch their secondary weapons to Ion Torpedoes and Mag Pulse Bombs. These weapons deal less direct damage, but do extra damage to shields. If the target has no shields remaining, it suffers reduced weapon and engine effectiveness, and has a small chance of totally disabling the target."
 StringInfo
 	ID "IDS_Ability_ING_BuiltOnHope_NAME"
 	Value "Built on Hope"
@@ -1988,7 +1994,7 @@ StringInfo
 	Value "Dangerous Territory"
 StringInfo
 	ID "IDS_Ability_ING_DangerousTerritroy_DESC"
-	Value "As outlaws to most of the known galaxy, the Rebels have grown accustomed to operating in hostile areas. While the MC80A Cruiser is orbiting a hostile planet, all allies get a bonus to hyperspace charge up rates and damage output."
+	Value "As outlaws to most of the known galaxy, the Rebels have grown accustomed to operating in hostile areas. While the MC75 is orbiting a hostile planet, all allies get a bonus to hyperspace charge up rates and damage output."
 StringInfo
 	ID "IDS_Ability_ING_HitAndRun_NAME"
 	Value "Hit and Run"
@@ -2909,7 +2915,7 @@ StringInfo
 	Value "Without the population and resources of the Core Worlds, all the Imperial Warlords have had to find ways to stretch their resources and make do with less. Investing in more automation can allow ships and shipyards to run with skeleton crews, but with some loss of speed."
 StringInfo
 	ID "IDS_Research_ING_FighterAccess_EmpDefender_DESC"
-	Value "Acquires the technology for the advanced TIE Defender, perhaps the best fighter in the galaxy. Originally developed by Grand Admiral Demetrius Zaarin, his attempt to overthrown the Emperor prevented the Empire from mass producing this expensive fighter, yet the researchers involved with the project have been known to sell the design to interested parties."
+	Value "Acquires the technology for the advanced TIE Defender, perhaps the best fighter in the galaxy. Originally developed by Grand Admiral Demetrius Zaarin, his attempt to overthrow the Emperor prevented the Empire from mass producing this expensive fighter, yet the researchers involved with the project have been known to sell the design to interested parties."
 StringInfo
 	ID "IDS_Research_ING_FondorTechnicians_NAME"
 	Value "Fondor Technicians"
@@ -8405,7 +8411,7 @@ StringInfo
 	Value "Matriarchs are typically the head of Advent battle groups or dioceses, a role that is as symbolic as it is powerful. Usually ranked based on their psionic abilities, Matriarch Celestia is among the strongest, capable of forming billions of psionic connections with her followers. This telepathic strength gives her unrivaled abilities to support fleets under her command, causing TEC Command to offer a reward to the crew that kills her Rapture Battlecruiser in combat."
 StringInfo
 	ID "IDS_Capitalship_E4X_HeroLeaderPsi_TACT"
-	Value "Matriarch Celestia is the ultimate centerpiece to base your fleet around. All of her main abilities buff nearby allies, so positioning her in the center of a battleball is crucial. She can give a powerful boost to strikecraft, and can both boost the defense (especially against Phase Missiles) and offense of her fleet. Use her ultimate ability to give important ships a long boost, including other heroes. She is very vulnerable to interruptions however, so she is well escorted."
+	Value "Matriarch Celestia is the ultimate centerpiece to base your fleet around. All of her main abilities buff nearby allies, so positioning her in the center of a battleball is crucial. She can give a powerful boost to strikecraft, and can both boost the defense (especially against Phase Missiles) and offense of her fleet. Use her ultimate ability to give important ships a long boost, including other heroes. She is very vulnerable to interruptions however, so ensure she is well escorted."
 StringInfo
 	ID "IDS_Ability_E4X_JointPrecognition_NAME"
 	Value "Joint Precognition"
