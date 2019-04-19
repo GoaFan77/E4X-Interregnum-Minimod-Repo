@@ -1,5 +1,11 @@
 TXT
-NumStrings 10247
+NumStrings 10249
+StringInfo
+	ID "IDS_Ability_ING_MinorFactionImperialPropaganda_NAME"
+	Value "Imperial Propaganda"
+StringInfo
+	ID "IDS_Ability_ING_MinorFactionImperialPropaganda_DESC"
+	Value "Prince-Admiral Delak Krennel launches a Propaganda campaign on nearby worlds designed to designed to encourage the law and order of the Ciutric Hegemony. Hinders the influence of enemy culture on nearby planets."
 StringInfo
 	ID "IDS_Ability_ING_LoadIonTorpedoes_NAME"
 	Value "Load Ion Torpedoes"
@@ -188,13 +194,13 @@ StringInfo
 	Value "Civil Strife"
 StringInfo
 	ID "IDS_Ability_ING_MinorFactionCivilStrife_DESC"
-	Value "Agents of the Hegemony are sent to instigate disruption and foment rebellion on enemy worlds. Causes target planet to periodically lose allegiance."
+	Value "Agents of the Hegemony are sent to instigate disruption and foment rebellion on enemy worlds by exploiting animosity between different groups and species. Causes the target planet to periodically lose allegiance."
 StringInfo
 	ID "IDS_Ability_ING_MinorFactionTradeShipArmorCEC_NAME"
 	Value "CEC Freighters"
 StringInfo
 	ID "IDS_Ability_ING_MinorFactionTradeShipArmorCEC_DESC"
-	Value "The Corellian Engineering Corporation specializes in the construction of civilian freight haulers. This is leveraged to enhance the health and armor of freighters under your command." 
+	Value "The Corellian Engineering Corporation specializes in the construction of durable civilian freight haulers. This is leveraged to enhance the health and armor of freighters under your command." 
 StringInfo
 	ID "IDS_Ability_ING_MinorFactionSellFrigatesCEC_NAME"
 	Value "Purchase Corellian Ships"
