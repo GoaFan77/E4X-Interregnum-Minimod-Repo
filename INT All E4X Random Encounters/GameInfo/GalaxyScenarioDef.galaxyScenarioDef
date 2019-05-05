@@ -1664,8 +1664,8 @@ planetItemType
 	designName "All:Capitalship:MC80"
 	entityDefName "CAPITALSHIP_ING_AllMC80"
 planetItemType
-	designName "All:Capitalship:MC80A"
-	entityDefName "CAPITALSHIP_ING_AllMC80A"
+	designName "All:Capitalship:MC75"
+	entityDefName "CAPITALSHIP_ING_AllMC75"
 planetItemType
 	designName "All:Capitalship:MC80B"
 	entityDefName "CAPITALSHIP_ING_AllMC80B"
@@ -4394,7 +4394,7 @@ planetItemsTemplate
 				param ""
 			owner "RandomMilitia"
 			colonizeChance 1.0
-			items 80
+			items 76
 				item "Other:Capitalship:Providence"
 				item "Other:Capitalship:Lucrehulk"
 				item "Other:Capitalship:Venator"
@@ -4408,7 +4408,6 @@ planetItemsTemplate
 				item "Mil:Frigate:AntiFighter"
 				item "Mil:Frigate:AntiFighter"
 				item "Mil:Frigate:AntiFighter"
-				item "Mil:Frigate:AntiFighter"																
 				item "Mil:Frigate:Dreadnaught"	
 				item "Mil:Frigate:Dreadnaught"
 				item "Mil:Frigate:Dreadnaught"	
@@ -4445,7 +4444,6 @@ planetItemsTemplate
 				item "Mil:Corvette:Skipray"
 				item "Mil:Corvette:Skipray"
 				item "Mil:Corvette:Skipray"
-				item "Mil:Corvette:Skipray"																			
 				item "Mil:Frigate:Siege"
 				item "Mil:Frigate:Siege"	
 				item "Mil:Frigate:Siege"
@@ -4453,12 +4451,11 @@ planetItemsTemplate
 				item "Mil:Frigate:Siege"
 				item "Mil:Frigate:Siege"
 				item "Mil:Frigate:Siege"
-				item "Mil:Frigate:Siege"															
-				item "All:Module:MetalExtractor"
-				item "All:Module:CrystalExtractor"	
-				item "All:Module:TradePort"	
-				item "All:Module:TradePort"	
-				item "All:Module:TradePort"	
+				item "Mil:Module:MetalExtractor"
+				item "Mil:Module:CrystalExtractor"	
+				item "Mil:Module:AllTradePort"	
+				item "Mil:Module:AllTradePort"	
+				item "Mil:Module:AllTradePort"	
 				item "Mil:Module:SpaceMine"	
 				item "Mil:Module:SpaceMine"
 				item "Mil:Module:SpaceMine"			
@@ -4474,7 +4471,6 @@ planetItemsTemplate
 				item "Mil:Module:Hangar"	
 				item "Mil:Module:Hangar"		
 				item "Other:Flag:Grant1000XP"		
-				item "Other:Flag:Grant200XP"																							
 planetItemsTemplate
 	templateName "Template:LocalMilitia_AllianceStrong"
 	subTemplates 0
@@ -4515,7 +4511,7 @@ planetItemsTemplate
 				param ""
 			owner "RandomEncounterEmpire"
 			colonizeChance 1.0
-			items 43
+			items 41
 				item "Emp:Frigate:Light"
 				item "Emp:Frigate:Light"
 				item "Emp:Frigate:Light"
@@ -4557,8 +4553,6 @@ planetItemsTemplate
 				item "Emp:Module:RepairPlatform"
 				item "Other:Module:KuatShipyards"
 				item "Other:Flag:Grant1000XP"
-				item "Other:Flag:Grant1000XP"
-				item "Other:Flag:Grant1000XP"
 planetItemsTemplate
 	templateName "Template:RandomEncounterMonCalamari"
 	subTemplates 1
@@ -4570,7 +4564,7 @@ planetItemsTemplate
 				param ""
 			owner "RandomEncounterMonCalamari"
 			colonizeChance 1.0
-			items 55
+			items 53
 				item "All:Frigate:Light"
 				item "All:Frigate:Light"
 				item "All:Frigate:Light"
@@ -4623,9 +4617,7 @@ planetItemsTemplate
 				item "All:Module:RepairPlatform"
 				item "All:Module:RepairPlatform"
 				item "All:Module:RepairPlatform"
-				item "Other:Flag:Grant1000XP"
-				item "Other:Flag:Grant1000XP"
-				item "Other:Flag:Grant1000XP"					
+				item "Other:Flag:Grant1000XP"				
 planetItemsTemplate
 	templateName "Template:LocalMilitiaStrongFair"
 	subTemplates 0
@@ -5187,7 +5179,7 @@ planetItemsTemplate
 				param ""
 			owner "Pirate"
 			colonizeChance 1
-			items 86
+			items 85
 				item "Pirate:Frigate:Heavy"
 				item "Pirate:Frigate:Heavy"
 				item "Pirate:Frigate:Heavy"
@@ -5272,7 +5264,6 @@ planetItemsTemplate
 				item "Other:Module:NeutralTradePort"
 				item "Pirate:Module:PirateCommandCenter"
 				item "Pirate:Capitalship:PirateLeader"
-				item "Other:Flag:Grant200XP"
 				item "Other:Flag:Grant1000XP"	
 planetItemsTemplate
 	templateName "Template:Mandalore"
@@ -5285,7 +5276,7 @@ planetItemsTemplate
 				param ""
 			owner "MandalorianRaiders"
 			colonizeChance 1
-			items 105
+			items 104
 				item "Man:Capitalship:Keldabe"
 				item "Man:Capitalship:Keldabe"
 				item "Man:Capitalship:Keldabe"
@@ -5389,8 +5380,7 @@ planetItemsTemplate
 				item "Man:Module:MetalExtractor"				
 				item "Other:Module:MandalMotors"
 				item "Other:Flag:Grant1000XP"
-				item "Other:Flag:Grant1000XP"
-				item "Other:Flag:Grant1000XP"			
+				item "Other:Flag:Grant200XP"		
 planetItemsTemplate
 	templateName "Template:MandalorianBase"
 	subTemplates 1
@@ -5402,7 +5392,7 @@ planetItemsTemplate
 				param ""
 			owner "MandalorianRaiders"
 			colonizeChance 1
-			items 89
+			items 88
 				item "Man:Capitalship:Keldabe"
 				item "Man:Capitalship:Venator"
 				item "Man:Frigate:Dreadnaught"
@@ -5491,7 +5481,6 @@ planetItemsTemplate
 				item "Man:Module:MetalExtractor"					
 				item "Man:Module:CrystalExtractor"				
 				item "Other:Flag:Grant1000XP"
-				item "Other:Flag:Grant1000XP"				
 planetItemsTemplate
 	templateName "Template:CyberFortress"
 	subTemplates 1
@@ -5609,7 +5598,7 @@ planetItemsTemplate
 				param ""
 			owner "Occupation"
 			colonizeChance 1
-			items 43
+			items 42
 				item "Emp:Starbase:Jovan"
 				item "Emp:Titan:Bellator"
 				item "Emp:Capitalship:ImperialII"
@@ -5652,7 +5641,6 @@ planetItemsTemplate
 				item "Emp:Frigate:Siege"
 				item "Emp:Frigate:Siege"
 				item "Other:Flag:Grant1000XP"
-				item "Other:Flag:Grant200XP"
 planetItemsTemplate
 	templateName "Template:DefaultMinorFaction"
 	subTemplates 0
@@ -5663,7 +5651,7 @@ planetItemsTemplate
 				param "DefaultTech"
 			owner "PlanetOwner"
 			colonizeChance 1
-			items 27
+			items 28
 				item "Tech:Module:FrigateFactory"
 				item "Tech:Module:CapitalShipFactory"
 				item "Tech:Module:TradePort"
@@ -5691,13 +5679,14 @@ planetItemsTemplate
 				item "Tech:Frigate:Heavy"
 				item "Tech:Frigate:Constructor"
 				item "Tech:Frigate:Constructor"	
+				item "Other:Flag:Beacon"
 		group
 			condition
 				type "PlanetOwnerIsMinorFactionWithFactionName"
 				param "DefaultPsi"
 			owner "PlanetOwner"
 			colonizeChance 1
-			items 25
+			items 26
 				item "Psi:Module:FrigateFactory"
 				item "Psi:Module:CapitalShipFactory"
 				item "Psi:Module:TradePort"
@@ -5723,6 +5712,7 @@ planetItemsTemplate
 				item "Psi:Frigate:Heavy"
 				item "Psi:Frigate:Constructor"
 				item "Psi:Frigate:Constructor"
+				item "Other:Flag:Beacon"
 		group
 			condition
 				type "PlanetOwnerIsMinorFactionWithFactionName"
@@ -5764,14 +5754,14 @@ planetItemsTemplate
 				item "Phase:Corvette:Loyalist"
 				item "Phase:Frigate:Constructor"
 				item "Phase:Frigate:Constructor"
-				item "Other:Flag:Grant200XP"
+				item "Other:Flag:Beacon"
 		group
 			condition
 				type "PlanetOwnerIsMinorFactionWithFactionName"
 				param "TechMiners"
 			owner "PlanetOwner"
 			colonizeChance 1
-			items 33
+			items 34
 				item "Tech:Module:FrigateFactory"
 				item "Tech:Module:CapitalShipFactory"
 				item "Tech:Module:TradePort"
@@ -5805,13 +5795,14 @@ planetItemsTemplate
 				item "Tech:Frigate:Utility1"
 				item "Tech:Frigate:Constructor"
 				item "Tech:Frigate:Constructor"
+				item "Other:Flag:Beacon"
 		group
 			condition
 				type "PlanetOwnerIsMinorFactionWithFactionName"
 				param "TechScrappers"
 			owner "PlanetOwner"
 			colonizeChance 1
-			items 30
+			items 31
 				item "Tech:Module:FrigateFactory"
 				item "Tech:Module:CapitalShipFactory"
 				item "Tech:Module:TradePort"
@@ -5842,6 +5833,7 @@ planetItemsTemplate
 				item "Tech:Frigate:Utility1"
 				item "Tech:Frigate:Constructor"
 				item "Tech:Frigate:Constructor"
+				item "Other:Flag:Beacon"
 		group
 			condition
 				type "PlanetOwnerIsMinorFactionWithFactionName"
@@ -5884,7 +5876,7 @@ planetItemsTemplate
 				item "Tech:Frigate:Utility0"
 				item "Tech:Frigate:Constructor"
 				item "Tech:Frigate:Constructor"
-				item "Other:Flag:Grant200XP"
+				item "Other:Flag:Beacon"
 		group
 			condition
 				type "PlanetOwnerIsMinorFactionWithFactionName"
@@ -5924,14 +5916,14 @@ planetItemsTemplate
 				item "Tech:Frigate:AntiModule"
 				item "Tech:Frigate:Constructor"
 				item "Tech:Frigate:Constructor"
-				item "Other:Flag:Grant200XP"
+				item "Other:Flag:Beacon"
 		group
 			condition
 				type "PlanetOwnerIsMinorFactionWithFactionName"
 				param "TechXenophobes"
 			owner "PlanetOwner"
 			colonizeChance 1
-			items 35
+			items 36
 				item "Tech:Module:FrigateFactory"
 				item "Tech:Module:CapitalShipFactory"
 				item "Tech:Module:TradePort"
@@ -5967,13 +5959,14 @@ planetItemsTemplate
 				item "Tech:Corvette:Rebel"
 				item "Tech:Frigate:Constructor"
 				item "Tech:Frigate:Constructor"
+				item "Other:Flag:Beacon"
 		group
 			condition
 				type "PlanetOwnerIsMinorFactionWithFactionName"
 				param "TechDefensive"
 			owner "PlanetOwner"
 			colonizeChance 1
-			items 34
+			items 35
 				item "Tech:Module:FrigateFactory"
 				item "Tech:Module:CapitalShipFactory"
 				item "Tech:Module:TradePort"
@@ -6008,13 +6001,14 @@ planetItemsTemplate
 				item "Tech:Frigate:Heavy"
 				item "Tech:Frigate:Constructor"
 				item "Tech:Frigate:Constructor"
+				item "Other:Flag:Beacon"
 		group
 			condition
 				type "PlanetOwnerIsMinorFactionWithFactionName"
 				param "TechUsedFrigates"
 			owner "PlanetOwner"
 			colonizeChance 1
-			items 34
+			items 35
 				item "Psi:Module:FrigateFactory"
 				item "Phase:Module:FrigateFactory"
 				item "Tech:Module:CapitalShipFactory"
@@ -6049,13 +6043,14 @@ planetItemsTemplate
 				item "Phase:Frigate:Utility0"
 				item "Tech:Frigate:Constructor"
 				item "Tech:Frigate:Constructor"
+				item "Other:Flag:Beacon"
 		group
 			condition
 				type "PlanetOwnerIsMinorFactionWithFactionName"
 				param "PsiPacifists"
 			owner "PlanetOwner"
 			colonizeChance 1
-			items 29
+			items 30
 				item "Psi:Module:FrigateFactory"
 				item "Psi:Module:CapitalShipFactory"
 				item "Psi:Module:TradePort"
@@ -6085,13 +6080,14 @@ planetItemsTemplate
 				item "Psi:Frigate:Carrier"
 				item "Psi:Frigate:Constructor"
 				item "Psi:Frigate:Constructor"
+				item "Other:Flag:Beacon"
 		group
 			condition
 				type "PlanetOwnerIsMinorFactionWithFactionName"
 				param "PsiCulture"
 			owner "PlanetOwner"
 			colonizeChance 1
-			items 33
+			items 34
 				item "Psi:Module:FrigateFactory"
 				item "Psi:Module:CapitalShipFactory"
 				item "Psi:Module:TradePort"
@@ -6125,6 +6121,7 @@ planetItemsTemplate
 				item "Psi:Corvette:Loyalist"
 				item "Psi:Frigate:Constructor"
 				item "Psi:Frigate:Constructor"
+				item "Other:Flag:Beacon"
 		group
 			condition
 				type "PlanetOwnerIsMinorFactionWithFactionName"
@@ -6162,7 +6159,7 @@ planetItemsTemplate
 				item "Psi:Frigate:Utility1"
 				item "Psi:Frigate:Constructor"
 				item "Psi:Frigate:Constructor"
-				item "Other:Flag:Grant200XP"
+				item "Other:Flag:Beacon"
 		group
 			condition
 				type "PlanetOwnerIsMinorFactionWithFactionName"
@@ -6203,14 +6200,14 @@ planetItemsTemplate
 				item "Psi:Frigate:Siege"
 				item "Psi:Frigate:Constructor"
 				item "Psi:Frigate:Constructor"
-				item "Other:Flag:Grant200XP"
+				item "Other:Flag:Beacon"
 		group
 			condition
 				type "PlanetOwnerIsMinorFactionWithFactionName"
 				param "PhaseTransporters"
 			owner "PlanetOwner"
 			colonizeChance 1
-			items 29
+			items 30
 				item "Phase:Module:FrigateFactory"
 				item "Phase:Module:CapitalShipFactory"
 				item "Phase:Module:TradePort"
@@ -6240,6 +6237,7 @@ planetItemsTemplate
 				item "Phase:Corvette:Rebel"
 				item "Phase:Frigate:Constructor"
 				item "Phase:Frigate:Constructor"
+				item "Other:Flag:Beacon"
 		group
 			condition
 				type "PlanetOwnerIsMinorFactionWithFactionName"
@@ -6281,7 +6279,7 @@ planetItemsTemplate
 				item "Phase:Corvette:Loyalist"			
 				item "Phase:Frigate:Constructor"
 				item "Phase:Frigate:Constructor"
-				item "Other:Flag:Grant200XP"
+				item "Other:Flag:Beacon"
 		group
 			condition
 				type "PlanetOwnerIsMinorFactionWithFactionName"
@@ -6320,14 +6318,14 @@ planetItemsTemplate
 				item "Phase:Frigate:Siege"
 				item "Phase:Frigate:Constructor"
 				item "Phase:Frigate:Constructor"
-				item "Other:Flag:Grant200XP"
+				item "Other:Flag:Beacon"
 		group
 			condition
 				type "PlanetOwnerIsMinorFactionWithFactionName"
 				param "AllIndependent"
 			owner "PlanetOwner"
 			colonizeChance 1
-			items 32
+			items 33
 				item "All:Module:FrigateFactory"
 				item "All:Module:CapitalShipFactory"
 				item "All:Module:TradePort"
@@ -6360,21 +6358,22 @@ planetItemsTemplate
 				item "All:Frigate:Constructor"
 				item "All:Frigate:Constructor"
 				item "Bonus:LocalGovernment"
+				item "Other:Flag:Beacon"
 		group
 			condition
 				type "PlanetOwnerIsMinorFactionWithFactionName"
 				param "HuttCartel"
 			owner "PlanetOwner"
 			colonizeChance 1
-			items 33
+			items 34
 				item "Mil:Module:FrigateFactory"
 				item "Mil:Module:CapitalShipFactory"
 				item "Mil:Module:AllTradePort"
-				item "All:Module:RepairPlatform"
-				item "Mil:Module:TorpedoTurret"	
-				item "Mil:Module:TorpedoTurret"
-				item "Mil:Module:TorpedoTurret"	
-				item "Mil:Module:TorpedoTurret"
+				item "Mil:Module:RepairPlatform"
+				item "Mil:Module:TurbolaserTurret"	
+				item "Mil:Module:TurbolaserTurret"
+				item "Mil:Module:TurbolaserTurret"	
+				item "Mil:Module:TurbolaserTurret"
 				item "Mil:Module:Hangar"
 				item "Mil:Module:CrystalExtractor"
 				item "Mil:Module:CrystalExtractor"
@@ -6400,13 +6399,14 @@ planetItemsTemplate
 				item "Mil:Corvette:Skipray"
 				item "Mil:Frigate:Constructor"
 				item "Mil:Frigate:Constructor"
+				item "Other:Flag:Beacon"
 		group
 			condition
 				type "PlanetOwnerIsMinorFactionWithFactionName"
 				param "AllCorellia"
 			owner "PlanetOwner"
 			colonizeChance 1
-			items 37
+			items 39
 				item "All:Module:FrigateFactory"
 				item "All:Module:FrigateFactory"
 				item "All:Module:CapitalShipFactory"
@@ -6416,8 +6416,8 @@ planetItemsTemplate
 				item "All:Module:TorpedoTurret"
 				item "All:Module:TorpedoTurret"
 				item "All:Module:TorpedoTurret"	
-				item "All:Module:TorpedoTurret"
 				item "All:Module:HangarDefense"
+				item "All:Module:CivicLab"
 				item "All:Module:HangarDefense"			
 				item "All:Module:CrystalExtractor"
 				item "All:Module:CrystalExtractor"
@@ -6442,19 +6442,20 @@ planetItemsTemplate
 				item "All:Frigate:AntiFighter"
 				item "All:Frigate:AntiFighter"
 				item "All:Frigate:BulkCruiser"
+				item "All:Frigate:BulkCruiser"
 				item "All:Frigate:Constructor"
 				item "All:Frigate:Constructor"
+				item "Other:Flag:Beacon"
 		group
 			condition
 				type "PlanetOwnerIsMinorFactionWithFactionName"
 				param "EmpCiutric"
 			owner "PlanetOwner"
 			colonizeChance 1
-			items 34
+			items 30
 				item "Emp:Module:FrigateFactory"
 				item "Emp:Module:CapitalShipFactory"
 				item "Emp:Module:TradePort"
-				item "Emp:Module:Refinery"
 				item "Emp:Module:RepairPlatform"
 				item "Emp:Module:GolanIII"
 				item "Emp:Module:GolanIII"
@@ -6468,34 +6469,30 @@ planetItemsTemplate
 				item "Emp:Module:MetalExtractor"
 				item "Emp:Module:MetalExtractor"
 				item "Emp:Module:MetalExtractor"
-				item "Emp:Module:NonCombatLabWarlords"
 				item "Emp:Module:CultureCenter"
 				item "Emp:Capitalship:ImperialII"
 				item "Emp:Frigate:Light"
 				item "Emp:Frigate:Light"
-				item "Emp:Frigate:Light"
-				item "Emp:Frigate:LongRange"
 				item "Emp:Frigate:LongRange"
 				item "Emp:Frigate:Raider"
 				item "Emp:Frigate:Raider"	
 				item "Emp:Frigate:Raider"			
 				item "Emp:Frigate:Enforcer"
-				item "Emp:Frigate:Enforcer"
 				item "Emp:Frigate:Dreadnaught"
 				item "Emp:Frigate:Support"
 				item "Emp:Frigate:Constructor"
 				item "Emp:Frigate:Constructor"
+				item "Other:Flag:Beacon"
 		group
 			condition
 				type "PlanetOwnerIsMinorFactionWithFactionName"
 				param "EmpMaldrood"
 			owner "PlanetOwner"
 			colonizeChance 1
-			items 36
+			items 31
 				item "Emp:Module:FrigateFactory"
 				item "Emp:Module:CapitalShipFactory"
 				item "Emp:Module:TradePort"
-				item "Emp:Module:Refinery"
 				item "Emp:Module:GolanIII"
 				item "Emp:Module:GolanIII"
 				item "Emp:Module:GolanIII"			
@@ -6513,31 +6510,27 @@ planetItemsTemplate
 				item "Emp:Capitalship:VictoryII"
 				item "Emp:Frigate:Light"
 				item "Emp:Frigate:Light"
-				item "Emp:Frigate:Light"
-				item "Emp:Frigate:LongRange"
+				item "Emp:Corvette:Skipray"
+				item "Emp:Corvette:Skipray"
 				item "Emp:Frigate:LongRange"
 				item "Emp:Frigate:Raider"
 				item "Emp:Frigate:Raider"
 				item "Emp:Frigate:Enforcer"
-				item "Emp:Frigate:Enforcer"
-				item "Emp:Frigate:Enforcer"
-				item "Emp:Frigate:Dreadnaught"
-				item "Emp:Frigate:Siege"
 				item "Emp:Frigate:Siege"
 				item "Emp:Frigate:Interdictor"
 				item "Emp:Frigate:Constructor"
 				item "Emp:Frigate:Constructor"
-				item "Other:Flag:Grant200XP"
+				item "Other:Flag:Beacon"
 		group
 			condition
 				type "PlanetOwnerIsMinorFactionWithFactionName"
 				param "ManDxunMercs"
 			owner "PlanetOwner"
 			colonizeChance 1
-			items 38
+			items 36
 				item "Man:Module:FrigateFactory"
 				item "Man:Module:CapitalShipFactory"
-				item "Man:Module:Refinery"
+				item "Man:Module:TradePort"
 				item "Man:Module:TurbolaserTurret"
 				item "Man:Module:TurbolaserTurret"
 				item "Man:Module:TurbolaserTurret"
@@ -6565,21 +6558,19 @@ planetItemsTemplate
 				item "Man:Frigate:Dreadnaught"
 				item "Man:Frigate:Siege"
 				item "Man:Frigate:Siege"
-				item "Man:Frigate:Siege"
-				item "Man:Corvette:Firespray"
 				item "Man:Corvette:Firespray"
 				item "Man:Corvette:Firespray"
 				item "Man:Frigate:Antimodule"
 				item "Man:Frigate:Constructor"
 				item "Man:Frigate:Constructor"
-				item "Other:Flag:Grant200XP"
+				item "Other:Flag:Beacon"
 		group
 			condition
 				type "PlanetOwnerIsMinorFactionWithFactionName"
 				param "CSA"
 			owner "PlanetOwner"
 			colonizeChance 1
-			items 35
+			items 36
 				item "Mil:Module:FrigateFactory"
 				item "Mil:Module:CapitalShipFactory"
 				item "Mil:Module:EmpTradePort"
@@ -6615,6 +6606,7 @@ planetItemsTemplate
 				item "Mil:Corvette:Skipray"
 				item "Mil:Frigate:Constructor"
 				item "Mil:Frigate:Constructor"
+				item "Other:Flag:Beacon"
 validPictureGroups 3
 pictureGroup "PlayerPhase"
 pictureGroup "PlayerPsi"

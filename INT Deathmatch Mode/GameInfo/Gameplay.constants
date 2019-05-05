@@ -1517,7 +1517,7 @@ outlawSectorsData
 			minorFactionPlayerDef
 				name "EmpCiutric"
 				planetAbilities
-					ability:0 "AbilityMinorFactionCultureResistance"
+					ability:0 "Ability_ING_MinorFactionImperialPropaganda"
 					ability:1 "Ability_ING_MinorFactionCivilStrife"
 					ability:2 "AbilityMinorFactionTradeCreditsForCrystal"
 					ability:3 ""

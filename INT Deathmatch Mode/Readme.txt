@@ -1,3 +1,4 @@
+===INT Deathmatch Mode===
 This is a minimod for Star Wars: Interregnum. If you are using Interregnum, use THIS minimod instead of the E4X version.
 
 This minimod greatly increases income, culture, research speed, fleet supply etc. according the the speed settings.
@@ -6,11 +7,35 @@ In general, slow is the equivelent of unmodded normal, normal is equivelent of u
 
 You may want to use the mod with the faster combat mod, for a truly fast paced game.
 
----Instillation---
+---Compatible With---
+Enhanced 4X Mod
+Star Wars: Interregnum
+Sins: Remastered
+Most E4X/INT Minimods
 
-To enable this mod, place this folder into your mod folder. Then, in the mods tab of the main menu, enable this mod
-ABOVE the main Enhanced 4X Mod.
+---Not Compatible With---
+INT Beskar
 
-***This mod is NOT compatible with the Beskar Minimod.***
+---Installation---
+To install the minimod, place this folder into your mod folder. In the mods tab of the main menu, enable this mod
+ABOVE the main Enhanced 4X Mod and Interregnum. For best experience, this minimod should be loaded at the top of the minimod stack, below only INT SinsRe and INT All E4X Random Encounters if in use.
 
 If you are using the resetting titan levels minimod, make sure this minimod is above it in the mod order.
+
+---Mod Load Order---
+INT SinsRe (optional)
+INT All E4X Random Encounters (optional)
+INT Deathmatch Mode
+E4X Resetting Titan Levels (optional)
+Other E4X/INT Minimods (optional)
+Interregnum
+Enhanced 4X Mod
+Sins: Re (optional)
+
+---Sample EnabledMods.txt---
+TXT
+Version 0
+enabledModNameCount 3
+enabledModName "INT Deathmatch Mode"
+enabledModName "Star Wars Interregnum Alpha 3.4"
+enabledModName "Enhanced 4X Mod 1.85"
