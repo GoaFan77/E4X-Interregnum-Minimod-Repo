@@ -39,7 +39,7 @@ entities
 			count 7
 			entityDefName "CAPITALSHIP_ING_AllColony"
 			entityDefName "CAPITALSHIP_ING_AllMC80"
-			entityDefName "CAPITALSHIP_ING_AllMC80A"
+			entityDefName "CAPITALSHIP_ING_AllMC75"
 			entityDefName "CAPITALSHIP_ING_AllWingedMC80"
 			entityDefName "CAPITALSHIP_ING_AllMC80B"
 			entityDefName "CAPITALSHIP_ING_AllDauntless"

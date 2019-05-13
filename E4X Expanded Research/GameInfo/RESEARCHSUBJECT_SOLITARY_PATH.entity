@@ -7,7 +7,7 @@ NameStringID "IDS_RESEARCHSUBJECT_SOLITARY_PATH_NAME"
 DescriptionStringID "IDS_RESEARCHSUBJECT_SOLITARY_PATH_DESCRIPTION"
 researchWindowLocation
 	block 0
-	pos [ 4 , 4 ]
+	pos [ 4 , 3 ]
 ResearchField "Diplomacy"
 Prerequisites
 	NumResearchPrerequisites 0

@@ -150,7 +150,7 @@ numFactionWindows 2
 			sharedCapitalShipTwo "CAPITALSHIP_ING_AllWingedMC80"
 			sharedCapitalShipThree "CAPITALSHIP_ING_AllMC80B"
 			sharedCapitalShipFour "CAPITALSHIP_ING_AllMC80"
-			sharedCapitalShipFive "CAPITALSHIP_ING_AllMC80A"
+			sharedCapitalShipFive "CAPITALSHIP_ING_AllMC75"
 			sharedCapitalShipSix "CAPITALSHIP_ING_AllDauntless"
 		spaceBetweenFactionTechs 8
 		leftFactionTechsStartPosition [373, 578]
