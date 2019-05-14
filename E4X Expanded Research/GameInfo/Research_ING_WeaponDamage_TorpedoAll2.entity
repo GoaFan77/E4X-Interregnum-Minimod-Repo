@@ -12,8 +12,8 @@ ResearchField "Combat"
 Prerequisites
 	NumResearchPrerequisites 1
 	ResearchPrerequisite
-		Subject "Research_ING_WeaponDamage_TorpedoAll1"
-		Level 2
+		Subject "Research_ING_AbilityAccess_RebelFighterTorpedoes"
+		Level 1
 	RequiredFactionNameID ""
 	RequiredCompletedResearchSubjects 0
 MinimumArtifactLevel -1
