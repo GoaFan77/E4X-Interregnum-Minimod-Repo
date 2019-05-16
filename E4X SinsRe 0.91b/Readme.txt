@@ -10,8 +10,6 @@ https://www.moddb.com/mods/enhanced-4x-mod
 Sins:  Remastered
 https://www.moddb.com/mods/sinsre
 
-Do NOT use this minimod with Interregnum. For Interregnum, use INT SinsRe 0.91b instead. 
-
 ---Credits---
 This minimod was created and is maintained by Dolynick, the creator of the Sins:Remastered Mod
 
@@ -20,13 +18,9 @@ Enhanced 4X Mod
 Sins: Remastered (required)
 All E4X Minimods
 
----Not Compatible With---
-Star Wars: Interregnum
-All INT Minimods
-
 ---Installation---
 To enable this mod, place this folder into your mod folder. Then, in the mods tab of the main menu, enable this mod
-ABOVE the main Enhanced 4X Mod. For best experience, always load this Minimod ABOVE all other minimods.
+ABOVE the main Enhanced 4X Mod. For best experience, always load this Minimod ABOVE all other minimods (Except "INT SinsRe 0.91b" if also in use).
 
 ---Mod Load Order---
 E4X SinsRe
@@ -38,6 +32,6 @@ Sins: Re
 TXT
 Version 0
 enabledModNameCount 3
-enabledModName "E4X 1.85 SinsRe 0.91b"
+enabledModName "E4X SinsRe 0.91b"
 enabledModName "Enhanced 4X Mod 1.85"
 enabledModName "SinsRemastered-v0.91b"
