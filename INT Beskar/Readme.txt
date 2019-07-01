@@ -19,6 +19,7 @@ Most E4X/INT Minimods
 ---Not Compatible With---
 INT Deathmatch
 INT All E4X Random Encounters
+E4X Alternate Main Menu Music
 
 ---Installation---
 To install the minimod, place this folder into your mod folder. In the mods tab of the main menu, enable this mod

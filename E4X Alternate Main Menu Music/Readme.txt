@@ -5,7 +5,11 @@ A minimod made for the Enhanced 4X Mod (http://forums.sinsofasolarempire.com/414
 Enhanced 4X Mod
 Star Wars: Interregnum
 Sins: Remastered
-All E4X/INT Minimods
+All E4X Minimods
+Most INT Minimods
+
+---Not Compatible With---
+INT Beskar
 
 ---Installation---
 To Install, place this mod ABOVE the main Enhanced 4X Mod in your mod order. In the mods tab of the main menu, enable this mod ABOVE the main Enhanced 4X Mod, and ABOVE Interregnum if in use.
