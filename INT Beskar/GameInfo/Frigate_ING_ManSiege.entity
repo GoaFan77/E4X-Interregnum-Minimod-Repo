@@ -263,10 +263,10 @@ HyperspaceChargingSoundID "Effect ING Hyperspace Chargeup"
 HyperspaceTravelSoundID "HYPERSPACE_TRAVEL"
 EngineSoundID "ENGINE_TECHCAPITALSHIP"
 ability:0 "Ability_ING_ManFrigateColonize"
-ability:1 "Ability_ING_ManSiege"
+ability:1 ""
 ability:2 ""
 ability:3 ""
-ability:4 ""
+ability:4 "Ability_ING_ManSiege"
 MaxAntiMatter 90.000000
 AntiMatterRestoreRate 0.333333
 cargoType "Invalid"
