@@ -28,6 +28,7 @@ ABOVE the main Enhanced 4X Mod and Interregnum. For best experience, this minimo
 
 ---Mod Load Order---
 INT SinsRe (optional)
+E4X SinsRe (optional)
 INT All E4X Random Encounters
 Other E4X/INT Minimods (optional)
 Interregnum

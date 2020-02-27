@@ -1599,7 +1599,7 @@ orbitBodyType
 	typeName "Kessel"
 	entityDefName "Planet_ING_Kessel"
 	defaultTemplateName "Template:Kessel"		
-planetItemTypeCount 516
+planetItemTypeCount 524
 planetItemType
 	designName "All:Module:CapitalShipFactory"
 	entityDefName "PLANETMODULE_ING_AllCapitalshipFactory"
@@ -1670,6 +1670,9 @@ planetItemType
 	designName "All:Capitalship:MC80B"
 	entityDefName "CAPITALSHIP_ING_AllMC80B"
 planetItemType
+designName "All:Capitalship:Providence"
+	entityDefName "CAPITALSHIP_ING_AllProvidence"
+planetItemType
 	designName "All:Capitalship:WingedMC80"
 	entityDefName "CAPITALSHIP_ING_AllWingedMC80"
 planetItemType
@@ -1720,6 +1723,15 @@ planetItemType
 planetItemType
 	designName "All:Frigate:Support"
 	entityDefName "Frigate_ING_AllSupport"
+planetItemType
+designName "NR:Frigate:Scout"
+	entityDefName "Frigate_ING_NrScout"
+planetItemType 
+	designName "NR:Frigate:Proficient"
+	entityDefName "Frigate_ING_NrProficient"
+planetItemType 
+	designName "NR:Frigate:Liberator"
+	entityDefName "Frigate_ING_NrLiberator"
 planetItemType
 	designName "Emp:Module:CapitalShipFactory"
 	entityDefName "PLANETMODULE_ING_EmpCapitalshipFactory"
@@ -1961,6 +1973,9 @@ planetItemType
 	designName "Mil:Module:CapitalShipFactory"
 	entityDefName "PLANETMODULE_ING_MilCapitalshipFactory"
 planetItemType
+	designName "Mil:Module:CombatLab"
+	entityDefName "PLANETMODULE_ING_MilMilitaryLab"
+planetItemType
 	designName "Mil:Module:CrystalExtractor"
 	entityDefName "PLANETMODULE_ING_MilCrystalExtractor"
 planetItemType
@@ -1972,6 +1987,9 @@ planetItemType
 planetItemType
 	designName "Mil:Module:MetalExtractor"
 	entityDefName "PLANETMODULE_ING_MilMetalExtractor"
+planetItemType
+designName "Mil:Module:NonCombatLab"
+	entityDefName "PLANETMODULE_ING_MilCivicLab"
 planetItemType
 	designName "Mil:Module:AllRefinery"
 	entityDefName "PLANETMODULE_ING_MilRefineryAll"
@@ -3107,6 +3125,12 @@ planetItemType
 	designName "Other:Frigate:Dreadnaught"
 	entityDefName "Frigate_ING_CaptureableDreadnaught"
 planetItemType
+designName "Other:Frigate:HapanBattleDragon"
+	entityDefName "Frigate_ING_HapanBattleDragon"
+planetItemType
+	designName "Other:Frigate:HapanNova"
+	entityDefName "Frigate_ING_HapanNova"
+planetItemType
 	designName "Other:Frigate:NebulonEscort"
 	entityDefName "Frigate_ING_N_NebulonB"			
 planetItemType
@@ -3148,7 +3172,7 @@ planetItemType
 planetItemType
 	designName "Cosmetic:TitanPhaseRebel"
 	entityDefName "TITAN_PHASEREBEL_COSMETIC"
-playerTypeCount 11
+playerTypeCount 12
 playerType
 	designName "TechLoyalist"
 	entityDefName "PlayerTechLoyalist"
@@ -3177,6 +3201,9 @@ playerType
 	designName "RebelAlliance"
 	entityDefName "Player_ING_RebelAlliance"
 playerType
+designName "NewRepublic"
+	entityDefName "Player_ING_NewRepublic"	
+playerType
 	designName "Pirate"
 	entityDefName "PlayerPirate"
 playerType	
@@ -3191,7 +3218,7 @@ planetItemsTemplate
 	templateName "Template:DefaultHomePlanetSetup"
 	subTemplates 1
 		template "Template:DefaultMinorFaction"
-	groups 20
+	groups 22
 		group
 			condition
 				type "PlanetOwnerIsRaceNormalStart"
@@ -3320,6 +3347,20 @@ planetItemsTemplate
  				item "All:Frigate:Light"	
  				item "All:Frigate:Support"
 				item "All:Module:CommandCenter"
+				item "Bonus:AllianceHomeworld"
+		group
+			condition
+			type "PlanetOwnerIsRaceNormalStart"
+				param "NewRepublic"
+			owner "PlanetOwner"
+			colonizeChance 1
+			items 7
+				item "All:Module:FrigateFactory"
+				item "All:Module:FrigateFactory"
+				item "All:Frigate:Constructor"
+				item "All:Frigate:Constructor"
+				item "All:Module:CivicLab"
+				item "All:Module:CommandCenter"				
 				item "Bonus:AllianceHomeworld"
 		group
 			condition
@@ -3512,6 +3553,27 @@ planetItemsTemplate
  				item "All:Frigate:Support"
 				item "All:Frigate:Scout"
 				item "All:Frigate:Scout"
+				item "Bonus:AllianceHomeworld"
+		group
+			condition
+			type "PlanetOwnerIsRaceQuickStart"
+				param "NewRepublic"
+			owner "PlanetOwner"
+			colonizeChance 1
+			items 14
+				item "All:Module:FrigateFactory"
+				item "All:Module:FrigateFactory"
+				item "All:Module:CapitalShipFactory"
+				item "All:Module:MetalExtractor"
+				item "All:Module:MetalExtractor"
+				item "All:Module:CrystalExtractor"
+				item "All:Module:CrystalExtractor"
+				item "All:Frigate:Constructor"
+				item "All:Frigate:Constructor"
+				item "All:Module:CommandCenter"
+				item "All:Module:CivicLab"
+				item "NR:Frigate:Scout"
+				item "NR:Frigate:Scout"
 				item "Bonus:AllianceHomeworld"
 		group
 			condition
@@ -5644,7 +5706,7 @@ planetItemsTemplate
 planetItemsTemplate
 	templateName "Template:DefaultMinorFaction"
 	subTemplates 0
-	groups 24
+	groups 31
 		group
 			condition
 				type "PlanetOwnerIsMinorFactionWithFactionName"
@@ -6429,20 +6491,106 @@ planetItemsTemplate
 				item "All:Module:MetalExtractor"
 				item "All:Module:MetalExtractor"
 				item "All:Module:MetalExtractor"
+				item "All:Capitalship:Providence"
+				item "All:Frigate:Scout"
+				item "All:Frigate:Scout"
+				item "All:Frigate:Light"
+				item "All:Frigate:Light"
+				item "All:Frigate:Light"
+				item "Mil:Frigate:Light"
+				item "Mil:Frigate:Light"
+				item "Mil:Frigate:Light"
+				item "All:Frigate:AntiFighter"
+				item "All:Frigate:AntiFighter"
+				item "All:Frigate:AntiFighter"
+				item "NR:Frigate:Proficient"
+				item "NR:Frigate:Proficient"
+				item "All:Frigate:Constructor"
+				item "All:Frigate:Constructor"
+				item "Other:Flag:Beacon"
+			group
+			condition
+				type "PlanetOwnerIsMinorFactionWithFactionName"
+				param "AllSullust"
+			owner "PlanetOwner"
+			colonizeChance 1
+			items 37
+				item "All:Module:FrigateFactory"
+				item "All:Module:FrigateFactory"
+				item "All:Module:CapitalShipFactory"
+				item "All:Module:TradePort"
+				item "All:Module:RepairPlatform"
+				item "All:Module:Refinery"
+				item "All:Module:TorpedoTurret"
+				item "All:Module:TorpedoTurret"
+				item "All:Module:TorpedoTurret"
+				item "All:Module:TorpedoTurret"	
+				item "All:Module:TorpedoTurret"	
+				item "All:Module:HangarDefense"			
+				item "All:Module:CrystalExtractor"
+				item "All:Module:CrystalExtractor"
+				item "All:Module:CrystalExtractor"
+				item "All:Module:CrystalExtractor"
+				item "All:Module:CrystalExtractor"
+				item "All:Module:MetalExtractor"
+				item "All:Module:MetalExtractor"
+				item "All:Module:MetalExtractor"
+				item "All:Module:MetalExtractor"
+				item "All:Module:MetalExtractor"
 				item "All:Capitalship:Dauntless"
-				item "All:Frigate:Scout"
-				item "All:Frigate:Scout"
 				item "All:Frigate:Light"
 				item "All:Frigate:Light"
 				item "All:Frigate:Light"
-				item "Mil:Frigate:Light"
-				item "Mil:Frigate:Light"
-				item "Mil:Frigate:Light"
-				item "All:Frigate:AntiFighter"
-				item "All:Frigate:AntiFighter"
-				item "All:Frigate:AntiFighter"
+				item "All:Frigate:Light"
+				item "All:Frigate:LongRange"
+				item "All:Frigate:LongRange"
 				item "All:Frigate:BulkCruiser"
+				item "All:Frigate:Carrier"
+				item "All:Frigate:Carrier"
+				item "NR:Frigate:Liberator"
+				item "NR:Frigate:Liberator"
+				item "All:Frigate:Constructor"
+				item "All:Frigate:Constructor"
+				item "Other:Flag:Beacon"
+		group
+			condition
+				type "PlanetOwnerIsMinorFactionWithFactionName"
+				param "AllPartisans"
+			owner "PlanetOwner"
+			colonizeChance 1
+			items 35
+				item "All:Module:FrigateFactory"
+				item "All:Module:CapitalShipFactory"
+				item "All:Module:TradePort"
+				item "All:Module:TorpedoTurret"	
+				item "All:Module:TorpedoTurret"
+				item "All:Module:TorpedoTurret"
+				item "All:Module:TorpedoTurret"		
+				item "Mil:Module:Hangar"
+				item "Mil:Module:Hangar"
+				item "All:Module:CrystalExtractor"
+				item "All:Module:CrystalExtractor"
+				item "All:Module:CrystalExtractor"
+				item "All:Module:CrystalExtractor"
+				item "All:Module:CrystalExtractor"				
+				item "All:Module:MetalExtractor"
+				item "All:Module:MetalExtractor"
+				item "All:Module:MetalExtractor"
+				item "All:Module:MetalExtractor"
+				item "All:Module:MetalExtractor"
+				item "All:Capitalship:MC75"
+				item "All:Frigate:Light"
+				item "All:Frigate:Light"
+				item "Mil:Frigate:Light"
+				item "All:Frigate:LongRange"
+				item "All:Frigate:LongRange"
 				item "All:Frigate:BulkCruiser"
+				item "All:Frigate:AntiFighter"
+				item "All:Frigate:Heavy"
+				item "All:Frigate:Heavy"
+				item "Mil:Frigate:Siege"
+				item "Mil:Frigate:Siege"
+				item "Mil:Frigate:Siege"
 				item "All:Frigate:Constructor"
 				item "All:Frigate:Constructor"
 				item "Other:Flag:Beacon"
@@ -6524,6 +6672,46 @@ planetItemsTemplate
 		group
 			condition
 				type "PlanetOwnerIsMinorFactionWithFactionName"
+				param "EmpYevetha"
+			owner "PlanetOwner"
+			colonizeChance 1
+			items 33
+				item "Emp:Module:FrigateFactory"
+				item "Emp:Module:FrigateFactory"
+				item "Emp:Module:CapitalShipFactory"
+				item "Emp:Module:CapitalShipFactory"
+				item "Emp:Module:TradePort"
+				item "Emp:Module:RepairPlatform"
+				item "Emp:Module:RepairPlatform"
+				item "Emp:Module:GolanIII"
+				item "Emp:Module:GolanIII"
+				item "Emp:Module:CrystalExtractor"
+				item "Emp:Module:CrystalExtractor"
+				item "Emp:Module:CrystalExtractor"
+				item "Emp:Module:CrystalExtractor"
+				item "Emp:Module:CrystalExtractor"
+				item "Emp:Module:MetalExtractor"
+				item "Emp:Module:MetalExtractor"
+				item "Emp:Module:MetalExtractor"
+				item "Emp:Module:MetalExtractor"
+				item "Emp:Module:MetalExtractor"
+				item "Emp:Capitalship:ImperialI"
+				item "Emp:Frigate:Light"
+				item "Emp:Frigate:Light"
+				item "Emp:Frigate:Light"
+				item "Emp:Frigate:LongRange"
+				item "Emp:Frigate:LongRange"
+				item "Emp:Frigate:AntiFighter"
+				item "Emp:Frigate:AntiFighter"				
+				item "Emp:Frigate:Heavy"
+				item "Emp:Frigate:Heavy"
+				item "Emp:Frigate:Support"
+				item "Emp:Frigate:Constructor"
+				item "Emp:Frigate:Constructor"
+				item "Other:Flag:Beacon"
+		group
+			condition
+				type "PlanetOwnerIsMinorFactionWithFactionName"
 				param "ManDxunMercs"
 			owner "PlanetOwner"
 			colonizeChance 1
@@ -6561,6 +6749,49 @@ planetItemsTemplate
 				item "Man:Corvette:Firespray"
 				item "Man:Corvette:Firespray"
 				item "Man:Frigate:Antimodule"
+				item "Man:Frigate:Constructor"
+				item "Man:Frigate:Constructor"
+				item "Other:Flag:Beacon"
+		group
+			condition
+				type "PlanetOwnerIsMinorFactionWithFactionName"
+				param "ManSkirata"
+			owner "PlanetOwner"
+			colonizeChance 1
+			items 36
+				item "Man:Module:FrigateFactory"
+				item "Man:Module:CapitalShipFactory"
+				item "Man:Module:TradePort"
+				item "Man:Module:TurbolaserTurret"
+				item "Man:Module:TurbolaserTurret"
+				item "Man:Module:TorpedoTurret"
+				item "Man:Module:TorpedoTurret"
+				item "Man:Module:TorpedoTurret"
+				item "Man:Module:Hangar"				
+				item "Man:Module:CrystalExtractor"
+				item "Man:Module:CrystalExtractor"
+				item "Man:Module:CrystalExtractor"
+				item "Man:Module:CrystalExtractor"
+				item "Man:Module:CrystalExtractor"
+				item "Man:Module:MetalExtractor"
+				item "Man:Module:MetalExtractor"
+				item "Man:Module:MetalExtractor"
+				item "Man:Module:MetalExtractor"
+				item "Man:Module:MetalExtractor"
+				item "Man:Capitalship:Venator"
+				item "Man:Frigate:Light"
+				item "Man:Frigate:Light"
+				item "Man:Frigate:Light"
+				item "Man:Frigate:LongRange"
+				item "Man:Frigate:LongRange"
+				item "Man:Frigate:AntiFighter"
+				item "Man:Frigate:AntiFighter"
+				item "Man:Frigate:Dreadnaught"
+				item "Man:Frigate:Dreadnaught"
+				item "Man:Frigate:Siege"
+				item "Man:Frigate:Siege"
+				item "Man:Frigate:Siege"
+				item "Man:Frigate:Siege"
 				item "Man:Frigate:Constructor"
 				item "Man:Frigate:Constructor"
 				item "Other:Flag:Beacon"
@@ -6607,6 +6838,176 @@ planetItemsTemplate
 				item "Mil:Frigate:Constructor"
 				item "Mil:Frigate:Constructor"
 				item "Other:Flag:Beacon"
+				group
+			condition
+				type "PlanetOwnerIsMinorFactionWithFactionName"
+				param "HuttCartel"
+			owner "PlanetOwner"
+			colonizeChance 1
+			items 34
+				item "Mil:Module:FrigateFactory"
+				item "Mil:Module:CapitalShipFactory"
+				item "Mil:Module:AllTradePort"
+				item "Mil:Module:RepairPlatform"
+				item "Mil:Module:TurbolaserTurret"	
+				item "Mil:Module:TurbolaserTurret"
+				item "Mil:Module:TurbolaserTurret"	
+				item "Mil:Module:TurbolaserTurret"
+				item "Mil:Module:Hangar"
+				item "Mil:Module:CrystalExtractor"
+				item "Mil:Module:CrystalExtractor"
+				item "Mil:Module:CrystalExtractor"
+				item "Mil:Module:CrystalExtractor"
+				item "Mil:Module:CrystalExtractor"				
+				item "Mil:Module:MetalExtractor"
+				item "Mil:Module:MetalExtractor"
+				item "Mil:Module:MetalExtractor"
+				item "Mil:Module:MetalExtractor"
+				item "Mil:Module:MetalExtractor"
+				item "Mil:Module:AllTradePort"		
+				item "Other:Capitalship:HuttAssaultCruiser"
+				item "Mil:Frigate:Light"
+				item "Mil:Frigate:Light"
+				item "Mil:Frigate:LongRange"
+				item "Mil:Frigate:LongRange"
+				item "Mil:Frigate:Dreadnaught"
+				item "Mil:Frigate:AntiFighter"
+				item "Mil:Frigate:AntiFighter"
+				item "Mil:Corvette:Skipray"
+				item "Mil:Corvette:Skipray"
+				item "Mil:Corvette:Skipray"
+				item "Mil:Frigate:Constructor"
+				item "Mil:Frigate:Constructor"
+				item "Other:Flag:Beacon"
+		group
+			condition
+				type "PlanetOwnerIsMinorFactionWithFactionName"
+				param "Zann"
+			owner "PlanetOwner"
+			colonizeChance 1
+			items 36
+				item "Mil:Module:FrigateFactory"
+				item "Mil:Module:CapitalShipFactory"
+				item "Mil:Module:AllTradePort"
+				item "Mil:Module:Hangar"
+				item "Mil:Module:TurbolaserTurret"	
+				item "Mil:Module:TurbolaserTurret"
+				item "Mil:Module:TurbolaserTurret"	
+				item "Mil:Module:TorpedoTurret"
+				item "Mil:Module:TorpedoTurret"
+				item "Mil:Module:TorpedoTurret"
+				item "Mil:Module:CombatLab"
+				item "Mil:Module:CrystalExtractor"
+				item "Mil:Module:CrystalExtractor"
+				item "Mil:Module:CrystalExtractor"
+				item "Mil:Module:CrystalExtractor"
+				item "Mil:Module:CrystalExtractor"				
+				item "Mil:Module:MetalExtractor"
+				item "Mil:Module:MetalExtractor"
+				item "Mil:Module:MetalExtractor"
+				item "Mil:Module:MetalExtractor"
+				item "Mil:Module:MetalExtractor"
+				item "Other:Capitalship:Providence"
+				item "Mil:Frigate:Light"
+				item "Mil:Frigate:Light"
+				item "Mil:Frigate:Light"
+				item "Mil:Frigate:Light"
+				item "Mil:Frigate:LongRange"
+				item "Mil:Frigate:LongRange"
+				item "Mil:Frigate:Dreadnaught"
+				item "Mil:Frigate:AntiFighter"
+				item "Mil:Frigate:AntiFighter"
+				item "Mil:Corvette:Skipray"
+				item "Mil:Corvette:Skipray"
+				item "Mil:Frigate:Constructor"
+				item "Mil:Frigate:Constructor"
+				item "Other:Flag:Beacon"
+		group
+			condition
+				type "PlanetOwnerIsMinorFactionWithFactionName"
+				param "BlackSun"
+			owner "PlanetOwner"
+			colonizeChance 1
+			items 37
+				item "Mil:Module:FrigateFactory"
+				item "Mil:Module:CapitalShipFactory"
+				item "Mil:Module:EmpTradePort"
+				item "Mil:Module:Hangar"
+				item "Mil:Module:Hangar"
+				item "Mil:Module:TurbolaserTurret"	
+				item "Mil:Module:TurbolaserTurret"
+				item "Mil:Module:TurbolaserTurret"	
+				item "Mil:Module:TurbolaserTurret"
+				item "Mil:Module:TurbolaserTurret"
+				item "Mil:Module:TurbolaserTurret"
+				item "Mil:Module:CrystalExtractor"
+				item "Mil:Module:CrystalExtractor"
+				item "Mil:Module:CrystalExtractor"
+				item "Mil:Module:CrystalExtractor"
+				item "Mil:Module:CrystalExtractor"				
+				item "Mil:Module:MetalExtractor"
+				item "Mil:Module:MetalExtractor"
+				item "Mil:Module:MetalExtractor"
+				item "Mil:Module:MetalExtractor"
+				item "Mil:Module:MetalExtractor"
+				item "Other:Capitalship:Providence"
+				item "Mil:Frigate:Light"
+				item "Mil:Frigate:Light"
+				item "Mil:Frigate:Light"
+				item "Mil:Frigate:LongRange"
+				item "Mil:Frigate:LongRange"
+				item "Mil:Frigate:Siege"
+				item "Mil:Frigate:Siege"
+				item "Mil:Frigate:Dreadnaught"
+				item "Mil:Frigate:AntiFighter"
+				item "Mil:Corvette:Skipray"
+				item "Mil:Corvette:Skipray"
+				item "Mil:Corvette:Skipray"
+				item "Mil:Frigate:Constructor"
+				item "Mil:Frigate:Constructor"
+				item "Other:Flag:Beacon"
+		group
+			condition
+				type "PlanetOwnerIsMinorFactionWithFactionName"
+				param "Hapes"
+			owner "PlanetOwner"
+			colonizeChance 1
+			items 35
+				item "Psi:Module:FrigateFactory"
+				item "Psi:Module:CapitalShipFactory"
+				item "Psi:Module:TradePort"
+				item "Psi:Module:BeamDefense"
+				item "Psi:Module:BeamDefense"	
+				item "Psi:Module:BeamDefense"
+				item "Psi:Module:BeamDefense"
+				item "Psi:Module:HangarDefense"
+				item "Psi:Module:CultureCenter"
+				item "Psi:Module:CrystalExtractor"
+				item "Psi:Module:CrystalExtractor"
+				item "Psi:Module:CrystalExtractor"
+				item "Psi:Module:CrystalExtractor"
+				item "Psi:Module:CrystalExtractor"
+				item "Psi:Module:MetalExtractor"
+				item "Psi:Module:MetalExtractor"
+				item "Psi:Module:MetalExtractor"
+				item "Psi:Module:MetalExtractor"
+				item "Psi:Module:MetalExtractor"
+				item "Psi:CapitalShip:BattlePsionic"
+				item "Psi:Frigate:Light"
+				item "Psi:Frigate:Light"
+				item "Psi:Frigate:LongRange"
+				item "Psi:Frigate:LongRange"
+				item "Other:Frigate:HapanNova"
+				item "Other:Frigate:HapanNova"
+				item "Other:Frigate:HapanNova"
+				item "Other:Frigate:HapanNova"
+				item "Other:Frigate:HapanBattleDragon"
+				item "Other:Frigate:HapanBattleDragon"
+				item "Other:Frigate:HapanBattleDragon"
+				item "Other:Frigate:HapanBattleDragon"
+				item "Psi:Frigate:Constructor"
+				item "Psi:Frigate:Constructor"
+				item "Other:Flag:Beacon"
 validPictureGroups 3
 pictureGroup "PlayerPhase"
 pictureGroup "PlayerPsi"
@@ -6616,7 +7017,7 @@ themeGroup "PlayerPhase"
 themeGroup "PlayerPsi"
 themeGroup "PlayerTech"
 themeGroup "NPC"
-npcPlayers 35
+npcPlayers 42
 player
 	designName "Pirate"
 	inGameName "IDSScenarioPlayerNamePirates"
@@ -6999,7 +7400,7 @@ player
 player
 	designName "MinorFaction_ING_All0"
 	inGameName "IDS_ING_ScenarioPlayerNameMinorFaction_All0"
-	overrideRaceName "RebelAlliance"
+	overrideRaceName "NewRepublic"
 	teamIndex -1
 	startingCredits 1000
 	startingMetal 300
@@ -7010,20 +7411,6 @@ player
 	themeIndex 16
 	pictureGroup "NPC"
 	pictureIndex 0
-player
-	designName "MinorFaction_ING_HuttCartel"
-	inGameName "IDS_ING_ScenarioPlayerNameMinorFaction_HuttCartel"
-	overrideRaceName "Pirate"
-	teamIndex -1
-	startingCredits 1000
-	startingMetal 300
-	startingCrystal 100
-	playerType "NPCMinorFaction"
-	minorFactionPlayerDefName "HuttCartel"
-	themeGroup "ING_NPC"
-	themeIndex 7
-	pictureGroup "NPC"
-	pictureIndex 0	
 player
 	designName "MinorFaction_ING_All1"
 	inGameName "IDS_ING_ScenarioPlayerNameMinorFaction_All1"
@@ -7036,6 +7423,34 @@ player
 	minorFactionPlayerDefName "AllCorellia"
 	themeGroup "ING_NPC"
 	themeIndex 4
+	pictureGroup "NPC"
+	pictureIndex 0
+player
+	designName "MinorFaction_ING_All2"
+	inGameName "IDS_ING_ScenarioPlayerNameMinorFaction_All2"
+	overrideRaceName "RebelAlliance"
+	teamIndex -1
+	startingCredits 1000
+	startingMetal 300
+	startingCrystal 100
+	playerType "NPCMinorFaction"
+	minorFactionPlayerDefName "AllSullust"
+	themeGroup "ING_NPC"
+	themeIndex 18
+	pictureGroup "NPC"
+	pictureIndex 0	
+player
+		designName "MinorFaction_ING_All3"
+	inGameName "IDS_ING_ScenarioPlayerNameMinorFaction_All3"
+	overrideRaceName "RebelAlliance"
+	teamIndex -1
+	startingCredits 1000
+	startingMetal 300
+	startingCrystal 100
+	playerType "NPCMinorFaction"
+	minorFactionPlayerDefName "AllPartisans"
+	themeGroup "ING_NPC"
+	themeIndex 14
 	pictureGroup "NPC"
 	pictureIndex 0
 player
@@ -7067,6 +7482,20 @@ player
 	pictureGroup "NPC"
 	pictureIndex 0
 player
+designName "MinorFaction_ING_Emp2"
+	inGameName "IDS_ING_ScenarioPlayerNameMinorFaction_Emp2"
+	overrideRaceName "GalacticEmpire"
+	teamIndex -1
+	startingCredits 1000
+	startingMetal 300
+	startingCrystal 100
+	playerType "NPCMinorFaction"
+	minorFactionPlayerDefName "EmpYevetha"
+	themeGroup "ING_NPC"
+	themeIndex 8
+	pictureGroup "NPC"
+	pictureIndex 0
+player
 	designName "MinorFaction_ING_Man0"
 	inGameName "IDS_ING_ScenarioPlayerNameMinorFaction_Man0"
 	overrideRaceName "MandalorianRaiders"
@@ -7081,6 +7510,34 @@ player
 	pictureGroup "NPC"
 	pictureIndex 0
 player
+designName "MinorFaction_ING_Man1"
+	inGameName "IDS_ING_ScenarioPlayerNameMinorFaction_Man1"
+	overrideRaceName "MandalorianRaiders"
+	teamIndex -1
+	startingCredits 1000
+	startingMetal 300
+	startingCrystal 100
+	playerType "NPCMinorFaction"
+	minorFactionPlayerDefName "ManSkirata"
+	themeGroup "ING_NPC"
+	themeIndex 17
+	pictureGroup "NPC"
+	pictureIndex 0
+player
+	designName "MinorFaction_ING_HuttCartel"
+	inGameName "IDS_ING_ScenarioPlayerNameMinorFaction_HuttCartel"
+	overrideRaceName "Pirate"
+	teamIndex -1
+	startingCredits 1000
+	startingMetal 300
+	startingCrystal 100
+	playerType "NPCMinorFaction"
+	minorFactionPlayerDefName "HuttCartel"
+	themeGroup "ING_NPC"
+	themeIndex 7
+	pictureGroup "NPC"
+	pictureIndex 0	
+player
 	designName "MinorFaction_ING_CSA"
 	inGameName "IDS_ING_ScenarioPlayerNameMinorFaction_CSA"
 	overrideRaceName "Pirate"
@@ -7092,6 +7549,48 @@ player
 	minorFactionPlayerDefName "CSA"
 	themeGroup "ING_NPC"
 	themeIndex 6
+	pictureGroup "NPC"
+	pictureIndex 0
+player
+	designName "MinorFaction_ING_Zann"
+	inGameName "IDS_ING_ScenarioPlayerNameMinorFaction_Zann"
+	overrideRaceName "Pirate"
+	teamIndex -1
+	startingCredits 1000
+	startingMetal 300
+	startingCrystal 100
+	playerType "NPCMinorFaction"
+	minorFactionPlayerDefName "Zann"
+	themeGroup "ING_NPC"
+	themeIndex 19
+	pictureGroup "NPC"
+	pictureIndex 0
+player
+	designName "MinorFaction_ING_BlackSun"
+	inGameName "IDS_ING_ScenarioPlayerNameMinorFaction_BlackSun"
+	overrideRaceName "Pirate"
+	teamIndex -1
+	startingCredits 1000
+	startingMetal 300
+	startingCrystal 100
+	playerType "NPCMinorFaction"
+	minorFactionPlayerDefName "BlackSun"
+	themeGroup "ING_NPC"
+	themeIndex 20
+	pictureGroup "NPC"
+	pictureIndex 0
+player
+	designName "MinorFaction_ING_Psi0"
+	inGameName "IDS_ING_ScenarioPlayerNameMinorFaction_Psi0"
+	overrideRaceName "PsiLoyalist"
+	teamIndex -1
+	startingCredits 1000
+	startingMetal 300
+	startingCrystal 100
+	playerType "NPCMinorFaction"
+	minorFactionPlayerDefName "Hapes"
+	themeGroup "ING_NPC"
+	themeIndex 5
 	pictureGroup "NPC"
 	pictureIndex 0
 npcMiltiaPlayerCountPerGalaxy 4

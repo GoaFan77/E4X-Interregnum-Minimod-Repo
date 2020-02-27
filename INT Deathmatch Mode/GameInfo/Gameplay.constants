@@ -202,8 +202,8 @@ GameplayConstants
 			INTERCEPTOR 0.650000
 			BOMBER 0.750000
 		DamagePercentBonus:ANTIVERYLIGHT:CapitalShip 0.5
-		DamagePercentBonus:ANTIVERYLIGHT:VeryLight 1.5
-		DamagePercentBonus:ANTIVERYLIGHT:Light 0.65
+		DamagePercentBonus:ANTIVERYLIGHT:VeryLight 2.0
+		DamagePercentBonus:ANTIVERYLIGHT:Light 1.0
 		DamagePercentBonus:ANTIVERYLIGHT:Medium 0.5
 		DamagePercentBonus:ANTIVERYLIGHT:Heavy 0.5
 		DamagePercentBonus:ANTIVERYLIGHT:VeryHeavy 0.4
@@ -254,7 +254,7 @@ GameplayConstants
 		DamagePercentBonus:ANTIMODULE:VeryHeavy 0.20
 		DamagePercentBonus:ANTIMODULE:Module 2.0
 		DamagePercentBonus:ANTIMODULE:Pirate 0.20
-		DamagePercentBonus:ANTIMODULE:Titan 1.00000	
+		DamagePercentBonus:ANTIMODULE:Titan 1.0
 		DamagePercentBonus:COMPOSITE:CapitalShip 0.75
 		DamagePercentBonus:COMPOSITE:VeryLight 1.0
 		DamagePercentBonus:COMPOSITE:Light 1.5
@@ -1039,7 +1039,7 @@ outlawSectorsData
 				xOffset 0
 				yOffset -52
 			outlawSpawnShipsType "MatchPlayerRace"
-			numOutlawSpawnShipsOptionsCount 11
+			numOutlawSpawnShipsOptionsCount 12
 			outlawSpawnShipsOptions
 				raceEntityName "PlayerTechRebel"
 				spawnShips
@@ -1266,6 +1266,31 @@ outlawSectorsData
 						type "Frigate_ING_AllCarrier"
 						weight 1
 			outlawSpawnShipsOptions
+				raceEntityName "Player_ING_NewRepublic"
+				spawnShips
+					minFleetPoints 20.000000
+					maxFleetPoints 20.000000
+					requiredShipCount 0
+					randomShipCount 6
+					randomShip
+						type "Frigate_ING_NrLight"
+						weight 7
+					randomShip
+						type "Frigate_ING_NrLongRange"
+						weight 3
+					randomShip
+						type "Frigate_ING_NrHeavy"
+						weight 3
+					randomShip
+						type "Frigate_ING_NrAntifighter"
+						weight 5
+					randomShip
+						type "Corvette_ING_AllCorvette"
+						weight 2
+					randomShip
+						type "Frigate_ING_NrCarrier"
+						weight 1
+			outlawSpawnShipsOptions
 				raceEntityName "Player_ING_MandalorianRaiders"
 		spawnShips
 			minFleetPoints 20.000000
@@ -1353,63 +1378,7 @@ outlawSectorsData
 			planetCultureRepelAdditiveBonus 1.5
 			spawnTime 600
 			spawnTimeVariance 120
-			minorFactionPlayerDefCount 24
-			minorFactionPlayerDef
-				name "DefaultTech"
-				planetAbilities
-					ability:0 "AbilityMinorFactionRepairShips"
-					ability:1 "AbilityMinorFactionTradeMetalForCredits"
-					ability:2 "AbilityMinorFactionSpawnDefenseRaidTech"
-					ability:3 "AbilityMinorFactionSpawnAttackRaidTech"
-					ability:4 ""
-			minorFactionPlayerDef
-				name "DefaultPsi"
-				planetAbilities
-					ability:0 "AbilityMinorFactionFarSight"
-					ability:1 "AbilityMinorFactionTradeCrystalForCredits"
-					ability:2 "AbilityMinorFactionSpawnDefenseRaidPsi"
-					ability:3 "AbilityMinorFactionSpawnAttackRaidPsi"
-					ability:4 ""
-			minorFactionPlayerDef
-				name "DefaultPhase"
-				planetAbilities
-					ability:0 "AbilityMinorFactionSpawnAttackRaidPhase"
-					ability:1 "AbilityMinorFactionSpawnDefenseRaidPhase"
-					ability:2 "AbilityMinorFactionTradeCreditsForMetal"
-					ability:3 "Ability_E4X_MinorFactionNanoRestoration"
-					ability:4 ""
-			minorFactionPlayerDef
-				name "TechMiners"
-				planetAbilities
-					ability:0 "AbilityMinorFactionTradeMetalForCreditsBetterRate"
-					ability:1 "AbilityMinorFactionTradeCrystalForCreditsBetterRate"
-					ability:2 "Ability_E4X_MinorFactionMiningEquipment"
-					ability:3 ""
-					ability:4 ""
-			minorFactionPlayerDef
-				name "TechScrappers"
-				planetAbilities
-					ability:0 "AbilityMinorFactionScrapFrigates"
-					ability:1 "AbilityMinorFactionArmorBonus"
-					ability:2 "AbilityMinorFactionRepairShips"
-					ability:3 "AbilityMinorFactionTradeMetalForCredits"
-					ability:4 ""
-			minorFactionPlayerDef
-				name "TechSiegeRaiders"
-				planetAbilities
-					ability:0 "AbilityMinorFactionSpawnAttackRaidTech"
-					ability:1 "AbilityMinorFactionSpawnSiegeRaidTech"
-					ability:2 "AbilityMinorFactionBombingDamageBonus"
-					ability:3 "AbilityMinorFactionTradeCreditsForCrystal"
-					ability:4 ""
-			minorFactionPlayerDef
-				name "TechDemolitionists"
-				planetAbilities
-					ability:0 "AbilityMinorFactionSpawnAntiModuleRaidTech"
-					ability:1 "AbilityMinorFactionSpawnAttackRaidTech"
-					ability:2 "AbilityMinorFactionAntiModuleDamageBonus"
-					ability:3 ""
-					ability:4 ""
+			minorFactionPlayerDefCount 20
 			minorFactionPlayerDef
 				name "TechXenophobes"
 				planetAbilities
@@ -1427,35 +1396,11 @@ outlawSectorsData
 					ability:3 ""
 					ability:4 ""
 			minorFactionPlayerDef
-				name "TechUsedFrigates"
-				planetAbilities
-					ability:0 "AbilityMinorFactionSellFrigatesAntiFighter"
-					ability:1 "AbilityMinorFactionSellFrigatesLongRange"
-					ability:2 "AbilityMinorFactionSellFrigatesHeavy"
-					ability:3 ""
-					ability:4 ""
-			minorFactionPlayerDef
-				name "PsiPacifists"
-				planetAbilities
-					ability:0 "AbilityMinorFactionFarSight"
-					ability:1 "AbilityMinorFactionAntiMatterRestoreBonus"
-					ability:2 "AbilityMinorFactionShieldRestoreBonus"
-					ability:3 ""
-					ability:4 ""
-			minorFactionPlayerDef
 				name "PsiCulture"
 				planetAbilities
 					ability:0 "AbilityMinorFactionSpreadCulture"
 					ability:1 "AbilityMinorFactionSpawnDefenseRaidPsiUtility"
 					ability:2 "AbilityMinorFactionTradeCreditsForCrystal"
-					ability:3 ""
-					ability:4 ""
-			minorFactionPlayerDef
-				name "PsiDoomCult"
-				planetAbilities
-					ability:0 "AbilityMinorFactionSpawnRandomAttackRaids"
-					ability:1 "AbilityMinorFactionStealAdjacentPlanetPopulation"
-					ability:2 "AbilityMinorFactionSacrificePopulationForDamage"
 					ability:3 ""
 					ability:4 ""
 			minorFactionPlayerDef
@@ -1483,14 +1428,6 @@ outlawSectorsData
 					ability:3 "AbilityMinorFactionSpeedBonus"
 					ability:4 ""
 			minorFactionPlayerDef
-				name "PhaseArmsDealers"
-				planetAbilities
-					ability:0 "AbilityMinorFactionWeaponDamageBonus"
-					ability:1 "AbilityMinorFactionBombingDamageBonusPhase"
-					ability:2 "AbilityMinorFactionTradeCreditsForMetal"
-					ability:3 ""
-					ability:4 ""
-			minorFactionPlayerDef
 				name "AllIndependent"
 				planetAbilities
 					ability:0 "Ability_E4X_MinorFactionSpreadCultureGeneric"
@@ -1499,20 +1436,28 @@ outlawSectorsData
 					ability:3 ""
 					ability:4 ""		
 			minorFactionPlayerDef
-				name "HuttCartel"
-				planetAbilities
-					ability:0 "Ability_ING_MinorFactionIllegalCargo"
-					ability:1 "Ability_E4X_MinorFactionTradeCreditsForCrystalBetterRate"
-					ability:2 "Ability_ING_MinorFactionSellCapitalShipChelandion"
-					ability:3 ""
-					ability:4 ""
-			minorFactionPlayerDef		
 				name "AllCorellia"
 				planetAbilities
 					ability:0 "Ability_ING_MinorFactionSpawnDefenseRaidAll"
 					ability:1 "Ability_ING_MinorFactionTradeshipArmorCEC"
 					ability:2 "Ability_ING_MinorFactionSellFrigatesCEC"
 					ability:3 "Ability_ING_MinorFactionSpawnScoutRaidAll"
+					ability:4 ""
+			minorFactionPlayerDef
+				name "AllSullust"
+				planetAbilities
+					ability:0 "Ability_ING_MinorFactionSellCapitalShipAllDauntless"
+					ability:1 "Ability_ING_MinorFactionSellFrigatesSoroSuub"
+					ability:2 "Ability_ING_MinorFactionWeaponsFoundries"
+					ability:3 ""
+					ability:4 ""
+			minorFactionPlayerDef		
+				name "AllPartisans"
+				planetAbilities
+					ability:0 "Ability_ING_MinorFactionSpawnSiegeRaidAll"
+					ability:1 "Ability_ING_MinorFactionInciteRebellion"
+					ability:2 "Ability_ING_MinorFactionGuerillaFighters"
+					ability:3 ""
 					ability:4 ""
 			minorFactionPlayerDef
 				name "EmpCiutric"
@@ -1531,6 +1476,14 @@ outlawSectorsData
 					ability:3 "AbilityMinorFactionTradeCreditsForMetal"
 					ability:4 ""
 			minorFactionPlayerDef
+				name "EmpYevetha"
+				planetAbilities
+					ability:0 "Ability_ING_MinorFactionSpawnSiegeRaidEmp"
+					ability:1 "Ability_ING_MinorFactionShipyardLaborers"
+					ability:2 "Ability_ING_MinorFactionSpawnRandomAttackRaidsEmp"
+					ability:3 ""
+					ability:4 ""
+			minorFactionPlayerDef
 				name "ManDxunMercs"
 				planetAbilities
 					ability:0 "Ability_ING_MinorFactionSpawnAttackRaidMan"
@@ -1539,12 +1492,52 @@ outlawSectorsData
 					ability:3 "Ability_ING_MinorFactionSpawnSiegeRaidMan"
 					ability:4 ""
 			minorFactionPlayerDef
+				name "ManSkirata"
+				planetAbilities
+					ability:0 "Ability_ING_MinorFactionReconTeams"
+					ability:1 "Ability_ING_MinorFactionCommandoOperation"
+					ability:2 "Ability_ING_MinorFactionAssassination"
+					ability:3 "Ability_ING_MinorFactionBeskarArmorBonus"
+					ability:4 ""
+			minorFactionPlayerDef
+				name "HuttCartel"
+				planetAbilities
+					ability:0 "Ability_ING_MinorFactionIllegalCargo"
+					ability:1 "Ability_E4X_MinorFactionTradeCreditsForCrystalBetterRate"
+					ability:2 "Ability_ING_MinorFactionSellCapitalShipChelandion"
+					ability:3 ""
+					ability:4 ""
+			minorFactionPlayerDef
 				name "CSA"
 				planetAbilities
 					ability:0 "AbilityMinorFactionScrapFrigates"
 					ability:1 "AbilityMinorFactionTradeMetalForCredits"
 					ability:2 "AbilityMinorFactionTradeCrystalForCredits"
 					ability:3 "Ability_ING_MinorFactionSellCapitalShipNLuc"
+					ability:4 ""
+			minorFactionPlayerDef
+				name "Zann"
+				planetAbilities
+					ability:0 "Ability_ING_MinorFactionRacketeering"
+					ability:1 "Ability_ING_MinorFactionPiracy"
+					ability:2 "Ability_ING_MinorFactionSellCapitalShipKrayt"
+					ability:3 ""
+					ability:4 ""
+			minorFactionPlayerDef
+				name "BlackSun"
+				planetAbilities
+					ability:0 "Ability_ING_MinorFactionBlackMarketWeapons"
+					ability:1 "Ability_ING_MinorFactionBlackMarketFuel"
+					ability:2 "Ability_ING_MinorFactionSpawnAttackRaidMil"
+					ability:3 "Ability_ING_MinorFactionInformants"
+					ability:4 ""
+			minorFactionPlayerDef
+				name "Hapes"
+				planetAbilities
+					ability:0 "Ability_ING_MinorFactionSellFrigatesHapes"
+					ability:1 "Ability_ING_MinorFactionIsolationism"
+					ability:2 "AbilityMinorFactionTradeCreditsForCrystal"
+					ability:3 "Ability_ING_MinorFactionSpawnDefenseRaidHapes"
 					ability:4 ""
 	miscEntityDefNames
 		weaponDefName = "Weapon"
