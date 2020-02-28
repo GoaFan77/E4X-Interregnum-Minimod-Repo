@@ -1,7 +1,7 @@
 ===INT All E4X Random Encounters===
 This is a minimod for Star Wars: Interregnum. DO NOT USE THIS MINIMOD with E4X.
 
-Some random enounters from the Enhanced 4X mod, like ancient structures, no longer spawn in Interregnum because they have been replaced by Star Wars versions. This minimod will allow them to appear along with the Star Wars content.
+Some random enounters from the Enhanced 4X mod, like ancient structures and most vanilla Minor Factions, no longer spawn in Interregnum because they have been replaced by Star Wars versions. This minimod will allow them to appear along with the Star Wars content.
 
 Encounters readded by this minimod.
 
