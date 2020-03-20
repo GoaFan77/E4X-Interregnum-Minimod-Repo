@@ -1599,10 +1599,13 @@ orbitBodyType
 	typeName "Kessel"
 	entityDefName "Planet_ING_Kessel"
 	defaultTemplateName "Template:Kessel"		
-planetItemTypeCount 524
+planetItemTypeCount 529
 planetItemType
 	designName "All:Module:CapitalShipFactory"
 	entityDefName "PLANETMODULE_ING_AllCapitalshipFactory"
+planetItemType
+	designName "All:Module:CombatLab"
+	entityDefName "PLANETMODULE_ING_AllMilitaryLab"
 planetItemType
 	designName "All:Module:CivicLab"
 	entityDefName "PLANETMODULE_ING_AllCivicLab"
@@ -1723,6 +1726,9 @@ planetItemType
 planetItemType
 	designName "All:Frigate:Support"
 	entityDefName "Frigate_ING_AllSupport"
+planetItemType
+	designName "NR:Module:CommandCenter"
+	entityDefName "PLANETMODULE_ING_NrCommandCenter"
 planetItemType
 designName "NR:Frigate:Scout"
 	entityDefName "Frigate_ING_NrScout"
@@ -1907,11 +1913,17 @@ planetItemType
 	designName "Man:Module:CapitalShipFactory"
 	entityDefName "PLANETMODULE_ING_ManCapitalshipFactory"
 planetItemType
+	designName "Man:Module:CivicLab"
+	entityDefName "PLANETMODULE_ING_ManCivicLab"
+planetItemType
 	designName "Man:Module:CrystalExtractor"
 	entityDefName "PLANETMODULE_ING_ManCrystalExtractor"
 planetItemType
 	designName "Man:Module:FrigateFactory"
 	entityDefName "PLANETMODULE_ING_ManFrigateFactory"
+planetItemType
+	designName "Man:Module:MilitaryLab"
+	entityDefName "PLANETMODULE_ING_ManMilitaryLab"			
 planetItemType
 	designName "Man:Module:MetalExtractor"
 	entityDefName "PLANETMODULE_ING_ManMetalExtractor"
@@ -1942,6 +1954,9 @@ planetItemType
 planetItemType
 	designName "Man:Capitalship:Keldabe"
 	entityDefName "CAPITALSHIP_ING_ManKeldabe"
+planetItemType
+	designName "Man:Capitalship:Krayt"
+	entityDefName "CAPITALSHIP_ING_ManKrayt"
 planetItemType
 	designName "Man:Capitalship:Venator"
 	entityDefName "CAPITALSHIP_ING_ManVenator"
@@ -3360,7 +3375,7 @@ planetItemsTemplate
 				item "All:Frigate:Constructor"
 				item "All:Frigate:Constructor"
 				item "All:Module:CivicLab"
-				item "All:Module:CommandCenter"				
+				item "NR:Module:CommandCenter"				
 				item "Bonus:AllianceHomeworld"
 		group
 			condition
@@ -3570,7 +3585,7 @@ planetItemsTemplate
 				item "All:Module:CrystalExtractor"
 				item "All:Frigate:Constructor"
 				item "All:Frigate:Constructor"
-				item "All:Module:CommandCenter"
+				item "NR:Module:CommandCenter"
 				item "All:Module:CivicLab"
 				item "NR:Frigate:Scout"
 				item "NR:Frigate:Scout"
@@ -5338,12 +5353,13 @@ planetItemsTemplate
 				param ""
 			owner "MandalorianRaiders"
 			colonizeChance 1
-			items 104
+			items 105
 				item "Man:Capitalship:Keldabe"
 				item "Man:Capitalship:Keldabe"
 				item "Man:Capitalship:Keldabe"
 				item "Man:Capitalship:Venator"
 				item "Man:Capitalship:Venator"
+				item "Man:Capitalship:Krayt"
 				item "Man:Frigate:Dreadnaught"
 				item "Man:Frigate:Dreadnaught"
 				item "Man:Frigate:Dreadnaught"
@@ -5454,9 +5470,10 @@ planetItemsTemplate
 				param ""
 			owner "MandalorianRaiders"
 			colonizeChance 1
-			items 88
+			items 89
 				item "Man:Capitalship:Keldabe"
 				item "Man:Capitalship:Venator"
+				item "Man:Capitalship:Krayt"
 				item "Man:Frigate:Dreadnaught"
 				item "Man:Frigate:Dreadnaught"
 				item "Man:Frigate:Dreadnaught"
@@ -6028,7 +6045,7 @@ planetItemsTemplate
 				param "TechDefensive"
 			owner "PlanetOwner"
 			colonizeChance 1
-			items 35
+			items 36
 				item "Tech:Module:FrigateFactory"
 				item "Tech:Module:CapitalShipFactory"
 				item "Tech:Module:TradePort"
@@ -6049,6 +6066,7 @@ planetItemsTemplate
 				item "Tech:Module:MetalExtractor"
 				item "Tech:Module:MetalExtractor"
 				item "Tech:Module:MetalExtractor"
+				item "Tech:Module:TradePort"
 				item "Tech:StarBase"
 				item "Tech:Module:Mine"
 				item "Tech:Module:Mine"
@@ -6269,7 +6287,7 @@ planetItemsTemplate
 				param "PhaseTransporters"
 			owner "PlanetOwner"
 			colonizeChance 1
-			items 30
+			items 31
 				item "Phase:Module:FrigateFactory"
 				item "Phase:Module:CapitalShipFactory"
 				item "Phase:Module:TradePort"
@@ -6288,6 +6306,7 @@ planetItemsTemplate
 				item "Phase:Module:MetalExtractor"
 				item "Phase:Module:MetalExtractor"				
 				item "Phase:Module:PhaseGate"
+				item "Phase:Module:NonCombatLab"
 				item "Phase:CapitalShip:Scout"
 				item "Phase:Frigate:Light"
 				item "Phase:Frigate:Light"
@@ -6558,10 +6577,11 @@ planetItemsTemplate
 				param "AllPartisans"
 			owner "PlanetOwner"
 			colonizeChance 1
-			items 35
+			items 36
 				item "All:Module:FrigateFactory"
 				item "All:Module:CapitalShipFactory"
 				item "All:Module:TradePort"
+				item "All:Module:CombatLab"
 				item "All:Module:TorpedoTurret"	
 				item "All:Module:TorpedoTurret"
 				item "All:Module:TorpedoTurret"
@@ -6675,12 +6695,13 @@ planetItemsTemplate
 				param "EmpYevetha"
 			owner "PlanetOwner"
 			colonizeChance 1
-			items 33
+			items 34
 				item "Emp:Module:FrigateFactory"
 				item "Emp:Module:FrigateFactory"
 				item "Emp:Module:CapitalShipFactory"
 				item "Emp:Module:CapitalShipFactory"
 				item "Emp:Module:TradePort"
+				item "Emp:Module:NonCombatLab"
 				item "Emp:Module:RepairPlatform"
 				item "Emp:Module:RepairPlatform"
 				item "Emp:Module:GolanIII"
@@ -6715,10 +6736,12 @@ planetItemsTemplate
 				param "ManDxunMercs"
 			owner "PlanetOwner"
 			colonizeChance 1
-			items 36
+			items 38
 				item "Man:Module:FrigateFactory"
 				item "Man:Module:CapitalShipFactory"
 				item "Man:Module:TradePort"
+				item "Man:Module:Refinery"
+				item "Man:Module:RepairPlatform"
 				item "Man:Module:TurbolaserTurret"
 				item "Man:Module:TurbolaserTurret"
 				item "Man:Module:TurbolaserTurret"
@@ -6758,10 +6781,12 @@ planetItemsTemplate
 				param "ManSkirata"
 			owner "PlanetOwner"
 			colonizeChance 1
-			items 36
+			items 38
 				item "Man:Module:FrigateFactory"
 				item "Man:Module:CapitalShipFactory"
 				item "Man:Module:TradePort"
+				item "Man:Module:CivicLab"
+				item "Man:Module:RepairPlatform"
 				item "Man:Module:TurbolaserTurret"
 				item "Man:Module:TurbolaserTurret"
 				item "Man:Module:TorpedoTurret"
@@ -6907,7 +6932,7 @@ planetItemsTemplate
 				item "Mil:Module:MetalExtractor"
 				item "Mil:Module:MetalExtractor"
 				item "Mil:Module:MetalExtractor"
-				item "Other:Capitalship:Providence"
+				item "Man:Capitalship:Krayt"
 				item "Mil:Frigate:Light"
 				item "Mil:Frigate:Light"
 				item "Mil:Frigate:Light"
@@ -6928,10 +6953,11 @@ planetItemsTemplate
 				param "BlackSun"
 			owner "PlanetOwner"
 			colonizeChance 1
-			items 37
+			items 38
 				item "Mil:Module:FrigateFactory"
 				item "Mil:Module:CapitalShipFactory"
 				item "Mil:Module:EmpTradePort"
+				item "Mil:Module:AllTradePort"
 				item "Mil:Module:Hangar"
 				item "Mil:Module:Hangar"
 				item "Mil:Module:TurbolaserTurret"	
@@ -6972,15 +6998,15 @@ planetItemsTemplate
 				param "Hapes"
 			owner "PlanetOwner"
 			colonizeChance 1
-			items 35
+			items 38
 				item "Psi:Module:FrigateFactory"
-				item "Psi:Module:CapitalShipFactory"
+				item "Psi:Module:FrigateFactory"
 				item "Psi:Module:TradePort"
-				item "Psi:Module:BeamDefense"
-				item "Psi:Module:BeamDefense"	
-				item "Psi:Module:BeamDefense"
-				item "Psi:Module:BeamDefense"
-				item "Psi:Module:HangarDefense"
+				item "Mil:Module:TurbolaserTurret"	
+				item "Mil:Module:TurbolaserTurret"	
+				item "Mil:Module:TurbolaserTurret"	
+				item "Mil:Module:TurbolaserTurret"	
+				item "Mil:Module:Hangar"
 				item "Psi:Module:CultureCenter"
 				item "Psi:Module:CrystalExtractor"
 				item "Psi:Module:CrystalExtractor"
@@ -6992,11 +7018,10 @@ planetItemsTemplate
 				item "Psi:Module:MetalExtractor"
 				item "Psi:Module:MetalExtractor"
 				item "Psi:Module:MetalExtractor"
-				item "Psi:CapitalShip:BattlePsionic"
-				item "Psi:Frigate:Light"
-				item "Psi:Frigate:Light"
-				item "Psi:Frigate:LongRange"
-				item "Psi:Frigate:LongRange"
+				item "Other:Frigate:HapanNova"
+				item "Other:Frigate:HapanNova"
+				item "Other:Frigate:HapanNova"
+				item "Other:Frigate:HapanNova"
 				item "Other:Frigate:HapanNova"
 				item "Other:Frigate:HapanNova"
 				item "Other:Frigate:HapanNova"
@@ -7005,6 +7030,10 @@ planetItemsTemplate
 				item "Other:Frigate:HapanBattleDragon"
 				item "Other:Frigate:HapanBattleDragon"
 				item "Other:Frigate:HapanBattleDragon"
+				item "Other:Frigate:HapanBattleDragon"
+				item "Other:Frigate:HapanBattleDragon"
+				item "Other:Frigate:HapanBattleDragon"
+				item "Other:Frigate:HapanBattleDragon"				
 				item "Psi:Frigate:Constructor"
 				item "Psi:Frigate:Constructor"
 				item "Other:Flag:Beacon"

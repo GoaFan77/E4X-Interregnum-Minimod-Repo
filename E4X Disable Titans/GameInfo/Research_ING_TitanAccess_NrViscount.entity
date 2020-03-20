@@ -1,0 +1,38 @@
+﻿TXT
+entityType "ResearchSubject"
+hudIcon "HUDICON_ING_TitanNrViscount"
+smallHudIcon "HUDICON_ING_TitanNrViscount"
+infoCardIcon ""
+NameStringID "IDS_Research_ING_TitanAccess_NrViscount_NAME"
+DescriptionStringID "IDS_Research_ING_TitanAccess_NrViscount_DESC"
+researchWindowLocation
+	block 2
+	pos [ 26 , 10 ]
+ResearchField "Combat"
+Prerequisites
+	NumResearchPrerequisites 1
+	ResearchPrerequisite
+		Subject "Research_ING_TitanAccess_NrStarDefender4"
+		Level 1
+	RequiredFactionNameID ""
+	RequiredCompletedResearchSubjects 0
+MinimumArtifactLevel -1
+BaseUpgradeTime 105.000000
+PerLevelUpgradeTime 10.000000
+BaseCost
+	credits 999999.000000
+	metal 999999.000000
+	crystal 999999.000000
+PerLevelCostIncrease
+	credits 100.000000
+	metal 25.000000
+	crystal 25.000000
+Tier 6
+onlyWorksIfTierLabsExist TRUE
+MaxNumResearchLevels 0
+priority 0.000000
+researchBoolModifiers 0
+researchFloatModifiers 0
+artifactPicture ""
+uniqueOverlayBrush ""
+dlcId 204880

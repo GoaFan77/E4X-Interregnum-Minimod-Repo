@@ -510,6 +510,10 @@ GameplayConstants
 		pirateRaidComposition:2
 			requiredShipCount 7
 			requiredShip
+				type "CAPITALSHIP_ING_ManVenator"
+				minCount 1
+				maxCount 1
+			requiredShip
 				type "Frigate_ING_ManLight"
 				minCount 9
 				maxCount 9
@@ -530,10 +534,6 @@ GameplayConstants
 				minCount 12
 				maxCount 12
 			requiredShip
-				type "Frigate_ING_ManDreadnaught"
-				minCount 2
-				maxCount 3
-			requiredShip
 				type "Frigate_ING_ManSiege"
 				minCount 2
 				maxCount 4
@@ -541,7 +541,7 @@ GameplayConstants
 		pirateRaidComposition:3
 			requiredShipCount 7
 			requiredShip
-				type "CAPITALSHIP_ING_ManVenator"
+				type "CAPITALSHIP_ING_ManKrayt"
 				minCount 1
 				maxCount 1
 			requiredShip
@@ -1488,7 +1488,7 @@ outlawSectorsData
 				planetAbilities
 					ability:0 "Ability_ING_MinorFactionSpawnAttackRaidMan"
 					ability:1 "Ability_ING_MinorFactionSpawnDefenseRaidMan"
-					ability:2 "Ability_ING_MinorFactionTrainingGround"
+					ability:2 "Ability_ING_MinorFactionBeskarArmorBonus"
 					ability:3 "Ability_ING_MinorFactionSpawnSiegeRaidMan"
 					ability:4 ""
 			minorFactionPlayerDef
@@ -1497,7 +1497,7 @@ outlawSectorsData
 					ability:0 "Ability_ING_MinorFactionReconTeams"
 					ability:1 "Ability_ING_MinorFactionCommandoOperation"
 					ability:2 "Ability_ING_MinorFactionAssassination"
-					ability:3 "Ability_ING_MinorFactionBeskarArmorBonus"
+					ability:3 "Ability_ING_MinorFactionTrainingGround"
 					ability:4 ""
 			minorFactionPlayerDef
 				name "HuttCartel"

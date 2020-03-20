@@ -525,13 +525,9 @@ GameplayConstants
 				type "Frigate_ING_ManAntiModule"
 				minCount 2
 				maxCount 3
-				requiredShip
+			requiredShip
 				type "Frigate_ING_ManLongRange"
 				minCount 5
-				maxCount 6
-			requiredShip
-				type "Frigate_ING_ManAntiFighter"
-				minCount 4
 				maxCount 6
 			requiredShip
 				type "Frigate_ING_ManSiege"
@@ -549,6 +545,10 @@ GameplayConstants
 				type "CAPITALSHIP_ING_ManVenator"
 				minCount 1
 				maxCount 1
+			requiredShip
+				type "CAPITALSHIP_ING_ManKrayt"
+				minCount 1
+				maxCount 1
 			randomShipCount 0
 		pirateRaidComposition:3
 			requiredShipCount 7
@@ -560,10 +560,6 @@ GameplayConstants
 				type "Frigate_ING_ManLongRange"
 				minCount 10
 				maxCount 10
-			requiredShip
-				type "Frigate_ING_ManAntiFighter"
-				minCount 7
-				maxCount 9
 			requiredShip
 				type "Frigate_ING_ManSiege"
 				minCount 8
@@ -579,7 +575,11 @@ GameplayConstants
 			requiredShip
 				type "CAPITALSHIP_ING_ManVenator"
 				minCount 2
-				maxCount 2	
+				maxCount 2
+			requiredShip
+				type "CAPITALSHIP_ING_ManKrayt"
+				minCount 2
+				maxCount 3	
 			randomShipCount 0
 		pirateRaidComposition:4
 			requiredShipCount 7
@@ -591,10 +591,6 @@ GameplayConstants
 				type "Frigate_ING_ManLongRange"
 				minCount 15
 				maxCount 18
-			requiredShip
-				type "Frigate_ING_ManAntiFighter"
-				minCount 7
-				maxCount 9
 			requiredShip
 				type "Frigate_ING_ManSiege"
 				minCount 10
@@ -609,6 +605,10 @@ GameplayConstants
 				maxCount 5
 			requiredShip
 				type "CAPITALSHIP_ING_ManVenator"
+				minCount 3
+				maxCount 5
+			requiredShip
+				type "CAPITALSHIP_ING_ManKrayt"
 				minCount 3
 				maxCount 5					
 			randomShipCount 0
@@ -1500,7 +1500,7 @@ minorFactionsData
 				planetAbilities
 					ability:0 "Ability_ING_MinorFactionSpawnAttackRaidMan"
 					ability:1 "Ability_ING_MinorFactionSpawnDefenseRaidMan"
-					ability:2 "Ability_ING_MinorFactionTrainingGround"
+					ability:2 "Ability_ING_MinorFactionBeskarArmorBonus"
 					ability:3 "Ability_ING_MinorFactionSpawnSiegeRaidMan"
 					ability:4 ""
 			minorFactionPlayerDef
@@ -1509,7 +1509,7 @@ minorFactionsData
 					ability:0 "Ability_ING_MinorFactionReconTeams"
 					ability:1 "Ability_ING_MinorFactionCommandoOperation"
 					ability:2 "Ability_ING_MinorFactionAssassination"
-					ability:3 "Ability_ING_MinorFactionBeskarArmorBonus"
+					ability:3 "Ability_ING_MinorFactionTrainingGround"
 					ability:4 ""
 			minorFactionPlayerDef
 				name "HuttCartel"
