@@ -1,0 +1,47 @@
+﻿TXT
+entityType "ResearchSubject"
+hudIcon "HUDICON_ING_Smugglers"
+smallHudIcon "HUDICON_ING_Smugglers"
+infoCardIcon ""
+NameStringID "IDS_RESEARCH_ING_SmugglerContacts_NAME"
+DescriptionStringID "IDS_RESEARCH_ING_SmugglerContacts_DESC"
+researchWindowLocation
+	block 2
+	pos [ 7 , 0 ]
+ResearchField "NonCombat"
+Prerequisites
+	NumResearchPrerequisites 1
+	ResearchPrerequisite
+		Subject "Research_ING_BlackMarketAll1"
+		Level 2
+	RequiredFactionNameID ""
+	RequiredCompletedResearchSubjects 0
+MinimumArtifactLevel -1
+BaseUpgradeTime 120.000000
+PerLevelUpgradeTime 10.000000
+BaseCost
+	credits 1800.000000
+	metal 350.000000
+	crystal 550.000000
+PerLevelCostIncrease
+	credits 100.000000
+	metal 25.000000
+	crystal 25.000000
+Tier 7
+onlyWorksIfTierLabsExist FALSE
+MaxNumResearchLevels 2
+priority 1.000000
+researchBoolModifiers 0
+researchFloatModifiers 2
+researchModifier
+	modifierType "BlackMarketBuyPriceAdjustment"
+	baseValue 0.000000
+	perLevelValue 0.100000
+researchModifier
+	modifierType "PlanetUpgradeCostAdjustment"
+	baseValue 0.000000
+	perLevelValue 0.250000
+	linkedPlanetUpgradeType "Smuggler"
+artifactPicture ""
+uniqueOverlayBrush "RebellionResearchOverlay"
+dlcId 204880

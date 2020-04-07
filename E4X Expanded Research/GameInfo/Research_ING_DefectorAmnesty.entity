@@ -1,19 +1,20 @@
-﻿TXT
+﻿TXT2
+SinsArchiveVersion 194
 entityType "ResearchSubject"
-hudIcon "HUDICON_ING_BlackMarketAll"
-smallHudIcon "HUDICON_ING_BlackMarketAll"
+hudIcon "HUDICON_ING_DefectorAmnesty"
+smallHudIcon "HUDICON_ING_DefectorAmnesty"
 infoCardIcon ""
-NameStringID "IDS_RESEARCH_ING_BlackMarketAll1_NAME"
-DescriptionStringID "IDS_RESEARCH_ING_BlackMarketAll1_DESC"
+NameStringID "IDS_Research_ING_DefectorAmnesty_NAME"
+DescriptionStringID "IDS_Research_ING_DefectorAmnesty_DESC"
 researchWindowLocation
-	block 2
+	block 0
 	pos [ 5 , 0 ]
 ResearchField "NonCombat"
 Prerequisites
 	NumResearchPrerequisites 0
 	RequiredFactionNameID ""
 	RequiredCompletedResearchSubjects 0
-MinimumArtifactLevel -1
+MinimumArtifactLevel 1
 BaseUpgradeTime 90.000000
 PerLevelUpgradeTime 10.000000
 BaseCost
@@ -26,14 +27,18 @@ PerLevelCostIncrease
 	crystal 25.000000
 Tier 5
 onlyWorksIfTierLabsExist FALSE
-MaxNumResearchLevels 4
+MaxNumResearchLevels 2
 priority 1.000000
 researchBoolModifiers 0
-researchFloatModifiers 1
+researchFloatModifiers 2
 researchModifier
-	modifierType "BlackMarketBuyPriceAdjustment"
+	modifierType "ChanceToConvertFrigatesHyperspacingFromPlanet"
+	baseValue 0.000000
+	perLevelValue 0.050000
+researchModifier
+	modifierType "CultureResistPercent"
 	baseValue 0.000000
 	perLevelValue 0.100000
 artifactPicture ""
-uniqueOverlayBrush ""
+uniqueOverlayBrush "RebellionResearchOverlay"
 dlcId 204880

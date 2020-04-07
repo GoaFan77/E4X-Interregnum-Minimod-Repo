@@ -7,7 +7,7 @@ NameStringID "IDS_Research_ING_WeaponDamage_TorpedoAll1_NAME"
 DescriptionStringID "IDS_Research_ING_WeaponDamage_TorpedoAll1_DESC"
 researchWindowLocation
 	block 1
-	pos [ 2 , 2 ]
+	pos [ 2 , 3 ]
 ResearchField "Combat"
 Prerequisites
 	NumResearchPrerequisites 0
@@ -34,12 +34,12 @@ researchModifier
 	modifierType "WeaponDamageAdjustment"
 	baseValue 0.000000
 	perLevelValue 0.050000
-	linkedWeaponClass "DART"
+	linkedWeaponClass "DART"	
 researchModifier
 	modifierType "WeaponDamageAdjustment"
 	baseValue 0.000000
 	perLevelValue 0.050000
-	linkedWeaponClass "PULSEWAVE"
+	linkedWeaponClass "PULSEWAVE"	
 artifactPicture ""
 uniqueOverlayBrush ""
 dlcId 204880

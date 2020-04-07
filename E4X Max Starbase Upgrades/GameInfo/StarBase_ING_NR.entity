@@ -1,8 +1,8 @@
 ﻿TXT
 entityType "StarBase"
 ability:0 "Ability_ING_AllStarbaseScrambleFighters"
-ability:1 "Ability_ING_NoSurrender"
-ability:2 "Ability_ING_ListeningPost"
+ability:1 "Ability_ING_ImmersiveShield"
+ability:2 "Ability_ING_RestockFleet"
 ability:3 "AbilityDestabilizeHyperspacePhase"
 ability:4 ""
 defaultAutoAttackRange "None"
@@ -13,9 +13,9 @@ numRandomDebrisLarge 12
 numRandomDebrisSmall 24
 numSpecificDebris 0
 armorType "Module"
-hudIcon "HUDICON_ING_StarBaseAll"
-smallHudIcon "MainViewIcon_ING_AllStarBase"
-infoCardIcon "MainViewIcon_ING_AllStarBase"
+hudIcon "HUDICON_ING_StarBaseNr"
+smallHudIcon "MainViewIcon_ING_NrStarbase"
+infoCardIcon "MainViewIcon_ING_NrStarbase"
 minZoomDistanceMult 2.000000
 NumWeapons 3
 Weapon
@@ -26,10 +26,10 @@ Weapon
 		DamageApplyType "BACKLOADED"
 		DamageType "ENERGY"
 		WeaponClassType "PHASECANNON"
-	DamagePerBank:FRONT 130.000000
-	DamagePerBank:BACK 130.000000
-	DamagePerBank:LEFT 130.000000
-	DamagePerBank:RIGHT 130.000000
+	DamagePerBank:FRONT 120.000000
+	DamagePerBank:BACK 120.000000
+	DamagePerBank:LEFT 120.000000
+	DamagePerBank:RIGHT 120.000000
 	Range 8000.000000
 	PreBuffCooldownTime 5.000000
 	CanFireAtFighter FALSE
@@ -154,34 +154,34 @@ TargetCountPerBank:BACK 4
 TargetCountPerBank:LEFT 4
 TargetCountPerBank:RIGHT 4
 canOnlyTargetStructures FALSE
-ShieldMeshName "Starbase_ING_Allshield"
+ShieldMeshName "Starbase_ING_NRshield"
 renderShield TRUE
 squadTypeEntityDef:0 "Squad_ING_AllCombat"
 squadAntiMatterCost:0 0.000000
 squadTypeEntityDef:1 "Squad_ING_AllBomber"
 squadAntiMatterCost:1 0.000000
-squadTypeEntityDef:2 "Squad_ING_AllBomberAntimodule"
-squadAntiMatterCost:2 0.000000
-squadTypeEntityDef:3 "Squad_ING_AllInterceptor"
-squadAntiMatterCost:3 50.000000
-mainViewIcon "MainViewIcon_ING_AllStarBase"
+squadTypeEntityDef:2 "Squad_ING_AllKwing"
+squadAntiMatterCost:2 100.000000
+squadTypeEntityDef:3 "Squad_ING_AllEwing"
+squadAntiMatterCost:3 85.000000
+mainViewIcon "MainViewIcon_ING_NrStarbase"
 experiencePointsForDestroying 150.000000
-nameStringID "IDS_StarBase_ING_All_NAME"
-picture "Picture_ING_AllStarBase"
+nameStringID "IDS_StarBase_ING_Nr_NAME"
+picture "Picture_ING_NrStarBase"
 statCountType "StarBase"
-creationSourceAbility "Ability_ING_DeployStarbaseAll"
+creationSourceAbility "Ability_ING_DeployStarbaseNR"
 maxUpgradeLevelCount 20
 UpgradeTypeCount 7
 UpgradeType "StarBaseUpgrade_ING_AllWeapons"
 UpgradeType "StarBaseUpgrade_ING_AllToughness"
-UpgradeType "StarBaseUpgrade_ING_AllHangar"
+UpgradeType "StarBaseUpgrade_ING_NrHangar"
 UpgradeType "StarBaseUpgrade_ING_AllTradePort"
 UpgradeType "StarBaseUpgrade_ING_AllBlockColonize"
 UpgradeType "StarBaseUpgrade_ING_AllEncouragement"
-UpgradeType "StarBaseUpgrade_ING_AllNoSurrender"
+UpgradeType "StarBaseUpgrade_ING_NrImmersiveShield"
 MeshNameInfoCount 1
 MeshNameInfo
-	meshName "Starbase_ING_All"
+	meshName "Starbase_ING_NR"
 	criteriaType "None"
 meshNameIncreasedEffectName ""
 meshNameDecreasedEffectName ""

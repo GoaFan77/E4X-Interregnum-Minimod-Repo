@@ -1,19 +1,16 @@
 ﻿TXT
 entityType "ResearchSubject"
-hudIcon "HUDICON_ING_Metal3"
-smallHudIcon "HUDICON_ING_Metal3"
+hudIcon "HUDICON_ING_OfficerCorps"
+smallHudIcon "HUDICON_ING_OfficerCorps"
 infoCardIcon ""
-NameStringID "IDS_Research_ING_MetalEmp3_NAME"
-DescriptionStringID "IDS_Research_ING_MetalEmp3_DESC"
+NameStringID "IDS_Research_ING_OfficerCorps_NAME"
+DescriptionStringID "IDS_Research_ING_OfficerCorps_DESC"
 researchWindowLocation
-	block 2
-	pos [ 3 , 1 ]
+	block 1
+	pos [ 3 , 0 ]
 ResearchField "NonCombat"
 Prerequisites
-	NumResearchPrerequisites 1
-	ResearchPrerequisite
-		Subject "Research_ING_MetalAll2"
-		Level 2
+	NumResearchPrerequisites 0
 	RequiredFactionNameID ""
 	RequiredCompletedResearchSubjects 0
 MinimumArtifactLevel -1
@@ -29,14 +26,14 @@ PerLevelCostIncrease
 	crystal 25.000000
 Tier 3
 onlyWorksIfTierLabsExist FALSE
-MaxNumResearchLevels 4
+MaxNumResearchLevels 2
 priority 1.000000
 researchBoolModifiers 0
 researchFloatModifiers 1
 researchModifier
-	modifierType "ExtractionRateMetalAdjustment"
-	baseValue 0.000000
-	perLevelValue 0.066667
+	modifierType "CapitalShipMaxTrainableLevel"
+	baseValue 2.000000
+	perLevelValue 1.000000
 artifactPicture ""
-uniqueOverlayBrush ""
+uniqueOverlayBrush "RebellionResearchOverlay"
 dlcId 204880
