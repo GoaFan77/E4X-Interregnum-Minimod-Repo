@@ -5769,7 +5769,7 @@ planetItemsTemplate
 planetItemsTemplate
 	templateName "Template:DefaultMinorFaction"
 	subTemplates 0
-	groups 31
+	groups 32
 		group
 			condition
 				type "PlanetOwnerIsMinorFactionWithFactionName"
@@ -6909,7 +6909,7 @@ planetItemsTemplate
 				item "Mil:Frigate:Constructor"
 				item "Mil:Frigate:Constructor"
 				item "Other:Flag:Beacon"
-				group
+		group
 			condition
 				type "PlanetOwnerIsMinorFactionWithFactionName"
 				param "HuttCartel"
