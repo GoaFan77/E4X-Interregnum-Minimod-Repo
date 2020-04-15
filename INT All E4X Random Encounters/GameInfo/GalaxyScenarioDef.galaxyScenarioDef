@@ -1673,7 +1673,7 @@ planetItemType
 	designName "All:Capitalship:MC80B"
 	entityDefName "CAPITALSHIP_ING_AllMC80B"
 planetItemType
-designName "All:Capitalship:Providence"
+	designName "All:Capitalship:Providence"
 	entityDefName "CAPITALSHIP_ING_AllProvidence"
 planetItemType
 	designName "All:Capitalship:WingedMC80"
@@ -2048,7 +2048,7 @@ planetItemType
 	designName "Mil:Module:MetalExtractor"
 	entityDefName "PLANETMODULE_ING_MilMetalExtractor"
 planetItemType
-designName "Mil:Module:NonCombatLab"
+	designName "Mil:Module:NonCombatLab"
 	entityDefName "PLANETMODULE_ING_MilCivicLab"
 planetItemType
 	designName "Mil:Module:AllRefinery"
@@ -3185,7 +3185,7 @@ planetItemType
 	designName "Other:Frigate:Dreadnaught"
 	entityDefName "Frigate_ING_CaptureableDreadnaught"
 planetItemType
-designName "Other:Frigate:HapanBattleDragon"
+	designName "Other:Frigate:HapanBattleDragon"
 	entityDefName "Frigate_ING_HapanBattleDragon"
 planetItemType
 	designName "Other:Frigate:HapanNova"
@@ -3261,7 +3261,7 @@ playerType
 	designName "RebelAlliance"
 	entityDefName "Player_ING_RebelAlliance"
 playerType
-designName "NewRepublic"
+	designName "NewRepublic"
 	entityDefName "Player_ING_NewRepublic"	
 playerType
 	designName "Pirate"
@@ -5769,7 +5769,7 @@ planetItemsTemplate
 planetItemsTemplate
 	templateName "Template:DefaultMinorFaction"
 	subTemplates 0
-	groups 32
+	groups 31
 		group
 			condition
 				type "PlanetOwnerIsMinorFactionWithFactionName"
@@ -6489,47 +6489,6 @@ planetItemsTemplate
 		group
 			condition
 				type "PlanetOwnerIsMinorFactionWithFactionName"
-				param "HuttCartel"
-			owner "PlanetOwner"
-			colonizeChance 1
-			items 34
-				item "Mil:Module:FrigateFactory"
-				item "Mil:Module:CapitalShipFactory"
-				item "Mil:Module:AllTradePort"
-				item "Mil:Module:RepairPlatform"
-				item "Mil:Module:TurbolaserTurret"	
-				item "Mil:Module:TurbolaserTurret"
-				item "Mil:Module:TurbolaserTurret"	
-				item "Mil:Module:TurbolaserTurret"
-				item "Mil:Module:Hangar"
-				item "Mil:Module:CrystalExtractor"
-				item "Mil:Module:CrystalExtractor"
-				item "Mil:Module:CrystalExtractor"
-				item "Mil:Module:CrystalExtractor"
-				item "Mil:Module:CrystalExtractor"				
-				item "Mil:Module:MetalExtractor"
-				item "Mil:Module:MetalExtractor"
-				item "Mil:Module:MetalExtractor"
-				item "Mil:Module:MetalExtractor"
-				item "Mil:Module:MetalExtractor"
-				item "Mil:Module:AllTradePort"		
-				item "Other:Capitalship:HuttAssaultCruiser"
-				item "Mil:Frigate:Light"
-				item "Mil:Frigate:Light"
-				item "Mil:Frigate:LongRange"
-				item "Mil:Frigate:LongRange"
-				item "Mil:Frigate:Dreadnaught"
-				item "Mil:Frigate:AntiFighter"
-				item "Mil:Frigate:AntiFighter"
-				item "Mil:Corvette:Skipray"
-				item "Mil:Corvette:Skipray"
-				item "Mil:Corvette:Skipray"
-				item "Mil:Frigate:Constructor"
-				item "Mil:Frigate:Constructor"
-				item "Other:Flag:Beacon"
-		group
-			condition
-				type "PlanetOwnerIsMinorFactionWithFactionName"
 				param "AllCorellia"
 			owner "PlanetOwner"
 			colonizeChance 1
@@ -6869,6 +6828,47 @@ planetItemsTemplate
 		group
 			condition
 				type "PlanetOwnerIsMinorFactionWithFactionName"
+				param "HuttCartel"
+			owner "PlanetOwner"
+			colonizeChance 1
+			items 34
+				item "Mil:Module:FrigateFactory"
+				item "Mil:Module:CapitalShipFactory"
+				item "Mil:Module:AllTradePort"
+				item "Mil:Module:RepairPlatform"
+				item "Mil:Module:TurbolaserTurret"	
+				item "Mil:Module:TurbolaserTurret"
+				item "Mil:Module:TurbolaserTurret"	
+				item "Mil:Module:TurbolaserTurret"
+				item "Mil:Module:Hangar"
+				item "Mil:Module:CrystalExtractor"
+				item "Mil:Module:CrystalExtractor"
+				item "Mil:Module:CrystalExtractor"
+				item "Mil:Module:CrystalExtractor"
+				item "Mil:Module:CrystalExtractor"				
+				item "Mil:Module:MetalExtractor"
+				item "Mil:Module:MetalExtractor"
+				item "Mil:Module:MetalExtractor"
+				item "Mil:Module:MetalExtractor"
+				item "Mil:Module:MetalExtractor"
+				item "Mil:Module:AllTradePort"		
+				item "Other:Capitalship:HuttAssaultCruiser"
+				item "Mil:Frigate:Light"
+				item "Mil:Frigate:Light"
+				item "Mil:Frigate:LongRange"
+				item "Mil:Frigate:LongRange"
+				item "Mil:Frigate:Dreadnaught"
+				item "Mil:Frigate:AntiFighter"
+				item "Mil:Frigate:AntiFighter"
+				item "Mil:Corvette:Skipray"
+				item "Mil:Corvette:Skipray"
+				item "Mil:Corvette:Skipray"
+				item "Mil:Frigate:Constructor"
+				item "Mil:Frigate:Constructor"
+				item "Other:Flag:Beacon"
+		group
+			condition
+				type "PlanetOwnerIsMinorFactionWithFactionName"
 				param "CSA"
 			owner "PlanetOwner"
 			colonizeChance 1
@@ -6904,47 +6904,6 @@ planetItemsTemplate
 				item "Mil:Frigate:Dreadnaught"
 				item "Mil:Frigate:Dreadnaught"
 				item "Mil:Frigate:AntiFighter"
-				item "Mil:Corvette:Skipray"
-				item "Mil:Corvette:Skipray"
-				item "Mil:Frigate:Constructor"
-				item "Mil:Frigate:Constructor"
-				item "Other:Flag:Beacon"
-		group
-			condition
-				type "PlanetOwnerIsMinorFactionWithFactionName"
-				param "HuttCartel"
-			owner "PlanetOwner"
-			colonizeChance 1
-			items 34
-				item "Mil:Module:FrigateFactory"
-				item "Mil:Module:CapitalShipFactory"
-				item "Mil:Module:AllTradePort"
-				item "Mil:Module:RepairPlatform"
-				item "Mil:Module:TurbolaserTurret"	
-				item "Mil:Module:TurbolaserTurret"
-				item "Mil:Module:TurbolaserTurret"	
-				item "Mil:Module:TurbolaserTurret"
-				item "Mil:Module:Hangar"
-				item "Mil:Module:CrystalExtractor"
-				item "Mil:Module:CrystalExtractor"
-				item "Mil:Module:CrystalExtractor"
-				item "Mil:Module:CrystalExtractor"
-				item "Mil:Module:CrystalExtractor"				
-				item "Mil:Module:MetalExtractor"
-				item "Mil:Module:MetalExtractor"
-				item "Mil:Module:MetalExtractor"
-				item "Mil:Module:MetalExtractor"
-				item "Mil:Module:MetalExtractor"
-				item "Mil:Module:AllTradePort"		
-				item "Other:Capitalship:HuttAssaultCruiser"
-				item "Mil:Frigate:Light"
-				item "Mil:Frigate:Light"
-				item "Mil:Frigate:LongRange"
-				item "Mil:Frigate:LongRange"
-				item "Mil:Frigate:Dreadnaught"
-				item "Mil:Frigate:AntiFighter"
-				item "Mil:Frigate:AntiFighter"
-				item "Mil:Corvette:Skipray"
 				item "Mil:Corvette:Skipray"
 				item "Mil:Corvette:Skipray"
 				item "Mil:Frigate:Constructor"
