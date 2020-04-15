@@ -7,7 +7,7 @@ NameStringID "IDS_Research_ING_NeutralityProclamation_NAME"
 DescriptionStringID "IDS_Research_ING_NeutralityProclamation_DESC"
 researchWindowLocation
 	block 0
-	pos [ 3 , 4 ]
+	pos [ 3 , 5 ]
 ResearchField "Diplomacy"
 Prerequisites
 	NumResearchPrerequisites 0
