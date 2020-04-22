@@ -3,7 +3,7 @@ entityType "StarBase"
 ability:0 "Ability_ING_AllStarbaseScrambleFighters"
 ability:1 "Ability_ING_NoSurrender"
 ability:2 "Ability_ING_ListeningPost"
-ability:3 "AbilityDestabilizeHyperspacePhase"
+ability:3 "AbilityDestabilizeHyperspace"
 ability:4 ""
 defaultAutoAttackRange "None"
 defaultAutoAttackOn TRUE

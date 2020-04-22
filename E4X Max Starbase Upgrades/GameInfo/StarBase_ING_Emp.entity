@@ -3,7 +3,7 @@ entityType "StarBase"
 ability:0 "Ability_ING_ResupplyFleet"
 ability:1 "Ability_ING_CallReinforcements"
 ability:2 "Ability_ING_SecureSociety"
-ability:3 "AbilityDestabilizeHyperspacePhase"
+ability:3 "AbilityDestabilizeHyperspace"
 ability:4 ""
 defaultAutoAttackRange "None"
 defaultAutoAttackOn TRUE
