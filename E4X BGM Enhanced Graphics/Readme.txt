@@ -25,5 +25,5 @@ TXT
 Version 0
 enabledModNameCount 3
 enabledModName "E4X BGM Enhanced Graphics"
-enabledModName "Star Wars Interregnum Alpha 3.4"
-enabledModName "Enhanced 4X Mod 1.85"
+enabledModName "Star Wars Interregnum Beta 1"
+enabledModName "Enhanced 4X Mod 1.86"

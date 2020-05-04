@@ -37,6 +37,6 @@ enabledModNameCount 6
 enabledModName "INT SinsRe Powderpuff Aggressor"
 enabledModName "INT SinsRe"
 enabledModName "E4X SinsRe"
-enabledModName "Star Wars Interregnum Beta 1.0"
+enabledModName "Star Wars Interregnum Beta 1"
 enabledModName "Enhanced 4X Mod 1.86"
 enabledModName "SinsRemastered-v0.94b"
