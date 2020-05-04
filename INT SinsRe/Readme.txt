@@ -1,13 +1,13 @@
-===INT SinsRe 0.91b===
-Star Wars: Interregnum 3.4 & Sins:Remastered 0.91 Beta Compatibility mini-mod
+===INT SinsRe===
+Star Wars: Interregnum Beta 1 & Sins:Remastered 0.94 Beta Compatibility mini-mod
 
-This mini-mod addresses incompatibilities in INT 3.4 in conjunctions with Sins:Re 0.94b and allows them to function together.
-E4X 1.85, INT 3.4 and Sins: Remastered 0.94b all need to be downloaded and installed.
+This mini-mod addresses incompatibilities in INT Beta 1 in conjunctions with Sins:Re 0.94b and allows them to function together.
+E4X 1.86, INT Beta 1 and Sins: Remastered 0.94b all need to be downloaded and installed.
 
 Sins:  Remastered
 https://www.moddb.com/mods/sinsre
 
-If this mod is used, E4X SinsRe 0.91b must also be used.
+If this mod is used, E4X SinsRe must also be used.
 
 ---Credits---
 This minimod was created and is maintained by Dolynick, the creator of the Sins:Remastered Mod
@@ -35,8 +35,8 @@ Sins: Re
 TXT
 Version 0
 enabledModNameCount 5
-enabledModName "INT 1.85 SinsRe 0.94b"
-enabledModName "E4X SinsRe 0.94b"
-enabledModName "Star Wars Interregnum Alpha 3.4"
-enabledModName "Enhanced 4X Mod 1.85"
+enabledModName "INT 1.85 SinsRe"
+enabledModName "E4X SinsRe"
+enabledModName "Star Wars Interregnum Beta 1.0"
+enabledModName "Enhanced 4X Mod 1.86"
 enabledModName "SinsRemastered-v0.94b"

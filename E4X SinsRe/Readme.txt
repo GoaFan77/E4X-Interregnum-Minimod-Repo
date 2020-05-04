@@ -1,8 +1,8 @@
-===E4X SinsRe 0.91b===
-Enhanced 4X 1.85 & Sins:Remastered 0.91 Beta Compatibility mini-mod
+===E4X SinsRe===
+Enhanced 4X 1.86 & Sins:Remastered 0.94 Beta Compatibility mini-mod
 
-This mini-mod addresses incompatibilities in E4X 1.85 in conjunctions with Sins:Re 0.94b and allows them to function together.
-Both E4X 1.85 and Sins: Remastered 0.94b need to be downloaded and installed.
+This mini-mod addresses incompatibilities in E4X 1.86 in conjunctions with Sins:Re 0.94b and allows them to function together.
+Both E4X 1.86 and Sins: Remastered 0.94b need to be downloaded and installed.
 
 Enhanced 4X
 https://www.moddb.com/mods/enhanced-4x-mod
@@ -32,6 +32,6 @@ Sins: Re
 TXT
 Version 0
 enabledModNameCount 3
-enabledModName "E4X SinsRe 0.94b"
-enabledModName "Enhanced 4X Mod 1.85"
+enabledModName "E4X SinsRe"
+enabledModName "Enhanced 4X Mod 1.86"
 enabledModName "SinsRemastered-v0.94b"
