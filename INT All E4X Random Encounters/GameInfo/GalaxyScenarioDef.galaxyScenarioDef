@@ -1599,7 +1599,7 @@ orbitBodyType
 	typeName "Kessel"
 	entityDefName "Planet_ING_Kessel"
 	defaultTemplateName "Template:Kessel"		
-planetItemTypeCount 544
+planetItemTypeCount 546
 planetItemType
 	designName "All:Module:CapitalShipFactory"
 	entityDefName "PLANETMODULE_ING_AllCapitalshipFactory"
@@ -1609,6 +1609,9 @@ planetItemType
 planetItemType
 	designName "All:Module:CivicLab"
 	entityDefName "PLANETMODULE_ING_AllCivicLab"
+planetItemType
+	designName "All:Module:CivicLabNrStart"
+	entityDefName "PLANETMODULE_ING_AllCivicLabNrStart"	
 planetItemType
 	designName "All:Module:CommandCenter"
 	entityDefName "PLANETMODULE_ING_AllCommandCenter"
@@ -1654,6 +1657,9 @@ planetItemType
 planetItemType
 	designName "All:Module:TradePort"
 	entityDefName "PLANETMODULE_ING_AllTradePort"
+planetItemType
+	designName "All:Module:TradePortStart"
+	entityDefName "PLANETMODULE_ING_AllTradePortStart"
 planetItemType
 	designName "All:Starbase:Starbase"
 	entityDefName "StarBase_ING_All"
@@ -3402,7 +3408,7 @@ planetItemsTemplate
 				item "All:Module:FrigateFactory"
 				item "All:Frigate:Constructor"
 				item "All:Frigate:Constructor"
-				item "All:Module:RepairPlatform"
+				item "All:Module:TradePortStart"
 				item "All:Frigate:Light"
  				item "All:Frigate:Light"	
  				item "All:Frigate:Support"
@@ -3419,7 +3425,7 @@ planetItemsTemplate
 				item "All:Module:FrigateFactory"
 				item "All:Frigate:Constructor"
 				item "All:Frigate:Constructor"
-				item "All:Module:CivicLab"
+				item "All:Module:CivicLabNrStart"
 				item "Nr:Module:CommandCenter"				
 				item "Bonus:AllianceHomeworld"
 		group
@@ -3607,7 +3613,7 @@ planetItemsTemplate
 				item "All:Frigate:Constructor"
 				item "All:Frigate:Constructor"
 				item "All:Module:CommandCenter"
-				item "All:Module:RepairPlatform"
+				item "All:Module:TradePortStart"
 				item "All:Frigate:Light"
  				item "All:Frigate:Light"	
  				item "All:Frigate:Support"
@@ -3631,7 +3637,7 @@ planetItemsTemplate
 				item "All:Frigate:Constructor"
 				item "All:Frigate:Constructor"
 				item "Nr:Module:CommandCenter"
-				item "All:Module:CivicLab"
+				item "All:Module:CivicLabNrStart"
 				item "Nr:Frigate:Scout"
 				item "Nr:Frigate:Scout"
 				item "Bonus:AllianceHomeworld"

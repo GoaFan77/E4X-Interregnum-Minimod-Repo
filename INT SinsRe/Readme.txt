@@ -35,7 +35,7 @@ Sins: Re
 TXT
 Version 0
 enabledModNameCount 5
-enabledModName "INT 1.85 SinsRe"
+enabledModName "INT SinsRe"
 enabledModName "E4X SinsRe"
 enabledModName "Star Wars Interregnum Beta 1"
 enabledModName "Enhanced 4X Mod 1.86"
