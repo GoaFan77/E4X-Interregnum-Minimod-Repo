@@ -1,4 +1,5 @@
-﻿TXT
+﻿TXT2
+SinsArchiveVersion 194
 entityType "Titan"
 ability:0 "Ability_ING_DoNotFailMe"
 ability:1 "Ability_ING_Flagship"
@@ -93,11 +94,11 @@ UpgradeType "TitanUpgrade_ING_EmpExecutorAbilityA"
 UpgradeType "TitanUpgrade_ING_EmpExecutorAbilityB"
 UpgradeType "TitanUpgrade_ING_EmpExecutorAbilityC"
 UpgradeType "TitanUpgrade_ING_EmpExecutorAbilityD"
-UpgradeType "TitanUpgrade_ING_EmpExecutorAbilities"
 UpgradeType "TitanUpgrade_ING_EmpExecutorDurability"
 UpgradeType "TitanUpgrade_ING_EmpExecutorWeapons"
-numRandomDebrisLarge 80
-numRandomDebrisSmall 30
+UpgradeType "TitanUpgrade_ING_EmpExecutorAbilities"
+numRandomDebrisLarge 0
+numRandomDebrisSmall 0
 numSpecificDebris 0
 armorType "Titan"
 hudIcon "HUDICON_ING_Vader"
@@ -154,14 +155,14 @@ Weapon
 Weapon
 	WeaponType "Projectile"
 	damageEnums
-		AttackType "CAPITALSHIP"
+		AttackType "TITAN"
 		DamageAffectType "AFFECTS_SHIELDS_AND_HULL"
 		DamageApplyType "BACKLOADED"
 		DamageType "ENERGY"
 		WeaponClassType "PHASECANNON"
-	DamagePerBank:FRONT 102.000000
+	DamagePerBank:FRONT 102.00000
 	DamagePerBank:BACK 66.000000
-	DamagePerBank:LEFT 102.000000
+	DamagePerBank:LEFT 102.00000
 	DamagePerBank:RIGHT 102.000000
 	Range 10000.000000
 	PreBuffCooldownTime 6.000000
@@ -240,7 +241,7 @@ Weapon
 Weapon
 	WeaponType "Projectile"
 	damageEnums
-		AttackType "ANTILIGHT"
+		AttackType "ANTIVERYLIGHT"
 		DamageAffectType "AFFECTS_SHIELDS_AND_HULL"
 		DamageApplyType "BACKLOADED"
 		DamageType "ENERGY"
@@ -284,7 +285,7 @@ Weapon
 Weapon
 	WeaponType "Projectile"
 	damageEnums
-		AttackType "CAPITALSHIP"
+		AttackType "TITAN"
 		DamageAffectType "AFFECTS_SHIELDS_AND_HULL"
 		DamageApplyType "BACKLOADED"
 		DamageType "ENERGY"
@@ -338,6 +339,18 @@ maxDecelerationAngular 9.999996
 maxSpeedLinear 400.000000
 maxRollRate 1.650000
 maxRollAngle 20.000000
+useCustomHyperspaceEffects TRUE
+effects
+	chargeUpEffectName "Particle_ING_Hyperspace_Emp_Titan_Chargeup"
+	chargeUpEffectNameBetweenStars "Particle_ING_Hyperspace_Emp_Titan_Chargeup"
+	chargeUpEffectNameDestabilized "Particle_ING_Hyperspace_Emp_Titan_Chargeup_Unstable"
+	chargeUpEffectSoundID "Effect ING Hyperspace Chargeup"
+	travelEffectName "Hyperspace_Advent_Titan_Travel"
+	travelEffectNameBetweenStars "Hyperspace_Advent_Titan_Travel_Interstellar"
+	travelEffectNameDestabilized "Hyperspace_Advent_Titan_Travel_Unstable"
+	travelEffectSoundID "HYPERSPACE_TRAVEL"
+	exitEffectName "Hyperspace_Advent_Titan_Exit"
+	exitEffectSoundID "Effect ING Hyperspace Enter"
 squadTypeEntityDef:0 "Squad_ING_EmpCombat"
 squadAntiMatterCost:0 0.000000
 squadTypeEntityDef:1 "Squad_ING_EmpBomber"
@@ -382,8 +395,6 @@ weaponCooldownDecreasePerc
 weaponDamageIncreasePerc
 	StartValue 0.000000
 	ValueIncreasePerLevel 0.105000
-HyperspaceChargingSoundID "Effect ING Hyperspace Chargeup"
-HyperspaceTravelSoundID "HYPERSPACE_TRAVEL"
 EngineSoundID "ENGINE_TECHCAPITALSHIP"
 formationRank 0
 minShadow 0.000000

@@ -1,4 +1,5 @@
-﻿TXT
+﻿TXT2
+SinsArchiveVersion 194
 entityType "Titan"
 ability:0 "AbilityMicroPhaseJump"
 ability:1 "AbilityDesperation"
@@ -53,11 +54,11 @@ basePrice
 slotCount 150.000000
 BuildTime 450.000000
 MaxHullPoints
-	StartValue 4802.076660
-	ValueIncreasePerLevel 459.375000
+	StartValue 5042.180176
+	ValueIncreasePerLevel 436.406311
 MaxShieldPoints
-	StartValue 2567.447021
-	ValueIncreasePerLevel 532.875000
+	StartValue 2695.819092
+	ValueIncreasePerLevel 506.531250
 HullPointRestoreRate
 	StartValue 2.700000
 	ValueIncreasePerLevel 0.330000
@@ -149,7 +150,7 @@ Weapon
 Weapon
 	WeaponType "Beam"
 	damageEnums
-		AttackType "ANTILIGHT"
+		AttackType "ANTIVERYLIGHT"
 		DamageAffectType "AFFECTS_SHIELDS_AND_HULL"
 		DamageApplyType "OVERTIME"
 		DamageType "ENERGY"
@@ -159,7 +160,7 @@ Weapon
 	DamagePerBank:LEFT 35.000000
 	DamagePerBank:RIGHT 35.000000
 	Range 4500.000000
-	PreBuffCooldownTime 5.500000
+	PreBuffCooldownTime 5.000000
 	CanFireAtFighter TRUE
 	SynchronizedTargeting TRUE
 	PointStaggerDelay 0.250000
@@ -290,7 +291,14 @@ Weapon
 	PointStaggerDelay 0.000000
 	TravelSpeed 1300.000000
 	Duration 0.000000
-	fireConstraintType "CanAlwaysFire"
+	fireConstraintType "Research"
+	researchPrerequisites
+		NumResearchPrerequisites 1
+		ResearchPrerequisite
+			Subject "RESEARCH_E4X_WeaponDamageDisruptors"
+			Level 1
+		RequiredFactionNameID ""
+		RequiredCompletedResearchSubjects 0
 	WeaponEffects
 		weaponType "Projectile"
 		burstCount 10
@@ -328,6 +336,18 @@ maxDecelerationAngular 9.999996
 maxSpeedLinear 450.000000
 maxRollRate 1.650000
 maxRollAngle 35.000000
+useCustomHyperspaceEffects TRUE
+effects
+	chargeUpEffectName "Hyperspace_Vasari_Titan_Chargeup"
+	chargeUpEffectNameBetweenStars "Hyperspace_Vasari_Titan_Chargeup_Interstellar"
+	chargeUpEffectNameDestabilized "Hyperspace_Vasari_Titan_Chargeup_Unstable"
+	chargeUpEffectSoundID "HYPERSPACE_CHARGEUP"
+	travelEffectName "Hyperspace_Vasari_Titan_Travel"
+	travelEffectNameBetweenStars "Hyperspace_Vasari_Titan_Travel_Interstellar"
+	travelEffectNameDestabilized "Hyperspace_Vasari_Titan_Travel_Unstable"
+	travelEffectSoundID "HYPERSPACE_TRAVEL"
+	exitEffectName "Hyperspace_Vasari_Titan_Exit"
+	exitEffectSoundID "HYPERSPACE_EXIT"
 squadTypeEntityDef:0 "SquadPhaseCombat"
 squadAntiMatterCost:0 0.000000
 squadTypeEntityDef:1 "SquadPhaseBomber"
@@ -370,8 +390,6 @@ weaponCooldownDecreasePerc
 weaponDamageIncreasePerc
 	StartValue 0.000000
 	ValueIncreasePerLevel 0.050000
-HyperspaceChargingSoundID "HYPERSPACE_CHARGEUP"
-HyperspaceTravelSoundID "HYPERSPACE_TRAVEL"
 EngineSoundID "ENGINE_PHASECAPITALSHIP"
 formationRank 0
 minShadow 0.000000
