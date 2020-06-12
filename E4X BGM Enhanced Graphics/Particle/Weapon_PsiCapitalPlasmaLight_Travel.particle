@@ -62,8 +62,8 @@ ParticleSimulation
 		emitIntervalRunDuration 0.000000
 		emitIntervalWaitDuration 0.000000
 		ParticleLifeTime 0.500000
-		ParticleMinStartLinearSpeed -200.000000
-		ParticleMaxStartLinearSpeed -400.000000
+		ParticleMinStartLinearSpeed -400.000000
+		ParticleMaxStartLinearSpeed -200.000000
 		ParticleMinStartAngularSpeed 1.047198
 		ParticleMaxStartAngularSpeed 1.047198
 		ParticleMinStartRotation 0.000000
