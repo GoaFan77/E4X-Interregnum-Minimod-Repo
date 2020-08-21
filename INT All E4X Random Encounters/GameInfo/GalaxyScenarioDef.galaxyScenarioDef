@@ -1599,7 +1599,7 @@ orbitBodyType
 	typeName "Kessel"
 	entityDefName "Planet_ING_Kessel"
 	defaultTemplateName "Template:Kessel"		
-planetItemTypeCount 546
+planetItemTypeCount 545
 planetItemType
 	designName "All:Module:CapitalShipFactory"
 	entityDefName "PLANETMODULE_ING_AllCapitalshipFactory"
@@ -1816,9 +1816,6 @@ planetItemType
 planetItemType
 	designName "Emp:Module:NonCombatLab"
 	entityDefName "PLANETMODULE_ING_EmpCivicLab"
-planetItemType
-	designName "Emp:Module:NonCombatLabWarlords"
-	entityDefName "PLANETMODULE_ING_EmpCivicLabWarlords"
 planetItemType
 	designName "Emp:Module:Refinery"
 	entityDefName "PLANETMODULE_ING_EmpRefinery"

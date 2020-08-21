@@ -18,7 +18,7 @@ entities
 			entityDefName "PLANETMODULE_ING_EmpCultureCenter"
 			entityDefName "PLANETMODULE_ING_EmpCrystalExtractor"
 			entityDefName "PLANETMODULE_ING_EmpCapitalshipFactory"
-			entityDefName "PLANETMODULE_ING_EmpCivicLabWarlords"
+			entityDefName "PLANETMODULE_ING_EmpCivicLab"
 			entityDefName "PLANETMODULE_ING_EmpRefinery"
 		Page:1
 			count 8

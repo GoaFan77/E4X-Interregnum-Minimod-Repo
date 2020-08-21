@@ -14,8 +14,8 @@ entities
 			count 9
 			entityDefName "PLANETMODULE_ING_ManMetalExtractor"
 			entityDefName "PLANETMODULE_ING_ManCrystalExtractor"
-			entityDefName "PLANETMODULE_ING_AllMilitaryLab"
-			entityDefName "PLANETMODULE_ING_EmpCivicLab"
+			entityDefName "PLANETMODULE_ING_ManMilitaryLab"
+			entityDefName "PLANETMODULE_ING_ManCivicLab"
 			entityDefName "PLANETMODULE_ING_ManFrigateFactory"
 			entityDefName "PLANETMODULE_ING_ManCapitalshipFactory"
 			entityDefName "PLANETMODULE_E4X_NeutralTradeStation"
