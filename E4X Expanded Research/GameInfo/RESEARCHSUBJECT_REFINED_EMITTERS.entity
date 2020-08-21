@@ -1,4 +1,5 @@
-﻿TXT
+﻿TXT2
+SinsArchiveVersion 193
 entityType "ResearchSubject"
 hudIcon "HUDICON_RESEARCHSUBJECT_REFINEDEMITTERS"
 smallHudIcon "HUDICON_RESEARCHSUBJECT_REFINEDEMITTERS"
@@ -26,7 +27,7 @@ PerLevelCostIncrease
 	crystal 25.000000
 Tier 4
 onlyWorksIfTierLabsExist FALSE
-MaxNumResearchLevels 2
+MaxNumResearchLevels 4
 priority 1.000000
 researchBoolModifiers 0
 researchFloatModifiers 1
