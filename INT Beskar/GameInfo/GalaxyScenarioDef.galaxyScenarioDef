@@ -4800,7 +4800,7 @@ planetItemsTemplate
 		group
 			condition
 				type "NoPlanetOwnerWithChance"
-				param "0.25"
+				param "0.0"
 			owner "RandomEncounterPhase"
 			colonizeChance 0
 			items 9
@@ -4820,7 +4820,7 @@ planetItemsTemplate
 		group
 			condition
 				type "NoPlanetOwnerWithChance"
-				param "0.2"
+				param "0.0"
 			owner "RandomEncounterTEC"
 			colonizeChance 0
 			items 9
@@ -4840,7 +4840,7 @@ planetItemsTemplate
 		group
 			condition
 				type "NoPlanetOwnerWithChance"
-				param "0.10"
+				param "0.0"
 			owner "RandomEncounterPsi"
 			colonizeChance 1
 			items 6
@@ -4857,7 +4857,7 @@ planetItemsTemplate
 		group
 			condition
 				type "NoPlanetOwnerWithChance"
-				param "0.05"
+				param "0.0"
 			owner "RandomEncounterTEC"
 			colonizeChance 1
 			items 21
@@ -4889,7 +4889,7 @@ planetItemsTemplate
 		group
 			condition
 				type "NoPlanetOwnerWithChance"
-				param "0.05"
+				param "0.0"
 			owner "RandomEncounterPhase"
 			colonizeChance 1
 			items 30
@@ -4930,7 +4930,7 @@ planetItemsTemplate
 		group
 			condition
 				type "NoPlanetOwnerWithChance"
-				param "0.05"
+				param "0.0"
 			owner "RandomEncounterPsi"
 			colonizeChance 1
 			items 28
@@ -4993,7 +4993,7 @@ planetItemsTemplate
 		group
 			condition
 				type "NoPlanetOwnerWithChance"
-				param "0.15"
+				param "0.10"
 			owner "Unknown"
 			colonizeChance 0
 			items 12

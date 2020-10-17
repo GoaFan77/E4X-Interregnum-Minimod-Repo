@@ -4994,7 +4994,7 @@ planetItemsTemplate
 		group
 			condition
 				type "NoPlanetOwnerWithChance"
-				param "0.15"
+				param "0.10"
 			owner "Unknown"
 			colonizeChance 0
 			items 12
