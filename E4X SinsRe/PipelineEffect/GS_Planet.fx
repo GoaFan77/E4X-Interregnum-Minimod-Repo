@@ -8,6 +8,7 @@ texture	g_TextureDiffuse0 : Diffuse;
 texture	g_TextureSelfIllumination;
 texture g_TextureDiffuse2 : Diffuse;
 texture g_TextureNormal : Normal;
+texture g_TextureTeamColor: Displacement;
 texture g_TextureNoise3D;
 texture	g_TextureEnvironmentCube : Environment;
 texture g_EnvironmentIllumination : Environment;
@@ -24,9 +25,9 @@ float4 g_Light0_Specular;
 
 float4 g_MaterialAmbient:Ambient;
 float4 g_MaterialDiffuse:Diffuse;
-float g_MaterialGlossiness = 50;
+float g_MaterialGlossiness: Glossiness;
 float4 g_GlowColor = float4(1.0f, 1.0f, 1.0f, 1.0f);
-float4 g_CloudColor = float4(1.0f, 1.0f, 1.0f, 1.0f);
+float4 g_CloudColor:cloudColor;
 
 float g_Time;
 float g_Radius;
@@ -65,6 +66,17 @@ sampler TextureDataSampler = sampler_state
 sampler TextureNormalSampler = sampler_state
 {
     Texture	= <g_TextureNormal>;    
+#ifndef Anisotropy
+    Filter = LINEAR;
+#else
+	Filter = ANISOTROPIC;
+	MaxAnisotropy = AnisotropyLevel;
+#endif
+};
+
+sampler TextureDisplacementSampler = sampler_state
+{
+    Texture	= <g_TextureTeamColor>;    
 #ifndef Anisotropy
     Filter = LINEAR;
 #else
@@ -427,7 +439,7 @@ float4 snoise(float3 v)
 	}
 
 	// Morten Mikkelsen cotangent derivative normal mapping, more accurate than using mesh tangents/normals, handles mirroring and radial symmetry perfectly.
-	float3 CotangentDerivativeMap(float3 Pos, float3 N, float3 L, float3 V, float3 NMap, float2 UV, inout float2 OffsetShadow, inout float2 OffsetParallax)
+	void CotangentDerivativeBase(float3 Pos, float3 N, float3 L, float3 V, float2 UV, inout float2 OffsetShadow, inout float2 OffsetParallax, inout float3x3 TBN)
 	{
 		float2 DUVX 		= ddx(UV);
 		float2 DUVY 		= ddy(UV);
@@ -452,9 +464,8 @@ float4 snoise(float3 v)
 		
 		
 		OffsetShadow = (Lt.xy / max(0.00001, sqrt(Lt.z * 0.5 + 0.5))) * 0.01;
-		OffsetParallax = (Vt.xy / max(0.00001, sqrt(Vt.z * 0.5 + 0.5))) * 0.01;
-		
-		return normalize(mul(NMap, float3x3(Tangent, Cotangent, N)));	
+		OffsetParallax = (Vt.xy / max(0.00001, sqrt(Vt.z * 0.5 + 0.5))) * 0.01;	
+		TBN = float3x3(Tangent, Cotangent, N);	
 	}
 
 	
@@ -476,7 +487,7 @@ float4 snoise(float3 v)
 	float3 GetNormalDXT5(float4 N)
 	{
 		float2 Nxy = N.wy;
-		Nxy.y = 1.0 - Nxy.y;
+//		Nxy.y = 1.0 - Nxy.y;
 		Nxy = ToNormalSpace(Nxy);
 		// play safe and normalize
 		return normalize(float3(Nxy, DeriveZ(Nxy)));
@@ -504,242 +515,95 @@ float4 GetLightColor(float dotLight, float exponent, float blackThreshold, float
 	float4 newColor = lerp(liteLightColor, darkLightColor, colorLerpPercent);
 	return lerp(newColor, 0.0f, blackLerpPercent);	
 }
-
-
-// scattering coeffs
-#define RAY_BETA float3(5.5e-6, 13.0e-6, 22.4e-6) /* rayleigh, affects the color of the sky */
-#define MIE_BETA (float3)(21e-6) /* mie, affects the color of the blob around the sun */
-#define AMBIENT_BETA (float3)(0)//(float3)(21e-18) /* ambient, affects the scattering color when there is no lighting from the sun */
-#define ABSORPTION_BETA float3(2.04e-5, 4.97e-5, 1.95e-6) /* what color gets absorbed by the atmosphere (Due to things like ozone) */
-#define ATMOSPHERE_INTENSITY 40.0
-#define G 0.7 /* mie scattering direction, or how big the blob around the sun is */
-// and the heights (how far to go up before the scattering has no effect)
-#define HEIGHT_RAY 10000//8000 /* rayleigh height */
-#define HEIGHT_MIE 1300//1200 /* and mie */
-#define HEIGHT_ABSORPTION 30000 /* at what height the absorption is at it's maximum */
-#define ABSORPTION_FALLOFF 3000 /* how much the absorption decreases the further away it gets from the maximum height */
-#define ATMOSPHERE_SCALE 0.2 /* 0.075 is equal to earth atmosphere ratio*/
-#define BASE_SCALE 40 /* Sins scale is way too small*/
-// and the steps (more looks better, but is slower)
-#define PRIMARY_STEPS 64 /* primary steps, affects quality the most */
-#define LIGHT_STEPS 4 /* light steps, how much steps in the light direction are taken */
-
-
-/*
-Next we'll define the main scattering function.
-This traces a ray from start to end and takes a certain amount of samples along this ray, in order to calculate the color.
-For every sample, we'll also trace a ray in the direction of the light, 
-because the color that reaches the sample also changes due to scattering
-*/
-float3 calculate_scattering(
-	float3 start, 				// the start of the ray (the camera position)
-    float3 dir, 				// the direction of the ray (the camera vector)
-    float max_dist, 			// the maximum distance the ray can travel (because something is in the way, like an object)
-    float3 scene_color,			// the color of the scene
-    float3 light_dir, 			// the direction of the light
-    float3 light_intensity,		// how bright the light is, affects the brightness of the atmosphere
-    float3 planet_position, 	// the position of the planet
-    float planet_radius, 		// the radius of the planet
-    float atmo_radius, 			// the radius of the atmosphere
-    float3 beta_ray, 			// the amount rayleigh scattering scatters the colors (for earth: causes the blue atmosphere)
-    float3 beta_mie, 			// the amount mie scattering scatters colors
-    float3 beta_absorption,   	// how much air is absorbed
-    float3 beta_ambient,		// the amount of scattering that always occurs, cna help make the back side of the atmosphere a bit brighter
-    float g, 					// the direction mie scatters the light in (like a cone). closer to -1 means more towards a single direction
-    float height_ray, 			// how high do you have to go before there is no rayleigh scattering?
-    float height_mie, 			// the same, but for mie
-    float height_absorption,	// the height at which the most absorption happens
-    float absorption_falloff,	// how fast the absorption falls off from the absorption height
-    int steps_i, 				// the amount of steps along the 'primary' ray, more looks better but slower
-    int steps_l 				// the amount of steps along the light ray, more looks better but slower
-) {
-    // add an offset to the camera position, so that the atmosphere is in the correct position
-    start -= planet_position;
-    // calculate the start and end position of the ray, as a distance along the ray
-    // we do this with a ray sphere intersect
-    float a = dot(dir, dir);
-    float b = 2.0 * dot(dir, start);
-    float c = dot(start, start) - (atmo_radius * atmo_radius);
-    float d = (b * b) - 4.0 * a * c;
-    
-    // stop early if there is no intersect
-    if (d < 0.0) return scene_color;
-    
-    // calculate the ray length
-    float2 ray_length = float2(
-        max((-b - sqrt(d)) / (2.0 * a), 0.0),
-        min((-b + sqrt(d)) / (2.0 * a), max_dist)
-    );
-    
-    // if the ray did not hit the atmosphere, return a black color
-    if (ray_length.x > ray_length.y) return scene_color;
-    // prevent the mie glow from appearing if there's an object in front of the camera
-    bool allow_mie = max_dist > ray_length.y;
-    // make sure the ray is no longer than allowed
-    ray_length.y = min(ray_length.y, max_dist);
-    ray_length.x = max(ray_length.x, 0.0);
-    // get the step size of the ray
-    float step_size_i = (ray_length.y - ray_length.x) / float(steps_i);
-    
-    // next, set how far we are along the ray, so we can calculate the position of the sample
-    // if the camera is outside the atmosphere, the ray should start at the edge of the atmosphere
-    // if it's inside, it should start at the position of the camera
-    // the min statement makes sure of that
-    float ray_pos_i = ray_length.x;
-    
-    // these are the values we use to gather all the scattered light
-    float3 total_ray = (float3)(0.0); // for rayleigh
-    float3 total_mie = (float3)(0.0); // for mie
-    
-    // initialize the optical depth. This is used to calculate how much air was in the ray
-    float3 opt_i = (float3)(0.0);
-    
-    // also init the scale height, avoids some float2's later on
-    float2 scale_height = float2(height_ray, height_mie);
-    
-    // Calculate the Rayleigh and Mie phases.
-    // This is the color that will be scattered for this ray
-    // mu, mumu and gg are used quite a lot in the calculation, so to speed it up, precalculate them
-    float mu = dot(dir, light_dir);
-    float mumu = mu * mu;
-    float gg = g * g;
-    float phase_ray = 3.0 / (50.2654824574 /* (16 * pi) */) * (1.0 + mumu);
-    float phase_mie = allow_mie ? 3.0 / (25.1327412287 /* (8 * pi) */) * ((1.0 - gg) * (mumu + 1.0)) / (pow(1.0 + gg - 2.0 * mu * g, 1.5) * (2.0 + gg)) : 0.0;
-    
-    // now we need to sample the 'primary' ray. this ray gathers the light that gets scattered onto it
-    for (int i = 0; i < steps_i; ++i)
-	{
-        
-        // calculate where we are along this ray
-        float3 pos_i = start + dir * (ray_pos_i + step_size_i * 0.5);
-        
-        // and how high we are above the surface
-        float height_i = length(pos_i) - planet_radius;
-        
-        // now calculate the density of the particles (both for rayleigh and mie)
-        float3 density = float3(exp(-height_i / scale_height), 0.0);
-        
-        // and the absorption density. this is for ozone, which scales together with the rayleigh, 
-        // but absorbs the most at a specific height, so use the sech function for a nice curve falloff for this height
-        // clamp it to avoid it going out of bounds. This prevents weird black spheres on the night side
-        density.z = clamp((1.0 / cosh((height_absorption - height_i) / absorption_falloff)) * density.x, 0.0, 1.0);
-        density *= step_size_i;
-        
-        // Add these densities to the optical depth, so that we know how many particles are on this ray.
-        opt_i += density;
-
-        // Calculate the step size of the light ray.
-        // again with a ray sphere intersect
-        // a, b, c and d are already defined
-        a = dot(light_dir, light_dir);
-        b = 2.0 * dot(light_dir, pos_i);
-        c = dot(pos_i, pos_i) - (atmo_radius * atmo_radius);
-        d = (b * b) - 4.0 * a * c;
-
-        // no early stopping, this one should always be inside the atmosphere
-        // calculate the ray length
-        float step_size_l = (-b + sqrt(d)) / (2.0 * a * float(steps_l));
-
-        // and the position along this ray
-        // this time we are sure the ray is in the atmosphere, so set it to 0
-        float ray_pos_l = 0.0;
-
-        // and the optical depth of this ray
-        float3 opt_l = (float3)(0.0);
-        
-        // now sample the light ray
-        // this is similar to what we did before
-        for (int l = 0; l < steps_l; ++l) {
-
-            // calculate where we are along this ray
-            float3 pos_l = pos_i + light_dir * (ray_pos_l + step_size_l * 0.5);
-
-            // the heigth of the position
-            float height_l = length(pos_l) - planet_radius;
-
-            // calculate the particle density, and add it
-            float3 density_l = float3(exp(-height_l / scale_height), 0.0);
-            density_l.z = clamp((1.0 / cosh((height_absorption - height_l) / absorption_falloff)) * density_l.x, 0.0, 1.0);
-            opt_l += density_l * step_size_l;
-
-            // and increment where we are along the light ray.
-            ray_pos_l += step_size_l;
-            
-        }
-        
-        // Now we need to calculate the attenuation
-        // this is essentially how much light reaches the current sample point due to scattering
-        float3 attn = exp(-(beta_mie * (opt_i.y + opt_l.y) + beta_ray * (opt_i.x + opt_l.x) + beta_absorption * (opt_i.z + opt_l.z)));
-
-        // accumulate the scattered light (how much will be scattered towards the camera)
-        total_ray += density.x * attn;
-        total_mie += density.y * attn;
-
-        // and increment the position on this ray
-        ray_pos_i += step_size_i;
-    	
-    }
-    
-    // calculate how much light can pass through the atmosphere
-    float3 opacity = exp(-(beta_mie * opt_i.y + beta_ray * opt_i.x + beta_absorption * opt_i.z));
-    
-	// calculate and return the final color
-    return (
-        	phase_ray * beta_ray * total_ray // rayleigh color
-       		+ phase_mie * beta_mie * total_mie // mie
-            + opt_i.x * beta_ambient // and ambient
-    ) * light_intensity + scene_color * opacity; // now make sure the background is rendered correctly
+float mapClouds(float c)
+{
+	return (1.0 - exp(-Square(c) * g_MaterialAmbient.a * 5.0));
 }
-
-
 float4 RenderScenePS(VsSceneOutput input) : COLOR0
 { 
-	float4 sampleA = tex2D(TextureColorSampler, input.texCoord);
-	float4 sampleB = tex2D(TextureDataSampler, input.texCoord);
-	float4 sampleC = tex2D(TextureNormalSampler, input.texCoord);
-/*	
-	float4 lightSideSample = tex2D(TextureColorSampler, input.texCoord);
-	float4 darkSideSample = tex2D(TextureDataSampler, input.texCoord);
-	float4 normalSample = tex2D(TextureNormalSampler, input.texCoord);
-*/	
-	sampleA.rgb = SRGBToLinear(sampleA.rgb);
-	PBRProperties Properties;
-
-//		output.posObj = position;
-//	output.normalObj = normal;
-	
-	//derivatives are used so they can't branch
-	float waterMask = saturate(sampleA.a * 4.0);
-	float propertiesMask = saturate(waterMask * 32.0 - 31.0);
-
+//	return float4(g_MaterialAmbient.rgb, 1.0);
 	float2 OffsetShadow, OffsetParallax;
+	float3x3 TBN;
 	float3 normal = normalize(input.normal);
 	float3 normalSphere = normal;	
 	float3 view = normalize(-input.pos);
 	float3 light = normalize(input.lightDir);	
-	float3 normalLand = CotangentDerivativeMap(input.pos, normal, light, view, GetNormalDXT5(sampleC), input.texCoord, OffsetShadow, OffsetParallax);
-//	return float4(saturate(dot(normal, light)).rrr, 1.0);
-//	return float4(0.0, frac(distance(input.texCoord, UVS) * 10.0), 0.0, 1.0);
+	CotangentDerivativeBase(input.pos, normal, light, view, input.texCoord, OffsetShadow, OffsetParallax, TBN);
+	
+	float2 uv = input.texCoord;
+	
+	float NoV = abs(dot(view, normal));
+	float p_linear_search_steps = 16.0 - 14.0 * NoV;
+	float p_binary_search_steps = 8.0;
+	float p_search_height = rcp(p_linear_search_steps);
+	float p_scale = p_binary_search_steps * rcp(10.0);
+
+	OffsetParallax *= p_scale;
+	uv -= OffsetParallax;
+
+	float sum = 1.0;
+	float depth = 1.0;
+	
+	float sample_p = 0;// = tex2D(TextureDisplacementSampler, uv).a;
+	for (int i = 0; i < p_linear_search_steps; ++i)
+	{
+		sample_p = 1.0 - tex2D(TextureDisplacementSampler, uv).a;
+
+		if(sample_p > sum)
+			break;
+		sum -= p_search_height;
+		uv += OffsetParallax * p_search_height;
+
+		if(i > 32)
+			break;
+	}
+
+	 //  binary search refine
+	float binary_search_height = p_search_height;
+  	for (int j = 0; j < p_binary_search_steps; ++j)
+  	{
+  		sample_p = 1.0 - tex2D(TextureDisplacementSampler, uv).a;
+
+  		float binary_lookup = binary_search_height * (step(sample_p, sum) - 0.5);
+  		uv += OffsetParallax * binary_lookup;
+  		sum -= binary_lookup;
+  		binary_search_height *= 0.5;
+  	}	
+	
+//	return float4(frac(uv * 128.0), 0.0, 1.0);
+	float2 duvx = ddx(uv);
+	float2 duvy = ddy(uv);
+	float4 sampleA = tex2Dgrad(TextureColorSampler, uv, duvx, duvy);
+	float4 sampleB = tex2Dgrad(TextureDataSampler, uv, duvx, duvy);
+	float4 sampleC = tex2Dgrad(TextureNormalSampler, uv, duvx, duvy);
+	float3 normalLand = normalize(mul(GetNormalDXT5(sampleC), TBN));
+//	return float4(normalLand, 1.0);
+	sampleA.rgb = SRGBToLinear(sampleA.rgb);
+	PBRProperties Properties;
+
+	//derivatives are used so they can't branch
+	float waterMask = saturate(sampleA.a * 4.0);
+	float propertiesMask = saturate(waterMask * 32.0 - 31.0);
+
 	normal = lerp(normal, normalLand, propertiesMask);	
-//	return float4(waterMask.rrr, 1.0);
+
 	float4 waterNgrad = 0;
 	if(waterMask < 1.0)
 	{
-//		normal = 0.0;
 		float waterScale = 1.0 / 25.0;
-		float waterSpeed = 25.0;
+		float waterSpeed = 12.5;
 		float waterIntensity = 0.75;
 		waterNgrad = snoise(input.posObj * waterScale + length(input.posObj * waterScale) + g_Time * waterSpeed * waterScale) * waterIntensity;
 		normal = lerp(mul(normalize(input.normalObj + waterNgrad.rgb), (float3x3)g_World), normal, Square(waterMask));
 	}
-
+//	return float4(normal, 1.0);
 	sampleA.a = saturate((sampleA.a - 0.25) * (1.0 / 0.75));
 	if(waterMask < 1.0)
 	{
 		float fresnel = Pow5(1.0 - abs(dot(view, normal)));
 
 //		propertiesMask *= propertiesMask * (3.0 - 2.0 * propertiesMask);
-		sampleA.rgb = pow(sampleA.rgb, 1.5 - fresnel * 1.4);
+		sampleA.rgb = pow(sampleA.rgb, 1.5 - fresnel * 1.4 + waterNgrad.a * 0.1);
 		sampleA.a = lerp(0.23, sampleA.a, propertiesMask);//spec
 		sampleB.w = lerp(0.1/* + fresnel * 0.16*/, sampleB.w, propertiesMask);//roughness
 		sampleC.r = 0.5 * fresnel + 0.1;//subsurface
@@ -765,17 +629,10 @@ float4 RenderScenePS(VsSceneOutput input) : COLOR0
 	float3 background_col = diffuse;
  	float3 atmoView = view;//normalize(lerp(normalSphere, view, 0.2));
 
-
-
-
-
-
-
 	
 	float NoLsphere = saturate(dot(normalSphere, light) * 0.75 + 0.25);
 	float rotatationTime = g_Time / 800;
 	float indexTime = g_Time/70;
-	float NoV					= dot(normal, view);
 
 	float2 UVcloud = float2(input.texCoord.x + rotatationTime, input.texCoord.y);
 	float2 UVstep = UVcloud + OffsetParallax;// + OffsetParallax;
@@ -784,12 +641,12 @@ float4 RenderScenePS(VsSceneOutput input) : COLOR0
 	float cloudDensity = 0.2;
 	float cloudDensityInv = 1.0 / cloudDensity;
 	float cloudMip = sqrt(cloudDensityInv);
-	float cloudSample = Square(tex2D(CloudLayerSampler, UVstep).g);
-	Properties.DiffuseColor		= lerp(Properties.DiffuseColor, g_CloudColor.rgb, cloudSample);
+	float cloudSample 			= mapClouds(tex2D(CloudLayerSampler, UVstep).g);
+	Properties.DiffuseColor		= lerp(Properties.DiffuseColor, g_MaterialAmbient.rgb, cloudSample);
 	Properties.SpecularColor	= lerp(Properties.SpecularColor, (float3)0.08, cloudSample);
 	Properties.Roughness		= lerp(Properties.Roughness, 1.0, cloudSample);
 	
-	float cloudShadow 			= tex2Dbias(CloudLayerSampler, float4(UVcloud, 0, cloudMip)).g;
+	float cloudShadow 			= mapClouds(tex2Dbias(CloudLayerSampler, float4(UVcloud, 0, cloudMip)).g);
 	
 	cloudShadow 				= exp(-cloudShadow);
 	float cloudShadowRoughness	= cloudShadow;
@@ -797,7 +654,7 @@ float4 RenderScenePS(VsSceneOutput input) : COLOR0
 	
 	float3 DiffuseSample		= SRGBToLinear(texCUBE(EnvironmentIlluminationCubeSampler, lerp(normal, normalSphere, cloudSample))).rgb;
 		
-	diffuse 					+= (lerp(Properties.DiffuseColor, g_CloudColor.rgb, cloudSample)) * DiffuseSample * cloudShadow;	
+	diffuse 					+= Properties.DiffuseColor * DiffuseSample * cloudShadow;	
 	
 	float3 reflection			= -(view - 2.0 * normal * NoV);
 	float3 ReflectionSample 	= SRGBToLinear(texCUBElod(TextureEnvironmentCubeSampler, float4(reflection, max(cloudShadow * 6.0, Properties.RoughnessMip)))).rgb;
@@ -810,8 +667,7 @@ float4 RenderScenePS(VsSceneOutput input) : COLOR0
 	float4 cloudsShadowColor = 0;
 	if(NoLsphere > 0)
 	{
-//		cloudAbsorption += cloudSample * cloudDensityInv;
-		cloudShadow = max(exp(-tex2Dbias(CloudLayerSampler, float4(UVcloud + OffsetShadow, 0.0, cloudMip)).g), cloudSample);
+		cloudShadow = max(exp(-mapClouds(tex2Dbias(CloudLayerSampler, float4(UVcloud + OffsetShadow, 0.0, cloudMip)).g)), cloudSample);
 
 		float steps = 32.0;
 		float stepsInv = 1.0 / steps;		
@@ -819,11 +675,11 @@ float4 RenderScenePS(VsSceneOutput input) : COLOR0
 		for(int i =0; i < steps - (steps * NoLsphere); i++)
 		{
 			UVstep += OffsetShadow * stepsInv;
-			cloudAbsorption = max(cloudAbsorption, tex2Dbias(CloudLayerSampler, float4(UVstep, 0.0, i * stepsInv * cloudMip)).g * (1.0 - stepsInv * i));
+			cloudAbsorption = max(cloudAbsorption, mapClouds(tex2Dbias(CloudLayerSampler, float4(UVstep, 0.0, i * stepsInv * cloudMip)).g) * (1.0 - stepsInv * i));
 		}
 		cloudAbsorption = exp(-cloudAbsorption);
 
-		cloudsShadowColor = float4(lerp(float3(0.25,0.3,0.35), lerp((float3)1.0, float3(1.0,0.95,0.8) * 1.4, cloudSample), cloudAbsorption), cloudAbsorption) * cloudShadow;
+		cloudsShadowColor = float4(lerp(float3(0.025,0.03,0.035), lerp((float3)1.0, float3(1.0,0.95,0.8), cloudSample), cloudAbsorption), cloudAbsorption) * cloudShadow;
 	}
 	float shadowScalar 	= dot(input.lightDir, input.normal);
 	float cityMask = saturate(-4.0 * shadowScalar);
@@ -831,9 +687,11 @@ float4 RenderScenePS(VsSceneOutput input) : COLOR0
 	{	
 		float cloudEmissiveRim = 0.25;
 		float cloudEmissiveAbsorption = exp(-cloudSample * cloudDensityInv + cloudEmissiveRim) * cityMask;
-		emissive += (SRGBToLinear(tex2Dbias(TextureDataSampler, float4(input.texCoord, 0.0, 7.0 - exp(-cloudSample * cloudDensityInv) * 7.0))).rgb) * cloudEmissiveAbsorption * 2.0;
+		float cityMipBias = max(0.0, 5.0 - exp(-cloudSample * cloudDensityInv) * 7.0);
+		float3 sampleLight = (1.0 - tex2Dbias(TextureDisplacementSampler, float4(uv * 8.0, 0.0, cityMipBias)).rgb);
+		emissive += SRGBToLinear(tex2Dbias(TextureDataSampler, float4(uv, 0.0, cityMipBias)) * sampleLight).rgb * cloudEmissiveAbsorption;
 		//TODO cleanup
-		emissive += Square(SRGBToLinear(tex2Dbias(TextureDataSampler, float4(input.texCoord, 0.0, 4.0))).rgb) * cloudEmissiveAbsorption * 0.5;
+		emissive += SRGBToLinear(tex2Dlod(TextureDataSampler, float4(input.texCoord, 0.0, 4.5))).rgb * cloudEmissiveAbsorption * (0.5 - abs(dot(normalSphere, view)) * 0.4);
 	}
 	cloudsShadowColor *= saturate(shadowScalar);
 	Properties.Roughness = max(1.0 - cloudShadow, Properties.Roughness);//scater specular light!
@@ -851,7 +709,7 @@ float4 RenderScenePS(VsSceneOutput input) : COLOR0
 	Properties.SubsurfaceOpacity = max(Properties.SubsurfaceOpacity, cloudSample * 0.25);
 	if(Properties.SubsurfaceOpacity > 0)
 	{
-		float3 subsurfaceColor 		= SRGBToLinear(tex2Dbias(TextureColorSampler, float4(input.texCoord, 0.0, 2.0)).rgb) * Properties.SubsurfaceOpacity * (1.0 - cloudSample) + g_CloudColor * cloudSample;	
+		float3 subsurfaceColor 		= SRGBToLinear(tex2Dbias(TextureColorSampler, float4(uv, 0.0, 2.0)).rgb) * Properties.SubsurfaceOpacity * (1.0 - cloudSample) + g_MaterialAmbient * cloudSample;	
 
 		float InScatter				= pow(saturate(dot(light, -view)), 12) * lerp(3, .1f, Properties.SubsurfaceOpacity);
 		float NormalContribution	= saturate(dot(normal, normalize(view + light)) * Properties.SubsurfaceOpacity + 1.0 - Properties.SubsurfaceOpacity);
@@ -862,11 +720,321 @@ float4 RenderScenePS(VsSceneOutput input) : COLOR0
 		InScatter					= pow(NoV, 12) * lerp(3, .1f, Properties.SubsurfaceOpacity);
 		NormalContribution			= saturate(dot(normal, reflection) * Properties.SubsurfaceOpacity + 1.0 - Properties.SubsurfaceOpacity);
 		BackScatter		 			= Properties.AO * NormalContribution * 0.1591549431;
-		subsurfaceScatter	 		+= subsurfaceColor * lerp(BackScatter, 1, InScatter) * (SRGBToLinear(tex2Dbias(TextureColorSampler, float4(input.texCoord, 0.0, 6.0)).rgb * Square(NoLsphere) * (1.0 - cloudSample) + DiffuseSample));
+		subsurfaceScatter	 		+= subsurfaceColor * lerp(BackScatter, 1, InScatter) * (SRGBToLinear(tex2Dbias(TextureColorSampler, float4(uv, 0.0, 6.0)).rgb * Square(NoLsphere) * (1.0 - cloudSample) + DiffuseSample));
 	}
-//	return LinearToSRGB(float4(1.0 - exp(-subsurfaceScatter), 1.0));
 	return LinearToSRGB(float4(1.0 - exp(-(diffuse + specular + emissive + subsurfaceScatter)), 1.0));
 }
+
+
+///////////////////////////////////////////////atmosphere
+
+	#define NR_SAMPLE_STEPS 8.0f
+	#define INV_NR_SAMPLE_STEPS (1.0f / NR_SAMPLE_STEPS)
+
+	#define NR_SUN_STEPS 8.0f
+	#define INV_NR_SUN_STEPS (1.0f / NR_SUN_STEPS)
+
+	#define DISTANCE_MULT_VAL 1000.0f
+
+
+	struct Ray {
+		float3 origin;
+		float3 direction;
+	};
+
+	struct Earth {
+		float3 center;
+		float earth_radius;
+		float atmosphere_radius;
+	};
+
+	struct Sky_PBR {
+		float hR;
+		float hM;
+
+		float inv_hR;
+		float inv_hM;
+
+		float g;
+
+		Earth earth;
+
+		float3 transmittance;
+
+		float3 optical_depthR;
+		float3 optical_depthM;
+
+		float3 sumR;
+		float3 sumM;
+
+		float3 space_sumR;
+		float3 space_sumM;
+
+		float3 betaR;
+		float3 betaM;
+
+		float phaseR;
+		float phaseM;
+
+		float VL;
+
+		float3 sun_dir;
+	};
+
+	Ray make_ray(float3 origin, float3 direction){
+		Ray r;
+		r.origin = origin;
+		r.direction = direction;
+		return r;
+	}
+	
+	bool isect_sphere(Ray ray, float3 sphere_center, float sphere_radius, inout float t0, inout float t1)
+	{
+		float3 rc = sphere_center - ray.origin;
+		float radius2 = sphere_radius * sphere_radius;
+		float tca = dot(rc, ray.direction);
+
+		float d2 = dot(rc, rc) - tca * tca;
+
+		if (d2 > radius2) return false;
+
+		float thc = sqrt(radius2 - d2);
+		t0 = tca - thc;
+		t1 = tca + thc;
+
+		return true;
+	}
+
+	Earth make_earth(float3 center, float earth_radius, float atmosphere_radius){
+		Earth s;
+		s.center = center;
+		s.earth_radius = earth_radius;
+		s.atmosphere_radius = atmosphere_radius;
+		return s;
+	}
+
+	float rayleigh_phase_func(float VL)
+	{
+		return
+				3. * (1. + VL*VL)
+		/ //------------------------
+					(16. * PI);
+	}
+
+	float henyey_greenstein_phase_func(float VL, float g)
+	{
+		return
+							(1. - g*g)
+		/ //---------------------------------------------
+			((4. + PI) * pow(abs(1. + g*g - 2.*g*VL) + 0.0001, 1.5));
+	}
+
+	// Schlick Phase Function factor
+	// Pharr and  Humphreys [2004] equivalence to g above
+	float schlick_phase_func(float VL, float g)
+	{
+	const float k = 1.55*g - 0.55 * (g*g*g);				
+		return
+						(1. - k*k)
+		/ //-------------------------------------------
+			(4. * PI * (1. + k*VL) * (1. + k*VL));
+	}
+
+	void get_sun_light_space(
+		in Sky_PBR sky,
+		in Ray ray,
+		in float blue_noise,
+		inout float optical_depthR,
+		inout float optical_depthM)
+	{
+
+		float inner_sphere0 = 0;
+		float inner_sphere1 = 0;
+		float outer_sphere0 = 0;
+		float outer_sphere1 = 0;
+		isect_sphere(ray, sky.earth.center, sky.earth.earth_radius, inner_sphere0, inner_sphere1);
+		isect_sphere(ray, sky.earth.center, sky.earth.atmosphere_radius + 0.00001, outer_sphere0, outer_sphere1);
+
+		float march_step = outer_sphere1;
+		if(inner_sphere0 > 0){
+			march_step = min(inner_sphere0 + 1000, outer_sphere1);
+		}
+
+		march_step *= INV_NR_SUN_STEPS;
+
+		float3 s = ray.origin + ray.direction * march_step * (0.5 + (blue_noise - 0.5));
+
+		float march_step_multed = march_step * DISTANCE_MULT_VAL;
+
+		for (int i = 0; i < NR_SUN_STEPS; i++) {
+
+			float height = length(s - sky.earth.center) - sky.earth.earth_radius;
+
+			if(height < 0){
+				height *= 0.05;
+			}
+
+			optical_depthR += exp(-height * sky.inv_hR) * march_step_multed;
+			optical_depthM += exp(-height * sky.inv_hM) * march_step_multed;
+
+			s += ray.direction * march_step;
+
+		}
+
+		return;
+	}
+
+	void get_incident_light_space(inout Sky_PBR sky, in Ray ray, float step_dist, float atmopshere_thickness, float blue_noise)
+	{
+
+		float height = length(ray.origin - sky.earth.center) - sky.earth.earth_radius;
+
+		[branch]
+		if(height > atmopshere_thickness){
+			return;
+		}
+
+		// integrate the height scale
+		float hr = exp(-height * sky.inv_hR) * step_dist;
+		float hm = exp(-height * sky.inv_hM) * step_dist;
+
+		sky.optical_depthR += hr;
+		sky.optical_depthM += hm;
+
+		// gather the sunlight
+		Ray light_ray = make_ray(ray.origin, sky.sun_dir);
+		float optical_depth_lightR = 0;
+		float optical_depth_lightM = 0;
+		get_sun_light_space(sky,
+							light_ray,
+							blue_noise,
+							optical_depth_lightR,
+							optical_depth_lightM);
+
+
+		float3 tau =	sky.betaR * (sky.optical_depthR + optical_depth_lightR) +
+						sky.betaM * (sky.optical_depthM + optical_depth_lightM);
+
+		sky.transmittance = exp(-(sky.betaR * sky.optical_depthR + sky.betaM * sky.optical_depthM));
+
+		float3 attenuation = exp(-tau);
+
+		float shadow_term = 1;//calculate_celesital_shadow(ray.origin, sky.sun_dir, 1.0, MISSION_PLANET_INDEX, atmosphere_size_scale_mult_spaceplanet);
+
+		sky.sumR += hr * attenuation * shadow_term;
+		sky.sumM += hm * attenuation * shadow_term;
+
+		tau =			sky.betaR * (sky.optical_depthR) +
+						sky.betaM * (sky.optical_depthM);
+
+		attenuation = exp(-tau);
+
+		sky.space_sumR += hr * attenuation;
+		sky.space_sumM += hm * attenuation;
+	}
+	
+	
+	void GetAtmosphere(	inout float4 atmosphere, 
+						float3 sun_dir, 
+						float3 sun_color, 
+						float3 view_dir, 
+						float planet_rad, 
+						float atmo_rad, 
+						float3 planet_pos, 
+						float3 rayleigh_beta, 
+						float3 mie_beta,
+						float scatter_rayleight,
+						float scatter_mie)
+	{
+		Sky_PBR sky;
+
+		sky.hR = (8000.0 * 0.00002) * scatter_rayleight;
+		sky.hM = (1200.0 * 0.00002) * scatter_mie;
+
+		sky.inv_hR = 1.0 / sky.hR;
+		sky.inv_hM = 1.0 / sky.hM;
+
+		sky.g = 0.5;
+
+		sky.earth = make_earth(planet_pos, planet_rad, atmo_rad);
+
+		sky.transmittance = 1;
+		sky.optical_depthR = 0;
+		sky.optical_depthM = 0;
+
+		sky.sumR = 0;
+		sky.sumM = 0;
+		sky.betaR = rayleigh_beta * 1e-6;
+		sky.betaM = (float3)(mie_beta * 1e-6);
+
+		sky.sun_dir = sun_dir;
+
+		sky.space_sumR = 0;
+		sky.space_sumM = 0;
+
+		sky.VL = dot(view_dir, sky.sun_dir);
+
+		sky.phaseR = rayleigh_phase_func(sky.VL);
+		sky.phaseM = henyey_greenstein_phase_func(sky.VL, sky.g);
+
+		Ray view_ray = make_ray(float3(0,0,0), view_dir);
+
+		float atmopshere_thickness = sky.earth.atmosphere_radius - sky.earth.earth_radius;
+
+		float t0 = 0;
+		float t1 = 0; 
+
+		if(isect_sphere(view_ray, sky.earth.center, sky.earth.atmosphere_radius, t0, t1)){
+
+			float inner_sphere0 = 0;
+			float inner_sphere1 = 0;
+			isect_sphere(view_ray, sky.earth.center, sky.earth.earth_radius, inner_sphere0, inner_sphere1);
+
+			float start_dist = t0;
+
+			float end_dist = min(inner_sphere0, t1);
+
+			float step_lengths = INV_NR_SAMPLE_STEPS * (end_dist - start_dist);
+
+			float blue_noise = 0;
+			
+			float dist = max(0.01f, start_dist - step_lengths * (0.175 + blue_noise * 0.1));
+			float prev_dist = dist;
+
+			float3 avg_space_light = 0;
+
+			for(int i = 0; i < NR_SAMPLE_STEPS; i++){
+
+				dist += step_lengths;
+
+				float step_dist = (dist - prev_dist) * DISTANCE_MULT_VAL;
+
+				float3 wp = view_dir * dist;
+
+				Ray ray = make_ray(wp, view_dir);
+				get_incident_light_space(sky, ray, step_dist, atmopshere_thickness, blue_noise);
+
+				avg_space_light += texCUBE(EnvironmentIlluminationCubeSampler, float4(normalize(wp - sky.earth.center), 0)).rgb * PI;
+
+				prev_dist = dist;
+			}
+
+			avg_space_light *= INV_NR_SAMPLE_STEPS;
+
+			float3 rayleigh_color = (sky.sumR * sky.phaseR * sky.betaR);
+			float3 mie_value = (sky.sumM * sky.phaseM * sky.betaM);
+
+			float3 ambient_colorR = (sky.space_sumR * sky.betaR);
+			float3 ambient_colorM = (sky.space_sumM * sky.betaM);
+
+			atmosphere.rgb = (rayleigh_color + mie_value) * sun_color + (ambient_colorR + ambient_colorM) * avg_space_light;
+			atmosphere.a = saturate(1.0 - sky.transmittance);
+			atmosphere.rgb /= (atmosphere.rgb + 1.0);
+		}
+	}
+
+
+
 
 struct VsCloudsOutput
 {
@@ -885,7 +1053,7 @@ RenderCloudVertex(float thicknessModifier, float3 iPosition, float3 iNormal, flo
 	VsCloudsOutput o;  
 	
 	//Final Position
-	o.Position = mul(float4(iPosition * /*thicknessModifier*/(1.0 + ATMOSPHERE_SCALE), 1.0f), g_WorldViewProjection);
+	o.Position = mul(float4(iPosition * /*thicknessModifier*/(1 + frac(g_MaterialGlossiness)), 1.0f), g_WorldViewProjection);
 	
 	//Texture Coordinates
     o.TexCoord0 = iTexCoord; 
@@ -895,9 +1063,9 @@ RenderCloudVertex(float thicknessModifier, float3 iPosition, float3 iNormal, flo
     
     //Position
     float3 positionInWorldSpace = mul(float4(iPosition, 1.f), g_World).xyz;
-    o.Pos = positionInWorldSpace;// * ATMOSPHERE_SCALE;//(1.0 / ATMOSPHERE_SCALE);
+    o.Pos = positionInWorldSpace * (1 + frac(g_MaterialGlossiness));// * ATMOSPHERE_SCALE;//(1.0 / ATMOSPHERE_SCALE);
     //Calculate Light
-	o.Light = normalize(g_Light0_Position - positionInWorldSpace);
+	o.Light = -normalize(g_Light0_Position - positionInWorldSpace);
 	
 	//Calculate ViewVector
 	o.View = normalize(-positionInWorldSpace);
@@ -917,70 +1085,44 @@ RenderCloudsVS(
 
 void RenderCloudsPS(VsCloudsOutput i, out float4 oColor0:COLOR0) 
 { 
-/*
-	float noiseScale = 10.f;
-	
-	float rotatationTime = g_Time / 800;
-	float indexTime = g_Time/70;
-	
-	float3 index = float3(i.TexCoord0, indexTime);
-	float domainPhaseShift = tex3D(NoiseSampler, noiseScale * index).x;
-	
-	float4 cloudColor = tex2D(CloudLayerSampler, float2(i.TexCoord0.x + rotatationTime, i.TexCoord0.y));
-//	cloudColor *= domainPhaseShift;
-//	
-	
-	cloudColor = 1.0 - pow(2.71828182846, -(cloudColor * cloudColor) * 2.0);
-	cloudColor *= g_CloudColor;
-*/
 	//Light and Normal - renormalized because linear interpolation screws it up
 	float3 light = normalize(i.Light);
 	float3 normal = normalize(i.Normal);
 	float3 view = normalize(i.View);
-/*	
-	float dotLightNormal = saturate(dot(light , normal) * 0.9 + 0.1);	
 	
-	//Atmosphere Scattering
-    float ratio = 1.f - max(dot(normal, view), 0.f);
-	float4 atmosphere = g_GlowColor * pow(ratio, 2.f);
-		
-	oColor0.rgb = (cloudColor.rgb + atmosphere.rgb) * dotLightNormal;//(cloudColor + atmosphere) * dotLightNormal;
-	oColor0.a = cloudColor.a;
-	oColor0 *= 0;
-*/	
-
-
-	float NoV = abs(dot(normal, view));
-
-
-	float3 DiffuseSample		= texCUBE(EnvironmentIlluminationCubeSampler, normal).rgb;
+#if 1
+	oColor0 = 0;
 	
-	float3 atmoColor = calculate_scattering(
-    	mul(float4(0.0, 0.0, 0.0, 1.0), g_World).xyz * BASE_SCALE,					// the position of the camera
-        view, 																		// the camera vector (ray direction of this pixel)
-        g_Radius * BASE_SCALE * (1.0 - ATMOSPHERE_SCALE) - 100, 					// max dist, since nothing will stop the ray here, just use some arbitrary value
-        (float3)0,																	// scene color, just the background color here
-        -light,																		// light direction
-        ATMOSPHERE_INTENSITY,														// light intensity, 40 looks nice
-		i.Pos * BASE_SCALE,															// position of the planet
-        g_Radius * BASE_SCALE * (1.0 - ATMOSPHERE_SCALE),                  			// radius of the planet in meters
-        g_Radius * BASE_SCALE,					                 					// radius of the atmosphere in meters
-        RAY_BETA,																	// Rayleigh scattering coefficient
-        MIE_BETA,                       											// Mie scattering coefficient
-        ABSORPTION_BETA,                											// Absorbtion coefficient
-        DiffuseSample * AMBIENT_BETA,												// ambient scattering, turned off for now. This causes the air to glow a bit when no light reaches it
-        G,                          												// Mie preferred scattering direction
-        HEIGHT_RAY,                     											// Rayleigh scale height
-        HEIGHT_MIE,                     											// Mie scale height
-        HEIGHT_ABSORPTION,															// the height at which the most absorption happens
-        ABSORPTION_FALLOFF,															// how fast the absorption falls off from the absorption height
-        PRIMARY_STEPS, 																// steps in the ray direction
-        LIGHT_STEPS 																// steps in the light direction
-    );
-	atmoColor = 1.0 - exp(-atmoColor);// we aren't HDR	
-	oColor0.rgb = atmoColor;
-	float atmoAlpha = saturate(dot(atmoColor, (float3)(1.0 / 3.0)));//there's a ton of nice reds
-	oColor0.a = atmoAlpha;
+	float planet_tweak_scale = floor(g_MaterialGlossiness);//earth scale
+	
+	float3 sun_dir 			= normalize(i.Light);
+//	float3 normal = normalize(i.Normal);
+	float3 view_dir 		= normalize(i.View);
+	float planet_rad 		= planet_tweak_scale;
+	float atmo_rad 			= planet_tweak_scale * (1.0 + frac(g_MaterialGlossiness) * 0.1);//1.0018835;//earth scale, unfortunately we don't have the precision for that
+	float3 rayleigh_beta	= g_MaterialDiffuse.rgb * 50.0;//float3(5.5, 12.0, 30.0);
+	float mie_beta			= g_MaterialDiffuse.a * 50.0;  //10.0;
+	float scatter_rayleight	= 100.0;
+	float scatter_mie		= 100.0;
+	float3 sun_color		= float3(1.0, 1.0, 1.0) * 5;
+	float3 planet_pos		= ((i.Pos - mul(float4(0.0, 0.0, 0.0, 1.0), g_World).xyz * (1 + frac(g_MaterialGlossiness))) / (g_Radius)) * planet_tweak_scale;//yup remap for consistency
+	GetAtmosphere(	oColor0, 
+					sun_dir, 
+					sun_color, 
+					view_dir, 
+					planet_rad, 
+					atmo_rad, 
+					planet_pos, 
+					rayleigh_beta, 
+					mie_beta,
+					scatter_rayleight,
+					scatter_mie);
+//	oColor0 += 0.1;
+//	oColor0.a = 1;
+
+#else
+	oColor0 = 0;//float4(g_MaterialDiffuse.rgb * 4.0, 1);//float4(frac(distance(mul(float4(0.0, 0.0, 0.0, 1.0), g_World).xyz, i.Pos - mul(float4(0.0, 0.0, 0.0, 1.0), g_World).xyz).xxx / 1000.0), 1);
+#endif
 }
 
 technique RenderWithoutPixelShader
@@ -1013,13 +1155,14 @@ technique RenderWithPixelShader
 /*		
 		AlphaBlendEnable = TRUE;
 		SrcBlend = srcalpha;
-//		DestBlend = InvSrcAlpha;
+		DestBlend = InvSrcAlpha;
 */
+
 		//additive
-		ZWriteEnable = false;
-		AlphaTestEnable = false;
+		ZWriteEnable = true;
+		AlphaTestEnable = true;
 		AlphaBlendEnable = true;
-		SrcBlend = SRCALPHA;
+		SrcBlend = InvDestColor;
 		DestBlend = ONE; 
 		
     }

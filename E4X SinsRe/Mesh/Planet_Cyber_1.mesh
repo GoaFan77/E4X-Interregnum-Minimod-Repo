@@ -12,11 +12,11 @@ MeshData
 		NormalTextureFileName "PlanetCyber01-nm.dds"
 		DisplacementTextureFileName ""
 		TeamColorTextureFileName ""
-		Diffuse ffffffff
+		Diffuse 33267e57
 		Ambient ffffffff
 		Specular ffffffff
 		Emissive ffffffff
-		Glossiness 6.000000
+		Glossiness 8000.010000
 	NumPoints 3
 	Point
 		DataString "Above"

@@ -12,11 +12,11 @@ MeshData
 		NormalTextureFileName "Planet_ING_MonCala-nm.dds"
 		DisplacementTextureFileName ""
 		TeamColorTextureFileName ""
-		Diffuse ffffffff
+		Diffuse 331c3d99
 		Ambient ffffffff
 		Specular ffffffff
 		Emissive ffffffff
-		Glossiness 6.000000
+		Glossiness 7500.010000
 	NumPoints 3
 	Point
 		DataString "Above"

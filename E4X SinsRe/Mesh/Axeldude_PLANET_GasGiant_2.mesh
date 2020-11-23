@@ -12,11 +12,11 @@ MeshData
 		NormalTextureFileName "Planetgas-nm.dds"
 		DisplacementTextureFileName ""
 		TeamColorTextureFileName ""
-		Diffuse ffffffff
+		Diffuse 33050f1c
 		Ambient ffffffff
 		Specular ffffffff
 		Emissive ffffffff
-		Glossiness 5.000000
+		Glossiness 70000.005000
 	NumPoints 3
 	Point
 		DataString "Center"

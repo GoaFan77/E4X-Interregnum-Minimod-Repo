@@ -12,11 +12,11 @@ MeshData
 		NormalTextureFileName "Planet_ING_Kessel-nm.dds"
 		DisplacementTextureFileName ""
 		TeamColorTextureFileName ""
-		Diffuse ffffffff
+		Diffuse 3342798d
 		Ambient ffffffff
 		Specular ffffffff
 		Emissive ffffffff
-		Glossiness 6.000000
+		Glossiness 4500.015000
 	NumPoints 3
 	Point
 		DataString "Above"

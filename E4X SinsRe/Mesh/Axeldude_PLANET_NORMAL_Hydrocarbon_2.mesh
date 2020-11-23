@@ -12,11 +12,11 @@ MeshData
 		NormalTextureFileName "Axeldude_Planet_Hydrocarbon_2-nm.dds"
 		DisplacementTextureFileName ""
 		TeamColorTextureFileName ""
-		Diffuse ffffffff
+		Diffuse 334f3e1a
 		Ambient ffffffff
 		Specular ffffffff
 		Emissive ffffffff
-		Glossiness 6.000000
+		Glossiness 6000.01
 	NumPoints 3
 	Point
 		DataString "Above"

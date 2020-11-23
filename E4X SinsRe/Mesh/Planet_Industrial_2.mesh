@@ -12,11 +12,11 @@ MeshData
 		NormalTextureFileName "PlanetIndustrial_2-nm.dds"
 		DisplacementTextureFileName ""
 		TeamColorTextureFileName ""
-		Diffuse ffffffff
+		Diffuse 334b2918
 		Ambient ffffffff
 		Specular ffffffff
 		Emissive ffffffff
-		Glossiness 6.000000
+		Glossiness 6500.015000
 	NumPoints 3
 	Point
 		DataString "Above"

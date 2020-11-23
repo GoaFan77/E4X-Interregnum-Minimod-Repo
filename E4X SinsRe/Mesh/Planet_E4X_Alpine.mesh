@@ -11,12 +11,12 @@ MeshData
 		SelfIlluminationTextureFileName "Planet_E4X_Alpine-da.dds"
 		NormalTextureFileName "Planet_E4X_Alpine-nm.dds"
 		DisplacementTextureFileName ""
-		TeamColorTextureFileName ""
-		Diffuse ffffffff
+		TeamColorTextureFileName "Planet_E4X_Alpine-lh.dds"
+		Diffuse 334487ba
 		Ambient ffffffff
 		Specular ffffffff
 		Emissive ffffffff
-		Glossiness 6.000000
+		Glossiness 4500.0150000
 	NumPoints 3
 	Point
 		DataString "Above"
