@@ -7,16 +7,16 @@ MeshData
 	MinBoundingExtents [ -5015.68798836 -5015.68798836 -5015.68798836 ]
 	NumMaterials 1
 	Material
-		DiffuseTextureFileName "Axeldude_Planet_Forest_3-cl.dds"
-		SelfIlluminationTextureFileName "Axeldude_Planet_Forest_3-da.dds"
-		NormalTextureFileName "Axeldude_Planet_Forest_3-nm.dds"
+		DiffuseTextureFileName "Axeldude_Planet_Oceanic_1-cl.dds"
+		SelfIlluminationTextureFileName "Axeldude_Planet_Oceanic_1-da.dds"
+		NormalTextureFileName "Axeldude_Planet_Oceanic_1-nm.dds"
 		DisplacementTextureFileName ""
 		TeamColorTextureFileName ""
-		Diffuse 3317295a
-		Ambient ffffffff
+		Diffuse 331c3d99
+		Ambient 80ffffff
 		Specular ffffffff
 		Emissive ffffffff
-		Glossiness 6000.010000
+		Glossiness 6500.010000
 	NumPoints 3
 	Point
 		DataString "Above"
