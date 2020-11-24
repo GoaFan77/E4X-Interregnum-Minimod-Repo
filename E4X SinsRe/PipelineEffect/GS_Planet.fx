@@ -1,6 +1,6 @@
 #define SF (1.0/float(0xffffffffU))
-#define PI cos(0.0)
-#define INVPI 1.0 / PI
+#define PI 3.1415926535897932384626433832795
+#define INVPI (1.0 / PI)
 float4x4		g_World					: World;
 float4x4		g_WorldViewProjection	: WorldViewProjection;
 
@@ -154,6 +154,7 @@ struct VsSceneOutput
 	float3 pos : TEXCOORD3;
 	float3 posObj : TEXCOORD4;
 	float3 normalObj : TEXCOORD5;
+	float3 PlanetPos : TEXCOORD6;
 };
 
 VsSceneOutput RenderSceneVS(
@@ -168,6 +169,8 @@ VsSceneOutput RenderSceneVS(
 	output.normal = mul(normal, (float3x3)g_World);
     output.lightDir = normalize(g_Light0_Position - output.position);
 	float3 positionInWorldSpace = mul(float4(position, 1.f), g_World).xyz;
+	
+	output.PlanetPos = (positionInWorldSpace - mul(float4(0.0, 0.0, 0.0, 1.0), g_World).xyz);
 //    output.viewDir = normalize(-positionInWorldSpace);
     output.pos = positionInWorldSpace;
 	output.posObj = position;
@@ -519,13 +522,26 @@ float mapClouds(float c)
 {
 	return (1.0 - exp(-Square(c) * g_MaterialAmbient.a * 5.0));
 }
+
+float atan2safe(float2 y, float2 x)
+{
+	return atan2(y, x);
+}
+
 float4 RenderScenePS(VsSceneOutput input) : COLOR0
 { 
 //	return float4(g_MaterialAmbient.rgb, 1.0);
 	float2 OffsetShadow, OffsetParallax;
 	float3x3 TBN;
 	float3 normal = normalize(input.normal);
-	float3 normalSphere = normal;	
+	
+//	return float4(),0.0, 1.0);
+//	input.texCoord = float2(atan2safe(normal.x, normal.z) * INVPI * 0.5 + 0.5, frac(asin(normal.y) * INVPI + 0.5));
+	
+	//small improvement to the polar singularity, not perfect but better
+	input.pos += (normal - (input.PlanetPos / g_Radius)) * g_Radius;
+	
+	float3 normalSphere = normal;
 	float3 view = normalize(-input.pos);
 	float3 light = normalize(input.lightDir);	
 	CotangentDerivativeBase(input.pos, normal, light, view, input.texCoord, OffsetShadow, OffsetParallax, TBN);
@@ -796,12 +812,17 @@ float4 RenderScenePS(VsSceneOutput input) : COLOR0
 
 		float d2 = dot(rc, rc) - tca * tca;
 
-		if (d2 > radius2) return false;
-
 		float thc = sqrt(radius2 - d2);
 		t0 = tca - thc;
 		t1 = tca + thc;
 
+
+		if (d2 > radius2) return false;
+/*
+		float thc = sqrt(radius2 - d2);
+		t0 = tca - thc;
+		t1 = tca + thc;
+*/
 		return true;
 	}
 
@@ -848,16 +869,16 @@ float4 RenderScenePS(VsSceneOutput input) : COLOR0
 		inout float optical_depthM)
 	{
 
-		float inner_sphere0 = 0;
-		float inner_sphere1 = 0;
-		float outer_sphere0 = 0;
-		float outer_sphere1 = 0;
+		float inner_sphere0;
+		float inner_sphere1;
+		float outer_sphere0;
+		float outer_sphere1;
 		isect_sphere(ray, sky.earth.center, sky.earth.earth_radius, inner_sphere0, inner_sphere1);
-		isect_sphere(ray, sky.earth.center, sky.earth.atmosphere_radius + 0.00001, outer_sphere0, outer_sphere1);
+		isect_sphere(ray, sky.earth.center, sky.earth.atmosphere_radius + 0.0001, outer_sphere0, outer_sphere1);
 
 		float march_step = outer_sphere1;
 		if(inner_sphere0 > 0){
-			march_step = min(inner_sphere0 + 1000, outer_sphere1);
+			march_step = min(inner_sphere0 + 500, outer_sphere1);
 		}
 
 		march_step *= INV_NR_SUN_STEPS;
@@ -919,7 +940,7 @@ float4 RenderScenePS(VsSceneOutput input) : COLOR0
 
 		float3 attenuation = exp(-tau);
 
-		float shadow_term = 1;//calculate_celesital_shadow(ray.origin, sky.sun_dir, 1.0, MISSION_PLANET_INDEX, atmosphere_size_scale_mult_spaceplanet);
+		float shadow_term = 1;
 
 		sky.sumR += hr * attenuation * shadow_term;
 		sky.sumM += hm * attenuation * shadow_term;
@@ -954,7 +975,7 @@ float4 RenderScenePS(VsSceneOutput input) : COLOR0
 		sky.inv_hR = 1.0 / sky.hR;
 		sky.inv_hM = 1.0 / sky.hM;
 
-		sky.g = 0.5;
+		sky.g = 0.8;
 
 		sky.earth = make_earth(planet_pos, planet_rad, atmo_rad);
 
@@ -977,7 +998,7 @@ float4 RenderScenePS(VsSceneOutput input) : COLOR0
 		sky.phaseR = rayleigh_phase_func(sky.VL);
 		sky.phaseM = henyey_greenstein_phase_func(sky.VL, sky.g);
 
-		Ray view_ray = make_ray(float3(0,0,0), view_dir);
+		Ray view_ray = make_ray((float3)0.0, view_dir);
 
 		float atmopshere_thickness = sky.earth.atmosphere_radius - sky.earth.earth_radius;
 
@@ -1014,7 +1035,7 @@ float4 RenderScenePS(VsSceneOutput input) : COLOR0
 				Ray ray = make_ray(wp, view_dir);
 				get_incident_light_space(sky, ray, step_dist, atmopshere_thickness, blue_noise);
 
-				avg_space_light += texCUBE(EnvironmentIlluminationCubeSampler, float4(normalize(wp - sky.earth.center), 0)).rgb * PI;
+				avg_space_light += texCUBE(EnvironmentIlluminationCubeSampler, float4(normalize(wp - sky.earth.center), 0)).rgb;
 
 				prev_dist = dist;
 			}
@@ -1029,6 +1050,7 @@ float4 RenderScenePS(VsSceneOutput input) : COLOR0
 
 			atmosphere.rgb = (rayleigh_color + mie_value) * sun_color + (ambient_colorR + ambient_colorM) * avg_space_light;
 			atmosphere.a = saturate(1.0 - sky.transmittance);
+			//atmosphere.a = exp(-sky.transmittance);
 			atmosphere.rgb /= (atmosphere.rgb + 1.0);
 		}
 	}
@@ -1044,6 +1066,7 @@ struct VsCloudsOutput
 	float3 Normal: TEXCOORD2;
 	float3 View: TEXCOORD3;
 	float3 Pos: TEXCOORD4;
+	float3 PlanetPos: TEXCOORD5;
 	float PercentHeight : COLOR0;
 };
 
@@ -1051,9 +1074,9 @@ VsCloudsOutput
 RenderCloudVertex(float thicknessModifier, float3 iPosition, float3 iNormal, float2 iTexCoord)
 {
 	VsCloudsOutput o;  
-	
+	float atmosphereThickness = 1.0 + frac(g_MaterialGlossiness) * 2.0;// * 5.0;
 	//Final Position
-	o.Position = mul(float4(iPosition * /*thicknessModifier*/(1 + frac(g_MaterialGlossiness)), 1.0f), g_WorldViewProjection);
+	o.Position = mul(float4(iPosition * atmosphereThickness, 1.0f), g_WorldViewProjection);
 	
 	//Texture Coordinates
     o.TexCoord0 = iTexCoord; 
@@ -1063,12 +1086,13 @@ RenderCloudVertex(float thicknessModifier, float3 iPosition, float3 iNormal, flo
     
     //Position
     float3 positionInWorldSpace = mul(float4(iPosition, 1.f), g_World).xyz;
-    o.Pos = positionInWorldSpace * (1 + frac(g_MaterialGlossiness));// * ATMOSPHERE_SCALE;//(1.0 / ATMOSPHERE_SCALE);
+	o.Pos = positionInWorldSpace;// * ATMOSPHERE_SCALE;//(1.0 / ATMOSPHERE_SCALE);
+	o.PlanetPos = (positionInWorldSpace - (mul(float4(0.0, 0.0, 0.0, 1.0), g_World).xyz) * atmosphereThickness) / g_Radius;
     //Calculate Light
-	o.Light = -normalize(g_Light0_Position - positionInWorldSpace);
+	o.Light = normalize(((positionInWorldSpace - g_Light0_Position) * (1 + 0.1)) / g_Radius);
 	
 	//Calculate ViewVector
-	o.View = normalize(-positionInWorldSpace);
+	o.View = normalize(-(positionInWorldSpace * atmosphereThickness) / g_Radius);
 	
 	o.PercentHeight = abs(iPosition.y)/g_Radius;          
     return o;
@@ -1092,20 +1116,22 @@ void RenderCloudsPS(VsCloudsOutput i, out float4 oColor0:COLOR0)
 	
 #if 1
 	oColor0 = 0;
+//	#define BALANCE 0.001;
+//	#define .0;//1000.0;
+	float atmosphereThickness = 1.0 + frac(g_MaterialGlossiness);
+	float planet_tweak_scale = floor(g_MaterialGlossiness) * 0.1;//earth scale
 	
-	float planet_tweak_scale = floor(g_MaterialGlossiness);//earth scale
-	
-	float3 sun_dir 			= normalize(i.Light);
+	float3 sun_dir 			= normalize(i.Light * planet_tweak_scale);
 //	float3 normal = normalize(i.Normal);
-	float3 view_dir 		= normalize(i.View);
+	float3 view_dir 		= normalize(i.View * planet_tweak_scale);
 	float planet_rad 		= planet_tweak_scale;
-	float atmo_rad 			= planet_tweak_scale * (1.0 + frac(g_MaterialGlossiness) * 0.1);//1.0018835;//earth scale, unfortunately we don't have the precision for that
+	float atmo_rad 			= planet_tweak_scale * atmosphereThickness;//1.0018835;//earth scale, unfortunately we don't have the precision for that
 	float3 rayleigh_beta	= g_MaterialDiffuse.rgb * 50.0;//float3(5.5, 12.0, 30.0);
 	float mie_beta			= g_MaterialDiffuse.a * 50.0;  //10.0;
-	float scatter_rayleight	= 100.0;
-	float scatter_mie		= 100.0;
-	float3 sun_color		= float3(1.0, 1.0, 1.0) * 5;
-	float3 planet_pos		= ((i.Pos - mul(float4(0.0, 0.0, 0.0, 1.0), g_World).xyz * (1 + frac(g_MaterialGlossiness))) / (g_Radius)) * planet_tweak_scale;//yup remap for consistency
+	float scatter_rayleight	= 250.0;
+	float scatter_mie		= 250.0;
+	float3 sun_color		= float3(1.0, 1.0, 1.0) * 10.0;
+	float3 planet_pos		= i.PlanetPos * planet_tweak_scale;//yup remap for consistency
 	GetAtmosphere(	oColor0, 
 					sun_dir, 
 					sun_color, 
@@ -1119,7 +1145,7 @@ void RenderCloudsPS(VsCloudsOutput i, out float4 oColor0:COLOR0)
 					scatter_mie);
 //	oColor0 += 0.1;
 //	oColor0.a = 1;
-
+//	oColor0 = float4(i.PlanetPos, 1.0);
 #else
 	oColor0 = 0;//float4(g_MaterialDiffuse.rgb * 4.0, 1);//float4(frac(distance(mul(float4(0.0, 0.0, 0.0, 1.0), g_World).xyz, i.Pos - mul(float4(0.0, 0.0, 0.0, 1.0), g_World).xyz).xxx / 1000.0), 1);
 #endif
