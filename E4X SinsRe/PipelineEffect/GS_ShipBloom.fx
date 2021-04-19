@@ -62,7 +62,7 @@ float4 GetPixelColor( float2 iTexCoord )
 	colorSample += (g_TeamColor * teamColorScalar);
 
 	//Self Illumination
-	float selfIlluminationScalar = dataSample.g;
+	float selfIlluminationScalar = dataSample.b;
 
 #ifdef PBR	
 	//Bloom
@@ -70,6 +70,7 @@ float4 GetPixelColor( float2 iTexCoord )
 #else
 	float bloomScalar = dataSample.a;
 #endif
+	colorSample.rgb = pow(colorSample.rgb, 3.0) * 3.0;
 	float4 oColor = colorSample * colorMultiplier * bloomScalar;
 	return oColor;
 }

@@ -1,6 +1,19 @@
+//math constants
 #define SF (1.0/float(0xffffffffU))
 #define PI 3.1415926535897932384626433832795
 #define INVPI (1.0 / PI)
+
+//options, you can comment them out to tweak performance if you have performance problems
+#define SUPPORT_PARALLAX_DISPLACEMENT
+#define SUPPORT_PARALLAX_SHADOWS        //only works if SUPPORT_PARALLAX_DISPLACEMENT is also on!
+
+#define SUPPORT_SUBSURFACE
+
+//turns the planets in sphere probes to debug cubemaps
+//#define DEBUG_MAKE_PLANET_SPHEREPROBE
+#define DEBUG_SPHEREPROBE_METAL
+#define DEBUG_SPHEREPROBE_MULTISCATTER true
+
 float4x4		g_World					: World;
 float4x4		g_WorldViewProjection	: WorldViewProjection;
 
@@ -14,19 +27,21 @@ texture	g_TextureEnvironmentCube : Environment;
 texture g_EnvironmentIllumination : Environment;
 
 
-
+float4 g_Light_Emissive: Emissive;
 float4 g_Light_AmbientLite: Ambient;
 float4 g_Light_AmbientDark;
 
 float3 g_Light0_Position: Position = float3( 0.f, 0.f, 0.f );
-float4 g_Light0_DiffuseLite: Diffuse = float4( 1.f, 1.f, 1.f, 1.f );
+float4 g_Light0_DiffuseLite: Diffuse;// = float4( 1.f, 1.f, 1.f, 1.f );
 float4 g_Light0_DiffuseDark;
 float4 g_Light0_Specular;
 
 float4 g_MaterialAmbient:Ambient;
+float4 g_MaterialSpecular:Specular;
+float4 g_MaterialEmissive:Emissive;
 float4 g_MaterialDiffuse:Diffuse;
 float g_MaterialGlossiness: Glossiness;
-float4 g_GlowColor = float4(1.0f, 1.0f, 1.0f, 1.0f);
+float4 g_GlowColor:Emissive;
 float4 g_CloudColor:cloudColor;
 
 float g_Time;
@@ -43,18 +58,22 @@ float TeamColorScalar = 1;
 
 sampler TextureColorSampler = sampler_state
 {
-    Texture	= <g_TextureDiffuse0>;    
+    Texture	= <g_TextureDiffuse0>;
+    AddressU = WRAP;        
+    AddressV = WRAP;
 #ifndef Anisotropy
     Filter = LINEAR;
 #else
 	Filter = ANISOTROPIC;
-	MaxAnisotropy = AnisotropyLevel;
+	MaxAnisotropy = AnisotropyLevel;	
 #endif
 };
 
 sampler TextureDataSampler = sampler_state
 {
-    Texture = <g_TextureSelfIllumination>;    
+    Texture = <g_TextureSelfIllumination>;
+    AddressU = WRAP;        
+    AddressV = WRAP;
 #ifndef Anisotropy
     Filter = LINEAR;
 #else
@@ -65,7 +84,9 @@ sampler TextureDataSampler = sampler_state
 
 sampler TextureNormalSampler = sampler_state
 {
-    Texture	= <g_TextureNormal>;    
+    Texture	= <g_TextureNormal>;
+    AddressU = WRAP;        
+    AddressV = WRAP;	
 #ifndef Anisotropy
     Filter = LINEAR;
 #else
@@ -76,7 +97,9 @@ sampler TextureNormalSampler = sampler_state
 
 sampler TextureDisplacementSampler = sampler_state
 {
-    Texture	= <g_TextureTeamColor>;    
+    Texture	= <g_TextureTeamColor>;
+    AddressU = WRAP;        
+    AddressV = WRAP;	
 #ifndef Anisotropy
     Filter = LINEAR;
 #else
@@ -249,6 +272,8 @@ float4 taylorInvSqrt(float4 r)
     return 1.79284291400159 - r * 0.85373472095314;
 }
 
+
+
 float4 snoise(float3 v)
 {
     const float2 C = float2(1.0 / 6.0, 1.0 / 3.0);
@@ -367,6 +392,96 @@ float4 snoise(float3 v)
 		return Properties.SpecularColor * AB.x + AB.y;
 	}
 	
+	inline float AmbientDielectricBRDF(float Roughness, float NoV)
+	{
+		// Same as EnvBRDFApprox( 0.04, Roughness, NoV )
+		const float2 c0 = float2(-1	, -0.0275);
+		const float2 c1 = float2(1	, 0.0425);
+		float2 r = Roughness * c0 + c1;
+		return min(r.x * r.x, exp2(-9.28 * NoV)) * r.x + r.y;
+	}
+
+	float3 AmbientBRDF(float NoV, float Roughness, float3 SpecularColor)
+	{
+		float4 r = Roughness * float4(-1.0, -0.0275, -0.572, 0.022) + float4(1.0, 0.0425, 1.04, -0.04);
+		float a004 = min(r.x * r.x, exp2(-9.28 * NoV)) * r.x + r.y;
+		float2 AB = float2(-1.04, 1.04) * a004 + r.zw;
+	
+		AB.y *= (1.0 - 1.0 / (1.0 + max(0.0, 50.0 * SpecularColor.g))) * 3.0;
+	
+		return SpecularColor * AB.x + AB.y;
+	}
+		// Brian Karis(Epic's) optimized unified term derived from Call of Duty metallic/dielectric term improved with https://bruop.github.io/ibl/
+	void AmbientBRDF(inout float3 diffuse, inout float3 specular, float NoV, PBRProperties Properties, const float3 radiance = 1.0, const float3 irradiance = 1.0, const bool multiscatter = true)
+	{
+
+		float4 r = Properties.Roughness * float4(-1.0, -0.0275, -0.572, 0.022) + float4(1.0, 0.0425, 1.04, -0.04);
+		float a004 = min(r.x * r.x, exp2(-9.28 * NoV)) * r.x + r.y;
+		float2 AB = float2(-1.04, 1.04) * a004 + r.zw;
+	
+		AB.y *= (1.0 - 1.0 / (1.0 + max(0.0, 50.0))) * 3.0;
+		
+		if(multiscatter)
+		{
+
+		    // Roughness dependent fresnel, from Fdez-Aguera
+//			float3 Fr = max((float3)(1.0 - Properties.Roughness), NoV) - NoV;
+//			float3 k_S = Properties.SpecularColor * (NoV + Fr * Pow5(1.0 - NoV));
+		
+			float3 FssEss = Properties.SpecularColor * AB.x + AB.y;
+		
+			// Multiple scattering, from Fdez-Aguera
+			float Ems = (1.0 - (AB.x + AB.y));
+			float3 F_avg = NoV + (1.0 - NoV) * rcp(21.0);
+			float3 FmsEms = Ems * FssEss * F_avg / (1.0 - F_avg * Ems);
+			float3 k_D = Properties.DiffuseColor * (1.0 - FssEss - FmsEms);
+			
+			diffuse 	+= (FmsEms + k_D) * irradiance;
+			specular 	+= FssEss * radiance;
+		}
+		else
+		{
+			diffuse 	+= Properties.DiffuseColor * irradiance;
+			specular 	+= (Properties.SpecularColor * AB.x + AB.y) * radiance;
+		}
+		
+	}
+	
+	void AmbientBRDF(inout float3 diffuse, inout float3 specular, float NoV, float Roughness, float3 SpecularColor, float3 DiffuseColor, const float3 radiance = 1.0, const float3 irradiance = 1.0, const bool multiscatter = true)
+	{
+
+		float4 r = Roughness * float4(-1.0, -0.0275, -0.572, 0.022) + float4(1.0, 0.0425, 1.04, -0.04);
+		float a004 = min(r.x * r.x, exp2(-9.28 * NoV)) * r.x + r.y;
+		float2 AB = float2(-1.04, 1.04) * a004 + r.zw;
+	
+		AB.y *= (1.0 - 1.0 / (1.0 + max(0.0, 50.0))) * 3.0;
+		
+		if(multiscatter)
+		{
+
+		    // Roughness dependent fresnel, from Fdez-Aguera
+//			float3 Fr = max((float3)(1.0 - Properties.Roughness), NoV) - NoV;
+//			float3 k_S = Properties.SpecularColor * (NoV + Fr * Pow5(1.0 - NoV));
+		
+			float3 FssEss = SpecularColor * AB.x + AB.y;
+		
+			// Multiple scattering, from Fdez-Aguera
+			float Ems = (1.0 - (AB.x + AB.y));
+			float3 F_avg = NoV + (1.0 - NoV) * rcp(21.0);
+			float3 FmsEms = Ems * FssEss * F_avg / (1.0 - F_avg * Ems);
+			float3 k_D = DiffuseColor * (1.0 - FssEss - FmsEms);
+			
+			diffuse 	+= (FmsEms + k_D) * irradiance;
+			specular 	+= FssEss * radiance;
+		}
+		else
+		{
+			diffuse 	+= DiffuseColor * irradiance;
+			specular 	+= (SpecularColor * AB.x + AB.y) * radiance;
+		}
+		
+	}
+	
 	// Frostbite presentation (moving frostbite to pbr)
 	float3 GetDiffuseDominantDir(float3 N, float3 V, float NoV, PBRProperties Properties)
 	{
@@ -442,32 +557,40 @@ float4 snoise(float3 v)
 	}
 
 	// Morten Mikkelsen cotangent derivative normal mapping, more accurate than using mesh tangents/normals, handles mirroring and radial symmetry perfectly.
-	void CotangentDerivativeBase(float3 Pos, float3 N, float3 L, float3 V, float2 UV, inout float2 OffsetShadow, inout float2 OffsetParallax, inout float3x3 TBN)
+	void CotangentDerivativeBase(float2 DUVX, float2 DUVY, float3 Pos, float3 N, float3 L, float3 V, float2 UV, inout float3 Lt, inout float2 OffsetParallax, inout float3x3 TBN)
 	{
-		float2 DUVX 		= ddx(UV);
-		float2 DUVY 		= ddy(UV);
-		float3 DPX 			= ddx(Pos);
-		float3 DPY 			= ddy(Pos);
-		float3 DPXPerp 		= cross(N, DPX);		
-		float3 DPYPerp 		= cross(DPY, N);		
-		float3 Tangent 		= DPYPerp * DUVX.x + DPXPerp * DUVY.x;
-		float3 Cotangent 	= DPYPerp * DUVX.y + DPXPerp * DUVY.y;
-		float InvMax		= pow(max(dot(Tangent, Tangent), dot(Cotangent, Cotangent)), -0.5);
-		Tangent				*= InvMax;
-		Cotangent 			*= InvMax;
-		
-		//compack parallax shadow vector, almost freeriding on derivative math, replace L to get parallax dir and divide by NoV
-		
-		float3 Lt = mul(float3x3(Tangent, Cotangent, N), L);
+		#if 0
+			float3 DPX 			= ddx(Pos);
+			float3 DPY 			= ddy(Pos);
+			float3 DPXPerp 		= cross(N, DPX);		
+			float3 DPYPerp 		= cross(DPY, N);		
+			float3 Tangent 		= DPYPerp * DUVX.x + DPXPerp * DUVY.x;
+			float3 Cotangent 	= DPYPerp * DUVX.y + DPXPerp * DUVY.y;
+			float InvMax		= pow(max(dot(Tangent, Tangent), dot(Cotangent, Cotangent)), -0.5);
+			Tangent				*= InvMax;
+			Cotangent 			*= InvMax;
+		#else
+		//THIS WILL ONLY WORK ON SPHERE UNWRAPPED PLANETS
+			float3 Tangent 			= normalize(cross(N, float3(0.0, 1.0, 0.0)));
+			float3 Cotangent 		= normalize(cross(N, Tangent));	
+		#endif
+		Lt = mul(float3x3(Tangent, Cotangent, N), L);
 		float3 Vt = mul(float3x3(Tangent, Cotangent, N), V);
+		
+//		Lt.z = max(0.00001, (Lt.z + 0.1) * (1.0 / 1.1));//max(0.00001, sqrt(Lt.z * 0.5 + 0.5));
+		Lt.z = max(0.00001, sqrt(Lt.z * 0.5 + 0.5));
 
+		Lt.z *= 100.0;
 		Lt = normalize(Lt);
 		Vt = normalize(Vt);
 		
 		
 		
-		OffsetShadow = (Lt.xy / max(0.00001, sqrt(Lt.z * 0.5 + 0.5))) * 0.01;
-		OffsetParallax = (Vt.xy / max(0.00001, sqrt(Vt.z * 0.5 + 0.5))) * 0.01;	
+//		OffsetShadow = (Lt.xy / max(0.00001, sqrt(Lt.z * 0.5 + 0.5))) * 0.01;
+//		OffsetParallax = (-Vt.xy / max(0.00001, sqrt(Vt.z * 0.5 + 0.5))) * 0.01;	
+//		OffsetParallax = (-Vt.xy / max(0.00001, (Vt.z + 0.2) * (1.0 / 1.2))) * 0.01;	
+//		OffsetParallax = -Vt.xy * 0.004;//(Vt.xy / Vt.z) * 0.002;
+		OffsetParallax = -(Vt.xy / Vt.z) * 0.01;
 		TBN = float3x3(Tangent, Cotangent, N);	
 	}
 
@@ -523,108 +646,451 @@ float mapClouds(float c)
 	return (1.0 - exp(-Square(c) * g_MaterialAmbient.a * 5.0));
 }
 
-float atan2safe(float2 y, float2 x)
+float atan2safe(float y, float x)
 {
 	return atan2(y, x);
 }
 
+
+
+	float rayleigh_phase_func(float VL)
+	{
+		return
+				3. * (1. + VL*VL)
+		/ //------------------------
+					(16. * PI);
+	}
+
+	float henyey_greenstein_phase_func(float VL, float g)
+	{
+		return
+							(1. - g*g)
+		/ //---------------------------------------------
+			((4. + PI) * pow(abs(1. + g*g - 2.*g*VL) + 0.0001, 1.5));
+	}
+
+	// Schlick Phase Function factor
+	// Pharr and  Humphreys [2004] equivalence to g above
+	float schlick_phase_func(float VL, float g)
+	{
+	const float k = 1.55*g - 0.55 * (g*g*g);				
+		return
+						(1. - k*k)
+		/ //-------------------------------------------
+			(4. * PI * (1. + k*VL) * (1. + k*VL));
+	}
+	
+	// Hash without Sine
+	// MIT License...
+	// Copyright (c)2014 David Hoskins.
+	// https://www.shadertoy.com/view/4djSRW
+	float Hash13(float3 p3)
+	{
+		p3  = frac(p3 * .1031);
+		p3 += dot(p3, p3.yzx + 33.33);
+		return frac((p3.x + p3.y) * p3.z);
+	}
+#define M3 float3x3( 0.00,  0.80,  0.60, -0.80,  0.36, -0.48, -0.60, -0.48,  0.64)
+	
+	float Noise13(	float3 P,
+				const int Detail = 1, 
+				const float Dimension = 0.0, 
+				const float Lacunarity = 2.0,
+				//const float3 Phase	= 0.0,
+				const bool Smooth = true)
+{	
+	float Sum = 0;
+		
+	for(int j = 0; j < Detail; j++)
+	{
+		//P += Phase;
+		float3 i = floor(P);
+		float3 f = frac(P);
+		if(Smooth)
+			f *= f * (3.0 - 2.0 * f);
+
+		Sum += mad(lerp(lerp(lerp(	Hash13(i + float3(0, 0, 0)),
+									Hash13(i + float3(1, 0, 0)), f.x),
+							lerp(	Hash13(i + float3(0, 1, 0)),
+									Hash13(i + float3(1, 1, 0)), f.x), f.y),
+						lerp(lerp(	Hash13(i + float3(0, 0, 1)),
+									Hash13(i + float3(1, 0, 1)), f.x),
+							lerp(	Hash13(i + float3(0, 1, 1)),
+									Hash13(i + float3(1, 1, 1)), f.x), f.y), f.z), 2, -1) * (1 - Dimension);
+		P = mul(P * Lacunarity, M3);
+	}
+	return Sum * rcp(Detail);	
+}
+inline float2 Rotate(float2 P, float R)
+{
+	float S, C;
+	sincos(R, S, C);
+	return mul(float2x2(C, -S, S, C), P);
+}
+
+inline float2 VolcanoSmoke(float2 uv, float2 duvx, float2 duvy, float smokeDensity, float smokePuffyness)	
+{
+	float2 SmokeSample = tex2Dgrad(TextureDisplacementSampler, uv, duvx, duvy).gb;
+	float SmokeSpeed = (g_Time * 0.25 + (SmokeSample.r * 4 + SmokeSample.g));
+	float SmokeStep = floor(SmokeSpeed) * 0.125;
+	float SmokeBlend = frac(SmokeSpeed);
+	float SmokeAnimation = lerp(tex2Dgrad(TextureDisplacementSampler, float2(uv.x + frac(SmokeStep - g_Time * 0.001), uv.y), duvx, duvy).b, 
+								tex2Dgrad(TextureDisplacementSampler, float2(uv.x + frac(SmokeStep + 0.125 - g_Time * 0.001), uv.y), duvx, duvy).b, SmokeBlend)
+								* smokePuffyness;
+	return float2(max(0, Square(SmokeSample.r) * smokeDensity + SmokeSample.r * SmokeAnimation), SmokeAnimation);
+}
+
+inline float3 GetFlow(float Timer)
+{
+	return float3(frac(float2(Timer, Timer + 0.5)), abs(frac(Timer) * 2 - 1));
+}
+
+inline float3 LaveFlowTest(float2 uv, float2 duvx, float2 duvy)
+{
+	float2 FlowRaw = tex2Dlod(TextureNormalSampler, float4(uv, 0, 2)).yw * 2.0 - 1.0;
+	float LavaMask = tex2Dgrad(TextureDisplacementSampler, uv, duvx, duvy).r;
+	float LavaSpeed = -g_Time * 0.25;
+	if(dot(FlowRaw.yx, FlowRaw.yx) > 0.0001)//could lead to a NaN
+	{
+		FlowRaw = normalize(FlowRaw.yx) * rcp(float2(1024, 512)) * LavaMask;
+	}
+	else
+	{
+		FlowRaw = 0;	
+	}
+	
+	float3 FlowBase = GetFlow(g_Time * 0.25);
+
+	return lerp(tex2Dgrad(TextureDataSampler, uv - FlowRaw * FlowBase.x, duvx, duvy).rgb,
+				tex2Dgrad(TextureDataSampler, uv - FlowRaw * FlowBase.y, duvx, duvy).rgb, FlowBase.z);
+}
+
+float4 mapGasGiant(float4 map)
+{
+	return lerp(float4(map.r, map.g, 1.0, 1.0 - map.a), map * map * (3.0 - 2.0 * map), g_MaterialSpecular.r);
+}
+
+float4 mapGasGiant(float map)
+{
+	return lerp(0.5, map, g_MaterialSpecular.r);
+}
+
+//float3 AuroaBorialis(float)
+
 float4 RenderScenePS(VsSceneOutput input) : COLOR0
-{ 
-//	return float4(g_MaterialAmbient.rgb, 1.0);
-	float2 OffsetShadow, OffsetParallax;
+{
+//	return float4(tex2D(TextureColorSampler, input.texCoord + float2(0.05, 0)).rgb, 1);
+	const bool OceanMode = int(g_MaterialSpecular.a) == 1;//planets that got oceans, support citylights too
+	const bool VolcanoMode = int(g_MaterialSpecular.a * 4) == 1;//planet that are lave based, no citylight
+	const bool GasGiantMode = int(g_MaterialSpecular.a * 4) == 2;//planet that are lave based, no citylight
+	float3 Reyleigh = g_MaterialDiffuse.rgb;
+	
+	float2 OffsetParallax;
+	float3 ShadowVector;
 	float3x3 TBN;
 	float3 normal = normalize(input.normal);
-	
-//	return float4(),0.0, 1.0);
-//	input.texCoord = float2(atan2safe(normal.x, normal.z) * INVPI * 0.5 + 0.5, frac(asin(normal.y) * INVPI + 0.5));
-	
-	//small improvement to the polar singularity, not perfect but better
-	input.pos += (normal - (input.PlanetPos / g_Radius)) * g_Radius;
-	
+		//small improvement to the polar singularity, not perfect but better
+//	input.pos += (normal - (input.PlanetPos / g_Radius)) * g_Radius;
+
 	float3 normalSphere = normal;
+
 	float3 view = normalize(-input.pos);
 	float3 light = normalize(input.lightDir);	
-	CotangentDerivativeBase(input.pos, normal, light, view, input.texCoord, OffsetShadow, OffsetParallax, TBN);
 	
-	float2 uv = input.texCoord;
-	
-	float NoV = abs(dot(view, normal));
-	float p_linear_search_steps = 16.0 - 14.0 * NoV;
-	float p_binary_search_steps = 8.0;
-	float p_search_height = rcp(p_linear_search_steps);
-	float p_scale = p_binary_search_steps * rcp(10.0);
+	float2 uv				= input.texCoord;	
+	float2 duvx				= ddx(uv);
+	float2 duvy				= ddy(uv);
 
-	OffsetParallax *= p_scale;
-	uv -= OffsetParallax;
+	#if 0
+		return float4(normalize(cross(ddx(input.pos), ddy(input.pos))) * 0.5 + 0.5, 1);
+	#endif
 
-	float sum = 1.0;
-	float depth = 1.0;
+	CotangentDerivativeBase(duvx, duvy, input.pos, normal, light, view, input.texCoord, ShadowVector, OffsetParallax, TBN);
+	float NoV				= abs(dot(view, normal));
+	float NoL 				= dot(normal, light);
+	float3 lightColor 		= SRGBToLinear(g_Light0_DiffuseLite.rgb) * PI;		
 	
-	float sample_p = 0;// = tex2D(TextureDisplacementSampler, uv).a;
-	for (int i = 0; i < p_linear_search_steps; ++i)
+	#ifdef DEBUG_MAKE_PLANET_SPHEREPROBE 
+		//test that the mips are correct Texture
+		float Roughness_debug = abs(fmod(g_Time * 0.25, 2.0) - 1);
+		float3 Radiance_debug = SRGBToLinear(texCUBElod(TextureEnvironmentCubeSampler, float4(-(view - 2.0 * normal * dot(view, normal)), Roughness_debug  * 6.0))).rgb;
+		float3 Irradiance_debug = SRGBToLinear(texCUBElod(EnvironmentIlluminationCubeSampler, float4(normal, 0))).rgb; 
+		float3 Diffuse_debug = 0;
+		float3 Specular_debug = 0;
+		#ifdef DEBUG_SPHEREPROBE_METAL
+			float3 SpecularColor_debug = 1.0;
+			float3 DiffuseColor_debug = 0;
+		#else			
+			float3 SpecularColor_debug = 0.04;
+			float3 DiffuseColor_debug = 1.0;
+		#endif
+		
+		AmbientBRDF(Diffuse_debug, Specular_debug, NoV, Roughness_debug, SpecularColor_debug, DiffuseColor_debug, Radiance_debug, Irradiance_debug, DEBUG_SPHEREPROBE_MULTISCATTER);
+		return LinearToSRGB(float4(Diffuse_debug + Specular_debug, 1));
+	#endif	
+	
+	if(GasGiantMode)
 	{
-		sample_p = 1.0 - tex2D(TextureDisplacementSampler, uv).a;
+/*		
+		float3 AuroaBorialis = 0;
+//			input.texCoord
+//		
+		float variation = tex3Dlod(NoiseSampler, float4(input.normalObj + frac(g_Time * float3(0.01, 0.0134, 0.0976)), 0)).x - tex3Dlod(NoiseSampler, float4(input.normalObj - frac(g_Time * float3(0.0124, 0.0114, 0.0973)), 0)).x;
+		//AuroaBorialis = input.texCoord.y * 10 + textureNoise(float3(input.posObj.xz, time)
+		float band = tex3Dlod(NoiseSampler, float4(float3(input.texCoord.x + OffsetParallax.x, 0, 0) + frac(g_Time * float3(0.01, 0.0134, 0.0976)), 0)).x - tex3Dlod(NoiseSampler, float4(float3(input.texCoord.x + OffsetParallax.x, 0, 0) - frac(g_Time * float3(0.0124, 0.0114, 0.0973)), 0)).x;
+		
+		float AuroaBorialisOffset = input.texCoord.y + OffsetParallax.y;
+		float AuroaBorialisAtt = 1;
+		float aSteps = 20;
+		float aStepsInv = rcp(aSteps);
+		for(int a = 0; a < aSteps; a++)
+		{
+			
+			AuroaBorialis += Square(saturate((1-abs((abs(AuroaBorialisOffset - 0.5) * 20) - 9 + variation)) * abs(frac(variation * 4) - 0.5))) * AuroaBorialisAtt;
+//			AuroaBorialis += Square(saturate((1-abs((abs(AuroaBorialisOffset - 0.5) * 100) - 40 + variation * 5)))) * AuroaBorialisAtt;
+			AuroaBorialisOffset -= OffsetParallax.y * aStepsInv;
+			AuroaBorialisAtt *= 0.865;
+		}
+		
+		return float4(1-exp(-AuroaBorialis), 1);
+*/		
+		float poleDensity = Pow5(abs(uv.y * 2.0 - 1.0));
+		float mipBias = poleDensity * 9 + 1.0;
+		//force the mips down near the poles!
+		duvx *= mipBias;
+		duvy *=	mipBias;
+		
+		float jacobi_falloff = saturate(Square(normal.y)) * 0.499 + 0.5;
 
-		if(sample_p > sum)
-			break;
-		sum -= p_search_height;
-		uv += OffsetParallax * p_search_height;
+		float speed = g_Time * g_MaterialSpecular.g;
+		int iterations = 4;
+		float2 flow_a = input.texCoord;
+		float2 flow_b = input.texCoord;
+		
+		const float2 density = rcp(float2(32.0 * (1.0 - abs(input.texCoord.y - 0.5)) + 1.0, 32.0));
 
-		if(i > 32)
-			break;
+		float force_falloff = 1.0;
+//		float actual_speed = g_Time * speed;// + textureNoise(input.posObj * rcp(g_Radius) * 2, 2, 2.0, g_Time * 0.01, 2.03, DPX * rcp(g_Radius), DPY * rcp(g_Radius)).x;
+//		float variation = tex3Dgrad(NoiseSampler, float3(float2(input.texCoord.x + actual_speed * 0.01, input.texCoord.y) * 6, actual_speed * 0.05 - input.texCoord.y), DPX * rcp(g_Radius), DPY * rcp(g_Radius)).x;
+//		variation -= tex3Dgrad(NoiseSampler, float3(float2(input.texCoord.x + actual_speed * 0.01, input.texCoord.y).yx * 5, -actual_speed * 0.05 + input.texCoord.x), DPX * rcp(g_Radius), DPY * rcp(g_Radius)).x;
+//		return float4(variation.rrr, 1.0);
+//		actual_speed += variation;
+		float swap_a = frac(speed);
+		float swap_b = frac(speed + 0.5);
+		
+		for(int i = 0; i < iterations; ++i)
+		{
+
+			flow_a -= (tex2Dgrad(TextureDisplacementSampler, flow_a, duvx, duvy).xy - 0.5) * density * force_falloff * swap_a;
+
+			flow_b -= (tex2Dgrad(TextureDisplacementSampler, flow_b, duvx, duvy).xy - 0.5) * (density * force_falloff * swap_b);
+
+			force_falloff *= jacobi_falloff;
+		}
+
+		float gas_blend = abs(swap_a * 2.0 - 1.0);
+		
+//		float4 gasSample;
+//		= float4(lerp(flow_sample_a, flow_sample_b, gas_blend), 0.0, 1.0);
+		
+		float4 gasSample = mapGasGiant(lerp(tex2Dgrad(TextureColorSampler, flow_a, duvx, duvy), tex2Dgrad(TextureColorSampler, flow_b, duvx, duvy), gas_blend));
+		
+		flow_a += OffsetParallax * (gasSample.g - 0.5);
+		flow_b += OffsetParallax * (gasSample.g - 0.5);
+		
+		gasSample = mapGasGiant(lerp(tex2Dgrad(TextureColorSampler, flow_a, duvx, duvy), tex2Dgrad(TextureColorSampler, flow_b, duvx, duvy), gas_blend));
+		
+//		return float4(gasSample.rgb, 1);
+		float ao = Square(gasSample.b) * 0.95 + 0.05;
+		
+		float2 UVColor = float2(frac(speed * 0.01), saturate((input.texCoord.y - 0.5) + (gasSample.a - 0.5) * 0.2 + 0.5));
+		
+		float3 GasColor = SRGBToLinear(pow(tex2Dlod(TextureNormalSampler, float4(UVColor, 0.0, 0.0)).rgb, (float3)(1.5 - gasSample.r)));
+//		GasColor = SRGBToLinear(pow(tex2Dlod(TextureNormalSampler, float4(UVColor, 0.0, 0.0)).rgb, 1.0));	
+//		return float4(GasColor, 1);
+		const float offset = 1.0 / 512.0;
+		float4 blended_normals;
+		blended_normals.x = mapGasGiant(lerp(tex2Dgrad(TextureColorSampler, flow_a - float2(offset, 0.0), duvx, duvy).g, tex2Dgrad(TextureColorSampler, flow_b + float2(offset, 0.0), duvx, duvy).g, gas_blend));
+		blended_normals.y = mapGasGiant(lerp(tex2Dgrad(TextureColorSampler, flow_a + float2(offset, 0.0), duvx, duvy).g, tex2Dgrad(TextureColorSampler, flow_b - float2(offset, 0.0), duvx, duvy).g, gas_blend));
+		blended_normals.z = mapGasGiant(lerp(tex2Dgrad(TextureColorSampler, flow_a + float2(0.0, offset), duvx, duvy).g, tex2Dgrad(TextureColorSampler, flow_b + float2(0.0, offset), duvx, duvy).g, gas_blend));
+		blended_normals.w = mapGasGiant(lerp(tex2Dgrad(TextureColorSampler, flow_a - float2(0.0, offset), duvx, duvy).g, tex2Dgrad(TextureColorSampler, flow_b - float2(0.0, offset), duvx, duvy).g, gas_blend));
+
+		blended_normals.xy = blended_normals.xz - blended_normals.yw;
+		blended_normals.z = DeriveZ(blended_normals.xy);
+		
+		float3 normalGas = normalize(mul(blended_normals.xyz, TBN));	
+		
+		float3 Diffuse			= GasColor * SRGBToLinear(texCUBElod(EnvironmentIlluminationCubeSampler, float4(normalGas, 0))).rgb * ao;
+/*
+		float gasRoughness		= 0.75;
+		float gasRoughnessMip	= 6.9282;
+		float3 Specular			= (gasSample.a * 2.0) * SRGBToLinear(texCUBElod(TextureEnvironmentCubeSampler, float4(-(view - 2.0 * normalGas * dot(view, normalGas)), gasRoughnessMip))).rgb * ao;
+		Specular 				*= AmbientDielectricBRDF(gasRoughness, saturate(dot(view, normalGas)));
+
+		float3 light_sum 		= Specular + Diffuse;
+*/		
+		float3 light_sum 		= Diffuse;
+		
+		float cloudAbsorption = gasSample.g;
+		float steps = 4;
+		float ShadowBlend = (1 - saturate(NoL)) * steps + 1;
+		float GasDensity = 2.0;
+		if(NoL > -0.1)
+		{
+			float stepsInv = 1.0 / steps;	
+			float2 ShadowStep = ShadowVector.xy * stepsInv;		
+
+			float NoLinv = rcp(1.0 + NoL * steps);
+			
+			//steps = (steps - (steps - 1) * NoL);
+
+			for(int g =0; g < ShadowBlend; g++)
+			{
+				flow_a += ShadowStep;
+				flow_b += ShadowStep;
+				cloudAbsorption -= mapGasGiant(lerp(tex2Dgrad(TextureColorSampler, flow_a, duvx, duvy).g, tex2Dgrad(TextureColorSampler, flow_b, duvx, duvy).g, gas_blend)) * saturate(ShadowBlend - g) * GasDensity;
+			}
+			cloudAbsorption = exp(min(0, cloudAbsorption * stepsInv));
+		}
+		else
+		{
+			cloudAbsorption = 0;
+		}
+
+		float3 atmosphereAbsorption	= lerp(0.075 + 0.025 * gasSample.g, Square(saturate(dot(-light, normalGas) + 0.25)), Square(cloudAbsorption)) * 200 * Reyleigh;
+		atmosphereAbsorption = saturate(exp(-max((float3)0, float3(	rayleigh_phase_func(atmosphereAbsorption.r),	rayleigh_phase_func(atmosphereAbsorption.g),	rayleigh_phase_func(atmosphereAbsorption.b)))));
+		NoL 				= saturate(dot(light, normalGas));
+	
+		light_sum += (GasColor * atmosphereAbsorption * lightColor) * (cloudAbsorption * NoL * ao);
+		
+		return LinearToSRGB(float4(1-exp(-light_sum), 1));
 	}
 
-	 //  binary search refine
-	float binary_search_height = p_search_height;
-  	for (int j = 0; j < p_binary_search_steps; ++j)
-  	{
-  		sample_p = 1.0 - tex2D(TextureDisplacementSampler, uv).a;
+	#ifdef SUPPORT_PARALLAX_DISPLACEMENT
+		float p_search_steps 	= 32;//((32.0 - 24.0 * NoV));
+		float p_steps_inv		= 1.0 / p_search_steps;
+		float rayheight			= 1;
+		float oldray			= 1;
+		float2 offset			= 0;
+		float oldtex			= 1;
+		float texatray;
+		float yintersect;
+		uv						-= OffsetParallax * 0.5 * NoV;
+		float2 offsetStep		= OffsetParallax * p_steps_inv * NoV;
+		
+		for (int i = 0; i < p_search_steps; ++i)
+		{
+		
+			float texatray 			= tex2Dgrad(TextureDisplacementSampler, uv + offset, duvx, duvy).a;
+		
+			if (rayheight < texatray)
+			{
+				float xintersect	= (oldray - oldtex) + (texatray - rayheight);
+				xintersect			= (texatray - rayheight) / xintersect;
+				yintersect			= (oldray * (xintersect)) + (rayheight * (1 - xintersect));
+				offset				-= (xintersect * offsetStep);
+				break;
+			}
+		
+			oldray					= rayheight;
+			rayheight				-= p_steps_inv;
+			offset 					+= offsetStep;
+			oldtex 					= texatray;
+		}
+		
+		uv += offset;
+	#endif
 
-  		float binary_lookup = binary_search_height * (step(sample_p, sum) - 0.5);
-  		uv += OffsetParallax * binary_lookup;
-  		sum -= binary_lookup;
-  		binary_search_height *= 0.5;
-  	}	
+	//ONLY if we need them
+	#if 0
+		duvx 					= ddx(uv);
+		duvy 					= ddy(uv);
+	#endif
 	
-//	return float4(frac(uv * 128.0), 0.0, 1.0);
-	float2 duvx = ddx(uv);
-	float2 duvy = ddy(uv);
-	float4 sampleA = tex2Dgrad(TextureColorSampler, uv, duvx, duvy);
-	float4 sampleB = tex2Dgrad(TextureDataSampler, uv, duvx, duvy);
-	float4 sampleC = tex2Dgrad(TextureNormalSampler, uv, duvx, duvy);
-	float3 normalLand = normalize(mul(GetNormalDXT5(sampleC), TBN));
-//	return float4(normalLand, 1.0);
-	sampleA.rgb = SRGBToLinear(sampleA.rgb);
+	float3 shadow = 0.0;
+	//TODO squeeze in lava flowmap in here?
+	float4 sampleA 				= tex2Dgrad(TextureColorSampler, uv, duvx, duvy);
+	float4 sampleB 				= tex2Dgrad(TextureDataSampler, uv, duvx, duvy);
+	float4 sampleC 				= tex2Dgrad(TextureNormalSampler, uv, duvx, duvy);
+	normal 						= normalize(mul(GetNormalDXT5(sampleC), TBN));
+	sampleA.rgb 				= SRGBToLinear(sampleA.rgb);
+	
+	if(OceanMode)
+	{
+		float waterMask 			= saturate(sampleA.a * 4.0);
+		float propertiesMask 		= saturate(waterMask * 32.0 - 31.0);
+
+		float4 waterNgrad = 0;
+		if(waterMask < 1.0)
+		{
+			float waterScale = 1.0 / 12.5;
+			float waterSpeed = 12.5;
+			float waterIntensity = 0.75;
+			waterNgrad = snoise(input.posObj * waterScale + length(input.posObj * waterScale) + g_Time * waterSpeed * waterScale) * waterIntensity;
+			normal = lerp(lerp(mul(normalize(input.normalObj + waterNgrad.rgb), (float3x3)g_World), normalSphere, Square(waterMask)), normal, propertiesMask);	
+		}
+
+		sampleA.a = saturate((sampleA.a - 0.25) * (1.0 / 0.75));
+		if(waterMask < 1.0)
+		{
+			float fresnel = Pow5(1.0 - abs(dot(view, normal)));
+
+			sampleA.rgb = pow(sampleA.rgb, 1.5 - fresnel * 1.4 + waterNgrad.a * 0.1);
+			sampleA.a = lerp(0.23, sampleA.a, propertiesMask);//spec
+			sampleB.w = lerp(0.1/* + fresnel * 0.16*/, sampleB.w, propertiesMask);//roughness
+			sampleC.r = 0.5 * fresnel + 0.1;//subsurface
+			sampleC.b = 0;//no metal water
+		}	
+	}
+	
+	NoL = saturate(dot(normal, light) * saturate(NoL + 0.2));
+	
+	#ifdef SUPPORT_PARALLAX_SHADOWS
+		#ifdef SUPPORT_PARALLAX_DISPLACEMENT
+			if(NoL > 0.0)
+			{
+				shadow = 1.0;
+				float dist = 0;
+				offset = 0;
+				texatray = tex2Dgrad(TextureDisplacementSampler, uv, duvx, duvy).a + 0.01;
+
+				rayheight = texatray;
+				float s_search_steps = 32.0 - 28.0 * saturate(ShadowVector.z);
+				float lightstepsize = rcp(s_search_steps);
+				float shadow_penumbra = 1.0;
+				
+				for(int j = 0; j < s_search_steps; j++)
+				{
+					if(rayheight < texatray)
+					{
+						shadow.r = 0;
+						break;
+					}
+					else
+					{
+						shadow.r = min(shadow.r, (rayheight - texatray) * shadow_penumbra / dist);
+					}
+
+					oldray=rayheight;
+					rayheight += ShadowVector.z * lightstepsize;
+
+					offset += ShadowVector.xy * lightstepsize;
+					oldtex = texatray;
+
+					texatray = tex2Dgrad(TextureDisplacementSampler, uv + offset, duvx, duvy).a;
+					dist += lightstepsize;
+				}		
+			}			
+			shadow = shadow.r;
+		#else
+			shadow = 1;
+		#endif			
+	#else
+		shadow = 1;
+	#endif
+	NoL = saturate(dot(normal, light));
+
 	PBRProperties Properties;
-
-	//derivatives are used so they can't branch
-	float waterMask = saturate(sampleA.a * 4.0);
-	float propertiesMask = saturate(waterMask * 32.0 - 31.0);
-
-	normal = lerp(normal, normalLand, propertiesMask);	
-
-	float4 waterNgrad = 0;
-	if(waterMask < 1.0)
-	{
-		float waterScale = 1.0 / 25.0;
-		float waterSpeed = 12.5;
-		float waterIntensity = 0.75;
-		waterNgrad = snoise(input.posObj * waterScale + length(input.posObj * waterScale) + g_Time * waterSpeed * waterScale) * waterIntensity;
-		normal = lerp(mul(normalize(input.normalObj + waterNgrad.rgb), (float3x3)g_World), normal, Square(waterMask));
-	}
-//	return float4(normal, 1.0);
-	sampleA.a = saturate((sampleA.a - 0.25) * (1.0 / 0.75));
-	if(waterMask < 1.0)
-	{
-		float fresnel = Pow5(1.0 - abs(dot(view, normal)));
-
-//		propertiesMask *= propertiesMask * (3.0 - 2.0 * propertiesMask);
-		sampleA.rgb = pow(sampleA.rgb, 1.5 - fresnel * 1.4 + waterNgrad.a * 0.1);
-		sampleA.a = lerp(0.23, sampleA.a, propertiesMask);//spec
-		sampleB.w = lerp(0.1/* + fresnel * 0.16*/, sampleB.w, propertiesMask);//roughness
-		sampleC.r = 0.5 * fresnel + 0.1;//subsurface
-		sampleC.b = 0;//no metal water
-	}
 
 	Properties.DiffuseColor = sampleA.rgb * (1.0 - sampleC.b);
 	Properties.SpecularColor = sampleA.rgb * (sampleC.b) + 0.08 * sampleA.a * ((1.0 - sampleC.b));
@@ -632,8 +1098,109 @@ float4 RenderScenePS(VsSceneOutput input) : COLOR0
 	Properties.Roughness = max(0.02, sampleB.a);
 	Properties.RoughnessMip = sampleB.a * 8.0;
 	Properties.AO = 1.0;
-	Properties.SubsurfaceOpacity = sampleC.r;
+	Properties.SubsurfaceOpacity = sampleC.r;	
+	
+//	return g_Light0_Specular;
+//	return ceil(g_MaterialSpecular.a * 4);
+	float Smoke = 0;
+	float shadowScalar 	= dot(input.lightDir, input.normal);
+	float shadowTest = 0;
+//	float SmokeSample = 0;
+	
+	float shadowSmoke = 1;
 
+	if(VolcanoMode)
+	{
+		const float SmokeBaseDensity = 2.0;
+		const float SmokePuffDensity = 16.0;
+		float3 SmokeColor = 0;
+
+		#if 1//def CLOUD_PARALLAX
+			Smoke				= 1-exp(-VolcanoSmoke(input.texCoord, duvx, duvy, SmokeBaseDensity, SmokePuffDensity).x);
+			float2 uvSmoke		= input.texCoord - OffsetParallax * (Smoke * 0.25) * NoV;// - OffsetParallax;
+		#else
+			float2 uvSmoke		= input.texCoord;
+		#endif
+		
+		float2 SmokeBase	= VolcanoSmoke(uvSmoke, duvx, duvy, SmokeBaseDensity, SmokePuffDensity);
+		Smoke				= SmokeBase.x;
+		
+
+		//shadow 				= saturate(shadow * exp(-Square(tex2Dgrad(TextureDisplacementSampler, uv + (ShadowVector.xy / ShadowVector.z) + SmokeRot.xy * (SmokeShadow * 2 + 0.25), duvx, duvy).g) * 10) + Smoke * saturate(shadowScalar * 10));			
+//		shadowTest 			+= SmokeSample;*
+		shadowSmoke = Smoke;// * saturate(shadowScalar);
+		float SmokeSteps	= 15;
+
+//		SmokeSteps 			-= shadowScalar * 15;
+		float SmokeShadowBlend = (1 - saturate(shadowScalar)) * SmokeSteps + 1;
+		float SmokeStepInv 	= (1.0 / SmokeSteps);
+		float SmokeShadowIntensity = saturate(shadowScalar * 0.25 + 0.1);
+//		return float4(ShadowVector.zzz, 1);
+		float2 ShadowStep 		= ShadowVector.xy * SmokeStepInv;
+		float2 uvSmokeShadow 	= uvSmoke - ShadowStep * 0.5;
+		Smoke 					= 1 - exp(-Smoke);		
+		Reyleigh *= 1-Smoke;
+		Reyleigh += float3(0.53, 0.72, 0.95) * Smoke;
+		
+//		shadow *= 1-exp(-exp(-VolcanoSmoke(uv + ShadowVector.xy, duvx, duvy, SmokeBaseDensity, SmokePuffDensity)));	
+		if(shadowScalar > -0.25)
+		{
+			shadow				= max(Smoke, shadow);
+
+			for(int k = 0; k < SmokeShadowBlend; k++)
+			{				
+				uvSmokeShadow += ShadowStep;
+				shadowSmoke -= VolcanoSmoke(uvSmokeShadow, duvx, duvy, SmokeBaseDensity, SmokePuffDensity).x * saturate(SmokeShadowBlend - k) * SmokeShadowIntensity;// * (1+k)* 0.01;			
+			}
+			shadowSmoke = exp(min(0, shadowSmoke * SmokeStepInv));
+			//Reyleigh = lerp()shadow *= saturate(lerp(float3(0.118, 0.071, 0.031), float3(0.631, 0.541, 0.447), shadowSmoke), Smoke) * shadowSmoke;
+			shadow *= shadowSmoke;
+		}
+		else
+		{
+			shadowSmoke = 0;
+		}
+//		return float4(shadowSmoke.rrr, 1);
+		SmokeColor			= pow(float3(0.631, 0.541, 0.447) * Smoke, 2.2);
+
+		Properties.AO		= Square(saturate(exp(-VolcanoSmoke(uv + OffsetParallax * NoV * 0.25, duvx, duvy, SmokeBaseDensity, SmokePuffDensity).x) + Smoke));// * 0.75 + 0.25;
+//		return float4(Properties.AO.rrr, 1);
+		//Properties.AO		= saturate(exp(-VolcanoSmoke(uv, duvx, duvy, SmokeBaseDensity, SmokePuffDensity)) + Smoke);
+//		return float4(Properties.AO.rrr * shadow * saturate(lerp(NoL, saturate(shadowScalar + 0.25), Smoke)), 1);
+		float SmokeRimGlow = Square(1-(1-Square(Smoke) * (1-Smoke))) * 2;
+		Properties.EmissiveColor = float4(Square(LaveFlowTest(uv, duvx, duvy)) * 10.0 +	
+														//tex2Dlod(TextureDataSampler, float4(uvSmoke + SmokeBase.g * float2(-0.0002, 0.0001), 0, 1.5)).rgb + 
+														(Square(tex2Dlod(TextureDataSampler, float4(uvSmoke, 0, 2.5)).rgb) + 
+														Square(tex2Dlod(TextureDataSampler, float4(uvSmoke, 0, 3.5)).rgb) +
+														Square(tex2Dlod(TextureDataSampler, float4(uvSmoke, 0, 4.5)).rgb) + 
+														Square(tex2Dlod(TextureDataSampler, float4(uvSmoke, 0, 5.5)).rgb)) * 0.25, 1);
+		Properties.EmissiveColor *= Square(1-Smoke); 
+		Properties.DiffuseColor *= (1-Smoke);
+		Properties.DiffuseColor += SmokeColor * Smoke;
+		Properties.Roughness 	= max(Properties.Roughness, Smoke);
+		normal					= normalize(normal * (1 - Smoke) + normalSphere * Smoke);
+	}
+
+	float3 atmosphereAbsorption	= lerp(0.075 + 0.025 * Smoke, Square(saturate(dot(-light, normalSphere) + 0.25)), Square(shadowSmoke)) * 200 * Reyleigh;
+	atmosphereAbsorption = saturate(exp(-max((float3)0, float3(	rayleigh_phase_func(atmosphereAbsorption.r),	rayleigh_phase_func(atmosphereAbsorption.g),	rayleigh_phase_func(atmosphereAbsorption.b)))));
+	shadow *= atmosphereAbsorption;
+	//tex2Dlod(TextureDataSampler, float4(uvSmoke + SmokeBase.g * float2(-0.0005, -0.00025), 0, 2.5)).rgb
+//	return float4(LaveFlowTest(sampleC.yw, uv, duvx, duvy).rrr * NoL, 1);
+
+//	return float4(Smoke.rrr, 1);
+//	float3 PSmoke = input.pos + normalSphere * (SmokeRot * Smoke * 0.1 + Smoke);
+	//we can't branch on derivatives
+//	normal = normalize(lerp(normal, normalize(cross(ddx(PSmoke), ddy(PSmoke))) - normalize(cross(ddx(input.pos), ddy(input.pos))) + normalSphere, Smoke));
+//	float3 TSmoke = ddx(PSmoke);
+	//float3 BSmoke = ddy(PSmoke);
+//	return float4(normalize(lerp(normal, normalize(cross(ddx(PSmoke), ddy(PSmoke))) - normalize(cross(ddx(input.pos), ddy(input.pos))) + normalSphere, Smoke)), 1);
+//	return float4(shadow.rrr, 1);
+	//Smoke *= 
+
+//	return float4(SmokeColor, 1);
+
+
+//	return LinearToSRGB(float4(NoL.rrr * shadow * 0.5 * Properties.DiffuseColor, 1));	
 
 	float4 finalColor = float4((float3)0, 1.0);		
 	float3 specular = 0;
@@ -650,78 +1217,98 @@ float4 RenderScenePS(VsSceneOutput input) : COLOR0
 	float rotatationTime = g_Time / 800;
 	float indexTime = g_Time/70;
 
+
+	float4 cloudsShadowColor = 1;
+	float cloudShadow = 1;
+	float cloudSample = 0;
+	
+#if 0
 	float2 UVcloud = float2(input.texCoord.x + rotatationTime, input.texCoord.y);
 	float2 UVstep = UVcloud + OffsetParallax;// + OffsetParallax;
-	UVstep += (tex2D(CloudLayerSampler, UVstep).g - 0.5) * OffsetParallax * 0.25;
+	UVstep += (tex2D(CloudLayerSampler, UVstep).b - 0.5) * OffsetParallax * 0.25;
 	
+
 	float cloudDensity = 0.2;
 	float cloudDensityInv = 1.0 / cloudDensity;
 	float cloudMip = sqrt(cloudDensityInv);
-	float cloudSample 			= mapClouds(tex2D(CloudLayerSampler, UVstep).g);
+	cloudSample 				= mapClouds(tex2D(CloudLayerSampler, UVstep).b);
 	Properties.DiffuseColor		= lerp(Properties.DiffuseColor, g_MaterialAmbient.rgb, cloudSample);
 	Properties.SpecularColor	= lerp(Properties.SpecularColor, (float3)0.08, cloudSample);
 	Properties.Roughness		= lerp(Properties.Roughness, 1.0, cloudSample);
 	
-	float cloudShadow 			= mapClouds(tex2Dbias(CloudLayerSampler, float4(UVcloud, 0, cloudMip)).g);
+	cloudShadow 				= mapClouds(tex2Dbias(CloudLayerSampler, float4(UVcloud, 0, cloudMip)).b);
 	
 	cloudShadow 				= exp(-cloudShadow);
 	float cloudShadowRoughness	= cloudShadow;
 	cloudShadow					= max(cloudShadow, cloudSample);
-	
+#endif	
 	float3 DiffuseSample		= SRGBToLinear(texCUBE(EnvironmentIlluminationCubeSampler, lerp(normal, normalSphere, cloudSample))).rgb;
 		
-	diffuse 					+= Properties.DiffuseColor * DiffuseSample * cloudShadow;	
 	
 	float3 reflection			= -(view - 2.0 * normal * NoV);
 	float3 ReflectionSample 	= SRGBToLinear(texCUBElod(TextureEnvironmentCubeSampler, float4(reflection, max(cloudShadow * 6.0, Properties.RoughnessMip)))).rgb;
+
+	AmbientBRDF(diffuse, specular, saturate(abs(NoV)), Properties, ReflectionSample, DiffuseSample, true);
 	
-	specular 					+= ReflectionSample * AmbientBRDF(saturate(abs(NoV)), Properties) * cloudShadow;
+	diffuse 					*= cloudShadow;
+	specular 					*= cloudShadow;
+	
+
+#if 0
 
 
 
-	float cloudAbsorption = 0;
-	float4 cloudsShadowColor = 0;
-	if(NoLsphere > 0)
-	{
-		cloudShadow = max(exp(-mapClouds(tex2Dbias(CloudLayerSampler, float4(UVcloud + OffsetShadow, 0.0, cloudMip)).g)), cloudSample);
 
-		float steps = 32.0;
-		float stepsInv = 1.0 / steps;		
-		
-		for(int i =0; i < steps - (steps * NoLsphere); i++)
+
+		float cloudAbsorption = 0;
+		if(NoLsphere > 0)
 		{
-			UVstep += OffsetShadow * stepsInv;
-			cloudAbsorption = max(cloudAbsorption, mapClouds(tex2Dbias(CloudLayerSampler, float4(UVstep, 0.0, i * stepsInv * cloudMip)).g) * (1.0 - stepsInv * i));
+			cloudShadow = max(exp(-mapClouds(tex2Dbias(CloudLayerSampler, float4(UVcloud + ShadowVector.xy, 0.0, cloudMip)).b)), cloudSample);
+
+			float steps = 32.0;
+			float stepsInv = 1.0 / steps;		
+			
+			for(int i =0; i < steps - (steps * NoLsphere); i++)
+			{
+				UVstep += ShadowVector.xy * stepsInv;
+				cloudAbsorption = max(cloudAbsorption, mapClouds(tex2Dbias(CloudLayerSampler, float4(UVstep, 0.0, i * stepsInv * cloudMip)).b) * (1.0 - stepsInv * i));
+			}
+			cloudAbsorption = exp(-cloudAbsorption);
+
+			cloudsShadowColor = float4(lerp(float3(0.025,0.03,0.035), lerp((float3)1.0, float3(1.0,0.95,0.8), cloudSample), cloudAbsorption), cloudAbsorption) * cloudShadow;
 		}
-		cloudAbsorption = exp(-cloudAbsorption);
 
-		cloudsShadowColor = float4(lerp(float3(0.025,0.03,0.035), lerp((float3)1.0, float3(1.0,0.95,0.8), cloudSample), cloudAbsorption), cloudAbsorption) * cloudShadow;
-	}
-	float shadowScalar 	= dot(input.lightDir, input.normal);
-	float cityMask = saturate(-4.0 * shadowScalar);
-	if(cityMask > 0.0)
-	{	
-		float cloudEmissiveRim = 0.25;
-		float cloudEmissiveAbsorption = exp(-cloudSample * cloudDensityInv + cloudEmissiveRim) * cityMask;
-		float cityMipBias = max(0.0, 5.0 - exp(-cloudSample * cloudDensityInv) * 7.0);
-		float3 sampleLight = (1.0 - tex2Dbias(TextureDisplacementSampler, float4(uv * 8.0, 0.0, cityMipBias)).rgb);
-		emissive += SRGBToLinear(tex2Dbias(TextureDataSampler, float4(uv, 0.0, cityMipBias)) * sampleLight).rgb * cloudEmissiveAbsorption;
-		//TODO cleanup
-		emissive += SRGBToLinear(tex2Dlod(TextureDataSampler, float4(input.texCoord, 0.0, 4.5))).rgb * cloudEmissiveAbsorption * (0.5 - abs(dot(normalSphere, view)) * 0.4);
-	}
-	cloudsShadowColor *= saturate(shadowScalar);
+		float cityMask = saturate(-4.0 * shadowScalar);
+		if(cityMask > 0.0)
+		{	
+			float cloudEmissiveRim = 0.25;
+			float cloudEmissiveAbsorption = exp(-cloudSample * cloudDensityInv + cloudEmissiveRim) * cityMask;
+			float cityMipBias = max(0.0, 5.0 - exp(-cloudSample * cloudDensityInv) * 7.0);
+			float3 sampleLight = (1.0 - tex2Dbias(TextureDisplacementSampler, float4(uv * 8.0, 0.0, cityMipBias)).rgb);
+			emissive += SRGBToLinear(tex2Dbias(TextureDataSampler, float4(uv, 0.0, cityMipBias)) * sampleLight).rgb * cloudEmissiveAbsorption;
+			//TODO cleanup
+			emissive += SRGBToLinear(tex2Dlod(TextureDataSampler, float4(input.texCoord, 0.0, 4.5))).rgb * cloudEmissiveAbsorption * (0.5 - abs(dot(normalSphere, view)) * 0.4);
+		}
+		
+		cloudsShadowColor *= saturate(shadowScalar);
+		
+
 	Properties.Roughness = max(1.0 - cloudShadow, Properties.Roughness);//scater specular light!
+#endif	
+	
+	emissive += Properties.EmissiveColor.rgb;
+	
 	float3 subsurfaceScatter = 0;
-
-	if(shadowScalar > 0.0)
-	{
+//	if(shadowScalar > 0.0)
+//	{
 		PBRDots dots 				= GetDots(normal, view, light);
-		dots.NoL					= lerp(dots.NoL, NoLsphere, cloudSample);
+//		dots.NoL					= lerp(dots.NoL, NoLsphere, cloudSample);
 		
-		specular 				+= SpecularGGX(Properties, dots) * cloudsShadowColor.a * dots.NoL;
-		diffuse 				+= DiffuseBurley(Properties, dots) * cloudsShadowColor.rgb * dots.NoL;
+		specular 				+= SpecularGGX(Properties, dots) * cloudsShadowColor.a * dots.NoL * shadow * lightColor * Properties.AO;
+		diffuse 				+= DiffuseBurley(Properties, dots) * cloudsShadowColor.rgb * dots.NoL * shadow * lightColor * Properties.AO;
 		
-	}
+//	}
+	#ifdef SUPPORT_SUBSURFACE
 	Properties.SubsurfaceOpacity = max(Properties.SubsurfaceOpacity, cloudSample * 0.25);
 	if(Properties.SubsurfaceOpacity > 0)
 	{
@@ -732,13 +1319,17 @@ float4 RenderScenePS(VsSceneOutput input) : COLOR0
 		float BackScatter		 	= Properties.AO * NormalContribution * 0.1591549431;
 		subsurfaceScatter 			= lerp(BackScatter, 1, InScatter) * subsurfaceColor * saturate(shadowScalar + Properties.SubsurfaceOpacity);
 		subsurfaceScatter			*= cloudsShadowColor.rgb;
+		subsurfaceScatter 			*= lightColor;
 	
 		InScatter					= pow(NoV, 12) * lerp(3, .1f, Properties.SubsurfaceOpacity);
 		NormalContribution			= saturate(dot(normal, reflection) * Properties.SubsurfaceOpacity + 1.0 - Properties.SubsurfaceOpacity);
 		BackScatter		 			= Properties.AO * NormalContribution * 0.1591549431;
 		subsurfaceScatter	 		+= subsurfaceColor * lerp(BackScatter, 1, InScatter) * (SRGBToLinear(tex2Dbias(TextureColorSampler, float4(uv, 0.0, 6.0)).rgb * Square(NoLsphere) * (1.0 - cloudSample) + DiffuseSample));
 	}
+	#endif
+
 	return LinearToSRGB(float4(1.0 - exp(-(diffuse + specular + emissive + subsurfaceScatter)), 1.0));
+
 }
 
 
@@ -832,33 +1423,6 @@ float4 RenderScenePS(VsSceneOutput input) : COLOR0
 		s.earth_radius = earth_radius;
 		s.atmosphere_radius = atmosphere_radius;
 		return s;
-	}
-
-	float rayleigh_phase_func(float VL)
-	{
-		return
-				3. * (1. + VL*VL)
-		/ //------------------------
-					(16. * PI);
-	}
-
-	float henyey_greenstein_phase_func(float VL, float g)
-	{
-		return
-							(1. - g*g)
-		/ //---------------------------------------------
-			((4. + PI) * pow(abs(1. + g*g - 2.*g*VL) + 0.0001, 1.5));
-	}
-
-	// Schlick Phase Function factor
-	// Pharr and  Humphreys [2004] equivalence to g above
-	float schlick_phase_func(float VL, float g)
-	{
-	const float k = 1.55*g - 0.55 * (g*g*g);				
-		return
-						(1. - k*k)
-		/ //-------------------------------------------
-			(4. * PI * (1. + k*VL) * (1. + k*VL));
 	}
 
 	void get_sun_light_space(
@@ -1073,10 +1637,18 @@ struct VsCloudsOutput
 VsCloudsOutput 
 RenderCloudVertex(float thicknessModifier, float3 iPosition, float3 iNormal, float2 iTexCoord)
 {
-	VsCloudsOutput o;  
-	float atmosphereThickness = 1.0 + frac(g_MaterialGlossiness) * 2.0;// * 5.0;
+//	const bool GasGiantMode = round(g_MaterialSpecular.a * 4) == 2;//planet that are lave based, no citylight
+	
+	VsCloudsOutput o;
+    //Position
+    float3 positionInWorldSpace = mul(float4(iPosition, 1.f), g_World).xyz;
+	float inflateScale = distance(positionInWorldSpace - (mul(float4(0.0, 0.0, 0.0, 1.0), g_World).xyz), positionInWorldSpace) * (1.0 / 16384.0) + 1;
+	float atmosphereThickness = 1.0 + frac(g_MaterialGlossiness) * inflateScale;// * 5.0;
 	//Final Position
+	
 	o.Position = mul(float4(iPosition * atmosphereThickness, 1.0f), g_WorldViewProjection);
+//	if(GasGiantMode)
+//		o.Position /= 1-float(GasGiantMode);//NaN cull, compiler wont allow us to just flat out divide by 0. In effect, the pixel shader will never execute
 	
 	//Texture Coordinates
     o.TexCoord0 = iTexCoord; 
@@ -1084,8 +1656,7 @@ RenderCloudVertex(float thicknessModifier, float3 iPosition, float3 iNormal, flo
     //Calculate  Normal       
     o.Normal = normalize(mul(iNormal, (float3x3)g_World));
     
-    //Position
-    float3 positionInWorldSpace = mul(float4(iPosition, 1.f), g_World).xyz;
+
 	o.Pos = positionInWorldSpace;// * ATMOSPHERE_SCALE;//(1.0 / ATMOSPHERE_SCALE);
 	o.PlanetPos = (positionInWorldSpace - (mul(float4(0.0, 0.0, 0.0, 1.0), g_World).xyz) * atmosphereThickness) / g_Radius;
     //Calculate Light
@@ -1113,39 +1684,47 @@ void RenderCloudsPS(VsCloudsOutput i, out float4 oColor0:COLOR0)
 	float3 light = normalize(i.Light);
 	float3 normal = normalize(i.Normal);
 	float3 view = normalize(i.View);
+	float3 lightColor 		= SRGBToLinear(g_Light0_DiffuseLite.rgb) * PI;		
 	
-#if 1
+#ifndef DEBUG_MAKE_PLANET_SPHEREPROBE
+//	const bool GasGiantMode = round(g_MaterialSpecular.a * 4) != 2;//planet that are lave based, no citylight
 	oColor0 = 0;
-//	#define BALANCE 0.001;
-//	#define .0;//1000.0;
-	float atmosphereThickness = 1.0 + frac(g_MaterialGlossiness);
-	float planet_tweak_scale = floor(g_MaterialGlossiness) * 0.1;//earth scale
 	
-	float3 sun_dir 			= normalize(i.Light * planet_tweak_scale);
-//	float3 normal = normalize(i.Normal);
-	float3 view_dir 		= normalize(i.View * planet_tweak_scale);
-	float planet_rad 		= planet_tweak_scale;
-	float atmo_rad 			= planet_tweak_scale * atmosphereThickness;//1.0018835;//earth scale, unfortunately we don't have the precision for that
-	float3 rayleigh_beta	= g_MaterialDiffuse.rgb * 50.0;//float3(5.5, 12.0, 30.0);
-	float mie_beta			= g_MaterialDiffuse.a * 50.0;  //10.0;
-	float scatter_rayleight	= 250.0;
-	float scatter_mie		= 250.0;
-	float3 sun_color		= float3(1.0, 1.0, 1.0) * 10.0;
-	float3 planet_pos		= i.PlanetPos * planet_tweak_scale;//yup remap for consistency
-	GetAtmosphere(	oColor0, 
-					sun_dir, 
-					sun_color, 
-					view_dir, 
-					planet_rad, 
-					atmo_rad, 
-					planet_pos, 
-					rayleigh_beta, 
-					mie_beta,
-					scatter_rayleight,
-					scatter_mie);
-//	oColor0 += 0.1;
-//	oColor0.a = 1;
-//	oColor0 = float4(i.PlanetPos, 1.0);
+//	if(GasGiantMode)
+//	{
+//		#define BALANCE 0.001;
+//		#define .0;//1000.0;
+		float atmosphereThickness = 1.0 + frac(g_MaterialGlossiness);
+		float planet_tweak_scale = floor(g_MaterialGlossiness) * 0.1;//earth scale
+		
+		float3 sun_dir 			= normalize(i.Light * planet_tweak_scale);
+//		float3 normal = normalize(i.Normal);
+		float3 view_dir 		= normalize(i.View * planet_tweak_scale);
+		float planet_rad 		= planet_tweak_scale;
+		float atmo_rad 			= planet_tweak_scale * atmosphereThickness;//1.0018835;//earth scale, unfortunately we don't have the precision for that
+		float3 rayleigh_beta	= g_MaterialDiffuse.rgb * 50.0;//float3(5.5, 12.0, 30.0);
+		float mie_beta			= g_MaterialDiffuse.a * 50.0;  //10.0;
+		float scatter_rayleight	= 250.0;
+		float scatter_mie		= 250.0;
+		float3 sun_color		= 100.0 * lightColor;
+		float3 planet_pos		= i.PlanetPos * planet_tweak_scale;//yup remap for consistency
+		GetAtmosphere(	oColor0, 
+						sun_dir, 
+						sun_color, 
+						view_dir, 
+						planet_rad, 
+						atmo_rad, 
+						planet_pos, 
+						rayleigh_beta, 
+						mie_beta,
+						scatter_rayleight,
+						scatter_mie);
+//		oColor0 += 0.1;
+//		oColor0.a = 1;//oColor0.a * 0.75 + 0.15;
+//		oColor0 = float4(i.PlanetPos, 1.0);
+//		oColor0.rgb += tex2Dlod(TextureDataSampler, float4(i.TexCoord0, 0, 4.5)).rgb;//works follow up!
+//		oColor0 = LinearToSRGB(oColor0);
+//	}
 #else
 	oColor0 = 0;//float4(g_MaterialDiffuse.rgb * 4.0, 1);//float4(frac(distance(mul(float4(0.0, 0.0, 0.0, 1.0), g_World).xyz, i.Pos - mul(float4(0.0, 0.0, 0.0, 1.0), g_World).xyz).xxx / 1000.0), 1);
 #endif
@@ -1165,13 +1744,15 @@ technique RenderWithPixelShader
 {
 	pass Pass0
     {          
-        VertexShader = compile vs_1_1 RenderSceneVS();
-        PixelShader = compile ps_3_0 RenderScenePS();
+        VertexShader 		= compile vs_1_1 RenderSceneVS();
+        PixelShader 		= compile ps_3_0 RenderScenePS();
         
-		AlphaTestEnable = FALSE;
-        AlphaBlendEnable = TRUE;
-		SrcBlend = ONE;
-		DestBlend = ZERO;    	
+		AlphaTestEnable 	= FALSE;
+        AlphaBlendEnable 	= TRUE;
+		SrcBlend 			= ONE;
+		DestBlend 			= ZERO;    
+		ZEnable 			= true;
+		ZWriteEnable 		= true;			
     }
     
     pass PassCloudLayer
@@ -1185,11 +1766,13 @@ technique RenderWithPixelShader
 */
 
 		//additive
-		ZWriteEnable = true;
-		AlphaTestEnable = true;
-		AlphaBlendEnable = true;
-		SrcBlend = InvDestColor;
-		DestBlend = ONE; 
+		ZEnable 			= true;
+		ZWriteEnable 		= false;		
+		AlphaTestEnable 	= TRUE;		
+		AlphaBlendEnable 	= TRUE;
+		SrcBlend 			= SRCALPHA;
+		//DestBlend 			= INVSRCALPHA;
+		DestBlend 			= DESTALPHA;
 		
     }
 }
