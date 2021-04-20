@@ -13,7 +13,7 @@ MeshData
 		NormalTextureFileName "Axeldude_PLANET_GasGiant_3_lut.dds"
 		DisplacementTextureFileName ""
 		TeamColorTextureFileName "Planetgas-flow.dds"
-		Diffuse 112e181a
+		Diffuse 1188181a
 		Ambient ffffffff
 		Specular 809e20ff
 		Emissive ffffffff
