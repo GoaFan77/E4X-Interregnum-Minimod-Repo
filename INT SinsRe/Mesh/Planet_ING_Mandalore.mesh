@@ -8,8 +8,8 @@ MeshData
 	NumMaterials 1
 	Material
 		DiffuseTextureFileName "Planet_ING_Mandalore_cl.dds"
-		SelfIlluminationTextureFileName "Planet_ING_Mandalore_cl-da.dds"
-		NormalTextureFileName "Planet_ING_Mandalore_cl-nm.dds"
+		SelfIlluminationTextureFileName "Planet_ING_Mandalore_da.dds"
+		NormalTextureFileName "Planet_ING_Mandalore_nm.dds"
 		DisplacementTextureFileName ""
 		TeamColorTextureFileName ""
 		Diffuse 33928c47
