@@ -4,32 +4,35 @@
 #define TWOPI	6.283185307179586476925286766559
 
 //Settings
-//#define USE_MACRO_DISTORTION
+#define USE_MACRO_DISTORTION
 #define MACRO_DISTORTION_SCALE 0.5
 #define MACRO_DISTORTION_INTENSITY 0.5
 #define MACRO_DISTORTION_WEIGHT 0.25
-#define MACRO_OCTAVES 4 //less is cheaper
+//#define MACRO_OCTAVES 4 //less is cheaper DEPRICATED DOES NOTHING
 
-//#define USE_MICRO_DISTORTION
+#define USE_MICRO_DISTORTION
 #define MICRO_DISTORTION_SCALE 4.0
 #define MICRO_DISTORTION_INTENSITY 0.005
-#define MICRO_OCTAVES 4 //runds *2!!, less is cheaper
+//#define MICRO_OCTAVES 4 //runs *2!!, less is cheaper DEPRICATED DOES NOTHING
 
-//#define USE_COLOR_REFINEMENT
-#define COLOR_REFINEMENT_INTENSITY 0.15
+#define USE_COLOR_REFINEMENT
+#define COLOR_REFINEMENT_INTENSITY 0.25
 
-//#define USE_BRIGHTPASS
+#define USE_BRIGHTPASS
 #define BRIGHTPASS_FILTERWIDTH 16384.0
 #define BRIGHTPASS_INTENSITY 1.0
 
-//#define USE_AUTOLEVEL
+#define USE_AUTOLEVEL
 
 shared float4x4	g_ViewProjection : ViewProjection;
 float4x4 g_World;
 
 texture	g_TextureDiffuse0 : Diffuse;
+texture	g_TextureSelfIllumination;
 texture	g_TextureEnvironmentCube : Environment;
 texture g_EnvironmentIllumination : Environment;
+
+//texture g_TextureNoise3D;//doesn't work, not available
 
 float colorMultiplier = 1.f;
 
@@ -40,6 +43,14 @@ sampler_state
     MipFilter	= LINEAR;
     MinFilter	= LINEAR;
     MagFilter	= LINEAR;
+};
+
+sampler TextureDataSampler = sampler_state
+{
+    Texture = <g_TextureSelfIllumination>;
+    AddressU = WRAP;        
+    AddressV = WRAP;
+    Filter = LINEAR;
 };
 
 samplerCUBE TextureEnvironmentCubeSampler = sampler_state{
@@ -63,6 +74,18 @@ samplerCUBE EnvironmentIlluminationCubeSampler = sampler_state{
     AddressW = CLAMP;
 
 };
+/*
+sampler NoiseSampler = sampler_state 
+{
+    texture = <g_TextureNoise3D>;
+    AddressU = WRAP;        
+    AddressV = WRAP;
+	AddressW = WRAP;
+    MipFilter = LINEAR;
+    MinFilter = LINEAR;
+    MagFilter = LINEAR;
+};
+*/
 
 float4 SRGBToLinear(float4 color)
 {	
@@ -139,6 +162,20 @@ float2 rotate(float2 rotation, float rate)
 	return float2(dot(rotation,  float2(cos(rate),  -sin(rate))), dot(rotation,  float2(sin(rate),  cos(rate))));
 }
 
+void UpdateUVs(in float3 P, inout float2 UV0, inout float2 UV1)	
+{
+	float PSqrXY = dot(P.xz, P.xz);
+	float PSqrZnorth = Square((1.0 + P.y) * 2.0);
+	float PSqrZsouth = Square((1.0 - P.y) * 2.0);
+	UV0 = P.xz / sqrt(PSqrZnorth + PSqrXY);
+	UV1 = P.xz / sqrt(PSqrZsouth + PSqrXY);
+}
+
+float4 GetNoise(float4 UVs, float scale, float grad)
+{
+	return tex2Dlod(TextureDataSampler, float4((UVs.xy + 0.5) * scale, 0, 0)) * saturate(grad * 4 + 0.5) + tex2Dlod(TextureDataSampler, float4(UVs.zw * scale, 0, 0)) * saturate(-grad * 4 + 0.5);	
+}
+
 void RenderSceneVS( 
 	float3 iPosition : POSITION, 
 	float3 iNormal : NORMAL,
@@ -165,16 +202,23 @@ RenderScenePS(
 	oColor0 = tex2D(TextureDiffuse0Sampler, iTexCoord0);
 	
 	float distortWeight = Square(1.0 - dot((float3)rcp(3.0), oColor0.rgb));
-	
+	float4 UVs = 0;
+	UpdateUVs(iNormal, UVs.xy, UVs.zw);
+
 	#ifdef USE_MACRO_DISTORTION
 	//	float2 uv = float2(atan2(iNormal.x, iNormal.z) * INVPI * 0.5 + 0.5, iNormal.y * 0.5 + 0.5);
-		float distortionBase = distortWeight - simplex_refine(iNormal * MACRO_DISTORTION_SCALE, MACRO_OCTAVES, 0.5) * MACRO_DISTORTION_INTENSITY;
-		float3 distortion_vector = float3(cos(distortionBase * TWOPI), 2.0 * distortionBase, sin(distortionBase * TWOPI)) * MACRO_DISTORTION_WEIGHT;
+	
+		float4 distortionBase = distortWeight - GetNoise(UVs, 0.25, iNormal.y) * MACRO_DISTORTION_INTENSITY;
+		//float distortionBase = distortWeight - simplex_refine(iNormal * MACRO_DISTORTION_SCALE, MACRO_OCTAVES, 0.5) * MACRO_DISTORTION_INTENSITY;
+		float3 distortion_vector = float3(cos(distortionBase.a * TWOPI), 2.0 * distortionBase.a, sin(distortionBase.a * TWOPI)) * MACRO_DISTORTION_WEIGHT;
 	#else
 		float3 distortion_vector = 0;
 	#endif
 	#ifdef USE_MICRO_DISTORTION
-		float2 simplex = (float2(simplex_refine(iNormal * MICRO_DISTORTION_SCALE + distortion_vector, MICRO_OCTAVES, 0.5), simplex_refine(iNormal * MICRO_DISTORTION_SCALE + 8.0 + distortion_vector, MICRO_OCTAVES, 0.5)) - 0.5);
+//		float2 simplex = (float2(simplex_refine(iNormal * MICRO_DISTORTION_SCALE + distortion_vector, MICRO_OCTAVES, 0.5), simplex_refine(iNormal * MICRO_DISTORTION_SCALE + 8.0 + distortion_vector, MICRO_OCTAVES, 0.5)) - 0.5);
+
+		UpdateUVs(iNormal + distortion_vector, UVs.xy, UVs.zw);
+		float2 simplex = (GetNoise(UVs, MICRO_DISTORTION_SCALE + distortion_vector.xy, iNormal.y) - 0.5);
 		iTexCoord0 += simplex * (distortWeight * MICRO_DISTORTION_INTENSITY);
 		float2 duvx = ddx(iTexCoord0);
 		float2 duvy = ddy(iTexCoord0);
@@ -187,8 +231,10 @@ RenderScenePS(
 		#endif
 
 		float FilterWidth = (1.0 / BRIGHTPASS_FILTERWIDTH);
-		float4 EdgePass = tex2Dgrad(TextureDiffuse0Sampler, iTexCoord0 - FilterWidth, duvx, duvy) - tex2Dgrad(TextureDiffuse0Sampler, iTexCoord0 + FilterWidth, duvx, duvy);
+		float4 EdgePass = 	tex2Dgrad(TextureDiffuse0Sampler, iTexCoord0 - FilterWidth, duvx, duvy) - tex2Dgrad(TextureDiffuse0Sampler, iTexCoord0 + FilterWidth, duvx, duvy);
+							//tex2Dgrad(TextureDiffuse0Sampler, iTexCoord0 - FilterWidth, duvx, duvy) - tex2Dgrad(TextureDiffuse0Sampler, iTexCoord0 + FilterWidth, duvx, duvy);
 		oColor0.rgb += EdgePass.rgb * BRIGHTPASS_INTENSITY * dot(oColor0.rgb, oColor0.rgb);
+		
 	#endif
 	#ifdef USE_COLOR_REFINEMENT
 		oColor0.rgb *= 1.0 + (simplex.x * simplex.x - simplex.y * simplex.y) * distortWeight * COLOR_REFINEMENT_INTENSITY;
@@ -197,7 +243,21 @@ RenderScenePS(
 	#ifdef USE_AUTOLEVEL
 		oColor0.rgb = 1-exp(-oColor0.rgb);
 	#endif
-	oColor0.a = oColor0.a;
+/*	
+	float3 variation = tex2Dlod(TextureDataSampler, float4(iNormal.xy * 2, 0, 0)).aaa;
+	
+	float4 UVs = 0;
+	UpdateUVs(iNormal, UVs.xy, UVs.zw);
+	
+	float scale = 0.25;
+	float4 NoiseSample = GetNoise(UVs, 0.25, iNormal.y);
+
+	oColor0.rgb = NoiseSample.a;
+//	oColor0.rgb = distortionBase;
+	oColor0.a = 1;
+//	oColor0.rgb = variation;
+*/
+//	oColor0.a = 1;//oColor0.a;
 }
 
 technique RenderWithoutPixelShader
