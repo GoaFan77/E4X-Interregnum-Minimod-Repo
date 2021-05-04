@@ -9,11 +9,11 @@ MeshData
 	NumMaterials 1
 	Material
 		DiffuseTextureFileName "BG_GreenBlueNebula.dds"
-		SelfIlluminationTextureFileName ""
+		SelfIlluminationTextureFileName "SkyboxGeneric-da.dds"
 		NormalTextureFileName ""
 		DisplacementTextureFileName ""
 		TeamColorTextureFileName ""
-		Diffuse ffffffff
+		Diffuse 00ffffff
 		Ambient ffffffff
 		Specular ffffffff
 		Emissive ffffffff

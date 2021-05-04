@@ -4,11 +4,12 @@
 #define TWOPI	6.283185307179586476925286766559
 
 //Settings
+#define SKYBOX_ENHANCEMENT_ENABLED
 #define MACRO_DISTORTION_SCALE 0.1
 #define MACRO_DISTORTION_INTENSITY 0.025
 #define MACRO_DISTORTION_WEIGHT 8.0
-#define MICRO_DISTORTION_SCALE 4.0
-#define MICRO_DISTORTION_INTENSITY 2.0
+#define MICRO_DISTORTION_SCALE 2.0
+#define MICRO_DISTORTION_INTENSITY 1.5
 #define COLOR_REFINEMENT_INTENSITY 2.5
 
 shared float4x4	g_ViewProjection : ViewProjection;
@@ -167,30 +168,32 @@ RenderScenePS(
 	oColor0 = tex2Dlod(TextureDiffuse0Sampler, float4(iTexCoord0, 0, 0));
 	
 //	[branch]
-	if(round(g_MaterialDiffuse.a) == 0)
-	{
+	#ifdef SKYBOX_ENHANCEMENT_ENABLED
+		if(round(g_MaterialDiffuse.a) == 0)
+		{
+				
 			
-		
-		float blend = saturate(iNormal.y * 4 + 0.5);
-		float3 Original = oColor0.rgb;
-		float distortWeight = dot((float3)rcp(3.0), oColor0.rgb) * MACRO_DISTORTION_WEIGHT;
-		float4 UVs = 0;
-		UpdateUVs(iNormal, UVs.xy, UVs.zw);
+			float blend = saturate(iNormal.y * 4 + 0.5);
+			float3 Original = oColor0.rgb;
+			float distortWeight = dot((float3)rcp(3.0), oColor0.rgb) * MACRO_DISTORTION_WEIGHT;
+			float4 UVs = 0;
+			UpdateUVs(iNormal, UVs.xy, UVs.zw);
 
-		float4 distortionBase = GetNoiseRefine(UVs, MACRO_DISTORTION_SCALE, blend, 3, 0.701);;
-		float rotationBase = ((distortionBase.x - distortionBase.w) + (distortionBase.y - distortionBase.z)) * distortWeight;
+			float4 distortionBase = GetNoiseRefine(UVs, MACRO_DISTORTION_SCALE, blend, 3, 0.701);;
+			float rotationBase = ((distortionBase.x - distortionBase.w) + (distortionBase.y - distortionBase.z)) * distortWeight;
 
-		float3 distortion_vector = float3(cos(rotationBase * TWOPI), 2.0 * rotationBase, sin(rotationBase * TWOPI)) * MACRO_DISTORTION_INTENSITY;
-		UpdateUVs(iNormal + distortion_vector, UVs.xy, UVs.zw);
-		float4 simplex = GetNoiseRefine(UVs, MICRO_DISTORTION_SCALE, blend, 4, 0.701);
+			float3 distortion_vector = float3(cos(rotationBase * TWOPI), 2.0 * rotationBase, sin(rotationBase * TWOPI)) * MACRO_DISTORTION_INTENSITY;
+			UpdateUVs(iNormal + distortion_vector, UVs.xy, UVs.zw);
+			float4 simplex = GetNoiseRefine(UVs, MICRO_DISTORTION_SCALE, blend, 4, 0.701);
 
-		float2 pixelSize = rcp(float2(4096.0, 2048.0)) * MICRO_DISTORTION_INTENSITY;
-		oColor0 = tex2Dlod(TextureDiffuse0Sampler, float4(iTexCoord0 + pixelSize * (simplex.xy - simplex.zw), 0, 0));
-		
-		oColor0.rgb += abs(oColor0.rgb - Original) * (1.0 + dot(simplex, (float4)1.0)) * (1.0 - oColor0.a) * COLOR_REFINEMENT_INTENSITY;
+			float2 pixelSize = rcp(float2(4096.0, 2048.0)) * MICRO_DISTORTION_INTENSITY;
+			oColor0 = tex2Dlod(TextureDiffuse0Sampler, float4(iTexCoord0 + pixelSize * (simplex.xy - simplex.zw), 0, 0));
+			
+			oColor0.rgb += abs(oColor0.rgb - Original) * (1.0 + dot(simplex, (float4)1.0)) * (1.0 - oColor0.a) * COLOR_REFINEMENT_INTENSITY;
 
-		oColor0.rgb = 1-exp(-oColor0.rgb);
-	}
+			oColor0.rgb = 1-exp(-oColor0.rgb);
+		}
+	#endif
 }
 
 technique RenderWithoutPixelShader
