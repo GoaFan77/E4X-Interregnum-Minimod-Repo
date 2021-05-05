@@ -6,13 +6,14 @@
 //Settings
 #define SKYBOX_ENHANCEMENT_ENABLED
 #define SKYBOX_ENHANCEMENT_ITERATIONS 4
-#define MACRO_DISTORTION_SCALE 0.1
-#define MACRO_DISTORTION_INTENSITY 0.025
+#define MACRO_DISTORTION_SCALE 0.01
+#define MACRO_DISTORTION_INTENSITY 0.01
 #define MACRO_DISTORTION_WEIGHT 8.0
-#define MICRO_DISTORTION_SCALE 2.0
-#define MICRO_DISTORTION_INTENSITY 1.5
+#define MICRO_DISTORTION_SCALE 4.0
+#define MICRO_DISTORTION_INTENSITY 1.75
 #define SKYBOX_AUTOLEVELS_ENABLED
-#define COLOR_REFINEMENT_INTENSITY 2.5
+#define COLOR_REFINEMENT_INTENSITY 0.5
+#define EDGE_REFINEMENT_INTENSITY 0.35
 
 shared float4x4	g_ViewProjection : ViewProjection;
 float4x4 g_World;
@@ -183,20 +184,30 @@ RenderScenePS(
 			float4 UVs = 0;
 			UpdateUVs(iNormal, UVs.xy, UVs.zw);
 
-			float4 distortionBase = GetNoiseRefine(UVs, MACRO_DISTORTION_SCALE, blend, 3, 0.701);;
+			float4 distortionBase = GetNoiseRefine(UVs, MACRO_DISTORTION_SCALE, blend, 3, 0.7071);
 			float rotationBase = ((distortionBase.x - distortionBase.w) + (distortionBase.y - distortionBase.z)) * distortWeight;
 
 			float3 distortion_vector = float3(cos(rotationBase * TWOPI), 2.0 * rotationBase, sin(rotationBase * TWOPI)) * MACRO_DISTORTION_INTENSITY;
 			UpdateUVs(iNormal + distortion_vector, UVs.xy, UVs.zw);
-			float4 simplex = GetNoiseRefine(UVs, MICRO_DISTORTION_SCALE, blend, SKYBOX_ENHANCEMENT_ITERATIONS, 0.701);
+			float4 simplex = GetNoiseRefine(UVs, MICRO_DISTORTION_SCALE, blend, SKYBOX_ENHANCEMENT_ITERATIONS, 0.7071);
 
 			float2 pixelSize = rcp(float2(4096.0, 2048.0)) * MICRO_DISTORTION_INTENSITY;
 
+			
 			iTexCoord0 += pixelSize * (simplex.xy - simplex.zw);
-			oColor0 = tex2Dgrad(TextureDiffuse0Sampler, iTexCoord0, dUVx, dUVy);
+			oColor0.rgb = tex2Dgrad(TextureDiffuse0Sampler, iTexCoord0, dUVx, dUVy).rgb;
 			
-			oColor0.rgb += abs(oColor0.rgb - Original) * (1.0 + dot(simplex, (float4)1.0)) * (1.0 - oColor0.a) * COLOR_REFINEMENT_INTENSITY;
-			
+			iTexCoord0 += pixelSize * (simplex.yx - simplex.zw);
+			oColor0.rgb -= tex2Dgrad(TextureDiffuse0Sampler, iTexCoord0, dUVx, dUVy).rgb * EDGE_REFINEMENT_INTENSITY;// * (1.0 - oColor0.a);	
+			iTexCoord0 += pixelSize * (simplex.xy - simplex.wz);
+			oColor0.rgb += tex2Dgrad(TextureDiffuse0Sampler, iTexCoord0, dUVx, dUVy).rgb * EDGE_REFINEMENT_INTENSITY;// * (1.0 - oColor0.a);		
+			iTexCoord0 += pixelSize * (simplex.yx - simplex.wz);
+			oColor0.rgb += tex2Dgrad(TextureDiffuse0Sampler, iTexCoord0, dUVx, dUVy).rgb * EDGE_REFINEMENT_INTENSITY;// * (1.0 - oColor0.a);
+			iTexCoord0 += pixelSize * (simplex.wx - simplex.zy);
+			oColor0.rgb -= tex2Dgrad(TextureDiffuse0Sampler, iTexCoord0, dUVx, dUVy).rgb * EDGE_REFINEMENT_INTENSITY;// * (1.0 - oColor0.a);
+//			oColor0.rgb *= 1+((1.0 + dot(simplex, (float4)1.0)) * oColor0.a * COLOR_REFINEMENT_INTENSITY);
+			oColor0.rgb += abs(oColor0.rgb - Original) * (1.0 + dot(simplex, (float4)1.0)) * COLOR_REFINEMENT_INTENSITY;
+
 			#ifdef SKYBOX_AUTOLEVELS_ENABLED
 				oColor0.rgb = 1-exp(-oColor0.rgb);
 			#endif
