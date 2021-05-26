@@ -54,7 +54,7 @@ float4 RenderScenePS(VsOutput input) : COLOR0
 	finalColor += lightSideSample * dotLight;
 	finalColor += darkSideSample * (1.f - dotLight);
 	
-	return finalColor * darkSideSample.a * colorMultiplier;
+	return finalColor * darkSideSample.a * colorMultiplier * 0;
 }
 
 technique RenderWithPixelShader
