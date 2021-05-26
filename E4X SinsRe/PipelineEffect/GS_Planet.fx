@@ -13,6 +13,7 @@
 //#define DEBUG_MAKE_PLANET_SPHEREPROBE
 #define DEBUG_SPHEREPROBE_METAL
 #define DEBUG_SPHEREPROBE_MULTISCATTER true
+#define DEBUG_SPHEREPROBE_WATER
 
 float4x4		g_World					: World;
 float4x4		g_WorldViewProjection	: WorldViewProjection;
@@ -811,8 +812,21 @@ float4 RenderScenePS(VsSceneOutput input) : COLOR0
 	float3 lightColor 		= SRGBToLinear(g_Light0_DiffuseLite.rgb) * PI;		
 	
 	#ifdef DEBUG_MAKE_PLANET_SPHEREPROBE 
-		//test that the mips are correct Texture
+		
 		float Roughness_debug = abs(fmod(g_Time * 0.25, 2.0) - 1);
+		
+		#ifdef DEBUG_SPHEREPROBE_WATER
+			Roughness_debug = 0.1;
+			float waterScale = 1.0 / 12.5;
+			float waterSpeed = 12.5;
+			float waterIntensity = 0.75;
+			float4 waterNgrad = snoise(input.posObj * waterScale + length(input.posObj * waterScale) + g_Time * waterSpeed * waterScale) * waterIntensity;
+			normal = mul(normalize(input.normalObj + waterNgrad.rgb), (float3x3)g_World);	
+			#undef DEBUG_SPHEREPROBE_METAL
+		#endif	
+	
+		//test that the mips are correct Texture
+		
 		float3 Radiance_debug = SRGBToLinear(texCUBElod(TextureEnvironmentCubeSampler, float4(-(view - 2.0 * normal * dot(view, normal)), Roughness_debug  * 6.0))).rgb;
 		float3 Irradiance_debug = SRGBToLinear(texCUBElod(EnvironmentIlluminationCubeSampler, float4(normal, 0))).rgb; 
 		float3 Diffuse_debug = 0;
@@ -1036,8 +1050,8 @@ float4 RenderScenePS(VsSceneOutput input) : COLOR0
 			float fresnel = Pow5(1.0 - abs(dot(view, normal)));
 
 			sampleA.rgb = pow(sampleA.rgb, 1.5 - fresnel * 1.4 + waterNgrad.a * 0.1);
-			sampleA.a = lerp(0.23, sampleA.a, propertiesMask);//spec
-			sampleB.w = lerp(0.1/* + fresnel * 0.16*/, sampleB.w, propertiesMask);//roughness
+			sampleA.a = lerp(1.0, sampleA.a, propertiesMask);//spec
+			sampleB.w = lerp(0.16/* + fresnel * 0.16*/, sampleB.w, propertiesMask);//roughness
 			sampleC.r = 0.5 * fresnel + 0.1;//subsurface
 			sampleC.b = 0;//no metal water
 		}	
@@ -1247,12 +1261,12 @@ float4 RenderScenePS(VsSceneOutput input) : COLOR0
 	
 	float3 reflection			= -(view - 2.0 * normal * NoV);
 	float3 ReflectionSample 	= SRGBToLinear(texCUBElod(TextureEnvironmentCubeSampler, float4(reflection, max(cloudShadow * 6.0, Properties.RoughnessMip)))).rgb;
-
+//	return LinearToSRGB(float4(Properties.SpecularColor.rrr, 1.0));
 	AmbientBRDF(diffuse, specular, saturate(abs(NoV)), Properties, ReflectionSample, DiffuseSample, true);
 	
 	diffuse 					*= cloudShadow;
 	specular 					*= cloudShadow;
-	
+//	return LinearToSRGB(float4(1.0 - exp(-(diffuse + specular)), 1.0));
 
 #if 0
 
@@ -1687,6 +1701,7 @@ void RenderCloudsPS(VsCloudsOutput i, out float4 oColor0:COLOR0)
 	float3 lightColor 		= SRGBToLinear(g_Light0_DiffuseLite.rgb) * PI;		
 	
 #ifndef DEBUG_MAKE_PLANET_SPHEREPROBE
+#if 1
 //	const bool GasGiantMode = round(g_MaterialSpecular.a * 4) != 2;//planet that are lave based, no citylight
 	oColor0 = 0;
 	
@@ -1725,6 +1740,11 @@ void RenderCloudsPS(VsCloudsOutput i, out float4 oColor0:COLOR0)
 //		oColor0.rgb += tex2Dlod(TextureDataSampler, float4(i.TexCoord0, 0, 4.5)).rgb;//works follow up!
 //		oColor0 = LinearToSRGB(oColor0);
 //	}
+
+#else
+	oColor0 = 0;//float4(g_MaterialDiffuse.rgb * 4.0, 1);//float4(frac(distance(mul(float4(0.0, 0.0, 0.0, 1.0), g_World).xyz, i.Pos - mul(float4(0.0, 0.0, 0.0, 1.0), g_World).xyz).xxx / 1000.0), 1);
+#endif
+
 #else
 	oColor0 = 0;//float4(g_MaterialDiffuse.rgb * 4.0, 1);//float4(frac(distance(mul(float4(0.0, 0.0, 0.0, 1.0), g_World).xyz, i.Pos - mul(float4(0.0, 0.0, 0.0, 1.0), g_World).xyz).xxx / 1000.0), 1);
 #endif
