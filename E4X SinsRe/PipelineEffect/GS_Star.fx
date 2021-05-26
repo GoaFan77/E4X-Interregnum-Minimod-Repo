@@ -138,7 +138,7 @@ float4 GetPixelColor( float4 iColor, float2 iTexCoord, float3 iPosObj, float3 iN
 	UpdateUVs(iNormalObj + distortion_vector * 0.05, UV0, UV1);
 	diffuse = lerp(tex2D(TextureDiffuse0Sampler, UV0), tex2D(TextureDiffuse0Sampler, 0.5-UV1), saturate(iTexCoord.y * 11 - 5));
 	diffuse.rgb = pow(diffuse.rgb, starBase * NoV) * (1.0 + (1-NoV));
-	diffuse.a *= NoV;
+//	diffuse.a *= NoV;
 
 	
 //	return float4(starSurfaceColor, 1);
@@ -166,7 +166,7 @@ float4 GetPixelColor( float4 iColor, float2 iTexCoord, float3 iPosObj, float3 iN
 	diffuse = tex2D(TextureDiffuse0Sampler, shiftedCoord + starBase * (1.0/256.0));
 */
 
-	return diffuse;
+	return 1-exp(-diffuse);
 
 }
 
