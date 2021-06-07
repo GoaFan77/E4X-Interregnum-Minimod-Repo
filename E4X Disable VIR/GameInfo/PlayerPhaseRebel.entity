@@ -72,7 +72,7 @@ entities
 			entityDefName "FrigatePhaseGreaterNaniteSwarm"
 			entityDefName "Frigate_E4X_PhaseEnvoyAI"
 	researchInfo
-		count 168
+		count 167
 		entityDefName "RESEARCH_E4X_WeaponMastery"
 		entityDefName "RESEARCH_E4X_SurvivabilityMastery"
 		entityDefName "RESEARCH_E4X_HeroScientistPhaseAccess"
@@ -90,7 +90,6 @@ entities
 		entityDefName "RESEARCH_E4X_ABILITYACCESS_MineProbe"
 		entityDefName "RESEARCH_E4X_ABILITYACCESS_MetalNanites"
 		entityDefName "RESEARCH_E4X_ABILITYACCESS_FreezePopulation"
-		entityDefName "RESEARCH_E4X_ABILITYACCESS_PhaseAssaultMine"
 		entityDefName "RESEARCH_E4X_ImproveAIPhase"
 		entityDefName "RESEARCH_E4X_ImproveAIPhase2"
 		entityDefName "RESEARCHSUBJECT_JUMP_STABILIZATION"
