@@ -3,9 +3,15 @@ float4x4 g_WorldViewProjection : WorldViewProjection;
 
 texture	g_TextureDiffuse0 : Diffuse;
 texture	g_TextureSelfIllumination;
-float colorMultiplier = 1.f;
+texture g_TextureTeamColor: Displacement;
+float colorMultiplier = 4.f;
 
 float3 g_Light0_Position: Position = float3( 0.f, 0.f, 0.f );
+
+float4 g_MaterialAmbient:Ambient;
+float4 g_MaterialSpecular:Specular;
+float4 g_MaterialEmissive:Emissive;
+float4 g_MaterialDiffuse:Diffuse;
 
 sampler TextureColorSampler = sampler_state{
     Texture = <g_TextureDiffuse0>;    
@@ -20,7 +26,13 @@ sampler TextureDataSampler = sampler_state{
     MinFilter = LINEAR;
     MagFilter = LINEAR;
 };
-
+sampler TextureDisplacementSampler = sampler_state
+{
+    Texture	= <g_TextureTeamColor>;
+    MipFilter = LINEAR;
+    MinFilter = LINEAR;
+    MagFilter = LINEAR;
+};
 struct VsOutput
 {
 	float4 position	: POSITION;
@@ -44,17 +56,28 @@ VsOutput RenderSceneVS(
 }
 
 float4 RenderScenePS(VsOutput input) : COLOR0
-{ 
-	float4 lightSideSample = tex2D(TextureColorSampler, input.texCoord);
-	float4 darkSideSample = tex2D(TextureDataSampler, input.texCoord);
-	
-	float dotLight = max(dot(input.lightDir, input.normal), 0.f);
+{
+	const bool OceanMode = int(g_MaterialSpecular.a) == 1;//planets that got oceans, support citylights too
+	const bool VolcanoMode = int(g_MaterialSpecular.a * 4) == 1;//planet that are lave based, no citylight
+	const bool GasGiantMode = int(g_MaterialSpecular.a * 4) == 2;//planet that are lave based, no citylight
 
-	float4 finalColor = 0.f;	
-	finalColor += lightSideSample * dotLight;
-	finalColor += darkSideSample * (1.f - dotLight);
+	float volcanoSmokeMask = 1;
+	if(VolcanoMode)
+		volcanoSmokeMask -= tex2D(TextureDisplacementSampler, input.texCoord).g;
 	
-	return finalColor * darkSideSample.a * colorMultiplier;
+//	float4 lightSideSample = tex2D(TextureColorSampler, input.texCoord);
+//	float4 darkSideSample = tex2D(TextureDataSampler, input.texCoord);
+	float3 emissive = tex2D(TextureDataSampler, input.texCoord).rgb;
+	emissive *= emissive * emissive * volcanoSmokeMask;
+//	float dotLight = max(dot(input.lightDir, input.normal), 0.f);
+	float NightMask = smoothstep(0.1, -0.25, dot(input.lightDir, input.normal));
+	return float4(emissive * NightMask * colorMultiplier, 1);
+//	float4 finalColor = 0.f;
+	
+//	finalColor += lightSideSample * NightMask;
+//	finalColor += darkSideSample * (1.f - NightMask);
+	
+//	return finalColor * darkSideSample.a * colorMultiplier;
 }
 
 technique RenderWithPixelShader
