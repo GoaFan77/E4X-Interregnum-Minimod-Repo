@@ -13,7 +13,7 @@ MeshData
 		DisplacementTextureFileName ""
 		TeamColorTextureFileName "CRUISER_ALLMC30C_IL.dds"
 		Diffuse ffffffff
-		Ambient ffffffff
+		Ambient 000018ff
 		Specular ffffffff
 		Emissive ffffffff
 		Glossiness 50.000000
