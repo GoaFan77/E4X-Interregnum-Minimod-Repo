@@ -40,5 +40,5 @@ TXT
 Version 0
 enabledModNameCount 3
 enabledModName "INT All E4X Random Encounters"
-enabledModName "Star Wars Interregnum Alpha 3.4"
-enabledModName "Enhanced 4X Mod 1.85"
+enabledModName "Star Wars Interregnum Beta 1"
+enabledModName "Enhanced 4X Mod 1.86"

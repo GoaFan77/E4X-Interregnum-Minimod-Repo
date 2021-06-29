@@ -26,4 +26,4 @@ TXT
 Version 0
 enabledModNameCount 2
 enabledModName "E4X Faster Combat"
-enabledModName "Enhanced 4X Mod 1.85"
+enabledModName "Enhanced 4X Mod 1.86"
