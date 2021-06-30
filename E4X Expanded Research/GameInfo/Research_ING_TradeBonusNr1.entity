@@ -4,7 +4,7 @@ hudIcon "HUDICON_ING_TradeIncome1"
 smallHudIcon "HUDICON_ING_TradeIncome1"
 infoCardIcon ""
 NameStringID "IDS_Research_ING_TradeBonusNr1_NAME"
-DescriptionStringID "IDS_Research_ING_TradeBonusNr1_NAME"
+DescriptionStringID "IDS_Research_ING_TradeBonusNr1_DESC"
 researchWindowLocation
 	block 2
 	pos [ 4 , 2 ]
