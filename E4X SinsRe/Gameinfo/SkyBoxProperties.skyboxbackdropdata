@@ -83,7 +83,7 @@ properties
 	textureName "galaxyspiral2"
 	textureName "galaxyspiral3"
 	environmentMapName "BG_MutaraNebula_Cube.dds"	
-	environmentIlluminationMapName "BG_MutaNebula_Irr.dds"			
+	environmentIlluminationMapName "BG_MutaraNebula_Irr.dds"			
 properties
 	meshName "Skybox_E4X_Green1"
 	diffuseLiteColor ff708b6b
