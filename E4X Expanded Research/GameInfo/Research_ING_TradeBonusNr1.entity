@@ -1,10 +1,10 @@
 ﻿TXT
 entityType "ResearchSubject"
-hudIcon "HUDICON_ING_TradeBonusAll2"
-smallHudIcon "HUDICON_ING_TradeBonusAll2"
+hudIcon "HUDICON_ING_TradeIncome1"
+smallHudIcon "HUDICON_ING_TradeIncome1"
 infoCardIcon ""
-NameStringID "IDS_Research_ING_TradeBonusAll2_NAME"
-DescriptionStringID "IDS_Research_ING_TradeBonusAll2_DESC"
+NameStringID "IDS_Research_ING_TradeBonusNr1_NAME"
+DescriptionStringID "IDS_Research_ING_TradeBonusNr1_DESC"
 researchWindowLocation
 	block 2
 	pos [ 4 , 2 ]
@@ -36,7 +36,7 @@ researchFloatModifiers 1
 researchModifier
 	modifierType "CargoShipCapacityAdjustment"
 	baseValue 0.000000
-	perLevelValue 0.050000
+	perLevelValue 0.075000
 artifactPicture ""
 uniqueOverlayBrush ""
 dlcId 204880

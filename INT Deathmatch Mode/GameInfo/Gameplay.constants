@@ -232,7 +232,7 @@ GameplayConstants
 		DamagePercentBonus:ANTIHEAVY:VeryLight 1.0
 		DamagePercentBonus:ANTIHEAVY:Light 0.75
 		DamagePercentBonus:ANTIHEAVY:Medium 1.0
-		DamagePercentBonus:ANTIHEAVY:Heavy 1.5
+		DamagePercentBonus:ANTIHEAVY:Heavy 2.0
 		DamagePercentBonus:ANTIHEAVY:VeryHeavy 0.5
 		DamagePercentBonus:ANTIHEAVY:Module 0.5
 		DamagePercentBonus:ANTIHEAVY:Pirate 0.90
@@ -1039,7 +1039,7 @@ outlawSectorsData
 				xOffset 0
 				yOffset -52
 			outlawSpawnShipsType "MatchPlayerRace"
-			numOutlawSpawnShipsOptionsCount 12
+			numOutlawSpawnShipsOptionsCount 13
 			outlawSpawnShipsOptions
 				raceEntityName "PlayerTechRebel"
 				spawnShips
@@ -1223,7 +1223,7 @@ outlawSectorsData
 					requiredShipCount 0
 					randomShipCount 6
 					randomShip
-						type "Frigate_ING_EmpLight"
+						type "Frigate_ING_EmpVigil"
 						weight 4
 					randomShip
 						type "Frigate_ING_EmpLongRange"
@@ -1334,6 +1334,31 @@ outlawSectorsData
 					randomShip
 						type "Frigate_ING_MilDreadnaught"
 						weight 2
+			outlawSpawnShipsOptions
+				raceEntityName "Player_ING_DarkEmpire"
+				spawnShips
+					minFleetPoints 20.000000
+					maxFleetPoints 20.000000
+					requiredShipCount 0
+					randomShipCount 6
+					randomShip
+						type "Frigate_ING_EmpLight"
+						weight 4
+					randomShip
+						type "Frigate_ING_EmpLongRange"
+						weight 5
+					randomShip
+						type "Frigate_ING_EmpHeavy"
+						weight 6
+					randomShip
+						type "Frigate_ING_EmpAntiFighter"
+						weight 3
+					randomShip
+						type "Corvette_ING_EmpCorvette"
+						weight 2
+					randomShip
+						type "Frigate_ING_EmpCarrier"
+						weight 1						
 		baseFleetCapacity 10.0
 		maxFleetSupplyPerPlanetPopulation .020
 		fleetSupplyMin 100.0
@@ -1378,7 +1403,7 @@ outlawSectorsData
 			planetCultureRepelAdditiveBonus 1.5
 			spawnTime 600
 			spawnTimeVariance 120
-			minorFactionPlayerDefCount 31
+			minorFactionPlayerDefCount 35
 			minorFactionPlayerDef
 				name "DefaultTech"
 				planetAbilities
@@ -1564,6 +1589,14 @@ outlawSectorsData
 					ability:3 "AbilityMinorFactionTradeCreditsForMetal"
 					ability:4 ""
 			minorFactionPlayerDef
+				name "EmpKaarenth"
+				planetAbilities
+					ability:0 "Ability_ING_MinorFactionSlaveMarket"
+					ability:1 "Ability_ING_MinorFactionSpawnRemoteSiegeRaidEmp"
+					ability:2 "Ability_ING_MinorFactionSellFrigatesCW"
+					ability:3 "Ability_ING_MinorFactionSellCapitalShipEmpVenator"
+					ability:4 ""
+			minorFactionPlayerDef
 				name "EmpYevetha"
 				planetAbilities
 					ability:0 "Ability_ING_MinorFactionSpawnSiegeRaidEmp"
@@ -1604,6 +1637,22 @@ outlawSectorsData
 					ability:3 "Ability_ING_MinorFactionSellCapitalShipNLuc"
 					ability:4 ""
 			minorFactionPlayerDef
+				name "IGBC"
+				planetAbilities
+					ability:0 "Ability_ING_MinorFactionSellFrigatesMunificent"
+					ability:1 "Ability_ING_MinorFactionLoan"
+					ability:2 "AbilityMinorFactionTradeCrystalForCredits"
+					ability:3 ""
+					ability:4 ""
+			minorFactionPlayerDef
+				name "CZA"
+				planetAbilities
+					ability:0 "Ability_ING_MinorFactionDigSites"
+					ability:1 "Ability_ING_MinorFactionRecoupInvestment"
+					ability:2 "Ability_ING_MinorFactionImportedWorkforce"
+					ability:3 "Ability_ING_MinorFactionAssassinDroids"
+					ability:4 ""
+			minorFactionPlayerDef
 				name "Zann"
 				planetAbilities
 					ability:0 "Ability_ING_MinorFactionRacketeering"
@@ -1618,6 +1667,14 @@ outlawSectorsData
 					ability:1 "Ability_ING_MinorFactionBlackMarketFuel"
 					ability:2 "Ability_ING_MinorFactionSpawnAttackRaidMil"
 					ability:3 "Ability_ING_MinorFactionInformants"
+					ability:4 ""
+			minorFactionPlayerDef
+				name "BalmorranArms"
+				planetAbilities
+					ability:0 "Ability_ING_MinorFactionWarDroids"
+					ability:1 "Ability_ING_MinorFactionMolecularShielding"
+					ability:2 "Ability_ING_MinorFactionPlanetaryDefenses"
+					ability:3 "AbilityMinorFactionTradeCreditsForMetal"
 					ability:4 ""
 			minorFactionPlayerDef
 				name "Hapes"

@@ -7,7 +7,7 @@ properties
 	ambientLiteColor ff45391c
 	ambientDarkColor ff251206
 	specularColor fff8e9c5
-	dustCloudColor d98f29
+	dustCloudColor ffd98f29
 	numFarStarIconCloudTextureNames 3
 	textureName "galaxyspiral_orange3"
 	textureName "galaxyspiral_orange2"

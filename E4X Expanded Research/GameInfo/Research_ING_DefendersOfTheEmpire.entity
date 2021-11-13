@@ -1,0 +1,44 @@
+﻿TXT
+entityType "ResearchSubject"
+hudIcon "HUDICON_ING_DefendersOfTheEmpire"
+smallHudIcon "HUDICON_ING_DefendersOfTheEmpire"
+infoCardIcon ""
+NameStringID "IDS_Research_ING_DefendersOfTheEmpire_NAME"
+DescriptionStringID "IDS_Research_ING_DefendersOfTheEmpire_DESC"
+researchWindowLocation
+	block 0
+	pos [ 6 , 1 ]
+ResearchField "Defense"
+Prerequisites
+	NumResearchPrerequisites 0
+	RequiredFactionNameID ""
+	RequiredCompletedResearchSubjects 0
+MinimumArtifactLevel -1
+BaseUpgradeTime 105.000000
+PerLevelUpgradeTime 10.000000
+BaseCost
+	credits 1600.000000
+	metal 300.000000
+	crystal 475.000000
+PerLevelCostIncrease
+	credits 100.000000
+	metal 25.000000
+	crystal 25.000000
+Tier 6
+onlyWorksIfTierLabsExist FALSE
+MaxNumResearchLevels 4
+priority 1.000000
+researchBoolModifiers 0
+researchFloatModifiers 2
+researchModifier
+	modifierType "WeaponDamageAdjustmentWhenInFriendlyGravityWell"
+	baseValue 0.000000
+	perLevelValue 0.050000
+	linkedWeaponClass "Invalid"
+researchModifier
+	modifierType "CreditCostAdjustment"
+	baseValue 0.000000
+	perLevelValue 0.010000
+artifactPicture ""
+uniqueOverlayBrush "RebellionResearchOverlay"
+dlcId 204880

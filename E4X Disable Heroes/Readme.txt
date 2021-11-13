@@ -5,6 +5,8 @@ This minimod prevents Heroes from being summoned by removing their research and 
 
 For support, please make a post at http://www.moddb.com/mods/enhanced-4x-mod/forum
 
+NOTE: Do not press the 'Alt' hotkey while using this minimod, as it will cause an instant minidump.
+
 ---Compatible With---
 Enhanced 4X Mod
 Star Wars: Interregnum
@@ -28,5 +30,5 @@ TXT
 Version 0
 enabledModNameCount 3
 enabledModName "E4X Disable Heroes"
-enabledModName "Star Wars Interregnum Alpha 3.4"
-enabledModName "Enhanced 4X Mod 1.85"
+enabledModName "Star Wars Interregnum Beta 1"
+enabledModName "Enhanced 4X Mod 1.86"

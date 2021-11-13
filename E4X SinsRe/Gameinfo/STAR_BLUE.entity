@@ -1,0 +1,52 @@
+TXT
+entityType "Star"
+coronaStartColor 8aff
+coronaEndColor ff008bff
+coronaStartColorDistance 0.000000
+coronaEndColorDistance 2.000000
+farIcon "Axeldude_FarStar_Icon_Blue"
+coloredSkyboxMeshInfoCount 6
+meshInfo
+	meshName "SkyboxBackdrop4"
+	shouldPrefer FALSE
+meshInfo
+	meshName "Skybox_E4X_Green1"
+	shouldPrefer TRUE	
+meshInfo
+	meshName "Skybox_E4X_BlueGreen1"
+	shouldPrefer TRUE
+meshInfo
+	meshName "Skybox_E4X_Purple1"
+	shouldPrefer TRUE
+meshInfo
+	meshName "Skybox_E4X_Yellow1"
+	shouldPrefer FALSE
+meshInfo
+	meshName "Skybox_E4X_Backdrop6"
+	shouldPrefer TRUE
+deepSpaceSkyboxMeshInfoCount 1
+meshInfo
+	meshName "Skybox_E4X_Backdrop4"
+	shouldPrefer TRUE
+iconTextureName "Axeldude_FarStar_Icon_Blue"
+dlcID 204880
+ability:0 "AbilitySolarRegeneration"
+ability:1 "AbilitySolarStorm"
+ability:2 ""
+ability:3 ""
+ability:4 ""
+hudIcon "Axeldude_FarStar_Icon_Blue"
+smallHudIcon "Axeldude_FarStar_Icon_Blue"
+infoCardIcon "Axeldude_FarStar_Icon_Blue"
+minZoomDistanceMult 2.000000
+moveAreaRadius 100000.000000
+hyperspaceExitRadius 90000.000000
+isWormhole FALSE
+maxStarBaseCountPerPlayer 4
+maxSpaceMineCountPerPlayer 30
+mainViewIcon "Axeldude_MAINVIEWICON_STAR_BLUE"
+picture ""
+MeshName "Star_Blue"
+MaxMeshVisibilityDistanceToCamera -1.000000
+minShadow 0.000000
+maxShadow 0.000000
