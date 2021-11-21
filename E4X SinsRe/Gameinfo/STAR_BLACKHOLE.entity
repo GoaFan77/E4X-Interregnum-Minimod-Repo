@@ -3,7 +3,7 @@ entityType "Star"
 coronaStartColor 0
 coronaEndColor 0
 coronaStartColorDistance 0.000000
-coronaEndColorDistance 2.000000
+coronaEndColorDistance 0.400000
 farIcon "HUDICON_SOLARSYSTEM_BLUE"
 coloredSkyboxMeshInfoCount 6
 meshInfo

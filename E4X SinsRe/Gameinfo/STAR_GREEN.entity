@@ -3,7 +3,7 @@ entityType "Star"
 coronaStartColor ffffffff
 coronaEndColor ff008bff
 coronaStartColorDistance 0.000000
-coronaEndColorDistance 0.400000
+coronaEndColorDistance 2.000000
 farIcon "Axeldude_FarStar_Icon_White"
 coloredSkyboxMeshInfoCount 6
 meshInfo
