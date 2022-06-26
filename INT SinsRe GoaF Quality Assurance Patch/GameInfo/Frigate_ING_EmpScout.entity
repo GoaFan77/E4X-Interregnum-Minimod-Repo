@@ -1,0 +1,159 @@
+﻿TXT
+entityType "Frigate"
+defaultAutoAttackRange "GravityWell"
+defaultAutoAttackOn FALSE
+prefersToFocusFire TRUE
+usesFighterAttack FALSE
+autoJoinFleetDefault FALSE
+canBomb FALSE
+typeCount 3
+frigateRoleType "Scout"
+frigateRoleType "AntiMine"
+frigateRoleType "ResourceCapturer"
+statCountType "FrigateScout"
+mainViewIcon "MainViewIcon_ING_EmpScout"
+picture "Picture_ING_EmpScout"
+NameStringID "IDS_Frigate_ING_EmpScout_NAME"
+DescriptionStringID "IDS_Frigate_ING_EmpScout_DESC"
+counterDescriptionStringID "IDS_COUNTERDESC_FRIGATE_Capturer"
+basePrice
+	credits 280.000000
+	metal 0.000000
+	crystal 0.000000
+slotCount 3.000000
+BuildTime 22.000000
+hasLevels FALSE
+ExperiencePointsForDestroying 12.000000
+MaxHullPoints 505.000000
+MaxShieldPoints 380.000000
+HullPointRestoreRate 1.000000
+ShieldPointRestoreRate 2.000000
+BaseArmorPoints 1.500000
+maxMitigation 0.600000
+Prerequisites
+	NumResearchPrerequisites 0
+	RequiredFactionNameID ""
+	RequiredCompletedResearchSubjects 0
+numRandomDebrisLarge 0
+numRandomDebrisSmall 3
+numSpecificDebris 0
+armorType "Medium"
+hudIcon "HUDICON_ING_Frigate_EmpScout"
+smallHudIcon "MainViewIcon_ING_EmpScout"
+infoCardIcon "MainViewIcon_ING_EmpScout"
+minZoomDistanceMult 5.500000
+NumWeapons 1
+Weapon
+	WeaponType "Projectile"
+	damageEnums
+		AttackType "ANTILIGHT"
+		DamageAffectType "AFFECTS_SHIELDS_AND_HULL"
+		DamageApplyType "BACKLOADED"
+		DamageType "ENERGY"
+		WeaponClassType "LASERTECH"
+	DamagePerBank:FRONT 32.000000
+	DamagePerBank:BACK 0.000000
+	DamagePerBank:LEFT 0.000000
+	DamagePerBank:RIGHT 0.000000
+	Range 5000.000000
+	PreBuffCooldownTime 8.000000
+	CanFireAtFighter TRUE
+	SynchronizedTargeting TRUE
+	PointStaggerDelay 0.000000
+	TravelSpeed 4500.000000
+	Duration 0.000000
+	fireConstraintType "CanAlwaysFire"
+	WeaponEffects
+		weaponType "Projectile"
+		burstCount 4
+		burstDelay 1.000000
+		fireDelay 0.000000
+		muzzleEffectName "WEAPON_GREEN_LASER_MUZZLE"
+		muzzleSoundMinRespawnTime 0.500000
+		muzzleSounds
+			soundCount 1
+			sound "Weapon ING EMP LIGHT"
+		hitEffectName "WEAPON_TL_LIGHT_HIT"
+		hitHullEffectSounds
+			soundCount 4
+			sound "Weapon ING TL HULL HIT1"
+			sound "Weapon ING TL HULL HIT2"
+			sound "Weapon ING TL HULL HIT3"
+			sound "Weapon ING TL HULL HIT4"
+		hitShieldsEffectSounds
+			soundCount 4
+			sound "Weapon ING TL IMPACT1"
+			sound "Weapon ING TL IMPACT2"
+			sound "Weapon ING TL IMPACT3"
+			sound "Weapon ING TL IMPACT4"
+		projectileTravelEffectName "WEAPON_GREEN_LASER_TRAVEL"
+m_weaponIndexForRange 0
+firingAlignmentType "Default"
+TargetCountPerBank:FRONT 1
+TargetCountPerBank:BACK 0
+TargetCountPerBank:LEFT 0
+TargetCountPerBank:RIGHT 0
+canOnlyTargetStructures FALSE
+hasWeaponLevels FALSE
+mass 2000.000000
+ShieldMeshName "GoaFOddSshield"
+renderShield TRUE
+maxAccelerationLinear 350.000000
+maxAccelerationStrafe 10.000000
+maxDecelerationLinear 500.000000
+maxAccelerationAngular 4.950000
+maxDecelerationAngular 9.999996
+maxSpeedLinear 1100.000000
+maxRollRate 2.000000
+maxRollAngle 35.000000
+squadTypeEntityDef:0 ""
+squadAntiMatterCost:0 0.000000
+squadTypeEntityDef:1 ""
+squadAntiMatterCost:1 0.000000
+squadTypeEntityDef:2 ""
+squadAntiMatterCost:2 0.000000
+squadTypeEntityDef:3 ""
+squadAntiMatterCost:3 0.000000
+maxNumCommandPoints 0
+NumSoundsFor:ONATTACKORDERISSUED 4
+SoundID "Dialog_ING_Imperial_Scout_Attack"
+SoundID "Dialog_ING_Imperial_Scout_Attack_2"
+SoundID "Dialog_ING_Imperial_Scout_Attack_3"
+SoundID "Dialog_ING_Imperial_Scout_Attack_4"
+NumSoundsFor:ONCREATION 1
+SoundID "Dialog_ING_Imperial_Scout_Select"
+NumSoundsFor:ONGENERALORDERISSUED 3
+SoundID "Dialog_ING_Imperial_Scout_Move"
+SoundID "Dialog_ING_Imperial_Scout_Move_2"
+SoundID "Dialog_ING_Imperial_Scout_Move_3"
+NumSoundsFor:ONSELECTED 4
+SoundID "Dialog_ING_Imperial_Scout_Select"
+SoundID "Dialog_ING_Imperial_Scout_Select_2"
+SoundID "Dialog_ING_Imperial_Scout_Select_3"
+SoundID "Dialog_ING_Imperial_Scout_Select_4"
+NumSoundsFor:ONSTARTPHASEJUMP 1
+SoundID "Dialog_ING_Imperial_Scout_Jump"
+MeshNameInfoCount 1
+MeshNameInfo
+	meshName "GoaFOddS"
+	criteriaType "None"
+meshNameIncreasedEffectName ""
+meshNameDecreasedEffectName ""
+ExhaustParticleSystemName "Exhaust_TechBattleship"
+ExplosionName "Frigate1"
+HyperspaceChargingSoundID "Effect ING Hyperspace Chargeup"
+HyperspaceTravelSoundID "HYPERSPACE_TRAVEL"
+EngineSoundID "ENGINE_TECHCAPITALSHIP"
+ability:0 "AbilityExplore"
+ability:1 "Ability_E4X_CaptureNeutralFrigate"
+ability:2 "Ability_ING_ProbeDroid"
+ability:3 "Ability_ING_UnstoppableJumpEmp"
+ability:4 "AbilityDetectMinesTech"
+MaxAntiMatter 180.000000
+AntiMatterRestoreRate 0.500000
+cargoType "Invalid"
+maxCargoCapacity 0.000000
+formationRank 1
+minShadow 0.100000
+maxShadow 0.800000
+allegianceDecreasePerRoundtrip 0.000000

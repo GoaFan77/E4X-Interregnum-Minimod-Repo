@@ -1,0 +1,160 @@
+﻿TXT
+entityType "Frigate"
+defaultAutoAttackRange "GravityWell"
+defaultAutoAttackOn FALSE
+prefersToFocusFire TRUE
+usesFighterAttack FALSE
+autoJoinFleetDefault FALSE
+canBomb FALSE
+typeCount 2
+frigateRoleType "Colony"
+frigateRoleType "ResourceCapturer"
+statCountType "FrigateColony"
+mainViewIcon "MainViewIcon_ING_AllColony"
+picture "Picture_ING_AllColony"
+NameStringID "IDS_Frigate_ING_AllColony_NAME"
+DescriptionStringID "IDS_Frigate_ING_AllColony_DESC"
+counterDescriptionStringID "IDS_COUNTERDESC_FRIGATE_CaptureColonize"
+basePrice
+	credits 350.000000
+	metal 80.000000
+	crystal 40.000000
+slotCount 6.000000
+BuildTime 40.000000
+hasLevels FALSE
+ExperiencePointsForDestroying 6.000000
+MaxHullPoints 512.000000
+MaxShieldPoints 468.000000
+HullPointRestoreRate 1.000000
+ShieldPointRestoreRate 1.000000
+BaseArmorPoints 0.000000
+maxMitigation 0.600000
+Prerequisites
+	NumResearchPrerequisites 0
+	RequiredFactionNameID ""
+	RequiredCompletedResearchSubjects 0
+numRandomDebrisLarge 1
+numRandomDebrisSmall 9
+numSpecificDebris 0
+armorType "Light"
+hudIcon "HUDICON_ING_Frigate_AllColony"
+smallHudIcon "MainViewIcon_ING_AllColony"
+infoCardIcon "MainViewIcon_ING_AllColony"
+minZoomDistanceMult 4.000000
+NumWeapons 1
+Weapon
+	WeaponType "Projectile"
+	damageEnums
+		AttackType "ANTIVERYLIGHT"
+		DamageAffectType "AFFECTS_SHIELDS_AND_HULL"
+		DamageApplyType "BACKLOADED"
+		DamageType "ENERGY"
+		WeaponClassType "LASERTECH"
+	DamagePerBank:FRONT 24.000000
+	DamagePerBank:BACK 0.000000
+	DamagePerBank:LEFT 0.000000
+	DamagePerBank:RIGHT 0.000000
+	Range 2500.000000
+	PreBuffCooldownTime 6.000000
+	CanFireAtFighter TRUE
+	SynchronizedTargeting FALSE
+	PointStaggerDelay 0.000000
+	TravelSpeed 5000.000000
+	Duration 0.000000
+	fireConstraintType "CanAlwaysFire"
+	WeaponEffects
+		weaponType "Projectile"
+		burstCount 3
+		burstDelay 0.800000
+		fireDelay 0.000000
+		muzzleEffectName "WEAPON_RED_TL_MEDIUM_MUZZLE"
+		muzzleSoundMinRespawnTime 0.300000
+		muzzleSounds
+			soundCount 1
+			sound "Weapon ING ALL LIGHT"
+		hitEffectName "WEAPON_TL_LIGHT_HIT"
+		hitHullEffectSounds
+			soundCount 4
+			sound "Weapon ING TL HULL HIT1"
+			sound "Weapon ING TL HULL HIT2"
+			sound "Weapon ING TL HULL HIT3"
+			sound "Weapon ING TL HULL HIT4"
+		hitShieldsEffectSounds
+			soundCount 4
+			sound "Weapon ING TL IMPACT1"
+			sound "Weapon ING TL IMPACT2"
+			sound "Weapon ING TL IMPACT3"
+			sound "Weapon ING TL IMPACT4"
+		projectileTravelEffectName "WEAPON_RED_TL_LIGHT_TRAVEL"
+m_weaponIndexForRange 0
+firingAlignmentType "Default"
+TargetCountPerBank:FRONT 1
+TargetCountPerBank:BACK 0
+TargetCountPerBank:LEFT 0
+TargetCountPerBank:RIGHT 0
+canOnlyTargetStructures FALSE
+hasWeaponLevels FALSE
+mass 2000.000000
+ShieldMeshName "GoaFOddSshield"
+renderShield TRUE
+maxAccelerationLinear 100.000000
+maxAccelerationStrafe 10.000000
+maxDecelerationLinear 500.000000
+maxAccelerationAngular 1.650000
+maxDecelerationAngular 9.999996
+maxSpeedLinear 500.000000
+maxRollRate 2.000000
+maxRollAngle 35.000000
+squadTypeEntityDef:0 ""
+squadAntiMatterCost:0 0.000000
+squadTypeEntityDef:1 ""
+squadAntiMatterCost:1 0.000000
+squadTypeEntityDef:2 ""
+squadAntiMatterCost:2 0.000000
+squadTypeEntityDef:3 ""
+squadAntiMatterCost:3 0.000000
+maxNumCommandPoints 0
+NumSoundsFor:ONATTACKORDERISSUED 4
+SoundID "Dialog_ING_GallofreeAttack1"
+SoundID "Dialog_ING_GallofreeAttack2"
+SoundID "Dialog_ING_GallofreeAttack3"
+SoundID "Dialog_ING_GallofreeAttack4"
+NumSoundsFor:ONCREATION 1
+SoundID "Dialog_ING_GallofreeBuild"
+NumSoundsFor:ONGENERALORDERISSUED 4
+SoundID "Dialog_ING_GallofreeMove1"
+SoundID "Dialog_ING_GallofreeMove2"
+SoundID "Dialog_ING_GallofreeMove3"
+SoundID "Dialog_ING_GallofreeMove4"
+NumSoundsFor:ONSELECTED 5
+SoundID "Dialog_ING_GallofreeBuild"
+SoundID "Dialog_ING_GallofreeSelect1"
+SoundID "Dialog_ING_GallofreeSelect2"
+SoundID "Dialog_ING_GallofreeSelect3"
+SoundID "Dialog_ING_GallofreeSelect4"
+NumSoundsFor:ONSTARTPHASEJUMP 1
+SoundID "Dialog_ING_GallofreeJump"
+MeshNameInfoCount 1
+MeshNameInfo
+	meshName "GoaFOddS"
+	criteriaType "None"
+meshNameIncreasedEffectName ""
+meshNameDecreasedEffectName ""
+ExhaustParticleSystemName "Exhaust_FrigateTechLight"
+ExplosionName "Frigate0"
+HyperspaceChargingSoundID "Effect ING Hyperspace Chargeup"
+HyperspaceTravelSoundID "HYPERSPACE_TRAVEL"
+EngineSoundID "ENGINE_TECHCAPITALSHIP"
+ability:0 "AbilityTechFrigateColonize"
+ability:1 "Ability_E4X_CaptureNeutralFrigate"
+ability:2 "Ability_ING_BuildIonCannon"
+ability:3 "Ability_ING_BuildConstructionBase"
+ability:4 "Ability_ING_AllColonyFrigate"
+MaxAntiMatter 180.000000
+AntiMatterRestoreRate 1.000000
+cargoType "Invalid"
+maxCargoCapacity 0.000000
+formationRank 2
+minShadow 0.100000
+maxShadow 0.800000
+allegianceDecreasePerRoundtrip 0.000000

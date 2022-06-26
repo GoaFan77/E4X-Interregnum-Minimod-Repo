@@ -1,0 +1,402 @@
+﻿TXT2
+SinsArchiveVersion 194
+entityType "Titan"
+ability:0 "Ability_ING_IronAura"
+ability:1 "Ability_ING_Desperation"
+ability:2 "Ability_ING_Rivalry"
+ability:3 "Ability_ING_DangerSense"
+ability:4 ""
+defaultAutoAttackRange "GravityWell"
+defaultAutoAttackOn TRUE
+prefersToFocusFire TRUE
+usesFighterAttack FALSE
+autoJoinFleetDefault TRUE
+canBomb TRUE
+hasBombingLevels FALSE
+baseDamage 150.000000
+basePopulationKilled 2.000000
+bombingFreqTime 10.000000
+baseRange 4000.000000
+bombTransitTime 0.800000
+bombEffectCount 4
+bombEffectAngleVariance 15.000000
+bombEffectsDef
+	weaponType "Projectile"
+	burstCount 1
+	burstDelay 0.100000
+	fireDelay 0.000000
+	muzzleEffectName "WEAPON_GREEN_LASER_MUZZLE"
+	muzzleSoundMinRespawnTime 0.000010
+	muzzleSounds
+		soundCount 3
+		sound "Weapon ING EMP TL HEAVY1"
+		sound "Weapon ING EMP TL HEAVY2"
+		sound "Weapon ING EMP TL HEAVY3"
+	hitEffectName "Weapon_EmpireCapitalPlanetBombing_Hit"
+	hitHullEffectSounds
+		soundCount 3
+		sound "EXPLOSION_SUB4"
+		sound "EXPLOSION_SUB4_ALT1"
+		sound "EXPLOSION_SUB4_ALT2"
+	hitShieldsEffectSounds
+		soundCount 3
+		sound "EXPLOSION_SUB4"
+		sound "EXPLOSION_SUB4_ALT1"
+		sound "EXPLOSION_SUB4_ALT2"
+	projectileTravelEffectName "WEAPON_GREEN_TL_HEAVY_TRAVEL"
+mainViewIcon "MainViewIcon_ING_EmpSSD"
+basePrice
+	credits 16000.000000
+	metal 2200.000000
+	crystal 1250.000000
+slotCount 250.000000
+BuildTime 750.000000
+MaxHullPoints
+	StartValue 6600.000000
+	ValueIncreasePerLevel 420.000000
+MaxShieldPoints
+	StartValue 5400.000000
+	ValueIncreasePerLevel 510.750000
+HullPointRestoreRate
+	StartValue 5.100000
+	ValueIncreasePerLevel 1.100000
+ShieldPointRestoreRate
+	StartValue 7.500000
+	ValueIncreasePerLevel 1.200000
+ArmorPointsFromExperience
+	StartValue 8.500000
+	ValueIncreasePerLevel 0.595000
+maxMitigation
+	StartValue 0.650000
+	ValueIncreasePerLevel 0.011110
+MaxAntiMatter
+	StartValue 275.000000
+	ValueIncreasePerLevel 45.000000
+AntiMatterRestoreRate
+	StartValue 0.850000
+	ValueIncreasePerLevel 0.120000
+CultureProtectRate
+	StartValue 0.600000
+	ValueIncreasePerLevel 0.080000
+NameStringID "IDS_TITAN_ING_EmpIronFist_NAME"
+DescriptionStringID "IDS_TITAN_ING_EmpIronFist_DESC"
+picture "Picture_ING_Zsinj"
+Prerequisites
+	NumResearchPrerequisites 2
+	ResearchPrerequisite
+		Subject "Research_ING_JoinZsinj"
+		Level 1
+	ResearchPrerequisite
+		Subject "Research_ING_TitanAccess_ExecutorClass"
+		Level 1		
+	RequiredFactionNameID ""
+	RequiredCompletedResearchSubjects 0
+statCountType "Titan"
+UpgradeTypeCount 7
+UpgradeType "TitanUpgrade_ING_EmpIronFistAbilityA"
+UpgradeType "TitanUpgrade_ING_EmpIronFistAbilityB"
+UpgradeType "TitanUpgrade_ING_EmpIronFistAbilityC"
+UpgradeType "TitanUpgrade_ING_EmpIronFistAbilityD"
+UpgradeType "TitanUpgrade_ING_EmpExecutorDurability"
+UpgradeType "TitanUpgrade_ING_EmpExecutorWeapons"
+UpgradeType "TitanUpgrade_ING_EmpExecutorAbilities"
+numRandomDebrisLarge 80
+numRandomDebrisSmall 30
+numSpecificDebris 0
+armorType "Titan"
+hudIcon "HUDICON_ING_Zsinj"
+smallHudIcon "HudIconSmall_ING_EmpSSD"
+infoCardIcon "HudIconSmall_ING_EmpSSD"
+minZoomDistanceMult 1.100000
+NumWeapons 5
+Weapon
+	WeaponType "Projectile"
+	damageEnums
+		AttackType "TITAN"
+		DamageAffectType "AFFECTS_SHIELDS_AND_HULL"
+		DamageApplyType "BACKLOADED"
+		DamageType "ENERGY"
+		WeaponClassType "PHASECANNON"
+	DamagePerBank:FRONT 320.000000
+	DamagePerBank:BACK 0.000000
+	DamagePerBank:LEFT 160.000000
+	DamagePerBank:RIGHT 160.000000
+	Range 10000.000000
+	PreBuffCooldownTime 10.000000
+	CanFireAtFighter FALSE
+	SynchronizedTargeting FALSE
+	PointStaggerDelay 0.400000
+	TravelSpeed 5500.000000
+	Duration 0.000000
+	fireConstraintType "CanAlwaysFire"
+	WeaponEffects
+		weaponType "Projectile"
+		burstCount 1
+		burstDelay 1.200000
+		fireDelay 0.000000
+		muzzleEffectName "WEAPON_GREEN_LASER_MUZZLE"
+		muzzleSoundMinRespawnTime 0.770000
+		muzzleSounds
+			soundCount 3
+			sound "Weapon ING EMP TL HEAVY1"
+			sound "Weapon ING EMP TL HEAVY2"
+			sound "Weapon ING EMP TL HEAVY3"
+		hitEffectName "WEAPON_TL_HEAVY_HIT"
+		hitHullEffectSounds
+			soundCount 4
+			sound "Weapon ING TL HULL HIT1"
+			sound "Weapon ING TL HULL HIT2"
+			sound "Weapon ING TL HULL HIT3"
+			sound "Weapon ING TL HULL HIT4"
+		hitShieldsEffectSounds
+			soundCount 4
+			sound "Weapon ING TL IMPACT1"
+			sound "Weapon ING TL IMPACT2"
+			sound "Weapon ING TL IMPACT3"
+			sound "Weapon ING TL IMPACT4"
+		projectileTravelEffectName "WEAPON_GREEN_TL_HEAVY_TRAVEL"
+Weapon
+	WeaponType "Projectile"
+	damageEnums
+		AttackType "TITAN"
+		DamageAffectType "AFFECTS_SHIELDS_AND_HULL"
+		DamageApplyType "BACKLOADED"
+		DamageType "ENERGY"
+		WeaponClassType "PHASECANNON"
+	DamagePerBank:FRONT 102.00000
+	DamagePerBank:BACK 66.000000
+	DamagePerBank:LEFT 102.00000
+	DamagePerBank:RIGHT 102.000000
+	Range 10000.000000
+	PreBuffCooldownTime 6.000000
+	CanFireAtFighter FALSE
+	SynchronizedTargeting FALSE
+	PointStaggerDelay 0.250000
+	TravelSpeed 5500.000000
+	Duration 0.000000
+	fireConstraintType "CanAlwaysFire"
+	WeaponEffects
+		weaponType "Projectile"
+		burstCount 1
+		burstDelay 1.000000
+		fireDelay 0.000000
+		muzzleEffectName "WEAPON_GREEN_LASER_MUZZLE"
+		muzzleSoundMinRespawnTime 0.500000
+		muzzleSounds
+			soundCount 1
+			sound "Weapon ING EMP TL MEDIUM"
+		hitEffectName "WEAPON_TL_MEDIUM_HIT"
+		hitHullEffectSounds
+			soundCount 4
+			sound "Weapon ING TL HULL HIT1"
+			sound "Weapon ING TL HULL HIT2"
+			sound "Weapon ING TL HULL HIT3"
+			sound "Weapon ING TL HULL HIT4"
+		hitShieldsEffectSounds
+			soundCount 4
+			sound "Weapon ING TL IMPACT1"
+			sound "Weapon ING TL IMPACT2"
+			sound "Weapon ING TL IMPACT3"
+			sound "Weapon ING TL IMPACT4"
+		projectileTravelEffectName "WEAPON_GREEN_TL_MEDIUM_TRAVEL"
+Weapon
+	WeaponType "Missile"
+	damageEnums
+		AttackType "TITAN"
+		DamageAffectType "AFFECTS_SHIELDS_AND_HULL"
+		DamageApplyType "BACKLOADED"
+		DamageType "PHYSICAL"
+		WeaponClassType "MISSILE"
+	DamagePerBank:FRONT 330.000000
+	DamagePerBank:BACK 0.000000
+	DamagePerBank:LEFT 224.000000
+	DamagePerBank:RIGHT 224.000000
+	Range 12000.000000
+	PreBuffCooldownTime 14.000000
+	CanFireAtFighter FALSE
+	SynchronizedTargeting FALSE
+	PointStaggerDelay 0.000000
+	TravelSpeed 1050.000000
+	Duration 0.000000
+	fireConstraintType "CanAlwaysFire"
+	WeaponEffects
+		weaponType "Missile"
+		burstCount 3
+		burstDelay 0.600000
+		fireDelay 0.000000
+		muzzleEffectName "Weapon_Tech_MissileCapShip_Muzzle"
+		muzzleSoundMinRespawnTime 0.500000
+		muzzleSounds
+			soundCount 2
+			sound "Weapon ING CMISSILE1"
+			sound "Weapon ING CMISSILE2"
+		hitEffectName "Weapon_Tech_MissileCapShip_Hit"
+		hitHullEffectSounds
+			soundCount 1
+			sound "WEAPONIMPACT_MISSILEHEAVY_HITGENERIC"
+		hitShieldsEffectSounds
+			soundCount 1
+			sound "WEAPONIMPACT_MISSILEHEAVY_HITGENERIC"
+		missileTravelEffectName "Weapon_Tech_MissileCapShip_Travel"
+		missileStartTurningDistance 250.000000
+		missileSlowTurnRate 1.208997
+		missileMaxSlowTurnTime 6.000000
+Weapon
+	WeaponType "Projectile"
+	damageEnums
+		AttackType "ANTIVERYLIGHT"
+		DamageAffectType "AFFECTS_SHIELDS_AND_HULL"
+		DamageApplyType "BACKLOADED"
+		DamageType "ENERGY"
+		WeaponClassType "LASERTECH"
+	DamagePerBank:FRONT 68.000000
+	DamagePerBank:BACK 68.000000
+	DamagePerBank:LEFT 68.000000
+	DamagePerBank:RIGHT 68.000000
+	Range 4400.000000
+	PreBuffCooldownTime 4.000000
+	CanFireAtFighter TRUE
+	SynchronizedTargeting TRUE
+	PointStaggerDelay 0.450000
+	TravelSpeed 5500.000000
+	Duration 0.000000
+	fireConstraintType "CanAlwaysFire"
+	WeaponEffects
+		weaponType "Projectile"
+		burstCount 3
+		burstDelay 0.300000
+		fireDelay 0.000000
+		muzzleEffectName "WEAPON_GREEN_LASER_MUZZLE"
+		muzzleSoundMinRespawnTime 0.300000
+		muzzleSounds
+			soundCount 1
+			sound "Weapon ING EMP LIGHT"
+		hitEffectName "WEAPON_TL_LIGHT_HIT"
+		hitHullEffectSounds
+			soundCount 4
+			sound "Weapon ING TL HULL HIT1"
+			sound "Weapon ING TL HULL HIT2"
+			sound "Weapon ING TL HULL HIT3"
+			sound "Weapon ING TL HULL HIT4"
+		hitShieldsEffectSounds
+			soundCount 4
+			sound "Weapon ING TL IMPACT1"
+			sound "Weapon ING TL IMPACT2"
+			sound "Weapon ING TL IMPACT3"
+			sound "Weapon ING TL IMPACT4"
+		projectileTravelEffectName "WEAPON_GREEN_LASER_TRAVEL"
+Weapon
+	WeaponType "Projectile"
+	damageEnums
+		AttackType "TITAN"
+		DamageAffectType "AFFECTS_SHIELDS_AND_HULL"
+		DamageApplyType "BACKLOADED"
+		DamageType "ENERGY"
+		WeaponClassType "ION"
+	DamagePerBank:FRONT 96.000000
+	DamagePerBank:BACK 0.000000
+	DamagePerBank:LEFT 48.000000
+	DamagePerBank:RIGHT 48.000000
+	Range 10000.000000
+	PreBuffCooldownTime 6.000000
+	CanFireAtFighter FALSE
+	SynchronizedTargeting FALSE
+	PointStaggerDelay 1.200000
+	TravelSpeed 5000.000000
+	Duration 0.000000
+	fireConstraintType "CanAlwaysFire"
+	WeaponEffects
+		weaponType "Projectile"
+		burstCount 3
+		burstDelay 0.800000
+		fireDelay 0.000000
+		muzzleEffectName "Weapon_BlueIonCannon_Muzzle"
+		muzzleSoundMinRespawnTime 0.770000
+		muzzleSounds
+			soundCount 2
+			sound "Weapon ING ION"
+			sound "Weapon ING ION2"
+		hitEffectName "Weapon_BlueIonCannon_Hit"
+		hitHullEffectSounds
+			soundCount 1
+			sound "WEAPONIMPACT_PHASEMISSILEHEAVY_HITGENERIC"
+		hitShieldsEffectSounds
+			soundCount 1
+			sound "WEAPONIMPACT_PHASEMISSILEHEAVY_HITGENERIC"
+		projectileTravelEffectName "Weapon_BlueIonCannon_Travel"
+m_weaponIndexForRange 0
+firingAlignmentType "Default"
+TargetCountPerBank:FRONT 3
+TargetCountPerBank:BACK 2
+TargetCountPerBank:LEFT 5
+TargetCountPerBank:RIGHT 5
+canOnlyTargetStructures FALSE
+mass 100000.000000
+ShieldMeshName "GoaFEmpHshield"
+renderShield TRUE
+maxAccelerationLinear 60.000000
+maxAccelerationStrafe 7.000000
+maxDecelerationLinear 500.000000
+maxAccelerationAngular 0.800000
+maxDecelerationAngular 9.999996
+maxSpeedLinear 400.000000
+maxRollRate 1.650000
+maxRollAngle 20.000000
+useCustomHyperspaceEffects TRUE
+effects
+	chargeUpEffectName "Particle_ING_Hyperspace_Emp_Titan_Chargeup"
+	chargeUpEffectNameBetweenStars "Particle_ING_Hyperspace_Emp_Titan_Chargeup"
+	chargeUpEffectNameDestabilized "Particle_ING_Hyperspace_Emp_Titan_Chargeup_Unstable"
+	chargeUpEffectSoundID "Effect ING Hyperspace Chargeup"
+	travelEffectName "Hyperspace_Advent_Titan_Travel"
+	travelEffectNameBetweenStars "Hyperspace_Advent_Titan_Travel_Interstellar"
+	travelEffectNameDestabilized "Hyperspace_Advent_Titan_Travel_Unstable"
+	travelEffectSoundID "HYPERSPACE_TRAVEL"
+	exitEffectName "Hyperspace_Advent_Titan_Exit"
+	exitEffectSoundID "Effect ING Hyperspace Enter"
+squadTypeEntityDef:0 "Squad_ING_EmpCombat"
+squadAntiMatterCost:0 0.000000
+squadTypeEntityDef:1 "Squad_ING_EmpBomber"
+squadAntiMatterCost:1 0.000000
+squadTypeEntityDef:2 "Squad_ING_EmpInterceptor"
+squadAntiMatterCost:2 50.000000
+squadTypeEntityDef:3 "Squad_ING_EmpDefender"
+squadAntiMatterCost:3 100.000000
+NumSoundsFor:ONATTACKORDERISSUED 4
+SoundID "Dialog_ING_Zsinj_Attack"
+SoundID "Dialog_ING_Zsinj_Attack2"
+SoundID "Dialog_ING_Zsinj_Attack3"
+SoundID "Dialog_ING_Zsinj_Attack4"
+NumSoundsFor:ONCREATION 1
+SoundID "Dialog_ING_Zsinj_Select"
+NumSoundsFor:ONGENERALORDERISSUED 3
+SoundID "Dialog_ING_Zsinj_Move1"
+SoundID "Dialog_ING_Zsinj_Move2"
+SoundID "Dialog_ING_Zsinj_Move3"
+NumSoundsFor:ONSELECTED 3
+SoundID "Dialog_ING_Zsinj_Select"
+SoundID "Dialog_ING_Zsinj_Select2"
+SoundID "Dialog_ING_Zsinj_Select3"
+NumSoundsFor:ONSTARTPHASEJUMP 1
+SoundID "Dialog_ING_EmpGenericJump"
+MeshNameInfoCount 1
+MeshNameInfo
+	meshName "GoaFEmpH"
+	criteriaType "None"
+meshNameIncreasedEffectName ""
+meshNameDecreasedEffectName ""
+ExhaustParticleSystemName "Exhaust_TechBattleship"
+ExplosionName "StarBase1"
+CommandPoints
+	StartValue 4.000001
+	ValueIncreasePerLevel 0.333333
+weaponCooldownDecreasePerc
+	StartValue 0.000000
+	ValueIncreasePerLevel 0.000000
+weaponDamageIncreasePerc
+	StartValue 0.000000
+	ValueIncreasePerLevel 0.095000
+EngineSoundID "ENGINE_TECHCAPITALSHIP"
+formationRank 0
+minShadow 0.000000
+maxShadow 1.000000

@@ -1,0 +1,172 @@
+﻿TXT
+entityType "Fighter"
+defaultAutoAttackRange "GravityWell"
+defaultAutoAttackOn TRUE
+prefersToFocusFire TRUE
+usesFighterAttack TRUE
+numRandomDebrisLarge 0
+numRandomDebrisSmall 0
+numSpecificDebris 0
+armorType "VeryLight"
+hudIcon "HUDICON_ING_FighterEmpDefender"
+smallHudIcon "MainViewIcon_ING_EmpDefender"
+infoCardIcon "MainViewIcon_ING_EmpDefender"
+minZoomDistanceMult 9.000000
+nameStringID "IDS_Fighter_ING_EmpDefender"
+counterDescriptionStringID "IDS_COUNTERDESC_FIGHTER_COMBAT"
+statCountType "FighterCombat"
+formationOffsetDistance 50.000000
+mass 120.000000
+maxAccelerationLinear 325.000000
+maxAccelerationStrafe 120.000000
+maxDecelerationLinear 1150.000000
+maxAccelerationAngular 59.999992
+maxDecelerationAngular 109.999985
+maxSpeedLinear 3300.000000
+maxRollRate 3.000000
+maxRollAngle 38.000000
+NumWeapons 3
+Weapon
+	WeaponType "Projectile"
+	damageEnums
+		AttackType "ANTIVERYLIGHT"
+		DamageAffectType "AFFECTS_SHIELDS_AND_HULL"
+		DamageApplyType "BACKLOADED"
+		DamageType "ENERGY"
+		WeaponClassType "LASERTECH"
+	DamagePerBank:FRONT 76.000000
+	DamagePerBank:BACK 0.000000
+	DamagePerBank:LEFT 0.000000
+	DamagePerBank:RIGHT 0.000000
+	Range 2400.000000
+	PreBuffCooldownTime 10.000000
+	CanFireAtFighter TRUE
+	SynchronizedTargeting TRUE
+	PointStaggerDelay 0.000000
+	TravelSpeed 4500.000000
+	Duration 0.000000
+	fireConstraintType "CanAlwaysFire"
+	WeaponEffects
+		weaponType "Projectile"
+		burstCount 6
+		burstDelay 0.150000
+		fireDelay 0.000000
+		muzzleEffectName "WEAPON_ING_GREEN_LASER_FIGHTER_MUZZLE"
+		muzzleSoundMinRespawnTime 0.500000
+		muzzleSounds
+			soundCount 1
+			sound "Weapon ING EMP TIELASER"
+		hitEffectName "WEAPON_ING_Laser_Fighter_Hit"
+		hitHullEffectSounds
+			soundCount 4
+			sound "Weapon ING TL HULL HIT1"
+			sound "Weapon ING TL HULL HIT2"
+			sound "Weapon ING TL HULL HIT3"
+			sound "Weapon ING TL HULL HIT4"
+		hitShieldsEffectSounds
+			soundCount 4
+			sound "Weapon ING TL IMPACT1"
+			sound "Weapon ING TL IMPACT2"
+			sound "Weapon ING TL IMPACT3"
+			sound "Weapon ING TL IMPACT4"
+		projectileTravelEffectName "WEAPON_ING_GREEN_LASER_FIGHTER_TRAVEL"
+Weapon
+	WeaponType "Projectile"
+	damageEnums
+		AttackType "ANTIHEAVY"
+		DamageAffectType "AFFECTS_SHIELDS_AND_HULL"
+		DamageApplyType "BACKLOADED"
+		DamageType "ENERGY"
+		WeaponClassType "ION"
+	DamagePerBank:FRONT 33.000000
+	DamagePerBank:BACK 0.000000
+	DamagePerBank:LEFT 0.000000
+	DamagePerBank:RIGHT 0.000000
+	Range 2400.000000
+	PreBuffCooldownTime 11.000000
+	CanFireAtFighter TRUE
+	SynchronizedTargeting TRUE
+	PointStaggerDelay 0.000000
+	TravelSpeed 4500.000000
+	Duration 0.000000
+	fireConstraintType "CanAlwaysFire"
+	WeaponEffects
+		weaponType "Projectile"
+		burstCount 2
+		burstDelay 0.320000
+		fireDelay 0.000000
+		muzzleEffectName "Weapon_ING_BlueIonCannonFighter_Muzzle"
+		muzzleSoundMinRespawnTime 0.500000
+		muzzleSounds
+			soundCount 2
+			sound "Weapon ING ION"
+			sound "Weapon ING ION2"
+		hitEffectName "Weapon_ING_BlueIonCannonFighter_Hit"
+		hitHullEffectSounds
+			soundCount 1
+			sound "WEAPONIMPACT_PHASEMISSILEHEAVY_HITGENERIC"
+		hitShieldsEffectSounds
+			soundCount 1
+			sound "WEAPONIMPACT_PHASEMISSILEHEAVY_HITGENERIC"
+		projectileTravelEffectName "Weapon_ING_BlueIonCannonFighter_Travel"
+Weapon
+	WeaponType "Missile"
+	damageEnums
+		AttackType "ANTIVERYHEAVY"
+		DamageAffectType "AFFECTS_SHIELDS_AND_HULL"
+		DamageApplyType "BACKLOADED"
+		DamageType "PHYSICAL"
+		WeaponClassType "MISSILE"
+	DamagePerBank:FRONT 36.000000
+	DamagePerBank:BACK 0.000000
+	DamagePerBank:LEFT 0.000000
+	DamagePerBank:RIGHT 0.000000
+	Range 2400.000000
+	PreBuffCooldownTime 12.000000
+	CanFireAtFighter FALSE
+	SynchronizedTargeting FALSE
+	PointStaggerDelay 1.000000
+	TravelSpeed 1100.000000
+	Duration 0.000000
+	fireConstraintType "CanAlwaysFire"
+	WeaponEffects
+		weaponType "Missile"
+		burstCount 1
+		burstDelay 0.000000
+		fireDelay 0.000000
+		muzzleEffectName "Weapon_Tech_MissileFighter_Muzzle"
+		muzzleSoundMinRespawnTime 0.100000
+		muzzleSounds
+			soundCount 1
+			sound "Weapon ING ALL PROTON"
+		hitEffectName "Weapon_Tech_MissileFighter_Hit"
+		hitHullEffectSounds
+			soundCount 1
+			sound "WEAPONIMPACT_MISSILELIGHT_HITGENERIC"
+		hitShieldsEffectSounds
+			soundCount 1
+			sound "WEAPONIMPACT_MISSILELIGHT_HITGENERIC"
+		missileTravelEffectName "Weapon_Tech_MissileFighter_Travel"
+		missileStartTurningDistance 10.000000
+		missileSlowTurnRate 3.141593
+		missileMaxSlowTurnTime 1.000000
+m_weaponIndexForRange 0
+firingAlignmentType "Default"
+TargetCountPerBank:FRONT 1
+TargetCountPerBank:BACK 0
+TargetCountPerBank:LEFT 0
+TargetCountPerBank:RIGHT 0
+canOnlyTargetStructures FALSE
+meshName "GoaFOddT"
+exhaustParticleSystemName "Exhaust_FrigateTechScout"
+ExplosionName "Explosion_ING_TIEFIGHTER"
+exhaustTrailTextureName ""
+exhaustTrailWidth 0.000001
+engineSoundID "Effect ING TIE ENGINE"
+maxHullPoints 200.000000
+hullPointRestoreRate 2.500000
+armorPoints 2.500000
+maxMitigation 0.600000
+experiencePointsForDestroying 12.000000
+minShadow 0.000000
+maxShadow 0.500000

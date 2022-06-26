@@ -1,0 +1,320 @@
+﻿TXT2
+SinsArchiveVersion 194
+entityType "Titan"
+ability:0 "Ability_ING_InvincibleSuperstructure"
+ability:1 "Ability_ING_IonBombardment"
+ability:2 "Ability_ING_FleetDefender"
+ability:3 "Ability_ING_StabilizingPresence"
+ability:4 "Ability_ING_MediatorClassPlaceholder"
+defaultAutoAttackRange "GravityWell"
+defaultAutoAttackOn TRUE
+prefersToFocusFire TRUE
+usesFighterAttack FALSE
+autoJoinFleetDefault TRUE
+canBomb TRUE
+hasBombingLevels FALSE
+baseDamage 43.000000
+basePopulationKilled 1.700000
+bombingFreqTime 10.000000
+baseRange 4000.000000
+bombTransitTime 0.800000
+bombEffectCount 4
+bombEffectAngleVariance 15.000000
+bombEffectsDef
+	weaponType "Missile"
+	burstCount 1
+	burstDelay 1.000000
+	fireDelay 0.000000
+	muzzleEffectName ""
+	muzzleSoundMinRespawnTime 0.500000
+	muzzleSounds
+		soundCount 1
+		sound "EFFECT_BOARDINGPODS_TECH"
+	hitEffectName "Weapon_ING_SmallPlanetExplosions_Hit"
+	hitHullEffectSounds
+		soundCount 3
+		sound "EXPLOSION_SUB4"
+		sound "EXPLOSION_SUB4_ALT1"
+		sound "EXPLOSION_SUB4_ALT2"
+	hitShieldsEffectSounds
+		soundCount 3
+		sound "EXPLOSION_SUB4"
+		sound "EXPLOSION_SUB4_ALT1"
+		sound "EXPLOSION_SUB4_ALT2"
+	missileTravelEffectName "Particle_ING_YwingPlanetBombing"
+	missileStartTurningDistance 100.000000
+	missileSlowTurnRate 2.208997
+	missileMaxSlowTurnTime 3.000000
+mainViewIcon "MainViewIcon_ING_NrMediator"
+basePrice
+	credits 9500.000000
+	metal 1200.000000
+	crystal 750.000000
+slotCount 150.000000
+BuildTime 450.000000
+MaxHullPoints
+	StartValue 3850.000000
+	ValueIncreasePerLevel 490.000000
+MaxShieldPoints
+	StartValue 3650.000000
+	ValueIncreasePerLevel 570.000000
+HullPointRestoreRate
+	StartValue 2.700000
+	ValueIncreasePerLevel 0.500000
+ShieldPointRestoreRate
+	StartValue 5.400000
+	ValueIncreasePerLevel 0.850000
+ArmorPointsFromExperience
+	StartValue 10.000000
+	ValueIncreasePerLevel 0.816000
+maxMitigation
+	StartValue 0.650000
+	ValueIncreasePerLevel 0.011110
+MaxAntiMatter
+	StartValue 270.000000
+	ValueIncreasePerLevel 40.000000
+AntiMatterRestoreRate
+	StartValue 0.850000
+	ValueIncreasePerLevel 0.120000
+CultureProtectRate
+	StartValue 0.300000
+	ValueIncreasePerLevel 0.050000
+NameStringID "IDS_Titan_ING_NrMediator_NAME"
+DescriptionStringID "IDS_Titan_ING_NrMediator_DESC"
+picture "Picture_ING_NrMediator"
+Prerequisites
+	NumResearchPrerequisites 1
+	ResearchPrerequisite
+		Subject "Research_ING_TitanAccess_NrStarDefender1"
+		Level 1
+	RequiredFactionNameID ""
+	RequiredCompletedResearchSubjects 0
+statCountType "Titan"
+UpgradeTypeCount 7
+UpgradeType "TitanUpgrade_ING_NrMediatorAbilityA"
+UpgradeType "TitanUpgrade_ING_NrMediatorAbilityB"
+UpgradeType "TitanUpgrade_ING_NrMediatorAbilityC"
+UpgradeType "TitanUpgrade_ING_NrMediatorAbilityD"
+UpgradeType "TitanUpgrade_ING_AllHomeOneDurability"
+UpgradeType "TitanUpgrade_ING_AllHomeOneWeapons"
+UpgradeType "TitanUpgrade_ING_AllHomeOneAbilities"
+numRandomDebrisLarge 80
+numRandomDebrisSmall 30
+numSpecificDebris 0
+armorType "Titan"
+hudIcon "HUDICON_ING_TitanNrMediator"
+smallHudIcon "HudIconSmall_ING_NrMediator"
+infoCardIcon "HudIconSmall_ING_NrMediator"
+minZoomDistanceMult 1.100000
+NumWeapons 3
+Weapon
+	WeaponType "Projectile"
+	damageEnums
+		AttackType "TITAN"
+		DamageAffectType "AFFECTS_SHIELDS_AND_HULL"
+		DamageApplyType "BACKLOADED"
+		DamageType "ENERGY"
+		WeaponClassType "PHASECANNON"
+	DamagePerBank:FRONT 360.000000
+	DamagePerBank:BACK 40.000000
+	DamagePerBank:LEFT 180.000000
+	DamagePerBank:RIGHT 180.000000
+	Range 7000.000000
+	PreBuffCooldownTime 10.000000
+	CanFireAtFighter FALSE
+	SynchronizedTargeting FALSE
+	PointStaggerDelay 0.700000
+	TravelSpeed 5500.000000
+	Duration 0.000000
+	fireConstraintType "CanAlwaysFire"
+	WeaponEffects
+		weaponType "Projectile"
+		burstCount 1
+		burstDelay 1.300000
+		fireDelay 0.000000
+		muzzleEffectName "WEAPON_RED_TL_SHEAVY_MUZZLE"
+		muzzleSoundMinRespawnTime 0.400000
+		muzzleSounds
+			soundCount 2
+			sound "Weapon ING ALL TL HEAVY1"
+			sound "Weapon ING ALL TL HEAVY2"
+		hitEffectName "WEAPON_TL_SHEAVY_HIT"
+		hitHullEffectSounds
+			soundCount 4
+			sound "Weapon ING TL HULL HIT1"
+			sound "Weapon ING TL HULL HIT2"
+			sound "Weapon ING TL HULL HIT3"
+			sound "Weapon ING TL HULL HIT4"
+		hitShieldsEffectSounds
+			soundCount 4
+			sound "Weapon ING TL IMPACT1"
+			sound "Weapon ING TL IMPACT2"
+			sound "Weapon ING TL IMPACT3"
+			sound "Weapon ING TL IMPACT4"
+		projectileTravelEffectName "WEAPON_RED_TL_SHEAVY_TRAVEL"
+Weapon
+	WeaponType "Projectile"
+	damageEnums
+		AttackType "TITAN"
+		DamageAffectType "AFFECTS_SHIELDS_AND_HULL"
+		DamageApplyType "BACKLOADED"
+		DamageType "ENERGY"
+		WeaponClassType "ION"
+	DamagePerBank:FRONT 192.000000
+	DamagePerBank:BACK 0.000000
+	DamagePerBank:LEFT 96.000000
+	DamagePerBank:RIGHT 96.000000
+	Range 7000.000000
+	PreBuffCooldownTime 8.000000
+	CanFireAtFighter FALSE
+	SynchronizedTargeting FALSE
+	PointStaggerDelay 0.600000
+	TravelSpeed 5000.000000
+	Duration 0.000000
+	fireConstraintType "CanAlwaysFire"
+	WeaponEffects
+		weaponType "Projectile"
+		burstCount 1
+		burstDelay 0.700000
+		fireDelay 0.000000
+		muzzleEffectName "Weapon_BlueIonCannon_Muzzle"
+		muzzleSoundMinRespawnTime 0.770000
+		muzzleSounds
+			soundCount 2
+			sound "Weapon ING ION"
+			sound "Weapon ING ION2"
+		hitEffectName "Weapon_BlueIonCannon_Hit"
+		hitHullEffectSounds
+			soundCount 1
+			sound "WEAPONIMPACT_PHASEMISSILEHEAVY_HITGENERIC"
+		hitShieldsEffectSounds
+			soundCount 1
+			sound "WEAPONIMPACT_PHASEMISSILEHEAVY_HITGENERIC"
+		projectileTravelEffectName "Weapon_BlueIonCannon_Travel"
+Weapon
+	WeaponType "Projectile"
+	damageEnums
+		AttackType "ANTILIGHT"
+		DamageAffectType "AFFECTS_SHIELDS_AND_HULL"
+		DamageApplyType "BACKLOADED"
+		DamageType "ENERGY"
+		WeaponClassType "LASERTECH"
+	DamagePerBank:FRONT 49.000000
+	DamagePerBank:BACK 49.000000
+	DamagePerBank:LEFT 49.000000
+	DamagePerBank:RIGHT 49.000000
+	Range 4500.000000
+	PreBuffCooldownTime 7.000000
+	CanFireAtFighter TRUE
+	SynchronizedTargeting TRUE
+	PointStaggerDelay 0.550000
+	TravelSpeed 5500.000000
+	Duration 0.000000
+	fireConstraintType "CanAlwaysFire"
+	WeaponEffects
+		weaponType "Projectile"
+		burstCount 1
+		burstDelay 0.500000
+		fireDelay 0.000000
+		muzzleEffectName "WEAPON_RED_TL_MEDIUM_MUZZLE"
+		muzzleSoundMinRespawnTime 0.300000
+		muzzleSounds
+			soundCount 1
+			sound "Weapon ING ALL TL MEDIUM"
+		hitEffectName "WEAPON_TL_MEDIUM_HIT"
+		hitHullEffectSounds
+			soundCount 4
+			sound "Weapon ING TL HULL HIT1"
+			sound "Weapon ING TL HULL HIT2"
+			sound "Weapon ING TL HULL HIT3"
+			sound "Weapon ING TL HULL HIT4"
+		hitShieldsEffectSounds
+			soundCount 4
+			sound "Weapon ING TL IMPACT1"
+			sound "Weapon ING TL IMPACT2"
+			sound "Weapon ING TL IMPACT3"
+			sound "Weapon ING TL IMPACT4"
+		projectileTravelEffectName "WEAPON_RED_TL_MEDIUM_TRAVEL"
+m_weaponIndexForRange 0
+firingAlignmentType "Default"
+TargetCountPerBank:FRONT 2
+TargetCountPerBank:BACK 2
+TargetCountPerBank:LEFT 2
+TargetCountPerBank:RIGHT 2
+canOnlyTargetStructures FALSE
+mass 80000.000000
+ShieldMeshName "GoaFRebHshield"
+renderShield TRUE
+maxAccelerationLinear 60.000000
+maxAccelerationStrafe 8.000000
+maxDecelerationLinear 500.000000
+maxAccelerationAngular 0.800000
+maxDecelerationAngular 9.999996
+maxSpeedLinear 450.000000
+maxRollRate 1.650000
+maxRollAngle 20.000000
+useCustomHyperspaceEffects TRUE
+effects
+	chargeUpEffectName "Particle_ING_Hyperspace_Emp_Bellator_Chargeup"
+	chargeUpEffectNameBetweenStars "Particle_ING_Hyperspace_Emp_Bellator_Chargeup"
+	chargeUpEffectNameDestabilized "Particle_ING_Hyperspace_Emp_Bellator_Unstable"
+	chargeUpEffectSoundID "Effect ING Hyperspace Chargeup"
+	travelEffectName "Hyperspace_Advent_Titan_Travel"
+	travelEffectNameBetweenStars "Hyperspace_Advent_Titan_Travel_Interstellar"
+	travelEffectNameDestabilized "Hyperspace_Advent_Titan_Travel_Unstable"
+	travelEffectSoundID "HYPERSPACE_TRAVEL"
+	exitEffectName "Hyperspace_Advent_Titan_Exit"
+	exitEffectSoundID "Effect ING Hyperspace Enter"
+squadTypeEntityDef:0 "Squad_ING_AllCombat"
+squadAntiMatterCost:0 0.000000
+squadTypeEntityDef:1 "Squad_ING_AllBomber"
+squadAntiMatterCost:1 0.000000
+squadTypeEntityDef:2 "Squad_ING_AllKwing"
+squadAntiMatterCost:2 100.000000
+squadTypeEntityDef:3 "Squad_ING_AllEwing"
+squadAntiMatterCost:3 85.000000
+NumSoundsFor:ONATTACKORDERISSUED 5
+SoundID "Dialog_ING_MonCalCruiserAttack1"
+SoundID "Dialog_ING_MonCalCruiserAttack2"
+SoundID "Dialog_ING_MonCalCruiserAttack3"
+SoundID "Dialog_ING_MonCalCruiserAttack4"
+SoundID "Dialog_ING_MonCalCruiserAttack5"
+NumSoundsFor:ONCREATION 1
+SoundID "Dialog_ING_MonCalCruiserBuilt"
+NumSoundsFor:ONGENERALORDERISSUED 6
+SoundID "Dialog_ING_MonCalCruiserMove1"
+SoundID "Dialog_ING_MonCalCruiserMove2"
+SoundID "Dialog_ING_MonCalCruiserMove3"
+SoundID "Dialog_ING_MonCalCruiserMove4"
+SoundID "Dialog_ING_MonCalCruiserMove5"
+SoundID "Dialog_ING_MonCalCruiserMove6"
+NumSoundsFor:ONSELECTED 6
+SoundID "Dialog_ING_MonCalCruiserSelect1"
+SoundID "Dialog_ING_MonCalCruiserSelect2"
+SoundID "Dialog_ING_MonCalCruiserSelect3"
+SoundID "Dialog_ING_MonCalCruiserSelect4"
+SoundID "Dialog_ING_MonCalCruiserSelect5"
+SoundID "Dialog_ING_MonCalCruiserSelect6"
+NumSoundsFor:ONSTARTPHASEJUMP 1
+SoundID "Dialog_ING_MonCalCruiserJump"
+MeshNameInfoCount 1
+MeshNameInfo
+	meshName "GoaFRebH"
+	criteriaType "None"
+meshNameIncreasedEffectName ""
+meshNameDecreasedEffectName ""
+ExhaustParticleSystemName "Exhaust_TechBattleship"
+ExplosionName "StarBase1"
+CommandPoints
+	StartValue 3.000000
+	ValueIncreasePerLevel 0.333334
+weaponCooldownDecreasePerc
+	StartValue 0.000000
+	ValueIncreasePerLevel 0.030000
+weaponDamageIncreasePerc
+	StartValue 0.000000
+	ValueIncreasePerLevel 0.050000
+EngineSoundID "ENGINE_TECHCAPITALSHIP"
+formationRank 0
+minShadow 0.000000
+maxShadow 1.000000

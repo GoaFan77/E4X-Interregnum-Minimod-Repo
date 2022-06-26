@@ -1,0 +1,111 @@
+﻿TXT
+entityType "Frigate"
+defaultAutoAttackRange "GravityWell"
+defaultAutoAttackOn TRUE
+prefersToFocusFire FALSE
+usesFighterAttack FALSE
+autoJoinFleetDefault TRUE
+canBomb FALSE
+typeCount 1
+frigateRoleType "Support"
+statCountType "FrigateUtility0"
+mainViewIcon "MainViewIcon_ING_NrSupport"
+picture "Picture_ING_NrSupport"
+NameStringID "IDS_Frigate_ING_NrSupport_NAME"
+DescriptionStringID "IDS_Frigate_ING_NrSupport_DESC"
+counterDescriptionStringID "IDS_COUNTERDESC_FRIGATE_NONCOMBAT"
+basePrice
+	credits 560.000000
+	metal 80.000000
+	crystal 105.000000
+slotCount 7.000000
+BuildTime 38.000000
+hasLevels FALSE
+ExperiencePointsForDestroying 35.000000
+MaxHullPoints 980.000000
+MaxShieldPoints 565.000000
+HullPointRestoreRate 1.500000
+ShieldPointRestoreRate 1.000000
+BaseArmorPoints 1.500000
+maxMitigation 0.600000
+Prerequisites
+	NumResearchPrerequisites 1
+	ResearchPrerequisite
+		Subject "Research_ING_NrNewClassPhase1"
+		Level 1
+	RequiredFactionNameID ""
+	RequiredCompletedResearchSubjects 0
+numRandomDebrisLarge 1
+numRandomDebrisSmall 8
+numSpecificDebris 0
+armorType "Heavy"
+hudIcon "HUDICON_ING_Frigate_NrSupport"
+smallHudIcon "MainViewIcon_ING_NrSupport"
+infoCardIcon "MainViewIcon_ING_NrSupport"
+minZoomDistanceMult 3.000000
+NumWeapons 0
+m_weaponIndexForRange 0
+firingAlignmentType "Default"
+TargetCountPerBank:FRONT 1
+TargetCountPerBank:BACK 1
+TargetCountPerBank:LEFT 1
+TargetCountPerBank:RIGHT 1
+canOnlyTargetStructures FALSE
+hasWeaponLevels FALSE
+mass 2000.000000
+ShieldMeshName "GoaFOddMshield"
+renderShield TRUE
+maxAccelerationLinear 100.000000
+maxAccelerationStrafe 10.000000
+maxDecelerationLinear 500.000000
+maxAccelerationAngular 1.650000
+maxDecelerationAngular 9.999996
+maxSpeedLinear 500.000000
+maxRollRate 2.000000
+maxRollAngle 35.000000
+squadTypeEntityDef:0 ""
+squadAntiMatterCost:0 0.000000
+squadTypeEntityDef:1 ""
+squadAntiMatterCost:1 0.000000
+squadTypeEntityDef:2 ""
+squadAntiMatterCost:2 0.000000
+squadTypeEntityDef:3 ""
+squadAntiMatterCost:3 0.000000
+maxNumCommandPoints 0
+NumSoundsFor:ONATTACKORDERISSUED 0
+NumSoundsFor:ONCREATION 1
+SoundID "Dialog_ING_HajenSelect3"
+NumSoundsFor:ONGENERALORDERISSUED 4
+SoundID "Dialog_ING_HajenMove1"
+SoundID "Dialog_ING_HajenMove2"
+SoundID "Dialog_ING_HajenMove3"
+SoundID "Dialog_ING_HajenMove4"
+NumSoundsFor:ONSELECTED 3
+SoundID "Dialog_ING_HajenSelect1"
+SoundID "Dialog_ING_HajenSelect2"
+SoundID "Dialog_ING_HajenSelect3"
+NumSoundsFor:ONSTARTPHASEJUMP 0
+MeshNameInfoCount 1
+MeshNameInfo
+	meshName "GoaFOddM"
+	criteriaType "None"
+meshNameIncreasedEffectName ""
+meshNameDecreasedEffectName ""
+ExhaustParticleSystemName "Exhaust_TechBattleship"
+ExplosionName "Frigate0"
+HyperspaceChargingSoundID "Effect ING Hyperspace Chargeup"
+HyperspaceTravelSoundID "HYPERSPACE_TRAVEL"
+EngineSoundID "ENGINE_TECHCAPITALSHIP"
+ability:0 "Ability_ING_Replenishment"
+ability:1 "Ability_ING_ResupplyMunitions"
+ability:2 "Ability_ING_HajenRupture"
+ability:3 ""
+ability:4 "Ability_ING_AntimissileSystem"
+MaxAntiMatter 350.000000
+AntiMatterRestoreRate 1.000000
+cargoType "Invalid"
+maxCargoCapacity 0.000000
+formationRank 2
+minShadow 0.200000
+maxShadow 1.000000
+allegianceDecreasePerRoundtrip 0.000000

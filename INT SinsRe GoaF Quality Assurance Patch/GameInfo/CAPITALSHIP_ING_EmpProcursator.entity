@@ -1,0 +1,345 @@
+﻿TXT
+entityType "CapitalShip"
+ability:0 "Ability_ING_PrimaryFire"
+ability:1 "Ability_ING_ProcursatorMissileVolley"
+ability:2 "Ability_ING_RapidDeployment"
+ability:3 "Ability_ING_Indomination"
+ability:4 ""
+defaultAutoAttackRange "GravityWell"
+defaultAutoAttackOn TRUE
+prefersToFocusFire TRUE
+usesFighterAttack FALSE
+autoJoinFleetDefault TRUE
+canBomb TRUE
+hasBombingLevels FALSE
+baseDamage 51.600000
+basePopulationKilled 2.0
+bombingFreqTime 10.000000
+baseRange 3000.000000
+bombTransitTime 0.800000
+bombEffectCount 3
+bombEffectAngleVariance 15.000000
+bombEffectsDef
+	weaponType "Projectile"
+	burstCount 2
+	burstDelay 0.100000
+	fireDelay 0.000000
+	muzzleEffectName "Weapon_TechCapitalPlanetBombing_Muzzle"
+	muzzleSoundMinRespawnTime 0.000010
+	muzzleSounds
+		soundCount 3
+		sound "Weapon ING EMP TL HEAVY1"
+		sound "Weapon ING EMP TL HEAVY2"
+		sound "Weapon ING EMP TL HEAVY3"
+	hitEffectName "Weapon_EmpireCapitalPlanetBombing_Hit"
+	hitHullEffectSounds
+		soundCount 3
+		sound "EXPLOSION_SUB4"
+		sound "EXPLOSION_SUB4_ALT1"
+		sound "EXPLOSION_SUB4_ALT2"
+	hitShieldsEffectSounds
+		soundCount 3
+		sound "EXPLOSION_SUB4"
+		sound "EXPLOSION_SUB4_ALT1"
+		sound "EXPLOSION_SUB4_ALT2"
+	projectileTravelEffectName "WEAPON_GREEN_TL_HEAVY_TRAVEL"
+mainViewIcon "MainViewIcon_ING_EmpProcursator"
+basePrice
+	credits 3300.000000
+	metal 440.000000
+	crystal 275.000000
+slotCount 55.000000
+BuildTime 82.000000
+MaxHullPoints
+	StartValue 2838.000000
+	ValueIncreasePerLevel 150.000000
+MaxShieldPoints
+	StartValue 2322.000000
+	ValueIncreasePerLevel 230.000000
+HullPointRestoreRate
+	StartValue 1.900000
+	ValueIncreasePerLevel 0.150000
+ShieldPointRestoreRate
+	StartValue 3.800000
+	ValueIncreasePerLevel 0.300000
+ArmorPointsFromExperience
+	StartValue 4.500000
+	ValueIncreasePerLevel 0.480000
+maxMitigation
+	StartValue 0.650000
+	ValueIncreasePerLevel 0.011110
+MaxAntiMatter
+	StartValue 285.000000
+	ValueIncreasePerLevel 25.000000
+AntiMatterRestoreRate
+	StartValue 0.950000
+	ValueIncreasePerLevel 0.100000
+CultureProtectRate
+	StartValue 0.350000
+	ValueIncreasePerLevel 0.060000
+NameStringID "IDS_CAPITALSHIP_ING_EmpProcursator_NAME"
+DescriptionStringID "IDS_CAPITALSHIP_ING_EmpProcursator_DESC"
+picture "Picture_ING_EmpProcursator"
+Prerequisites
+	NumResearchPrerequisites 1
+	ResearchPrerequisite
+		Subject "Research_ING_EmpRank1"
+		Level 1
+	RequiredFactionNameID ""
+	RequiredCompletedResearchSubjects 0
+roleType "Invalid"
+statCountType "CapitalShipUtility1"
+numRandomDebrisLarge 7
+numRandomDebrisSmall 10
+numSpecificDebris 0
+armorType "CapitalShip"
+hudIcon "HUDICON_ING_CAPITALSHIP_EmpProcursator"
+smallHudIcon "MainViewIcon_ING_EmpProcursator"
+infoCardIcon "MainViewIcon_ING_EmpProcursator"
+minZoomDistanceMult 2.000000
+NumWeapons 4
+Weapon
+	WeaponType "Projectile"
+	damageEnums
+		AttackType "CAPITALSHIP"
+		DamageAffectType "AFFECTS_SHIELDS_AND_HULL"
+		DamageApplyType "BACKLOADED"
+		DamageType "ENERGY"
+		WeaponClassType "PHASECANNON"
+	DamagePerBank:FRONT 120.000000
+	DamagePerBank:BACK 0.000000
+	DamagePerBank:LEFT 0.000000
+	DamagePerBank:RIGHT 0.000000
+	Range 5000.000000
+	PreBuffCooldownTime 10.000000
+	CanFireAtFighter FALSE
+	SynchronizedTargeting FALSE
+	PointStaggerDelay 0.620000
+	TravelSpeed 5500.000000
+	Duration 0.000000
+	fireConstraintType "CanAlwaysFire"
+	WeaponEffects
+		weaponType "Projectile"
+		burstCount 1
+		burstDelay 1.200000
+		fireDelay 0.000000
+		muzzleEffectName "Weapon_ING_ProcursatorTurretMuzzle"
+		muzzleSoundMinRespawnTime 0.770000
+		muzzleSounds
+			soundCount 3
+			sound "Weapon ING EMP TL HEAVY1"
+			sound "Weapon ING EMP TL HEAVY2"
+			sound "Weapon ING EMP TL HEAVY3"
+		hitEffectName "WEAPON_TL_HEAVY_HIT"
+		hitHullEffectSounds
+			soundCount 4
+			sound "Weapon ING TL HULL HIT1"
+			sound "Weapon ING TL HULL HIT2"
+			sound "Weapon ING TL HULL HIT3"
+			sound "Weapon ING TL HULL HIT4"
+		hitShieldsEffectSounds
+			soundCount 4
+			sound "Weapon ING TL IMPACT1"
+			sound "Weapon ING TL IMPACT2"
+			sound "Weapon ING TL IMPACT3"
+			sound "Weapon ING TL IMPACT4"
+		projectileTravelEffectName "WEAPON_ING_ProcursatorTurretTravel"
+Weapon
+	WeaponType "Projectile"
+	damageEnums
+		AttackType "CAPITALSHIP"
+		DamageAffectType "AFFECTS_SHIELDS_AND_HULL"
+		DamageApplyType "BACKLOADED"
+		DamageType "ENERGY"
+		WeaponClassType "PHASECANNON"
+	DamagePerBank:FRONT 60.000000
+	DamagePerBank:BACK 30.000000
+	DamagePerBank:LEFT 60.000000
+	DamagePerBank:RIGHT 60.000000
+	Range 5000.000000
+	PreBuffCooldownTime 10.000000
+	CanFireAtFighter FALSE
+	SynchronizedTargeting FALSE
+	PointStaggerDelay 0.600000
+	TravelSpeed 5500.000000
+	Duration 0.000000
+	fireConstraintType "CanAlwaysFire"
+	WeaponEffects
+		weaponType "Projectile"
+		burstCount 1
+		burstDelay 0.000000
+		fireDelay 0.000000
+		muzzleEffectName "Weapon_ING_VenatorTurretGreenMuzzle"
+		muzzleSoundMinRespawnTime 0.770000
+		muzzleSounds
+			soundCount 3
+			sound "Weapon ING EMP TL HEAVY1"
+			sound "Weapon ING EMP TL HEAVY2"
+			sound "Weapon ING EMP TL HEAVY3"
+		hitEffectName "WEAPON_TL_HEAVY_HIT"
+		hitHullEffectSounds
+			soundCount 4
+			sound "Weapon ING TL HULL HIT1"
+			sound "Weapon ING TL HULL HIT2"
+			sound "Weapon ING TL HULL HIT3"
+			sound "Weapon ING TL HULL HIT4"
+		hitShieldsEffectSounds
+			soundCount 4
+			sound "Weapon ING TL IMPACT1"
+			sound "Weapon ING TL IMPACT2"
+			sound "Weapon ING TL IMPACT3"
+			sound "Weapon ING TL IMPACT4"
+		projectileTravelEffectName "Weapon_ING_VenatorTurretGreenTravel"
+Weapon
+	WeaponType "Projectile"
+	damageEnums
+		AttackType "CAPITALSHIP"
+		DamageAffectType "AFFECTS_SHIELDS_AND_HULL"
+		DamageApplyType "BACKLOADED"
+		DamageType "ENERGY"
+		WeaponClassType "LASERTECH"
+	DamagePerBank:FRONT 0.000000
+	DamagePerBank:BACK 0.000000
+	DamagePerBank:LEFT 50.000000
+	DamagePerBank:RIGHT 50.000000
+	Range 5000.000000
+	PreBuffCooldownTime 10.000000
+	CanFireAtFighter TRUE
+	SynchronizedTargeting FALSE
+	PointStaggerDelay 0.400000
+	TravelSpeed 5500.000000
+	Duration 0.000000
+	fireConstraintType "CanAlwaysFire"
+	WeaponEffects
+		weaponType "Projectile"
+		burstCount 1
+		burstDelay 1.000000
+		fireDelay 0.000000
+		muzzleEffectName "WEAPON_GREEN_LASER_MUZZLE"
+		muzzleSoundMinRespawnTime 0.500000
+		muzzleSounds
+			soundCount 1
+			sound "Weapon ING EMP TL MEDIUM"
+		hitEffectName "WEAPON_TL_MEDIUM_HIT"
+		hitHullEffectSounds
+			soundCount 4
+			sound "Weapon ING TL HULL HIT1"
+			sound "Weapon ING TL HULL HIT2"
+			sound "Weapon ING TL HULL HIT3"
+			sound "Weapon ING TL HULL HIT4"
+		hitShieldsEffectSounds
+			soundCount 4
+			sound "Weapon ING TL IMPACT1"
+			sound "Weapon ING TL IMPACT2"
+			sound "Weapon ING TL IMPACT3"
+			sound "Weapon ING TL IMPACT4"
+		projectileTravelEffectName "WEAPON_GREEN_TL_MEDIUM_TRAVEL"
+Weapon
+	WeaponType "Missile"
+	damageEnums
+		AttackType "CAPITALSHIP"
+		DamageAffectType "AFFECTS_SHIELDS_AND_HULL"
+		DamageApplyType "BACKLOADED"
+		DamageType "PHYSICAL"
+		WeaponClassType "MISSILE"
+	DamagePerBank:FRONT 120.000000
+	DamagePerBank:BACK 0.000000
+	DamagePerBank:LEFT 0.000000
+	DamagePerBank:RIGHT 0.000000
+	Range 6000.000000
+	PreBuffCooldownTime 15.000000
+	CanFireAtFighter FALSE
+	SynchronizedTargeting TRUE
+	PointStaggerDelay 0.250000
+	TravelSpeed 1450.000000
+	Duration 0.000000
+	fireConstraintType "CanAlwaysFire"
+	WeaponEffects
+		weaponType "Missile"
+		burstCount 1
+		burstDelay 0.400000
+		fireDelay 0.000000
+		muzzleEffectName "Weapon_Tech_MissileCapShip_Muzzle"
+		muzzleSoundMinRespawnTime 0.500000
+		muzzleSounds
+			soundCount 2
+			sound "Weapon ING CMISSILE1"
+			sound "Weapon ING CMISSILE2"
+		hitEffectName "Weapon_Tech_MissileCapShip_Hit"
+		hitHullEffectSounds
+			soundCount 1
+			sound "WEAPONIMPACT_MISSILEHEAVY_HITGENERIC"
+		hitShieldsEffectSounds
+			soundCount 1
+			sound "WEAPONIMPACT_MISSILEHEAVY_HITGENERIC"
+		missileTravelEffectName "Weapon_Tech_MissileCapShip_Travel"
+		missileStartTurningDistance 250.000000
+		missileSlowTurnRate 1.208997
+		missileMaxSlowTurnTime 6.000000
+m_weaponIndexForRange 0
+firingAlignmentType "Default"
+TargetCountPerBank:FRONT 1
+TargetCountPerBank:BACK 1
+TargetCountPerBank:LEFT 1
+TargetCountPerBank:RIGHT 1
+canOnlyTargetStructures FALSE
+mass 10000.000000
+ShieldMeshName "GoaFEmpLshield"
+renderShield TRUE
+maxAccelerationLinear 100.000000
+maxAccelerationStrafe 10.000000
+maxDecelerationLinear 500.000000
+maxAccelerationAngular 1.000000
+maxDecelerationAngular 9.999996
+maxSpeedLinear 525.000000
+maxRollRate 2.000000
+maxRollAngle 35.000000
+squadTypeEntityDef:0 ""
+squadAntiMatterCost:0 0.000000
+squadTypeEntityDef:1 ""
+squadAntiMatterCost:1 0.000000
+squadTypeEntityDef:2 ""
+squadAntiMatterCost:2 0.000000
+squadTypeEntityDef:3 ""
+squadAntiMatterCost:3 0.000000
+NumSoundsFor:ONATTACKORDERISSUED 4
+SoundID "Dialog_ING_ProcursatorAttack1"
+SoundID "Dialog_ING_ProcursatorAttack2"
+SoundID "Dialog_ING_ProcursatorAttack3"
+SoundID "Dialog_ING_ProcursatorAttack4"
+NumSoundsFor:ONCREATION 1
+SoundID "Dialog_ING_ProcursatorBuilt"
+NumSoundsFor:ONGENERALORDERISSUED 2
+SoundID "Dialog_ING_ProcursatorMove1"
+SoundID "Dialog_ING_ProcursatorMove2"
+NumSoundsFor:ONSELECTED 5
+SoundID "Dialog_ING_ProcursatorSelect1"
+SoundID "Dialog_ING_ProcursatorSelect2"
+SoundID "Dialog_ING_ProcursatorSelect3"
+SoundID "Dialog_ING_ProcursatorSelect4"
+SoundID "Dialog_ING_ProcursatorBuilt"
+NumSoundsFor:ONSTARTPHASEJUMP 1
+SoundID "Dialog_ING_ProcursatorMove2"
+MeshNameInfoCount 1
+MeshNameInfo
+	meshName "GoaFEmpL"
+	criteriaType "None"
+meshNameIncreasedEffectName ""
+meshNameDecreasedEffectName ""
+ExhaustParticleSystemName "Exhaust_TechBattleship"
+ExplosionName "CapitalShip0"
+CommandPoints
+	StartValue 0.000000
+	ValueIncreasePerLevel 0.000000
+weaponCooldownDecreasePerc
+	StartValue 0.000000
+	ValueIncreasePerLevel 0.000000
+weaponDamageIncreasePerc
+	StartValue 0.000000
+	ValueIncreasePerLevel 0.096000
+HyperspaceChargingSoundID "Effect ING Hyperspace Chargeup"
+HyperspaceTravelSoundID "HYPERSPACE_TRAVEL"
+EngineSoundID "ENGINE_TECHCAPITALSHIP"
+formationRank 1
+minShadow 0.000000
+maxShadow 1.000000

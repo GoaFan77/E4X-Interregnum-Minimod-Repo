@@ -1,0 +1,338 @@
+w﻿TXT
+entityType "CapitalShip"
+ability:0 "Ability_ING_PrideOfTheFleet"
+ability:1 "Ability_ING_Competence"
+ability:2 "Ability_ING_Rally"
+ability:3 "Ability_ING_TorpedoVolleys"
+ability:4 ""
+defaultAutoAttackRange "GravityWell"
+defaultAutoAttackOn TRUE
+prefersToFocusFire TRUE
+usesFighterAttack FALSE
+autoJoinFleetDefault TRUE
+canBomb TRUE
+hasBombingLevels FALSE
+baseDamage 56.000000
+basePopulationKilled 2.140000
+bombingFreqTime 10.000000
+baseRange 5000.000000
+bombTransitTime 10.000000
+bombEffectCount 3
+bombEffectAngleVariance 15.000000
+bombEffectsDef
+		weaponType "Missile"
+		burstCount 1
+		burstDelay 1.000000
+		fireDelay 0.000000
+		muzzleEffectName ""
+		muzzleSoundMinRespawnTime 0.500000
+		muzzleSounds
+			soundCount 1
+			sound "EFFECT_BOARDINGPODS_TECH"
+		hitEffectName "Weapon_ING_SmallPlanetExplosions_Hit"
+		hitHullEffectSounds
+			soundCount 3
+			sound "EXPLOSION_SUB4"
+			sound "EXPLOSION_SUB4_ALT1"
+			sound "EXPLOSION_SUB4_ALT2"
+		hitShieldsEffectSounds
+			soundCount 3
+			sound "EXPLOSION_SUB4"
+			sound "EXPLOSION_SUB4_ALT1"
+			sound "EXPLOSION_SUB4_ALT2"
+		missileTravelEffectName "Particle_ING_YwingPlanetBombing"
+		missileStartTurningDistance 100.000000
+		missileSlowTurnRate 2.208997
+		missileMaxSlowTurnTime 3.000000
+mainViewIcon "MainViewIcon_ING_NrNebula"
+basePrice
+	credits 4000.000000
+	metal 520.000000
+	crystal 325.000000
+slotCount 65.000000
+BuildTime 98.000000
+MaxHullPoints
+	StartValue 2420.000000
+	ValueIncreasePerLevel 189.500000
+MaxShieldPoints
+	StartValue 3850.00000
+	ValueIncreasePerLevel 231.666666
+HullPointRestoreRate
+	StartValue 2.340000
+	ValueIncreasePerLevel 0.156000
+ShieldPointRestoreRate
+	StartValue 4.680000
+	ValueIncreasePerLevel 0.312000
+ArmorPointsFromExperience
+	StartValue 6.000000
+	ValueIncreasePerLevel 0.350000
+maxMitigation
+	StartValue 0.650000
+	ValueIncreasePerLevel 0.011110
+MaxAntiMatter
+	StartValue 255.000000
+	ValueIncreasePerLevel 25.000000
+AntiMatterRestoreRate
+	StartValue 0.750000
+	ValueIncreasePerLevel 0.080000
+CultureProtectRate
+	StartValue 0.300000
+	ValueIncreasePerLevel 0.050000
+NameStringID "IDS_CAPITALSHIP_ING_NrNebula_NAME"
+DescriptionStringID "IDS_CAPITALSHIP_ING_NrNebula_DESC"
+picture "Picture_ING_NrNebula"
+Prerequisites
+	NumResearchPrerequisites 1
+	ResearchPrerequisite
+		Subject "Research_ING_NrNewClassPhase3"
+		Level 1
+	RequiredFactionNameID ""
+	RequiredCompletedResearchSubjects 0
+roleType "Invalid"
+statCountType "CapitalShipBattleship"
+numRandomDebrisLarge 6
+numRandomDebrisSmall 12
+numSpecificDebris 0
+armorType "CapitalShip"
+hudIcon "HUDICON_ING_CAPITALSHIP_NrNebula"
+smallHudIcon "MainViewIcon_ING_NrNebula"
+infoCardIcon "MainViewIcon_ING_NrNebula"
+minZoomDistanceMult 1.750000
+NumWeapons 4
+Weapon
+	WeaponType "Projectile"
+	damageEnums
+		AttackType "CAPITALSHIP"
+		DamageAffectType "AFFECTS_SHIELDS_AND_HULL"
+		DamageApplyType "BACKLOADED"
+		DamageType "ENERGY"
+		WeaponClassType "PHASECANNON"
+	DamagePerBank:FRONT 100.000000
+	DamagePerBank:BACK 0.000000
+	DamagePerBank:LEFT 0.000000
+	DamagePerBank:RIGHT 0.000000
+	Range 5000.000000
+	PreBuffCooldownTime 10.000000
+	CanFireAtFighter FALSE
+	SynchronizedTargeting FALSE
+	PointStaggerDelay 0.00000
+	TravelSpeed 5000.000000
+	Duration 0.000000
+	fireConstraintType "CanAlwaysFire"
+	WeaponEffects
+		weaponType "Projectile"
+		burstCount 3
+		burstDelay 2.800000
+		fireDelay 0.000000
+		muzzleEffectName "WEAPON_RED_TL_SHEAVY_MUZZLE"
+		muzzleSoundMinRespawnTime 0.400000
+		muzzleSounds
+			soundCount 2
+			sound "Weapon ING ALL TL HEAVY1"
+			sound "Weapon ING ALL TL HEAVY2"
+		hitEffectName "WEAPON_TL_SHEAVY_HIT"
+		hitHullEffectSounds
+			soundCount 4
+			sound "Weapon ING TL HULL HIT1"
+			sound "Weapon ING TL HULL HIT2"
+			sound "Weapon ING TL HULL HIT3"
+			sound "Weapon ING TL HULL HIT4"
+		hitShieldsEffectSounds
+			soundCount 4
+			sound "Weapon ING TL IMPACT1"
+			sound "Weapon ING TL IMPACT2"
+			sound "Weapon ING TL IMPACT3"
+			sound "Weapon ING TL IMPACT4"
+		projectileTravelEffectName "WEAPON_RED_TL_SHEAVY_TRAVEL"
+Weapon
+	WeaponType "Projectile"
+	damageEnums
+		AttackType "CAPITALSHIP"
+		DamageAffectType "AFFECTS_SHIELDS_AND_HULL"
+		DamageApplyType "BACKLOADED"
+		DamageType "ENERGY"
+		WeaponClassType "PHASECANNON"
+	DamagePerBank:FRONT 63.000000
+	DamagePerBank:BACK 0.000000
+	DamagePerBank:LEFT 31.500000
+	DamagePerBank:RIGHT 31.500000
+	Range 5000.000000
+	PreBuffCooldownTime 4.500000
+	CanFireAtFighter FALSE
+	SynchronizedTargeting FALSE
+	PointStaggerDelay 0.80000
+	TravelSpeed 5000.000000
+	Duration 0.000000
+	fireConstraintType "CanAlwaysFire"
+	WeaponEffects
+		weaponType "Projectile"
+		burstCount 2
+		burstDelay 1.600000
+		fireDelay 0.000000
+		muzzleEffectName "Weapon_ING_NebulaTripleTurretMuzzle"
+		muzzleSoundMinRespawnTime 0.400000
+		muzzleSounds
+			soundCount 2
+			sound "Weapon ING ALL TL HEAVY1"
+			sound "Weapon ING ALL TL HEAVY2"
+		hitEffectName "WEAPON_TL_SHEAVY_HIT"
+		hitHullEffectSounds
+			soundCount 4
+			sound "Weapon ING TL HULL HIT1"
+			sound "Weapon ING TL HULL HIT2"
+			sound "Weapon ING TL HULL HIT3"
+			sound "Weapon ING TL HULL HIT4"
+		hitShieldsEffectSounds
+			soundCount 4
+			sound "Weapon ING TL IMPACT1"
+			sound "Weapon ING TL IMPACT2"
+			sound "Weapon ING TL IMPACT3"
+			sound "Weapon ING TL IMPACT4"
+		projectileTravelEffectName "Weapon_ING_NebulaTripleTurretTravel"
+Weapon
+	WeaponType "Projectile"
+	damageEnums
+		AttackType "CAPITALSHIP"
+		DamageAffectType "AFFECTS_SHIELDS_AND_HULL"
+		DamageApplyType "BACKLOADED"
+		DamageType "ENERGY"
+		WeaponClassType "ION"
+	DamagePerBank:FRONT 15.000000
+	DamagePerBank:BACK 15.000000
+	DamagePerBank:LEFT 15.000000
+	DamagePerBank:RIGHT 15.000000
+	Range 5000.000000
+	PreBuffCooldownTime 6.000000
+	CanFireAtFighter FALSE
+	SynchronizedTargeting FALSE
+	PointStaggerDelay 0.700000
+	TravelSpeed 5500.000000
+	Duration 0.000000
+	fireConstraintType "CanAlwaysFire"
+	WeaponEffects
+		weaponType "Projectile"
+		burstCount 2
+		burstDelay 1.800000
+		fireDelay 0.000000
+		muzzleEffectName "Weapon_BlueIonCannon_Muzzle"
+		muzzleSoundMinRespawnTime 0.770000
+		muzzleSounds
+			soundCount 2
+			sound "Weapon ING ION"
+			sound "Weapon ING ION2"
+		hitEffectName "Weapon_BlueIonCannon_Hit"
+		hitHullEffectSounds
+			soundCount 1
+			sound "WEAPONIMPACT_PHASEMISSILEHEAVY_HITGENERIC"
+		hitShieldsEffectSounds
+			soundCount 1
+			sound "WEAPONIMPACT_PHASEMISSILEHEAVY_HITGENERIC"
+		projectileTravelEffectName "Weapon_BlueIonCannon_Travel"
+Weapon		
+	WeaponType "Missile"
+	damageEnums
+		AttackType "CAPITALSHIP"
+		DamageAffectType "AFFECTS_SHIELDS_AND_HULL"
+		DamageApplyType "BACKLOADED"
+		DamageType "PHYSICAL"
+		WeaponClassType "PULSEWAVE"
+	DamagePerBank:FRONT 484.000000
+	DamagePerBank:BACK 0.000000
+	DamagePerBank:LEFT 0.000000
+	DamagePerBank:RIGHT 0.000000
+	Range 6000.000000
+	PreBuffCooldownTime 25.000000
+	CanFireAtFighter FALSE
+	SynchronizedTargeting FALSE
+	PointStaggerDelay 0.050000
+	TravelSpeed 1650.000000
+	Duration 0.000000
+	fireConstraintType "CanAlwaysFire"
+	WeaponEffects
+		weaponType "Missile"
+		burstCount 1
+		burstDelay 1.000000
+		fireDelay 0.000000
+		muzzleEffectName "Weapon_Tech_MissileCapShip_Muzzle"
+		muzzleSoundMinRespawnTime 0.500000
+		muzzleSounds
+			soundCount 3
+			sound "Weapon ING ALL PROTON"
+			sound "Weapon ING TORPEDO LAUNCH2"
+			sound "Weapon ING TORPEDO LAUNCH3"
+		hitEffectName "Weapon_Tech_MissileCapShip_Hit"
+		hitHullEffectSounds
+			soundCount 1
+			sound "WEAPONIMPACT_MISSILEHEAVY_HITGENERIC"
+		hitShieldsEffectSounds
+			soundCount 1
+			sound "WEAPONIMPACT_MISSILEHEAVY_HITGENERIC"
+		missileTravelEffectName "Weapon_ProtonTorpedoHeavy_Travel"
+		missileStartTurningDistance 400.000000
+		missileSlowTurnRate 1.208997
+		missileMaxSlowTurnTime 6.000000
+m_weaponIndexForRange 1
+firingAlignmentType "Default"
+TargetCountPerBank:FRONT 1
+TargetCountPerBank:BACK 1
+TargetCountPerBank:LEFT 1
+TargetCountPerBank:RIGHT 1
+canOnlyTargetStructures FALSE
+mass 10000.000000
+ShieldMeshName "GoaFEmpLshield"
+renderShield TRUE
+maxAccelerationLinear 100.000000
+maxAccelerationStrafe 10.000000
+maxDecelerationLinear 500.000000
+maxAccelerationAngular 1.000000
+maxDecelerationAngular 9.999996
+maxSpeedLinear 525.000000
+maxRollRate 2.000000
+maxRollAngle 35.000000
+squadTypeEntityDef:0 "Squad_ING_AllCombat"
+squadAntiMatterCost:0 0.000000
+squadTypeEntityDef:1 "Squad_ING_AllBomber"
+squadAntiMatterCost:1 0.000000
+squadTypeEntityDef:2 "Squad_ING_AllKwing"
+squadAntiMatterCost:2 100.000000
+squadTypeEntityDef:3 "Squad_ING_AllEwing"
+squadAntiMatterCost:3 85.000000
+NumSoundsFor:ONATTACKORDERISSUED 4
+SoundID "Dialog_ING_RepublicSDAttack1"
+SoundID "Dialog_ING_RepublicSDAttack2"
+SoundID "Dialog_ING_RepublicSDAttack3"
+SoundID "Dialog_ING_RepublicSDAttack4"
+NumSoundsFor:ONCREATION 1
+SoundID "Dialog_ING_RepublicSDBuilt"
+NumSoundsFor:ONGENERALORDERISSUED 2
+SoundID "Dialog_ING_RepublicSDMove1"
+SoundID "Dialog_ING_RepublicSDMove2"
+NumSoundsFor:ONSELECTED 4
+SoundID "Dialog_ING_RepublicSDSelect1"
+SoundID "Dialog_ING_RepublicSDSelect2"
+SoundID "Dialog_ING_RepublicSDSelect3"
+SoundID "Dialog_ING_RepublicSDBuilt"
+NumSoundsFor:ONSTARTPHASEJUMP 0
+MeshNameInfoCount 1
+MeshNameInfo
+	meshName "GoaFEmpL"
+	criteriaType "None"
+meshNameIncreasedEffectName ""
+meshNameDecreasedEffectName ""
+ExhaustParticleSystemName "Exhaust_TechBattleship"
+ExplosionName "CapitalShip0"
+CommandPoints
+	StartValue 1.000000
+	ValueIncreasePerLevel 0.180000
+weaponCooldownDecreasePerc
+	StartValue 0.000000
+	ValueIncreasePerLevel 0.036000
+weaponDamageIncreasePerc
+	StartValue 0.000000
+	ValueIncreasePerLevel 0.060000
+HyperspaceChargingSoundID "Effect ING Hyperspace Chargeup"
+HyperspaceTravelSoundID "HYPERSPACE_TRAVEL"
+EngineSoundID "ENGINE_TECHCAPITALSHIP"
+formationRank 2
+minShadow 0.000000
+maxShadow 1.000000

@@ -1,0 +1,89 @@
+﻿TXT
+entityType "Fighter"
+defaultAutoAttackRange "GravityWell"
+defaultAutoAttackOn TRUE
+prefersToFocusFire TRUE
+usesFighterAttack TRUE
+numRandomDebrisLarge 0
+numRandomDebrisSmall 0
+numSpecificDebris 0
+armorType "VeryLight"
+hudIcon "HUDICON_ING_FighterEmpBomber"
+smallHudIcon "MainViewIcon_ING_EmpBomber"
+infoCardIcon "MainViewIcon_ING_EmpBomber"
+minZoomDistanceMult 8.000000
+nameStringID "IDS_Fighter_ING_EmpBomber"
+counterDescriptionStringID "IDS_COUNTERDESC_FIGHTER_BOMBER"
+statCountType "FighterBomber"
+formationOffsetDistance 50.000000
+mass 150.000000
+maxAccelerationLinear 205.000000
+maxAccelerationStrafe 100.000000
+maxDecelerationLinear 1000.000000
+maxAccelerationAngular 49.999992
+maxDecelerationAngular 99.999985
+maxSpeedLinear 1550.000000
+maxRollRate 2.000000
+maxRollAngle 35.000000
+NumWeapons 1
+Weapon
+	WeaponType "Missile"
+	damageEnums
+		AttackType "ANTIVERYHEAVY"
+		DamageAffectType "AFFECTS_SHIELDS_AND_HULL"
+		DamageApplyType "BACKLOADED"
+		DamageType "PHYSICAL"
+		WeaponClassType "MISSILE"
+	DamagePerBank:FRONT 87.500000
+	DamagePerBank:BACK 0.000000
+	DamagePerBank:LEFT 0.000000
+	DamagePerBank:RIGHT 0.000000
+	Range 2400.000000
+	PreBuffCooldownTime 13.500000
+	CanFireAtFighter FALSE
+	SynchronizedTargeting FALSE
+	PointStaggerDelay 0.500000
+	TravelSpeed 1100.000000
+	Duration 0.000000
+	fireConstraintType "CanAlwaysFire"
+	WeaponEffects
+		weaponType "Missile"
+		burstCount 1
+		burstDelay 0.000000
+		fireDelay 0.000000
+		muzzleEffectName "Weapon_Tech_MissileFighter_Muzzle"
+		muzzleSoundMinRespawnTime 0.100000
+		muzzleSounds
+			soundCount 1
+			sound "Weapon ING ALL PROTON"
+		hitEffectName "Weapon_Tech_MissileFighter_Hit"
+		hitHullEffectSounds
+			soundCount 1
+			sound "WEAPONIMPACT_MISSILELIGHT_HITGENERIC"
+		hitShieldsEffectSounds
+			soundCount 1
+			sound "WEAPONIMPACT_MISSILELIGHT_HITGENERIC"
+		missileTravelEffectName "Weapon_Tech_MissileFighter_Travel"
+		missileStartTurningDistance 10.000000
+		missileSlowTurnRate 3.141593
+		missileMaxSlowTurnTime 1.000000
+m_weaponIndexForRange 0
+firingAlignmentType "Default"
+TargetCountPerBank:FRONT 1
+TargetCountPerBank:BACK 0
+TargetCountPerBank:LEFT 0
+TargetCountPerBank:RIGHT 0
+canOnlyTargetStructures FALSE
+meshName "GoaFOddT"
+exhaustParticleSystemName "Exhaust_FrigateTechScout"
+ExplosionName "Explosion_ING_TIEFIGHTER"
+exhaustTrailTextureName ""
+exhaustTrailWidth 0.000001
+engineSoundID "Effect ING TIE ENGINE"
+maxHullPoints 170.000000
+hullPointRestoreRate 0.689000
+armorPoints 2.500000
+maxMitigation 0.600000
+experiencePointsForDestroying 10.500000
+minShadow 0.000000
+maxShadow 0.500000

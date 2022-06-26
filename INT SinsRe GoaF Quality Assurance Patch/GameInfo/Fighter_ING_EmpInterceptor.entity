@@ -1,0 +1,92 @@
+﻿TXT
+entityType "Fighter"
+defaultAutoAttackRange "GravityWell"
+defaultAutoAttackOn TRUE
+prefersToFocusFire TRUE
+usesFighterAttack TRUE
+numRandomDebrisLarge 0
+numRandomDebrisSmall 0
+numSpecificDebris 0
+armorType "VeryLight"
+hudIcon "HUDICON_ING_FighterEmpInterceptor"
+smallHudIcon "MainViewIcon_ING_EmpInterceptor"
+infoCardIcon "MainViewIcon_ING_EmpInterceptor"
+minZoomDistanceMult 9.000000
+nameStringID "IDS_Fighter_ING_EmpInterceptor"
+counterDescriptionStringID "IDS_COUNTERDESC_FIGHTER_COMBAT"
+statCountType "FighterCombat"
+formationOffsetDistance 50.000000
+mass 100.000000
+maxAccelerationLinear 300.000000
+maxAccelerationStrafe 110.000000
+maxDecelerationLinear 1100.000000
+maxAccelerationAngular 59.999992
+maxDecelerationAngular 109.999985
+maxSpeedLinear 3100.000000
+maxRollRate 3.000000
+maxRollAngle 38.000000
+NumWeapons 1
+Weapon
+	WeaponType "Projectile"
+	damageEnums
+		AttackType "ANTIVERYLIGHT"
+		DamageAffectType "AFFECTS_SHIELDS_AND_HULL"
+		DamageApplyType "BACKLOADED"
+		DamageType "ENERGY"
+		WeaponClassType "LASERTECH"
+	DamagePerBank:FRONT 65.000000
+	DamagePerBank:BACK 0.000000
+	DamagePerBank:LEFT 0.000000
+	DamagePerBank:RIGHT 0.000000
+	Range 2400.000000
+	PreBuffCooldownTime 10.000000
+	CanFireAtFighter TRUE
+	SynchronizedTargeting TRUE
+	PointStaggerDelay 0.000000
+	TravelSpeed 4500.000000
+	Duration 0.000000
+	fireConstraintType "CanAlwaysFire"
+	WeaponEffects
+		weaponType "Projectile"
+		burstCount 8
+		burstDelay 0.150000
+		fireDelay 0.000000
+		muzzleEffectName "WEAPON_ING_GREEN_LASER_FIGHTER_MUZZLE"
+		muzzleSoundMinRespawnTime 0.500000
+		muzzleSounds
+			soundCount 1
+			sound "Weapon ING EMP TIELASER"
+		hitEffectName "WEAPON_ING_Laser_Fighter_Hit"
+		hitHullEffectSounds
+			soundCount 4
+			sound "Weapon ING TL HULL HIT1"
+			sound "Weapon ING TL HULL HIT2"
+			sound "Weapon ING TL HULL HIT3"
+			sound "Weapon ING TL HULL HIT4"
+		hitShieldsEffectSounds
+			soundCount 4
+			sound "Weapon ING TL IMPACT1"
+			sound "Weapon ING TL IMPACT2"
+			sound "Weapon ING TL IMPACT3"
+			sound "Weapon ING TL IMPACT4"
+		projectileTravelEffectName "WEAPON_ING_GREEN_LASER_FIGHTER_TRAVEL"
+m_weaponIndexForRange 0
+firingAlignmentType "Default"
+TargetCountPerBank:FRONT 1
+TargetCountPerBank:BACK 0
+TargetCountPerBank:LEFT 0
+TargetCountPerBank:RIGHT 0
+canOnlyTargetStructures FALSE
+meshName "GoaFOddT"
+exhaustParticleSystemName "Exhaust_FrigateTechScout"
+ExplosionName "Explosion_ING_TIEFIGHTER"
+exhaustTrailTextureName ""
+exhaustTrailWidth 0.000001
+engineSoundID "Effect ING TIE ENGINE"
+maxHullPoints 122.000000
+hullPointRestoreRate 0.700000
+armorPoints 1.200000
+maxMitigation 0.600000
+experiencePointsForDestroying 6.750000
+minShadow 0.000000
+maxShadow 0.500000

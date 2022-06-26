@@ -1,0 +1,198 @@
+﻿TXT
+entityType "Frigate"
+defaultAutoAttackRange "GravityWell"
+defaultAutoAttackOn TRUE
+prefersToFocusFire TRUE
+usesFighterAttack TRUE
+autoJoinFleetDefault TRUE
+canBomb FALSE
+typeCount 1
+frigateRoleType "Corvette"
+statCountType "FrigateCorvette"
+mainViewIcon "MainViewIcon_ING_AllTradeShip"
+picture "Picture_ING_Lando"
+NameStringID "IDS_Corvette_ING_AllLando_NAME"
+DescriptionStringID "IDS_Corvette_ING_AllLando_DESC"
+counterDescriptionStringID "IDS_COUNTERDESC_CORVETTE_TECH"
+basePrice
+	credits 0.000000
+	metal 0.000000
+	crystal 0.000000
+slotCount 0.000000
+BuildTime 15.000000
+hasLevels FALSE
+ExperiencePointsForDestroying 0.000000
+MaxHullPoints 275.000000
+MaxShieldPoints 260.000000
+HullPointRestoreRate 0.550000
+ShieldPointRestoreRate 1.000000
+BaseArmorPoints 1.500000
+maxMitigation 0.650000
+Prerequisites
+	NumResearchPrerequisites 0
+	RequiredFactionNameID ""
+	RequiredCompletedResearchSubjects 0
+numRandomDebrisLarge 0
+numRandomDebrisSmall 8
+numSpecificDebris 0
+armorType "Pirate"
+hudIcon "HUDICON_ING_AllLando"
+smallHudIcon "MainViewIcon_ING_AllTradeShip"
+infoCardIcon "MainViewIcon_ING_AllTradeShip"
+minZoomDistanceMult 6.000000
+NumWeapons 2
+Weapon
+	WeaponType "Projectile"
+	damageEnums
+		AttackType "ANTIVERYLIGHT"
+		DamageAffectType "AFFECTS_SHIELDS_AND_HULL"
+		DamageApplyType "BACKLOADED"
+		DamageType "ENERGY"
+		WeaponClassType "LASERTECH"
+	DamagePerBank:FRONT 45.000000
+	DamagePerBank:BACK 0.000000
+	DamagePerBank:LEFT 0.000000
+	DamagePerBank:RIGHT 0.000000
+	Range 3000.000000
+	PreBuffCooldownTime 5.000000
+	CanFireAtFighter TRUE
+	SynchronizedTargeting TRUE
+	PointStaggerDelay 0.000000
+	TravelSpeed 4500.000000
+	Duration 0.000000
+	fireConstraintType "CanAlwaysFire"
+	WeaponEffects
+		weaponType "Projectile"
+		burstCount 8
+		burstDelay 0.150000
+		fireDelay 0.000000
+		muzzleEffectName "WEAPON_ING_RED_LASER_FIGHTER_MUZZLE"
+		muzzleSoundMinRespawnTime 0.150000
+		muzzleSounds
+			soundCount 1
+			sound "Weapon_ING_AllQuadLaser"
+		hitEffectName "WEAPON_ING_Laser_Fighter_Hit"
+		hitHullEffectSounds
+			soundCount 4
+			sound "Weapon ING TL HULL HIT1"
+			sound "Weapon ING TL HULL HIT2"
+			sound "Weapon ING TL HULL HIT3"
+			sound "Weapon ING TL HULL HIT4"
+		hitShieldsEffectSounds
+			soundCount 4
+			sound "Weapon ING TL IMPACT1"
+			sound "Weapon ING TL IMPACT2"
+			sound "Weapon ING TL IMPACT3"
+			sound "Weapon ING TL IMPACT4"
+		projectileTravelEffectName "WEAPON_ING_RED_LASER_FIGHTER_TRAVEL"
+Weapon
+	WeaponType "Missile"
+	damageEnums
+		AttackType "CAPITALSHIP"
+		DamageAffectType "AFFECTS_SHIELDS_AND_HULL"
+		DamageApplyType "BACKLOADED"
+		DamageType "PHYSICAL"
+		WeaponClassType "PULSEWAVE"
+	DamagePerBank:FRONT 56.000000
+	DamagePerBank:BACK 0.000000
+	DamagePerBank:LEFT 0.000000
+	DamagePerBank:RIGHT 0.000000
+	Range 3200.000000
+	PreBuffCooldownTime 8.000000
+	CanFireAtFighter FALSE
+	SynchronizedTargeting FALSE
+	PointStaggerDelay 0.000000
+	TravelSpeed 1600.000000
+	Duration 0.000000
+	fireConstraintType "CanAlwaysFire"
+	WeaponEffects
+		weaponType "Missile"
+		burstCount 1
+		burstDelay 0.000000
+		fireDelay 0.000000
+		muzzleEffectName "Weapon_Tech_MissileFighter_Muzzle"
+		muzzleSoundMinRespawnTime 0.100000
+		muzzleSounds
+			soundCount 1
+			sound "Weapon ING ALL PROTON"
+		hitEffectName "Weapon_Tech_MissileFighter_Hit"
+		hitHullEffectSounds
+			soundCount 1
+			sound "WEAPONIMPACT_MISSILELIGHT_HITGENERIC"
+		hitShieldsEffectSounds
+			soundCount 1
+			sound "WEAPONIMPACT_MISSILELIGHT_HITGENERIC"
+		missileTravelEffectName "Weapon_SWFighterProtonTorpedo_Travel"
+		missileStartTurningDistance 10.000000
+		missileSlowTurnRate 3.141593
+		missileMaxSlowTurnTime 1.000000
+m_weaponIndexForRange 0
+firingAlignmentType "Default"
+TargetCountPerBank:FRONT 1
+TargetCountPerBank:BACK 0
+TargetCountPerBank:LEFT 0
+TargetCountPerBank:RIGHT 0
+canOnlyTargetStructures FALSE
+hasWeaponLevels FALSE
+mass 600.000000
+ShieldMeshName "GoaFOddTshield"
+renderShield TRUE
+maxAccelerationLinear 550.000000
+maxAccelerationStrafe 250.000000
+maxDecelerationLinear 1000.000000
+maxAccelerationAngular 50.000000
+maxDecelerationAngular 75.000000
+maxSpeedLinear 1050.000000
+maxRollRate 2.000000
+maxRollAngle 35.000000
+squadTypeEntityDef:0 ""
+squadAntiMatterCost:0 0.000000
+squadTypeEntityDef:1 ""
+squadAntiMatterCost:1 0.000000
+squadTypeEntityDef:2 ""
+squadAntiMatterCost:2 0.000000
+squadTypeEntityDef:3 ""
+squadAntiMatterCost:3 0.000000
+maxNumCommandPoints 0
+NumSoundsFor:ONATTACKORDERISSUED 4
+SoundID "Dialog_ING_Lando_Attack"
+SoundID "Dialog_ING_Lando_Attack2"
+SoundID "Dialog_ING_Lando_Attack3"
+SoundID "Dialog_ING_Lando_Attack4"
+NumSoundsFor:ONCREATION 0
+NumSoundsFor:ONGENERALORDERISSUED 4
+SoundID "Dialog_ING_Lando_Move"
+SoundID "Dialog_ING_Lando_Move2"
+SoundID "Dialog_ING_Lando_Move3"
+SoundID "Dialog_ING_Lando_Move4"
+NumSoundsFor:ONSELECTED 5
+SoundID "Dialog_ING_Lando_Select"
+SoundID "Dialog_ING_Lando_Select2"
+SoundID "Dialog_ING_Lando_Select3"
+SoundID "Dialog_ING_Lando_Select4"
+SoundID "Dialog_ING_Lando_Select5"
+NumSoundsFor:ONSTARTPHASEJUMP 0
+MeshNameInfoCount 1
+MeshNameInfo
+	meshName "GoaFOddT"
+	criteriaType "None"
+meshNameIncreasedEffectName ""
+meshNameDecreasedEffectName ""
+ExhaustParticleSystemName "Exhaust_FrigateTechHeavy"
+ExplosionName "Frigate0"
+HyperspaceChargingSoundID "Effect ING Hyperspace Chargeup"
+HyperspaceTravelSoundID "HYPERSPACE_TRAVEL"
+EngineSoundID "ENGINE_TECHCAPITALSHIP"
+ability:0 "Ability_ING_LandoMissileBurst"
+ability:1 "Ability_ING_PointBlankRange"
+ability:2 "Ability_ING_WeWontGetAnotherChance"
+ability:3 ""
+ability:4 "Ability_ING_AllLando"
+MaxAntiMatter 200.000000
+AntiMatterRestoreRate 1.000000
+cargoType "Invalid"
+maxCargoCapacity 0.000000
+formationRank 0
+minShadow 0.100000
+maxShadow 0.800000
+allegianceDecreasePerRoundtrip 0.000000

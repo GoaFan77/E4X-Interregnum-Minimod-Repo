@@ -1,0 +1,115 @@
+﻿TXT2
+SinsArchiveVersion 194
+entityType "Frigate"
+defaultAutoAttackRange "GravityWell"
+defaultAutoAttackOn FALSE
+prefersToFocusFire TRUE
+usesFighterAttack FALSE
+autoJoinFleetDefault FALSE
+canBomb FALSE
+typeCount 2
+frigateRoleType "Envoy"
+frigateRoleType "MinorFactionCapturer"
+statCountType "FrigateEnvoy"
+mainViewIcon "MainViewIcon_ING_AllLight"
+picture "Picture_ING_AllLight"
+NameStringID "IDS_Frigate_ING_AllEnvoy_NAME"
+DescriptionStringID "IDS_Frigate_ING_AllEnvoy_DESC"
+counterDescriptionStringID "IDS_COUNTERDESC_FRIGATE_NONCOMBAT"
+basePrice
+	credits 475.000000
+	metal 70.000000
+	crystal 0.000000
+slotCount 4.000000
+BuildTime 58.000000
+hasLevels FALSE
+ExperiencePointsForDestroying 7.000000
+MaxHullPoints 612.000000
+MaxShieldPoints 500.000000
+HullPointRestoreRate 1.000000
+ShieldPointRestoreRate 1.000000
+BaseArmorPoints 1.000000
+maxMitigation 0.600000
+relationshipChangeRate 0.000000
+Prerequisites
+	NumResearchPrerequisites 1
+	ResearchPrerequisite
+		Subject "Research_ING_FrigateAccess_AllEnvoy"
+		Level 1
+	RequiredFactionNameID ""
+	RequiredCompletedResearchSubjects 0
+numRandomDebrisLarge 0
+numRandomDebrisSmall 4
+numSpecificDebris 0
+armorType "Light"
+hudIcon "HUDICON_ING_Frigate_AllLight"
+smallHudIcon "MainViewIcon_ING_AllLight"
+infoCardIcon "MainViewIcon_ING_AllLight"
+minZoomDistanceMult 6.000000
+NumWeapons 0
+m_weaponIndexForRange 0
+firingAlignmentType "Default"
+TargetCountPerBank:FRONT 0
+TargetCountPerBank:BACK 0
+TargetCountPerBank:LEFT 0
+TargetCountPerBank:RIGHT 0
+canOnlyTargetStructures FALSE
+hasWeaponLevels FALSE
+mass 10000.000000
+ShieldMeshName "GoaFJoyBSshield"
+renderShield TRUE
+maxAccelerationLinear 420.000000
+maxAccelerationStrafe 10.000000
+maxDecelerationLinear 500.000000
+maxAccelerationAngular 13.000000
+maxDecelerationAngular 9.999996
+maxSpeedLinear 535.000000
+maxRollRate 2.000000
+maxRollAngle 35.000000
+useCustomHyperspaceEffects FALSE
+squadTypeEntityDef:0 ""
+squadAntiMatterCost:0 0.000000
+squadTypeEntityDef:1 ""
+squadAntiMatterCost:1 0.000000
+squadTypeEntityDef:2 ""
+squadAntiMatterCost:2 0.000000
+squadTypeEntityDef:3 ""
+squadAntiMatterCost:3 0.000000
+maxNumCommandPoints 0
+NumSoundsFor:ONATTACKORDERISSUED 0
+NumSoundsFor:ONCREATION 1
+SoundID "Dialog_ING_CR90Built"
+NumSoundsFor:ONGENERALORDERISSUED 5
+SoundID "Dialog_ING_CR90Built"
+SoundID "Dialog_ING_CR90Move1"
+SoundID "Dialog_ING_CR90Move2"
+SoundID "Dialog_ING_CR90Move3"
+SoundID "Dialog_ING_CR90Move4"
+NumSoundsFor:ONSELECTED 3
+SoundID "Dialog_ING_CR90Select1"
+SoundID "Dialog_ING_CR90Select2"
+SoundID "Dialog_ING_CR90Select3"
+NumSoundsFor:ONSTARTPHASEJUMP 1
+SoundID "Dialog_ING_CR90Jump"
+MeshNameInfoCount 1
+MeshNameInfo
+	meshName "GoaFJoyBS"
+	criteriaType "None"
+meshNameIncreasedEffectName ""
+meshNameDecreasedEffectName ""
+ExhaustParticleSystemName "Exhaust_FrigateTechLight"
+ExplosionName "Frigate1"
+EngineSoundID "ENGINE_TECHSUPPORTSHIP"
+ability:0 "AbilityDiplomaticImmunity"
+ability:1 "Ability_ING_DeployAllEmbassy"
+ability:2 "Ability_ING_DeployHoloProbe"
+ability:3 "Ability_ING_UndergroundBroadcasting"
+ability:4 "Ability_ING_Revolt"
+MaxAntiMatter 0.000000
+AntiMatterRestoreRate 0.000000
+cargoType "Invalid"
+maxCargoCapacity 0.000000
+formationRank 2
+minShadow 0.100000
+maxShadow 0.800000
+allegianceDecreasePerRoundtrip 0.050000

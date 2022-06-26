@@ -1,0 +1,251 @@
+﻿TXT
+entityType "Frigate"
+defaultAutoAttackRange "GravityWell"
+defaultAutoAttackOn TRUE
+prefersToFocusFire TRUE
+usesFighterAttack FALSE
+autoJoinFleetDefault TRUE
+canBomb FALSE
+typeCount 1
+frigateRoleType "Heavy"
+statCountType "FrigateHeavy"
+mainViewIcon "MainViewIcon_ING_EmpHeavy"
+picture "Picture_ING_EmpHeavy"
+NameStringID "IDS_Frigate_ING_EmpHeavy_NAME"
+DescriptionStringID "IDS_Frigate_ING_EmpHeavy_DESC"
+counterDescriptionStringID "IDS_COUNTERDESC_FRIGATE_HEAVY"
+basePrice
+	credits 1050.000000
+	metal 385.000000
+	crystal 105.000000
+slotCount 18.000000
+BuildTime 108.000000
+hasLevels FALSE
+ExperiencePointsForDestroying 200.000000
+MaxHullPoints 1645.000000
+MaxShieldPoints 1330.000000
+HullPointRestoreRate 1.500000
+ShieldPointRestoreRate 2.000000
+BaseArmorPoints 4.500000
+maxMitigation 0.600000
+Prerequisites
+	NumResearchPrerequisites 1
+	ResearchPrerequisite
+		Subject "Research_ING_FrigateAccess_EmpHeavy"
+		Level 1
+	RequiredFactionNameID ""
+	RequiredCompletedResearchSubjects 0
+numRandomDebrisLarge 1
+numRandomDebrisSmall 10
+numSpecificDebris 0
+armorType "VeryHeavy"
+hudIcon "HUDICON_ING_Frigate_EmpHeavy"
+smallHudIcon "MainViewIcon_ING_EmpHeavy"
+infoCardIcon "MainViewIcon_ING_EmpHeavy"
+minZoomDistanceMult 3.500000
+NumWeapons 3
+Weapon
+	WeaponType "Projectile"
+	damageEnums
+		AttackType "COMPOSITE"
+		DamageAffectType "AFFECTS_SHIELDS_AND_HULL"
+		DamageApplyType "BACKLOADED"
+		DamageType "ENERGY"
+		WeaponClassType "PHASECANNON"
+	DamagePerBank:FRONT 144.000000
+	DamagePerBank:BACK 0.000000
+	DamagePerBank:LEFT 12.000000
+	DamagePerBank:RIGHT 12.000000
+	Range 3150.000000
+	PreBuffCooldownTime 6.000000
+	CanFireAtFighter FALSE
+	SynchronizedTargeting FALSE
+	PointStaggerDelay 0.300000
+	TravelSpeed 5500.000000
+	Duration 0.000000
+	fireConstraintType "CanAlwaysFire"
+	WeaponEffects
+		weaponType "Projectile"
+		burstCount 3
+		burstDelay 1.600000
+		fireDelay 0.000000
+		muzzleEffectName "WEAPON_GREEN_LASER_MUZZLE"
+		muzzleSoundMinRespawnTime 0.400000
+		muzzleSounds
+			soundCount 1
+			sound "Weapon ING EMP TL MEDIUM"
+		hitEffectName "WEAPON_TL_MEDIUM_HIT"
+		hitHullEffectSounds
+			soundCount 4
+			sound "Weapon ING TL HULL HIT1"
+			sound "Weapon ING TL HULL HIT2"
+			sound "Weapon ING TL HULL HIT3"
+			sound "Weapon ING TL HULL HIT4"
+		hitShieldsEffectSounds
+			soundCount 4
+			sound "Weapon ING TL IMPACT1"
+			sound "Weapon ING TL IMPACT2"
+			sound "Weapon ING TL IMPACT3"
+			sound "Weapon ING TL IMPACT4"
+		projectileTravelEffectName "WEAPON_GREEN_TL_MEDIUM_TRAVEL"
+Weapon
+	WeaponType "Projectile"
+	damageEnums
+		AttackType "COMPOSITE"
+		DamageAffectType "AFFECTS_SHIELDS_AND_HULL"
+		DamageApplyType "BACKLOADED"
+		DamageType "ENERGY"
+		WeaponClassType "ION"
+	DamagePerBank:FRONT 30.000000
+	DamagePerBank:BACK 0.000000
+	DamagePerBank:LEFT 12.000000
+	DamagePerBank:RIGHT 12.000000
+	Range 3150.000000
+	PreBuffCooldownTime 6.000000
+	CanFireAtFighter FALSE
+	SynchronizedTargeting FALSE
+	PointStaggerDelay 0.600000
+	TravelSpeed 5000.000000
+	Duration 0.000000
+	fireConstraintType "CanAlwaysFire"
+	WeaponEffects
+		weaponType "Projectile"
+		burstCount 1
+		burstDelay 0.800000
+		fireDelay 0.000000
+		muzzleEffectName "Weapon_BlueIonCannon_Muzzle"
+		muzzleSoundMinRespawnTime 0.770000
+		muzzleSounds
+			soundCount 2
+			sound "Weapon ING ION"
+			sound "Weapon ING ION2"
+		hitEffectName "Weapon_BlueIonCannon_Hit"
+		hitHullEffectSounds
+			soundCount 1
+			sound "WEAPONIMPACT_PHASEMISSILEHEAVY_HITGENERIC"
+		hitShieldsEffectSounds
+			soundCount 1
+			sound "WEAPONIMPACT_PHASEMISSILEHEAVY_HITGENERIC"
+		projectileTravelEffectName "Weapon_BlueIonCannon_Travel"
+Weapon
+	WeaponType "Projectile"
+	damageEnums
+		AttackType "ANTIVERYLIGHT"
+		DamageAffectType "AFFECTS_SHIELDS_AND_HULL"
+		DamageApplyType "BACKLOADED"
+		DamageType "ENERGY"
+		WeaponClassType "LASERTECH"
+	DamagePerBank:FRONT 4.000000
+	DamagePerBank:BACK 0.000000
+	DamagePerBank:LEFT 4.000000
+	DamagePerBank:RIGHT 4.000000
+	Range 4400.000000
+	PreBuffCooldownTime 4.000000
+	CanFireAtFighter TRUE
+	SynchronizedTargeting FALSE
+	PointStaggerDelay 0.420000
+	TravelSpeed 5500.000000
+	Duration 0.000000
+	fireConstraintType "Research"
+	researchPrerequisites
+		NumResearchPrerequisites 1
+		ResearchPrerequisite
+			Subject "RESEARCHSUBJECT_PIRATE_ARMOR1"
+			Level 1
+		RequiredFactionNameID ""
+		RequiredCompletedResearchSubjects 0
+	WeaponEffects
+		weaponType "Projectile"
+		burstCount 3
+		burstDelay 0.300000
+		fireDelay 0.000000
+		muzzleEffectName "WEAPON_GREEN_LASER_MUZZLE"
+		muzzleSoundMinRespawnTime 0.300000
+		muzzleSounds
+			soundCount 1
+			sound "Weapon ING EMP LIGHT"
+		hitEffectName "WEAPON_TL_LIGHT_HIT"
+		hitHullEffectSounds
+			soundCount 4
+			sound "Weapon ING TL HULL HIT1"
+			sound "Weapon ING TL HULL HIT2"
+			sound "Weapon ING TL HULL HIT3"
+			sound "Weapon ING TL HULL HIT4"
+		hitShieldsEffectSounds
+			soundCount 4
+			sound "Weapon ING TL IMPACT1"
+			sound "Weapon ING TL IMPACT2"
+			sound "Weapon ING TL IMPACT3"
+			sound "Weapon ING TL IMPACT4"
+		projectileTravelEffectName "WEAPON_GREEN_LASER_TRAVEL"
+m_weaponIndexForRange 0
+firingAlignmentType "Default"
+TargetCountPerBank:FRONT 1
+TargetCountPerBank:BACK 0
+TargetCountPerBank:LEFT 1
+TargetCountPerBank:RIGHT 1
+canOnlyTargetStructures FALSE
+hasWeaponLevels FALSE
+mass 5500.000000
+ShieldMeshName "GoaFEmpMshield"
+renderShield TRUE
+maxAccelerationLinear 125.000000
+maxAccelerationStrafe 10.000000
+maxDecelerationLinear 500.000000
+maxAccelerationAngular 2.200000
+maxDecelerationAngular 9.999996
+maxSpeedLinear 600.000000
+maxRollRate 2.000000
+maxRollAngle 35.000000
+squadTypeEntityDef:0 "Squad_ING_EmpCombatSmall"
+squadAntiMatterCost:0 90.000000
+squadTypeEntityDef:1 ""
+squadAntiMatterCost:1 0.000000
+squadTypeEntityDef:2 ""
+squadAntiMatterCost:2 0.000000
+squadTypeEntityDef:3 ""
+squadAntiMatterCost:3 0.000000
+maxNumCommandPoints 1
+NumSoundsFor:ONATTACKORDERISSUED 4
+SoundID "Dialog_ING_VindicatorAttack1"
+SoundID "Dialog_ING_VindicatorAttack2"
+SoundID "Dialog_ING_VindicatorAttack3"
+SoundID "Dialog_ING_VindicatorAttack4"
+NumSoundsFor:ONCREATION 1
+SoundID "Dialog_ING_VindicatorBuilt"
+NumSoundsFor:ONGENERALORDERISSUED 4
+SoundID "Dialog_ING_VindicatorMove1"
+SoundID "Dialog_ING_VindicatorMove2"
+SoundID "Dialog_ING_VindicatorMove3"
+SoundID "Dialog_ING_VindicatorMove4"
+NumSoundsFor:ONSELECTED 4
+SoundID "Dialog_ING_VindicatorSelect1"
+SoundID "Dialog_ING_VindicatorSelect2"
+SoundID "Dialog_ING_VindicatorSelect3"
+SoundID "Dialog_ING_VindicatorBuilt"
+NumSoundsFor:ONSTARTPHASEJUMP 1
+SoundID "Dialog_ING_VindicatorJump"
+MeshNameInfoCount 1
+MeshNameInfo
+	meshName "GoaFEmpM"
+	criteriaType "None"
+meshNameIncreasedEffectName ""
+meshNameDecreasedEffectName ""
+ExhaustParticleSystemName "Exhaust_TechBattleship"
+ExplosionName "Frigate0"
+HyperspaceChargingSoundID "Effect ING Hyperspace Chargeup"
+HyperspaceTravelSoundID "HYPERSPACE_TRAVEL"
+EngineSoundID "ENGINE_TECHCAPITALSHIP"
+ability:0 "Ability_ING_TargetMaximumFirepower"
+ability:1 "Ability_ING_VindicatorEscort"
+ability:2 ""
+ability:3 ""
+ability:4 ""
+MaxAntiMatter 100.000000
+AntiMatterRestoreRate 0.440000
+cargoType "Invalid"
+maxCargoCapacity 0.000000
+formationRank 0
+minShadow 0.000000
+maxShadow 0.600000
+allegianceDecreasePerRoundtrip 0.000000

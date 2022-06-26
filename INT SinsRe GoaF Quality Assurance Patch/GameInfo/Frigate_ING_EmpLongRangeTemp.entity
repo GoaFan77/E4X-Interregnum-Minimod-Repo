@@ -1,0 +1,200 @@
+﻿TXT
+entityType "Frigate"
+defaultAutoAttackRange "GravityWell"
+defaultAutoAttackOn TRUE
+prefersToFocusFire TRUE
+usesFighterAttack FALSE
+autoJoinFleetDefault TRUE
+canBomb FALSE
+typeCount 1
+frigateRoleType "Lrm"
+statCountType "FrigateLongRange"
+mainViewIcon "MainViewIcon_ING_EmpLongRange"
+picture "Picture_ING_EmpLongRange"
+NameStringID "IDS_Frigate_ING_EmpLongRange_NAME"
+DescriptionStringID "IDS_Frigate_ING_EmpLongRange_DESC"
+counterDescriptionStringID "IDS_COUNTERDESC_FRIGATE_LONGRANGE"
+basePrice
+	credits 0.000000
+	metal 0.000000
+	crystal 0.000000
+slotCount 0.000000
+BuildTime 60.000000
+hasLevels FALSE
+ExperiencePointsForDestroying 0.000000
+MaxHullPoints 1230.000000
+MaxShieldPoints 1008.000000
+HullPointRestoreRate 1.000000
+ShieldPointRestoreRate 1.500000
+BaseArmorPoints 2.000000
+maxMitigation 0.600000
+Prerequisites
+	NumResearchPrerequisites 0
+	RequiredFactionNameID ""
+	RequiredCompletedResearchSubjects 0
+numRandomDebrisLarge 0
+numRandomDebrisSmall 5
+numSpecificDebris 0
+armorType "Light"
+hudIcon "HUDICON_ING_Frigate_EmpLongRange"
+smallHudIcon "MainViewIcon_ING_EmpLongRange"
+infoCardIcon "MainViewIcon_ING_EmpLongRange"
+minZoomDistanceMult 5.000000
+NumWeapons 2
+Weapon
+	WeaponType "Missile"
+	damageEnums
+		AttackType "ANTIMEDIUM"
+		DamageAffectType "AFFECTS_SHIELDS_AND_HULL"
+		DamageApplyType "BACKLOADED"
+		DamageType "PHYSICAL"
+		WeaponClassType "MISSILE"
+	DamagePerBank:FRONT 190.500000
+	DamagePerBank:BACK 0.000000
+	DamagePerBank:LEFT 0.000000
+	DamagePerBank:RIGHT 0.000000
+	Range 7820.000000
+	PreBuffCooldownTime 9.500000
+	CanFireAtFighter FALSE
+	SynchronizedTargeting FALSE
+	PointStaggerDelay 0.000000
+	TravelSpeed 1450.000000
+	Duration 0.000000
+	fireConstraintType "CanAlwaysFire"
+	WeaponEffects
+		weaponType "Missile"
+		burstCount 5
+		burstDelay 1.000000
+		fireDelay 0.000000
+		muzzleEffectName "Weapon_Tech_MissileCapShip_Muzzle"
+		muzzleSoundMinRespawnTime 0.500000
+		muzzleSounds
+			soundCount 2
+			sound "Weapon ING CMISSILE1"
+			sound "Weapon ING CMISSILE2"
+		hitEffectName "Weapon_Tech_MissileCapShip_Hit"
+		hitHullEffectSounds
+			soundCount 1
+			sound "WEAPONIMPACT_MISSILEHEAVY_HITGENERIC"
+		hitShieldsEffectSounds
+			soundCount 1
+			sound "WEAPONIMPACT_MISSILEHEAVY_HITGENERIC"
+		missileTravelEffectName "Weapon_Tech_MissileCapShip_Travel"
+		missileStartTurningDistance 250.000000
+		missileSlowTurnRate 1.208997
+		missileMaxSlowTurnTime 6.000000
+Weapon
+	WeaponType "Projectile"
+	damageEnums
+		AttackType "ANTIHEAVY"
+		DamageAffectType "AFFECTS_SHIELDS_AND_HULL"
+		DamageApplyType "BACKLOADED"
+		DamageType "ENERGY"
+		WeaponClassType "PHASECANNON"
+	DamagePerBank:FRONT 15.000000
+	DamagePerBank:BACK 0.000000
+	DamagePerBank:LEFT 15.000000
+	DamagePerBank:RIGHT 15.000000
+	Range 4000.000000
+	PreBuffCooldownTime 4.500000
+	CanFireAtFighter FALSE
+	SynchronizedTargeting TRUE
+	PointStaggerDelay 1.000000
+	TravelSpeed 5500.000000
+	Duration 0.000000
+	fireConstraintType "CanAlwaysFire"
+	WeaponEffects
+		weaponType "Projectile"
+		burstCount 1
+		burstDelay 0.500000
+		fireDelay 0.000000
+		muzzleEffectName "Weapon_ING_GladiatorTurret_Muzzle"
+		muzzleSoundMinRespawnTime 0.400000
+		muzzleSounds
+			soundCount 1
+			sound "Weapon ING TL MEDIUM"
+		hitEffectName "WEAPON_TL_LIGHT_HIT"
+		hitHullEffectSounds
+			soundCount 4
+			sound "Weapon ING TL HULL HIT1"
+			sound "Weapon ING TL HULL HIT2"
+			sound "Weapon ING TL HULL HIT3"
+			sound "Weapon ING TL HULL HIT4"
+		hitShieldsEffectSounds
+			soundCount 4
+			sound "Weapon ING TL IMPACT1"
+			sound "Weapon ING TL IMPACT2"
+			sound "Weapon ING TL IMPACT3"
+			sound "Weapon ING TL IMPACT4"
+		projectileTravelEffectName "Weapon_ING_GladiatorTurret_Travel"
+m_weaponIndexForRange 0
+firingAlignmentType "Default"
+TargetCountPerBank:FRONT 1
+TargetCountPerBank:BACK 0
+TargetCountPerBank:LEFT 1
+TargetCountPerBank:RIGHT 1
+canOnlyTargetStructures FALSE
+hasWeaponLevels FALSE
+mass 5000.000000
+ShieldMeshName "GoaFEmpMshield"
+renderShield TRUE
+maxAccelerationLinear 150.000000
+maxAccelerationStrafe 10.000000
+maxDecelerationLinear 500.000000
+maxAccelerationAngular 3.300000
+maxDecelerationAngular 9.999996
+maxSpeedLinear 500.000000
+maxRollRate 2.000000
+maxRollAngle 35.000000
+squadTypeEntityDef:0 "Squad_ING_EmpCombatSmall"
+squadAntiMatterCost:0 90.000000
+squadTypeEntityDef:1 ""
+squadAntiMatterCost:1 0.000000
+squadTypeEntityDef:2 ""
+squadAntiMatterCost:2 0.000000
+squadTypeEntityDef:3 ""
+squadAntiMatterCost:3 0.000000
+maxNumCommandPoints 1
+NumSoundsFor:ONATTACKORDERISSUED 4
+SoundID "Dialog_ING_GladiatorAttack1"
+SoundID "Dialog_ING_GladiatorAttack2"
+SoundID "Dialog_ING_GladiatorAttack3"
+SoundID "Dialog_ING_GladiatorAttack4"
+NumSoundsFor:ONCREATION 1
+SoundID "Dialog_ING_GladiatorBuilt"
+NumSoundsFor:ONGENERALORDERISSUED 4
+SoundID "Dialog_ING_GladiatorMove1"
+SoundID "Dialog_ING_GladiatorMove2"
+SoundID "Dialog_ING_GladiatorMove3"
+SoundID "Dialog_ING_GladiatorMove4"
+NumSoundsFor:ONSELECTED 4
+SoundID "Dialog_ING_GladiatorBuilt"
+SoundID "Dialog_ING_GladiatorSelect1"
+SoundID "Dialog_ING_GladiatorSelect2"
+SoundID "Dialog_ING_GladiatorSelect3"
+NumSoundsFor:ONSTARTPHASEJUMP 1
+SoundID "Dialog_ING_GladiatorJump"
+MeshNameInfoCount 1
+MeshNameInfo
+	meshName "GoaFEmpM"
+	criteriaType "None"
+meshNameIncreasedEffectName ""
+meshNameDecreasedEffectName ""
+ExhaustParticleSystemName "Exhaust_TechBattleship"
+ExplosionName "Frigate1"
+HyperspaceChargingSoundID "Effect ING Hyperspace Chargeup"
+HyperspaceTravelSoundID "HYPERSPACE_TRAVEL"
+EngineSoundID "ENGINE_TECHCAPITALSHIP"
+ability:0 ""
+ability:1 ""
+ability:2 ""
+ability:3 ""
+ability:4 "Ability_ING_TemporaryShip"
+MaxAntiMatter 125.000000
+AntiMatterRestoreRate 1.000000
+cargoType "Invalid"
+maxCargoCapacity 0.000000
+formationRank 2
+minShadow 0.200000
+maxShadow 1.000000
+allegianceDecreasePerRoundtrip 0.000000
