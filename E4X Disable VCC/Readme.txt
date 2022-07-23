@@ -36,4 +36,4 @@ Version 0
 enabledModNameCount 3
 enabledModName "E4X Disable VCC"
 enabledModName "Star Wars Interregnum Beta 2"
-enabledModName "Enhanced 4X Mod 1.90"
+enabledModName "Enhanced 4X Mod 1.87"

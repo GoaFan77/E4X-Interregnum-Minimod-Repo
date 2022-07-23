@@ -40,5 +40,5 @@ enabledModNameCount 5
 enabledModName "INT SinsRe"
 enabledModName "E4X SinsRe"
 enabledModName "Star Wars Interregnum Beta 2"
-enabledModName "Enhanced 4X Mod 1.90"
+enabledModName "Enhanced 4X Mod 1.87"
 enabledModName "SinsRemastered-v0.95b"

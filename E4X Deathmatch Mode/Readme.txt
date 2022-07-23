@@ -37,4 +37,4 @@ TXT
 Version 0
 enabledModNameCount 2
 enabledModName "E4X Deathmatch Mode"
-enabledModName "Enhanced 4X Mod 1.90"
+enabledModName "Enhanced 4X Mod 1.87"
