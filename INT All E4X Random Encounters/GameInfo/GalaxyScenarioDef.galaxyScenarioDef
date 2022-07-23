@@ -1619,7 +1619,7 @@ orbitBodyType
 	typeName "Fondor"
 	entityDefName "Planet_ING_Fondor"
 	defaultTemplateName "Template:RandomEncounterFondor"	
-planetItemTypeCount 569
+planetItemTypeCount 583
 planetItemType
 	designName "All:Module:CapitalShipFactory"
 	entityDefName "PLANETMODULE_ING_AllCapitalshipFactory"
@@ -1768,6 +1768,9 @@ planetItemType
 	designName "All:Frigate:StarbaseConstructor"
 	entityDefName "Frigate_ING_AllStarBaseConstructor"
 planetItemType
+	designName "All:Titan:HomeOne"
+	entityDefName "TITAN_ING_AllHomeOne"	
+planetItemType
 	designName "All:Frigate:Support"
 	entityDefName "Frigate_ING_AllSupport"
 planetItemType
@@ -1857,6 +1860,9 @@ planetItemType
 planetItemType
 	designName "Emp:Module:TradePort"
 	entityDefName "PLANETMODULE_ING_EmpTradePort"
+planetItemType
+	designName "Emp:Module:GolanI"
+	entityDefName "PLANETMODULE_ING_EmpGolanI"
 planetItemType
 	designName "Emp:Module:GolanIII"
 	entityDefName "PLANETMODULE_ING_EmpGolanIII"
@@ -2602,6 +2608,9 @@ planetItemType
 	designName "Tech:Titan:Rebel"
 	entityDefName "TITAN_TECHREBEL"
 planetItemType
+	designName "Other:Titan:MadVasari"
+	entityDefName "TITAN_MADVASARI"
+planetItemType
 	designName "Pirate:Frigate:Medium"
 	entityDefName "FrigatePirateMedium"
 planetItemType
@@ -2893,6 +2902,9 @@ planetItemType
 	designName "Bonus:DesolateSubterranianFactory"
 	entityDefName "PlanetBonus_E4X_DesolateSubterranianFactory"	
 planetItemType
+	designName "Bonus:FreshWater"
+	entityDefName "PlanetBonus_E4X_FreshWater"
+planetItemType
 	designName "Bonus:GasProcessingPlant"
 	entityDefName "PlanetBonus_E4X_GasGiantProcessingPlant"	
 planetItemType
@@ -3118,6 +3130,15 @@ planetItemType
 	designName "Bonus:VasariHomeworld"
 	entityDefName "PlanetBonus_E4X_PhaseHome"	
 planetItemType
+	designName "Bonus:JediTemple"
+	entityDefName "PlanetBonus_ING_JediTemple"	
+planetItemType
+	designName "Bonus:SithTomb"
+	entityDefName "PlanetBonus_ING_SithTomb"	
+planetItemType
+	designName "Bonus:Rakghouls"
+	entityDefName "PlanetBonus_ING_Rakghouls"
+planetItemType
 	designName "Artifact:WeaponBoost"
 	entityDefName "RESEARCHSUBJECT_ARTIFACT_WEAPONBOOST"
 planetItemType
@@ -3236,7 +3257,10 @@ planetItemType
 	entityDefName "SpaceMine_E4X_DefeatPlayerOnPlanetDeathFlag"
 planetItemType
 	designName "Other:Flag:DefeatPlayerOnTitanDeath"
-	entityDefName "SpaceMine_E4X_DefeatPlayerOnTitanDeathFlag"		
+	entityDefName "SpaceMine_E4X_DefeatPlayerOnTitanDeathFlag"	
+planetItemType
+	designName "Other:Flag:VictoryOnPlanetTaken"
+	entityDefName "SpaceMine_E4X_VictoryOnPlanetTakenFlag"		
 planetItemType
 	designName "Other:Flag:MaxTitanXP"
 	entityDefName "SpaceMine_E4X_MaxTitanXPFlag"
@@ -3308,7 +3332,25 @@ planetItemType
 	entityDefName "StarBase_E4X_NeutralTradeStation"
 planetItemType
 	designName "Other:Starbase:CyberDefenseFortress"
-	entityDefName "Starbase_E4X_CyberDefensePlatform"			
+	entityDefName "Starbase_E4X_CyberDefensePlatform"	
+planetItemType
+	designName "Other:Objective:BattleOfCalamari"
+	entityDefName "PLANETMODULE_ING_ObjectiveBattleOfCalamari"		
+planetItemType
+	designName "Other:Objective:DarkEmpire"
+	entityDefName "PLANETMODULE_ING_ObjectiveDarkEmpire"
+planetItemType
+	designName "Other:Objective:EmpiresEnd"
+	entityDefName "PLANETMODULE_ING_ObjectiveEmpiresEnd"
+planetItemType
+	designName "Other:Objective:NowIAmTheMaster"
+	entityDefName "PLANETMODULE_ING_ObjectiveNowIAmTheMaster"
+planetItemType
+	designName "Other:Objective:OperationShadowHand"
+	entityDefName "PLANETMODULE_ING_ObjectiveOperationShadowHand"			
+planetItemType
+	designName "Other:Objective:WarOfTheSith"
+	entityDefName "SpaceMine_ING_ObjectiveWarOfTheSith"				
 planetItemType
 	designName "Cosmetic:TitanTechLoyalist"	
 	entityDefName "TITAN_TECHLOYALIST_COSMETIC"
@@ -3367,7 +3409,7 @@ playerType
 playerType	
 	designName "MandalorianRaiders"
 	entityDefName "Player_ING_MandalorianRaiders"	
-planetItemsTemplateCount 96
+planetItemsTemplateCount 99
 planetItemsTemplate
 	templateName "Empty"
 	subTemplates 0
@@ -3763,245 +3805,156 @@ planetItemsTemplate
 				param "TechLoyalist"
 			owner "PlanetOwner"
 			colonizeChance 0
-			items 10
+			items 14
 				item "Tech:Module:MetalExtractor"
 				item "Tech:Module:MetalExtractor"
 				item "Tech:Module:MetalExtractor"
 				item "Tech:Module:MetalExtractor"
 				item "Tech:Module:MetalExtractor"
+				item "Tech:Module:MetalExtractor"
+				item "Tech:Module:MetalExtractor"				
 				item "Tech:Module:CrystalExtractor"
 				item "Tech:Module:CrystalExtractor"				
 				item "Tech:Module:CrystalExtractor"
 				item "Tech:Module:CrystalExtractor"
 				item "Tech:Module:CrystalExtractor"
-		group
-			condition
-				type "PlanetOwnerIsRaceNormalStart"
-				param "TechRebel"
-			owner "PlanetOwner"
-			colonizeChance 0
-			items 10
-				item "Tech:Module:MetalExtractor"
-				item "Tech:Module:MetalExtractor"
-				item "Tech:Module:MetalExtractor"
-				item "Tech:Module:MetalExtractor"
-				item "Tech:Module:MetalExtractor"
 				item "Tech:Module:CrystalExtractor"
-				item "Tech:Module:CrystalExtractor"				
-				item "Tech:Module:CrystalExtractor"
-				item "Tech:Module:CrystalExtractor"
-				item "Tech:Module:CrystalExtractor"
-		group
-			condition
-				type "PlanetOwnerIsRaceNormalStart"
-				param "PsiLoyalist"
-			owner "PlanetOwner"
-			colonizeChance 0
-			items 10
-				item "Psi:Module:MetalExtractor"
-				item "Psi:Module:MetalExtractor"
-				item "Psi:Module:MetalExtractor"
-				item "Psi:Module:MetalExtractor"
-				item "Psi:Module:MetalExtractor"
-				item "Psi:Module:CrystalExtractor"
-				item "Psi:Module:CrystalExtractor"
-				item "Psi:Module:CrystalExtractor"
-				item "Psi:Module:CrystalExtractor"
-				item "Psi:Module:CrystalExtractor"
-		group
-			condition
-				type "PlanetOwnerIsRaceNormalStart"
-				param "PsiRebel"
-			owner "PlanetOwner"
-			colonizeChance 0
-			items 10
-				item "Psi:Module:MetalExtractor"
-				item "Psi:Module:MetalExtractor"
-				item "Psi:Module:MetalExtractor"
-				item "Psi:Module:MetalExtractor"
-				item "Psi:Module:MetalExtractor"
-				item "Psi:Module:CrystalExtractor"
-				item "Psi:Module:CrystalExtractor"
-				item "Psi:Module:CrystalExtractor"
-				item "Psi:Module:CrystalExtractor"
-				item "Psi:Module:CrystalExtractor"
-		group
-			condition
-				type "PlanetOwnerIsRaceNormalStart"
-				param "PhaseLoyalist"
-			owner "PlanetOwner"
-			colonizeChance 0
-			items 10
-				item "Phase:Module:MetalExtractor"
-				item "Phase:Module:MetalExtractor"
-				item "Phase:Module:MetalExtractor"
-				item "Phase:Module:MetalExtractor"
-				item "Phase:Module:MetalExtractor"
-				item "Phase:Module:CrystalExtractor"
-				item "Phase:Module:CrystalExtractor"
-				item "Phase:Module:CrystalExtractor"
-				item "Phase:Module:CrystalExtractor"
-				item "Phase:Module:CrystalExtractor"
-		group
-			condition
-				type "PlanetOwnerIsRaceNormalStart"
-				param "PhaseRebel"
-			owner "PlanetOwner"
-			colonizeChance 0
-			items 10
-				item "Phase:Module:MetalExtractor"
-				item "Phase:Module:MetalExtractor"
-				item "Phase:Module:MetalExtractor"
-				item "Phase:Module:MetalExtractor"
-				item "Phase:Module:MetalExtractor"
-				item "Phase:Module:CrystalExtractor"
-				item "Phase:Module:CrystalExtractor"
-				item "Phase:Module:CrystalExtractor"
-				item "Phase:Module:CrystalExtractor"
-				item "Phase:Module:CrystalExtractor"
-		group
-			condition
-				type "PlanetOwnerIsRaceNormalStart"
-				param "GalacticEmpire"
-			owner "PlanetOwner"
-			colonizeChance 0
-			items 10
-				item "Emp:Module:MetalExtractor"
-				item "Emp:Module:MetalExtractor"
-				item "Emp:Module:MetalExtractor"
-				item "Emp:Module:MetalExtractor"
-				item "Emp:Module:MetalExtractor"
-				item "Emp:Module:CrystalExtractor"
-				item "Emp:Module:CrystalExtractor"
-				item "Emp:Module:CrystalExtractor"
-				item "Emp:Module:CrystalExtractor"
-				item "Emp:Module:CrystalExtractor"
-		group
-			condition
-				type "PlanetOwnerIsRaceNormalStart"
-				param "ImperialWarlords"
-			owner "PlanetOwner"
-			colonizeChance 0
-			items 10
-				item "Emp:Module:MetalExtractor"
-				item "Emp:Module:MetalExtractor"
-				item "Emp:Module:MetalExtractor"
-				item "Emp:Module:MetalExtractor"
-				item "Emp:Module:MetalExtractor"
-				item "Emp:Module:CrystalExtractor"
-				item "Emp:Module:CrystalExtractor"
-				item "Emp:Module:CrystalExtractor"
-				item "Emp:Module:CrystalExtractor"
-				item "Emp:Module:CrystalExtractor"
-		group
-			condition
-				type "PlanetOwnerIsRaceNormalStart"
-				param "RebelAlliance"
-			owner "PlanetOwner"
-			colonizeChance 0
-			items 10
-				item "All:Module:MetalExtractor"
-				item "All:Module:MetalExtractor"
-				item "All:Module:MetalExtractor"
-				item "All:Module:MetalExtractor"
-				item "All:Module:MetalExtractor"
-				item "All:Module:CrystalExtractor"
-				item "All:Module:CrystalExtractor"
-				item "All:Module:CrystalExtractor"
-				item "All:Module:CrystalExtractor"
-				item "All:Module:CrystalExtractor"
-		group
-			condition
-				type "PlanetOwnerIsRaceNormalStart"
-				param "NewRepublic"
-			owner "PlanetOwner"
-			colonizeChance 0
-			items 10
-				item "All:Module:MetalExtractor"
-				item "All:Module:MetalExtractor"
-				item "All:Module:MetalExtractor"
-				item "All:Module:MetalExtractor"
-				item "All:Module:MetalExtractor"
-				item "All:Module:CrystalExtractor"
-				item "All:Module:CrystalExtractor"
-				item "All:Module:CrystalExtractor"
-				item "All:Module:CrystalExtractor"
-				item "All:Module:CrystalExtractor"
+				item "Tech:Module:CrystalExtractor"	
 		group
 			condition
 				type "PlanetOwnerIsRaceQuickStart"
 				param "TechLoyalist"
 			owner "PlanetOwner"
 			colonizeChance 0
-			items 10
+			items 14
 				item "Tech:Module:MetalExtractor"
 				item "Tech:Module:MetalExtractor"
 				item "Tech:Module:MetalExtractor"
 				item "Tech:Module:MetalExtractor"
 				item "Tech:Module:MetalExtractor"
+				item "Tech:Module:MetalExtractor"
+				item "Tech:Module:MetalExtractor"				
 				item "Tech:Module:CrystalExtractor"
 				item "Tech:Module:CrystalExtractor"				
 				item "Tech:Module:CrystalExtractor"
 				item "Tech:Module:CrystalExtractor"
 				item "Tech:Module:CrystalExtractor"
+				item "Tech:Module:CrystalExtractor"
+				item "Tech:Module:CrystalExtractor"							
 		group
 			condition
-				type "PlanetOwnerIsRaceQuickStart"
-				param "PsiLoyalist"
+				type "PlanetOwnerIsRaceNormalStart"
+				param "TechRebel"
 			owner "PlanetOwner"
 			colonizeChance 0
-			items 10
-				item "Psi:Module:MetalExtractor"
-				item "Psi:Module:MetalExtractor"
-				item "Psi:Module:MetalExtractor"
-				item "Psi:Module:MetalExtractor"
-				item "Psi:Module:MetalExtractor"
-				item "Psi:Module:CrystalExtractor"
-				item "Psi:Module:CrystalExtractor"
-				item "Psi:Module:CrystalExtractor"
-				item "Psi:Module:CrystalExtractor"
-				item "Psi:Module:CrystalExtractor"
-		group
-			condition
-				type "PlanetOwnerIsRaceQuickStart"
-				param "PhaseLoyalist"
-			owner "PlanetOwner"
-			colonizeChance 0
-			items 10
-				item "Phase:Module:MetalExtractor"
-				item "Phase:Module:MetalExtractor"
-				item "Phase:Module:MetalExtractor"
-				item "Phase:Module:MetalExtractor"
-				item "Phase:Module:MetalExtractor"
-				item "Phase:Module:CrystalExtractor"
-				item "Phase:Module:CrystalExtractor"
-				item "Phase:Module:CrystalExtractor"
-				item "Phase:Module:CrystalExtractor"
-				item "Phase:Module:CrystalExtractor"
+			items 14
+				item "Tech:Module:MetalExtractor"
+				item "Tech:Module:MetalExtractor"
+				item "Tech:Module:MetalExtractor"
+				item "Tech:Module:MetalExtractor"
+				item "Tech:Module:MetalExtractor"
+				item "Tech:Module:MetalExtractor"
+				item "Tech:Module:MetalExtractor"				
+				item "Tech:Module:CrystalExtractor"
+				item "Tech:Module:CrystalExtractor"				
+				item "Tech:Module:CrystalExtractor"
+				item "Tech:Module:CrystalExtractor"
+				item "Tech:Module:CrystalExtractor"
+				item "Tech:Module:CrystalExtractor"
+				item "Tech:Module:CrystalExtractor"
 		group
 			condition
 				type "PlanetOwnerIsRaceQuickStart"
 				param "TechRebel"
 			owner "PlanetOwner"
 			colonizeChance 0
-			items 10
+			items 14
 				item "Tech:Module:MetalExtractor"
 				item "Tech:Module:MetalExtractor"
 				item "Tech:Module:MetalExtractor"
 				item "Tech:Module:MetalExtractor"
 				item "Tech:Module:MetalExtractor"
+				item "Tech:Module:MetalExtractor"
+				item "Tech:Module:MetalExtractor"				
 				item "Tech:Module:CrystalExtractor"
 				item "Tech:Module:CrystalExtractor"				
 				item "Tech:Module:CrystalExtractor"
 				item "Tech:Module:CrystalExtractor"
 				item "Tech:Module:CrystalExtractor"
+				item "Tech:Module:CrystalExtractor"
+				item "Tech:Module:CrystalExtractor"			
+		group
+			condition
+				type "PlanetOwnerIsRaceNormalStart"
+				param "PsiLoyalist"
+			owner "PlanetOwner"
+			colonizeChance 0
+			items 14
+				item "Psi:Module:MetalExtractor"
+				item "Psi:Module:MetalExtractor"
+				item "Psi:Module:MetalExtractor"
+				item "Psi:Module:MetalExtractor"
+				item "Psi:Module:MetalExtractor"
+				item "Psi:Module:MetalExtractor"
+				item "Psi:Module:MetalExtractor"
+				item "Psi:Module:CrystalExtractor"
+				item "Psi:Module:CrystalExtractor"
+				item "Psi:Module:CrystalExtractor"
+				item "Psi:Module:CrystalExtractor"
+				item "Psi:Module:CrystalExtractor"
+				item "Psi:Module:CrystalExtractor"
+				item "Psi:Module:CrystalExtractor"		
+		group
+			condition
+				type "PlanetOwnerIsRaceQuickStart"
+				param "PsiLoyalist"
+			owner "PlanetOwner"
+			colonizeChance 0
+			items 14
+				item "Psi:Module:MetalExtractor"
+				item "Psi:Module:MetalExtractor"
+				item "Psi:Module:MetalExtractor"
+				item "Psi:Module:MetalExtractor"
+				item "Psi:Module:MetalExtractor"
+				item "Psi:Module:MetalExtractor"
+				item "Psi:Module:MetalExtractor"
+				item "Psi:Module:CrystalExtractor"
+				item "Psi:Module:CrystalExtractor"
+				item "Psi:Module:CrystalExtractor"
+				item "Psi:Module:CrystalExtractor"
+				item "Psi:Module:CrystalExtractor"
+				item "Psi:Module:CrystalExtractor"
+				item "Psi:Module:CrystalExtractor"						
+		group
+			condition
+				type "PlanetOwnerIsRaceNormalStart"
+				param "PsiRebel"
+			owner "PlanetOwner"
+			colonizeChance 0
+			items 14
+				item "Psi:Module:MetalExtractor"
+				item "Psi:Module:MetalExtractor"
+				item "Psi:Module:MetalExtractor"
+				item "Psi:Module:MetalExtractor"
+				item "Psi:Module:MetalExtractor"
+				item "Psi:Module:MetalExtractor"
+				item "Psi:Module:MetalExtractor"
+				item "Psi:Module:CrystalExtractor"
+				item "Psi:Module:CrystalExtractor"
+				item "Psi:Module:CrystalExtractor"
+				item "Psi:Module:CrystalExtractor"
+				item "Psi:Module:CrystalExtractor"
+				item "Psi:Module:CrystalExtractor"
+				item "Psi:Module:CrystalExtractor"	
 		group
 			condition
 				type "PlanetOwnerIsRaceQuickStart"
 				param "PsiRebel"
 			owner "PlanetOwner"
 			colonizeChance 0
-			items 10
+			items 14
+				item "Psi:Module:MetalExtractor"
+				item "Psi:Module:MetalExtractor"
 				item "Psi:Module:MetalExtractor"
 				item "Psi:Module:MetalExtractor"
 				item "Psi:Module:MetalExtractor"
@@ -4012,35 +3965,150 @@ planetItemsTemplate
 				item "Psi:Module:CrystalExtractor"
 				item "Psi:Module:CrystalExtractor"
 				item "Psi:Module:CrystalExtractor"
+				item "Psi:Module:CrystalExtractor"
+				item "Psi:Module:CrystalExtractor"					
+		group
+			condition
+				type "PlanetOwnerIsRaceNormalStart"
+				param "PhaseLoyalist"
+			owner "PlanetOwner"
+			colonizeChance 0
+			items 14
+				item "Phase:Module:MetalExtractor"
+				item "Phase:Module:MetalExtractor"
+				item "Phase:Module:MetalExtractor"
+				item "Phase:Module:MetalExtractor"
+				item "Phase:Module:MetalExtractor"
+				item "Phase:Module:MetalExtractor"
+				item "Phase:Module:MetalExtractor"				
+				item "Phase:Module:CrystalExtractor"
+				item "Phase:Module:CrystalExtractor"
+				item "Phase:Module:CrystalExtractor"
+				item "Phase:Module:CrystalExtractor"
+				item "Phase:Module:CrystalExtractor"
+				item "Phase:Module:CrystalExtractor"
+				item "Phase:Module:CrystalExtractor"
+		group
+			condition
+				type "PlanetOwnerIsRaceQuickStart"
+				param "PhaseLoyalist"
+			owner "PlanetOwner"
+			colonizeChance 0
+			items 14
+				item "Phase:Module:MetalExtractor"
+				item "Phase:Module:MetalExtractor"
+				item "Phase:Module:MetalExtractor"
+				item "Phase:Module:MetalExtractor"
+				item "Phase:Module:MetalExtractor"
+				item "Phase:Module:MetalExtractor"
+				item "Phase:Module:MetalExtractor"				
+				item "Phase:Module:CrystalExtractor"
+				item "Phase:Module:CrystalExtractor"
+				item "Phase:Module:CrystalExtractor"
+				item "Phase:Module:CrystalExtractor"
+				item "Phase:Module:CrystalExtractor"
+				item "Phase:Module:CrystalExtractor"
+				item "Phase:Module:CrystalExtractor"							
+		group
+			condition
+				type "PlanetOwnerIsRaceNormalStart"
+				param "PhaseRebel"
+			owner "PlanetOwner"
+			colonizeChance 0
+			items 14
+				item "Phase:Module:MetalExtractor"
+				item "Phase:Module:MetalExtractor"
+				item "Phase:Module:MetalExtractor"
+				item "Phase:Module:MetalExtractor"
+				item "Phase:Module:MetalExtractor"
+				item "Phase:Module:MetalExtractor"
+				item "Phase:Module:MetalExtractor"				
+				item "Phase:Module:CrystalExtractor"
+				item "Phase:Module:CrystalExtractor"
+				item "Phase:Module:CrystalExtractor"
+				item "Phase:Module:CrystalExtractor"
+				item "Phase:Module:CrystalExtractor"
+				item "Phase:Module:CrystalExtractor"
+				item "Phase:Module:CrystalExtractor"
 		group
 			condition
 				type "PlanetOwnerIsRaceQuickStart"
 				param "PhaseRebel"
 			owner "PlanetOwner"
 			colonizeChance 0
-			items 10
+			items 14
 				item "Phase:Module:MetalExtractor"
 				item "Phase:Module:MetalExtractor"
 				item "Phase:Module:MetalExtractor"
 				item "Phase:Module:MetalExtractor"
 				item "Phase:Module:MetalExtractor"
+				item "Phase:Module:MetalExtractor"
+				item "Phase:Module:MetalExtractor"				
 				item "Phase:Module:CrystalExtractor"
 				item "Phase:Module:CrystalExtractor"
 				item "Phase:Module:CrystalExtractor"
 				item "Phase:Module:CrystalExtractor"
 				item "Phase:Module:CrystalExtractor"
+				item "Phase:Module:CrystalExtractor"
+				item "Phase:Module:CrystalExtractor"				
+		group
+			condition
+				type "PlanetOwnerIsRaceNormalStart"
+				param "GalacticEmpire"
+			owner "PlanetOwner"
+			colonizeChance 0
+			items 14
+				item "Emp:Module:MetalExtractor"
+				item "Emp:Module:MetalExtractor"
+				item "Emp:Module:MetalExtractor"
+				item "Emp:Module:MetalExtractor"
+				item "Emp:Module:MetalExtractor"
+				item "Emp:Module:MetalExtractor"
+				item "Emp:Module:MetalExtractor"				
+				item "Emp:Module:CrystalExtractor"
+				item "Emp:Module:CrystalExtractor"
+				item "Emp:Module:CrystalExtractor"
+				item "Emp:Module:CrystalExtractor"
+				item "Emp:Module:CrystalExtractor"
+				item "Emp:Module:CrystalExtractor"
+				item "Emp:Module:CrystalExtractor"
 		group
 			condition
 				type "PlanetOwnerIsRaceQuickStart"
 				param "GalacticEmpire"
 			owner "PlanetOwner"
 			colonizeChance 0
-			items 10
+			items 14
 				item "Emp:Module:MetalExtractor"
 				item "Emp:Module:MetalExtractor"
 				item "Emp:Module:MetalExtractor"
 				item "Emp:Module:MetalExtractor"
 				item "Emp:Module:MetalExtractor"
+				item "Emp:Module:MetalExtractor"
+				item "Emp:Module:MetalExtractor"				
+				item "Emp:Module:CrystalExtractor"
+				item "Emp:Module:CrystalExtractor"
+				item "Emp:Module:CrystalExtractor"
+				item "Emp:Module:CrystalExtractor"
+				item "Emp:Module:CrystalExtractor"
+				item "Emp:Module:CrystalExtractor"
+				item "Emp:Module:CrystalExtractor"								
+		group
+			condition
+				type "PlanetOwnerIsRaceNormalStart"
+				param "ImperialWarlords"
+			owner "PlanetOwner"
+			colonizeChance 0
+			items 14
+				item "Emp:Module:MetalExtractor"
+				item "Emp:Module:MetalExtractor"
+				item "Emp:Module:MetalExtractor"
+				item "Emp:Module:MetalExtractor"
+				item "Emp:Module:MetalExtractor"
+				item "Emp:Module:MetalExtractor"
+				item "Emp:Module:MetalExtractor"				
+				item "Emp:Module:CrystalExtractor"
+				item "Emp:Module:CrystalExtractor"
 				item "Emp:Module:CrystalExtractor"
 				item "Emp:Module:CrystalExtractor"
 				item "Emp:Module:CrystalExtractor"
@@ -4052,12 +4120,37 @@ planetItemsTemplate
 				param "ImperialWarlords"
 			owner "PlanetOwner"
 			colonizeChance 0
-			items 10
+			items 14
 				item "Emp:Module:MetalExtractor"
 				item "Emp:Module:MetalExtractor"
 				item "Emp:Module:MetalExtractor"
 				item "Emp:Module:MetalExtractor"
 				item "Emp:Module:MetalExtractor"
+				item "Emp:Module:MetalExtractor"
+				item "Emp:Module:MetalExtractor"				
+				item "Emp:Module:CrystalExtractor"
+				item "Emp:Module:CrystalExtractor"
+				item "Emp:Module:CrystalExtractor"
+				item "Emp:Module:CrystalExtractor"
+				item "Emp:Module:CrystalExtractor"
+				item "Emp:Module:CrystalExtractor"
+				item "Emp:Module:CrystalExtractor"
+		group
+			condition
+				type "PlanetOwnerIsRaceNormalStart"
+				param "DarkEmpire"
+			owner "PlanetOwner"
+			colonizeChance 0
+			items 14
+				item "Emp:Module:MetalExtractor"
+				item "Emp:Module:MetalExtractor"
+				item "Emp:Module:MetalExtractor"
+				item "Emp:Module:MetalExtractor"
+				item "Emp:Module:MetalExtractor"
+				item "Emp:Module:MetalExtractor"
+				item "Emp:Module:MetalExtractor"				
+				item "Emp:Module:CrystalExtractor"
+				item "Emp:Module:CrystalExtractor"
 				item "Emp:Module:CrystalExtractor"
 				item "Emp:Module:CrystalExtractor"
 				item "Emp:Module:CrystalExtractor"
@@ -4066,15 +4159,82 @@ planetItemsTemplate
 		group
 			condition
 				type "PlanetOwnerIsRaceQuickStart"
+				param "DarkEmpire"
+			owner "PlanetOwner"
+			colonizeChance 0
+			items 14
+				item "Emp:Module:MetalExtractor"
+				item "Emp:Module:MetalExtractor"
+				item "Emp:Module:MetalExtractor"
+				item "Emp:Module:MetalExtractor"
+				item "Emp:Module:MetalExtractor"
+				item "Emp:Module:MetalExtractor"
+				item "Emp:Module:MetalExtractor"				
+				item "Emp:Module:CrystalExtractor"
+				item "Emp:Module:CrystalExtractor"
+				item "Emp:Module:CrystalExtractor"
+				item "Emp:Module:CrystalExtractor"
+				item "Emp:Module:CrystalExtractor"
+				item "Emp:Module:CrystalExtractor"
+				item "Emp:Module:CrystalExtractor"							
+		group
+			condition
+				type "PlanetOwnerIsRaceNormalStart"
 				param "RebelAlliance"
 			owner "PlanetOwner"
 			colonizeChance 0
-			items 10
+			items 14
 				item "All:Module:MetalExtractor"
 				item "All:Module:MetalExtractor"
 				item "All:Module:MetalExtractor"
 				item "All:Module:MetalExtractor"
 				item "All:Module:MetalExtractor"
+				item "All:Module:MetalExtractor"
+				item "All:Module:MetalExtractor"				
+				item "All:Module:CrystalExtractor"
+				item "All:Module:CrystalExtractor"
+				item "All:Module:CrystalExtractor"
+				item "All:Module:CrystalExtractor"
+				item "All:Module:CrystalExtractor"
+				item "All:Module:CrystalExtractor"
+				item "All:Module:CrystalExtractor"
+		group
+			condition
+				type "PlanetOwnerIsRaceQuickStart"
+				param "RebelAlliance"
+			owner "PlanetOwner"
+			colonizeChance 0
+			items 14
+				item "All:Module:MetalExtractor"
+				item "All:Module:MetalExtractor"
+				item "All:Module:MetalExtractor"
+				item "All:Module:MetalExtractor"
+				item "All:Module:MetalExtractor"
+				item "All:Module:MetalExtractor"
+				item "All:Module:MetalExtractor"				
+				item "All:Module:CrystalExtractor"
+				item "All:Module:CrystalExtractor"
+				item "All:Module:CrystalExtractor"
+				item "All:Module:CrystalExtractor"
+				item "All:Module:CrystalExtractor"
+				item "All:Module:CrystalExtractor"
+				item "All:Module:CrystalExtractor"							
+		group
+			condition
+				type "PlanetOwnerIsRaceNormalStart"
+				param "NewRepublic"
+			owner "PlanetOwner"
+			colonizeChance 0
+			items 14
+				item "All:Module:MetalExtractor"
+				item "All:Module:MetalExtractor"
+				item "All:Module:MetalExtractor"
+				item "All:Module:MetalExtractor"
+				item "All:Module:MetalExtractor"
+				item "All:Module:MetalExtractor"
+				item "All:Module:MetalExtractor"				
+				item "All:Module:CrystalExtractor"
+				item "All:Module:CrystalExtractor"
 				item "All:Module:CrystalExtractor"
 				item "All:Module:CrystalExtractor"
 				item "All:Module:CrystalExtractor"
@@ -4086,51 +4246,697 @@ planetItemsTemplate
 				param "NewRepublic"
 			owner "PlanetOwner"
 			colonizeChance 0
-			items 10
+			items 14
 				item "All:Module:MetalExtractor"
 				item "All:Module:MetalExtractor"
 				item "All:Module:MetalExtractor"
 				item "All:Module:MetalExtractor"
 				item "All:Module:MetalExtractor"
+				item "All:Module:MetalExtractor"
+				item "All:Module:MetalExtractor"				
 				item "All:Module:CrystalExtractor"
 				item "All:Module:CrystalExtractor"
 				item "All:Module:CrystalExtractor"
 				item "All:Module:CrystalExtractor"
 				item "All:Module:CrystalExtractor"
+				item "All:Module:CrystalExtractor"
+				item "All:Module:CrystalExtractor"							
+planetItemsTemplate
+	templateName "Template:ResearchLabs"
+	subTemplates 0
+	groups 22
+		group
+			condition
+				type "PlanetOwnerIsRaceNormalStart"
+				param "TechLoyalist"
+			owner "PlanetOwner"
+			colonizeChance 0
+			items 2
+				item "Tech:Module:CombatLab"
+				item "Tech:Module:NonCombatLab"
+		group
+			condition
+				type "PlanetOwnerIsRaceNormalStart"
+				param "TechRebel"
+			owner "PlanetOwner"
+			colonizeChance 0
+			items 2
+				item "Tech:Module:CombatLab"
+				item "Tech:Module:NonCombatLab"
+		group
+			condition
+				type "PlanetOwnerIsRaceNormalStart"
+				param "PsiLoyalist"
+			owner "PlanetOwner"
+			colonizeChance 0
+			items 2
+				item "Psi:Module:NonCombatLab"
+				item "Psi:Module:CombatLab"
+		group
+			condition
+				type "PlanetOwnerIsRaceNormalStart"
+				param "PsiRebel"
+			owner "PlanetOwner"
+			colonizeChance 0
+			items 2
+				item "Psi:Module:NonCombatLab"
+				item "Psi:Module:CombatLab"
+		group
+			condition
+				type "PlanetOwnerIsRaceNormalStart"
+				param "PhaseLoyalist"
+			owner "PlanetOwner"
+			colonizeChance 0
+			items 2
+				item "Phase:Module:NonCombatLab"
+				item "Phase:Module:CombatLab"
+		group
+			condition
+				type "PlanetOwnerIsRaceNormalStart"
+				param "PhaseRebel"
+			owner "PlanetOwner"
+			colonizeChance 0
+			items 2
+				item "Phase:Module:NonCombatLab"
+				item "Phase:Module:CombatLab"
+		group
+			condition
+				type "PlanetOwnerIsRaceNormalStart"
+				param "GalacticEmpire"
+			owner "PlanetOwner"
+			colonizeChance 0
+			items 2
+				item "Emp:Module:NonCombatLab"
+				item "Emp:Module:CombatLab"
+		group
+			condition
+				type "PlanetOwnerIsRaceNormalStart"
+				param "ImperialWarlords"
+			owner "PlanetOwner"
+			colonizeChance 0
+			items 2
+				item "Emp:Module:NonCombatLab"
+				item "Emp:Module:CombatLabWarlords"
+		group
+			condition
+				type "PlanetOwnerIsRaceNormalStart"
+				param "RebelAlliance"
+			owner "PlanetOwner"
+			colonizeChance 0
+			items 2
+				item "All:Module:CivicLab"
+				item "All:Module:CombatLab"
+		group
+			condition
+				type "PlanetOwnerIsRaceNormalStart"
+				param "NewRepublic"
+			owner "PlanetOwner"
+			colonizeChance 0
+			items 2
+				item "All:Module:CivicLab"
+				item "All:Module:CombatLab"
+		group
+			condition
+				type "PlanetOwnerIsRaceQuickStart"
+				param "TechLoyalist"
+			owner "PlanetOwner"
+			colonizeChance 0
+			items 2
+				item "Tech:Module:CombatLab"
+				item "Tech:Module:NonCombatLab"
+		group
+			condition
+				type "PlanetOwnerIsRaceQuickStart"
+				param "PsiLoyalist"
+			owner "PlanetOwner"
+			colonizeChance 0
+			items 2
+				item "Psi:Module:NonCombatLab"
+				item "Psi:Module:CombatLab"
+		group
+			condition
+				type "PlanetOwnerIsRaceQuickStart"
+				param "PhaseLoyalist"
+			owner "PlanetOwner"
+			colonizeChance 0
+			items 2
+				item "Phase:Module:NonCombatLab"
+				item "Phase:Module:CombatLab"
+		group
+			condition
+				type "PlanetOwnerIsRaceQuickStart"
+				param "TechRebel"
+			owner "PlanetOwner"
+			colonizeChance 0
+			items 2
+				item "Tech:Module:CombatLab"
+				item "Tech:Module:NonCombatLab"
+		group
+			condition
+				type "PlanetOwnerIsRaceQuickStart"
+				param "PsiRebel"
+			owner "PlanetOwner"
+			colonizeChance 0
+			items 2
+				item "Psi:Module:NonCombatLab"
+				item "Psi:Module:CombatLab"
+		group
+			condition
+				type "PlanetOwnerIsRaceQuickStart"
+				param "PhaseRebel"
+			owner "PlanetOwner"
+			colonizeChance 0
+			items 2
+				item "Phase:Module:NonCombatLab"
+				item "Phase:Module:CombatLab"
+		group
+			condition
+				type "PlanetOwnerIsRaceQuickStart"
+				param "GalacticEmpire"
+			owner "PlanetOwner"
+			colonizeChance 0
+			items 2
+				item "Emp:Module:NonCombatLab"
+				item "Emp:Module:CombatLab"
+		group
+			condition
+				type "PlanetOwnerIsRaceQuickStart"
+				param "ImperialWarlords"
+			owner "PlanetOwner"
+			colonizeChance 0
+			items 2
+				item "Emp:Module:NonCombatLab"
+				item "Emp:Module:CombatLabWarlords"
+		group
+			condition
+				type "PlanetOwnerIsRaceQuickStart"
+				param "RebelAlliance"
+			owner "PlanetOwner"
+			colonizeChance 0
+			items 2
+				item "All:Module:CivicLab"
+				item "All:Module:CombatLab"
+		group
+			condition
+				type "PlanetOwnerIsRaceQuickStart"
+				param "NewRepublic"
+			owner "PlanetOwner"
+			colonizeChance 0
+			items 2
+				item "All:Module:CivicLab"
+				item "All:Module:CombatLab"
 		group
 			condition
 				type "PlanetOwnerIsRaceNormalStart"
 				param "DarkEmpire"
 			owner "PlanetOwner"
 			colonizeChance 0
-			items 10
-				item "Emp:Module:MetalExtractor"
-				item "Emp:Module:MetalExtractor"
-				item "Emp:Module:MetalExtractor"
-				item "Emp:Module:MetalExtractor"
-				item "Emp:Module:MetalExtractor"
-				item "Emp:Module:CrystalExtractor"
-				item "Emp:Module:CrystalExtractor"
-				item "Emp:Module:CrystalExtractor"
-				item "Emp:Module:CrystalExtractor"
-				item "Emp:Module:CrystalExtractor"
+			items 2
+				item "Emp:Module:NonCombatLab"
+				item "Emp:Module:CombatLab"
 		group
 			condition
 				type "PlanetOwnerIsRaceQuickStart"
 				param "DarkEmpire"
 			owner "PlanetOwner"
 			colonizeChance 0
-			items 10
-				item "Emp:Module:MetalExtractor"
-				item "Emp:Module:MetalExtractor"
-				item "Emp:Module:MetalExtractor"
-				item "Emp:Module:MetalExtractor"
-				item "Emp:Module:MetalExtractor"
-				item "Emp:Module:CrystalExtractor"
-				item "Emp:Module:CrystalExtractor"
-				item "Emp:Module:CrystalExtractor"
-				item "Emp:Module:CrystalExtractor"
-				item "Emp:Module:CrystalExtractor"							
+			items 2
+				item "Emp:Module:NonCombatLab"
+				item "Emp:Module:CombatLab"
+planetItemsTemplate
+	templateName "Template:BasicDefenses"
+	subTemplates 0
+	groups 22
+		group
+			condition
+				type "PlanetOwnerIsRaceNormalStart"
+				param "TechLoyalist"
+			owner "PlanetOwner"
+			colonizeChance 0
+			items 5
+				item "Tech:Module:HangarDefense"
+				item "Tech:Module:GaussDefense"
+				item "Tech:Module:GaussDefense"
+				item "Tech:Module:RepairPlatform"
+				item "Tech:Module:RepairPlatform"
+		group
+			condition
+				type "PlanetOwnerIsRaceNormalStart"
+				param "TechRebel"
+			owner "PlanetOwner"
+			colonizeChance 0
+			items 5
+				item "Tech:Module:HangarDefense"
+				item "Tech:Module:GaussDefense"
+				item "Tech:Module:GaussDefense"
+				item "Tech:Module:RepairPlatform"
+				item "Tech:Module:RepairPlatform"
+		group
+			condition
+				type "PlanetOwnerIsRaceNormalStart"
+				param "PsiLoyalist"
+			owner "PlanetOwner"
+			colonizeChance 0
+			items 3
+				item "Psi:Module:HangarDefense"
+				item "Psi:Module:RepairPlatform"
+				item "Psi:Module:RepairPlatform"
+		group
+			condition
+				type "PlanetOwnerIsRaceNormalStart"
+				param "PsiRebel"
+			owner "PlanetOwner"
+			colonizeChance 0
+			items 3
+				item "Psi:Module:HangarDefense"
+				item "Psi:Module:RepairPlatform"
+				item "Psi:Module:RepairPlatform"
+		group
+			condition
+				type "PlanetOwnerIsRaceNormalStart"
+				param "PhaseLoyalist"
+			owner "PlanetOwner"
+			colonizeChance 0
+			items 5
+				item "Phase:Module:HangarDefense"
+				item "Phase:Module:MissileDefense"
+				item "Phase:Module:MissileDefense"
+				item "Phase:Module:RepairPlatform"
+				item "Phase:Module:RepairPlatform"
+		group
+			condition
+				type "PlanetOwnerIsRaceNormalStart"
+				param "PhaseRebel"
+			owner "PlanetOwner"
+			colonizeChance 0
+			items 5
+				item "Phase:Module:HangarDefense"
+				item "Phase:Module:MissileDefense"
+				item "Phase:Module:MissileDefense"
+				item "Phase:Module:RepairPlatform"
+				item "Phase:Module:RepairPlatform"
+		group
+			condition
+				type "PlanetOwnerIsRaceNormalStart"
+				param "GalacticEmpire"
+			owner "PlanetOwner"
+			colonizeChance 0
+			items 3
+				item "Emp:Module:GolanIII"
+				item "Emp:Module:RepairPlatform"
+				item "Emp:Module:RepairPlatform"
+		group
+			condition
+				type "PlanetOwnerIsRaceNormalStart"
+				param "ImperialWarlords"
+			owner "PlanetOwner"
+			colonizeChance 0
+			items 3
+				item "Emp:Module:GolanIII"
+				item "Emp:Module:RepairPlatform"
+				item "Emp:Module:RepairPlatform"
+		group
+			condition
+				type "PlanetOwnerIsRaceNormalStart"
+				param "RebelAlliance"
+			owner "PlanetOwner"
+			colonizeChance 0
+			items 5
+				item "All:Module:HangarDefense"
+				item "All:Module:TorpedoTurret"
+				item "All:Module:TorpedoTurret"
+				item "All:Module:RepairPlatform"
+				item "All:Module:RepairPlatform"
+		group
+			condition
+				type "PlanetOwnerIsRaceNormalStart"
+				param "NewRepublic"
+			owner "PlanetOwner"
+			colonizeChance 0
+			items 6
+				item "All:Module:HangarDefense"
+				item "All:Module:TorpedoTurret"
+				item "All:Module:TorpedoTurret"
+				item "All:Module:RepairPlatform"
+				item "All:Module:RepairPlatform"
+				item "Nr:Flag:LocalDefenseForces"
+		group
+			condition
+				type "PlanetOwnerIsRaceQuickStart"
+				param "TechLoyalist"
+			owner "PlanetOwner"
+			colonizeChance 0
+			items 5
+				item "Tech:Module:HangarDefense"
+				item "Tech:Module:GaussDefense"
+				item "Tech:Module:GaussDefense"
+				item "Tech:Module:RepairPlatform"
+				item "Tech:Module:RepairPlatform"
+		group
+			condition
+				type "PlanetOwnerIsRaceQuickStart"
+				param "PsiLoyalist"
+			owner "PlanetOwner"
+			colonizeChance 0
+			items 3
+				item "Psi:Module:HangarDefense"
+				item "Psi:Module:RepairPlatform"
+				item "Psi:Module:RepairPlatform"
+		group
+			condition
+				type "PlanetOwnerIsRaceQuickStart"
+				param "PhaseLoyalist"
+			owner "PlanetOwner"
+			colonizeChance 0
+			items 5
+				item "Phase:Module:HangarDefense"
+				item "Phase:Module:MissileDefense"
+				item "Phase:Module:MissileDefense"
+				item "Phase:Module:RepairPlatform"
+				item "Phase:Module:RepairPlatform"
+		group
+			condition
+				type "PlanetOwnerIsRaceQuickStart"
+				param "TechRebel"
+			owner "PlanetOwner"
+			colonizeChance 0
+			items 5
+				item "Tech:Module:HangarDefense"
+				item "Tech:Module:GaussDefense"
+				item "Tech:Module:GaussDefense"
+				item "Tech:Module:RepairPlatform"
+				item "Tech:Module:RepairPlatform"
+		group
+			condition
+				type "PlanetOwnerIsRaceQuickStart"
+				param "PsiRebel"
+			owner "PlanetOwner"
+			colonizeChance 0
+			items 3
+				item "Psi:Module:HangarDefense"
+				item "Psi:Module:RepairPlatform"
+				item "Psi:Module:RepairPlatform"
+		group
+			condition
+				type "PlanetOwnerIsRaceQuickStart"
+				param "PhaseRebel"
+			owner "PlanetOwner"
+			colonizeChance 0
+			items 5
+				item "Phase:Module:HangarDefense"
+				item "Phase:Module:MissileDefense"
+				item "Phase:Module:MissileDefense"
+				item "Phase:Module:RepairPlatform"
+				item "Phase:Module:RepairPlatform"
+		group
+			condition
+				type "PlanetOwnerIsRaceQuickStart"
+				param "GalacticEmpire"
+			owner "PlanetOwner"
+			colonizeChance 0
+			items 3
+				item "Emp:Module:GolanIII"
+				item "Emp:Module:RepairPlatform"
+				item "Emp:Module:RepairPlatform"
+		group
+			condition
+				type "PlanetOwnerIsRaceQuickStart"
+				param "ImperialWarlords"
+			owner "PlanetOwner"
+			colonizeChance 0
+			items 3
+				item "Emp:Module:GolanIII"
+				item "Emp:Module:RepairPlatform"
+				item "Emp:Module:RepairPlatform"
+		group
+			condition
+				type "PlanetOwnerIsRaceQuickStart"
+				param "RebelAlliance"
+			owner "PlanetOwner"
+			colonizeChance 0
+			items 5
+				item "All:Module:HangarDefense"
+				item "All:Module:TorpedoTurret"
+				item "All:Module:TorpedoTurret"
+				item "All:Module:RepairPlatform"
+				item "All:Module:RepairPlatform"
+		group
+			condition
+				type "PlanetOwnerIsRaceQuickStart"
+				param "NewRepublic"
+			owner "PlanetOwner"
+			colonizeChance 0
+			items 6
+				item "All:Module:HangarDefense"
+				item "All:Module:TorpedoTurret"
+				item "All:Module:TorpedoTurret"
+				item "All:Module:RepairPlatform"
+				item "All:Module:RepairPlatform"
+				item "Nr:Flag:LocalDefenseForces"
+		group
+			condition
+				type "PlanetOwnerIsRaceNormalStart"
+				param "DarkEmpire"
+			owner "PlanetOwner"
+			colonizeChance 0
+			items 3
+				item "Emp:Module:GolanIII"
+				item "Emp:Module:RepairPlatform"
+				item "Emp:Module:RepairPlatform"
+		group
+			condition
+				type "PlanetOwnerIsRaceQuickStart"
+				param "DarkEmpire"
+			owner "PlanetOwner"
+			colonizeChance 0
+			items 3
+				item "Emp:Module:GolanIII"
+				item "Emp:Module:RepairPlatform"
+				item "Emp:Module:RepairPlatform"
+planetItemsTemplate
+	templateName "Template:Shipyards"
+	subTemplates 0
+	groups 22
+		group
+			condition
+				type "PlanetOwnerIsRaceNormalStart"
+				param "TechLoyalist"
+			owner "PlanetOwner"
+			colonizeChance 0
+			items 3
+				item "Tech:Module:CapitalShipFactory"
+				item "Tech:Module:FrigateFactory"
+				item "Tech:Module:FrigateFactory"
+		group
+			condition
+				type "PlanetOwnerIsRaceQuickStart"
+				param "TechLoyalist"
+			owner "PlanetOwner"
+			colonizeChance 0
+			items 3
+				item "Tech:Module:CapitalShipFactory"
+				item "Tech:Module:FrigateFactory"
+				item "Tech:Module:FrigateFactory"				
+		group
+			condition
+				type "PlanetOwnerIsRaceNormalStart"
+				param "TechRebel"
+			owner "PlanetOwner"
+			colonizeChance 0
+			items 3
+				item "Tech:Module:CapitalShipFactory"
+				item "Tech:Module:FrigateFactory"
+				item "Tech:Module:FrigateFactory"
+		group
+			condition
+				type "PlanetOwnerIsRaceQuickStart"
+				param "TechRebel"
+			owner "PlanetOwner"
+			colonizeChance 0
+			items 3
+				item "Tech:Module:CapitalShipFactory"
+				item "Tech:Module:FrigateFactory"
+				item "Tech:Module:FrigateFactory"
+		group
+			condition
+				type "PlanetOwnerIsRaceNormalStart"
+				param "PsiLoyalist"
+			owner "PlanetOwner"
+			colonizeChance 0
+			items 3
+				item "Psi:Module:CapitalShipFactory"
+				item "Psi:Module:FrigateFactory"
+				item "Psi:Module:FrigateFactory"
+		group
+			condition
+				type "PlanetOwnerIsRaceQuickStart"
+				param "PsiLoyalist"
+			owner "PlanetOwner"
+			colonizeChance 0
+			items 3
+				item "Psi:Module:CapitalShipFactory"
+				item "Psi:Module:FrigateFactory"
+				item "Psi:Module:FrigateFactory"				
+		group
+			condition
+				type "PlanetOwnerIsRaceNormalStart"
+				param "PsiRebel"
+			owner "PlanetOwner"
+			colonizeChance 0
+			items 3
+				item "Psi:Module:CapitalShipFactory"
+				item "Psi:Module:FrigateFactory"
+				item "Psi:Module:FrigateFactory"
+		group
+			condition
+				type "PlanetOwnerIsRaceQuickStart"
+				param "PsiRebel"
+			owner "PlanetOwner"
+			colonizeChance 0
+			items 3
+				item "Psi:Module:CapitalShipFactory"
+				item "Psi:Module:FrigateFactory"
+				item "Psi:Module:FrigateFactory"				
+		group
+			condition
+				type "PlanetOwnerIsRaceNormalStart"
+				param "PhaseLoyalist"
+			owner "PlanetOwner"
+			colonizeChance 0
+			items 3
+				item "Phase:Module:CapitalShipFactory"
+				item "Phase:Module:FrigateFactory"
+				item "Phase:Module:FrigateFactory"
+		group
+			condition
+				type "PlanetOwnerIsRaceQuickStart"
+				param "PhaseLoyalist"
+			owner "PlanetOwner"
+			colonizeChance 0
+			items 3
+				item "Phase:Module:CapitalShipFactory"
+				item "Phase:Module:FrigateFactory"
+				item "Phase:Module:FrigateFactory"				
+		group
+			condition
+				type "PlanetOwnerIsRaceNormalStart"
+				param "PhaseRebel"
+			owner "PlanetOwner"
+			colonizeChance 0
+			items 3
+				item "Phase:Module:CapitalShipFactory"
+				item "Phase:Module:FrigateFactory"
+				item "Phase:Module:FrigateFactory"
+		group
+			condition
+				type "PlanetOwnerIsRaceQuickStart"
+				param "PhaseRebel"
+			owner "PlanetOwner"
+			colonizeChance 0
+			items 3
+				item "Phase:Module:CapitalShipFactory"
+				item "Phase:Module:FrigateFactory"
+				item "Phase:Module:FrigateFactory"				
+		group
+			condition
+				type "PlanetOwnerIsRaceNormalStart"
+				param "GalacticEmpire"
+			owner "PlanetOwner"
+			colonizeChance 0
+			items 3
+				item "Emp:Module:CapitalShipFactory"
+				item "Emp:Module:FrigateFactory"
+				item "Emp:Module:FrigateFactory"
+		group
+			condition
+				type "PlanetOwnerIsRaceQuickStart"
+				param "GalacticEmpire"
+			owner "PlanetOwner"
+			colonizeChance 0
+			items 3
+				item "Emp:Module:CapitalShipFactory"
+				item "Emp:Module:FrigateFactory"
+				item "Emp:Module:FrigateFactory"				
+		group
+			condition
+				type "PlanetOwnerIsRaceNormalStart"
+				param "ImperialWarlords"
+			owner "PlanetOwner"
+			colonizeChance 0
+			items 3
+				item "Emp:Module:CapitalShipFactory"
+				item "Emp:Module:FrigateFactory"
+				item "Emp:Module:FrigateFactory"
+		group
+			condition
+				type "PlanetOwnerIsRaceQuickStart"
+				param "ImperialWarlords"
+			owner "PlanetOwner"
+			colonizeChance 0
+			items 3
+				item "Emp:Module:CapitalShipFactory"
+				item "Emp:Module:FrigateFactory"
+				item "Emp:Module:FrigateFactory"
+		group
+			condition
+				type "PlanetOwnerIsRaceNormalStart"
+				param "DarkEmpire"
+			owner "PlanetOwner"
+			colonizeChance 0
+			items 3
+				item "Emp:Module:CapitalShipFactory"
+				item "Emp:Module:FrigateFactory"
+				item "Emp:Module:FrigateFactory"
+		group
+			condition
+				type "PlanetOwnerIsRaceQuickStart"
+				param "DarkEmpire"
+			owner "PlanetOwner"
+			colonizeChance 0
+			items 3
+				item "Emp:Module:CapitalShipFactory"
+				item "Emp:Module:FrigateFactory"
+				item "Emp:Module:FrigateFactory"			
+		group
+			condition
+				type "PlanetOwnerIsRaceNormalStart"
+				param "RebelAlliance"
+			owner "PlanetOwner"
+			colonizeChance 0
+			items 3
+				item "All:Module:CapitalShipFactory"
+				item "All:Module:FrigateFactory"
+				item "All:Module:FrigateFactory"
+		group
+			condition
+				type "PlanetOwnerIsRaceQuickStart"
+				param "RebelAlliance"
+			owner "PlanetOwner"
+			colonizeChance 0
+			items 3
+				item "All:Module:CapitalShipFactory"
+				item "All:Module:FrigateFactory"
+				item "All:Module:FrigateFactory"				
+		group
+			condition
+				type "PlanetOwnerIsRaceNormalStart"
+				param "NewRepublic"
+			owner "PlanetOwner"
+			colonizeChance 0
+			items 3
+				item "All:Module:CapitalShipFactory"
+				item "All:Module:FrigateFactory"
+				item "All:Module:FrigateFactory"
+		group
+			condition
+				type "PlanetOwnerIsRaceQuickStart"
+				param "NewRepublic"
+			owner "PlanetOwner"
+			colonizeChance 0
+			items 3
+				item "All:Module:CapitalShipFactory"
+				item "All:Module:FrigateFactory"
+				item "All:Module:FrigateFactory"	
 planetItemsTemplate
 	templateName "Template:DefaultStart_Terran"
 	subTemplates 4
@@ -4994,7 +5800,7 @@ planetItemsTemplate
 			condition
 				type "NoPlanetOwner"
 				param ""
-			owner "RandomMilitia"
+			owner "Militia0"
 			colonizeChance 1.0
 			items 76
 				item "Other:Capitalship:Providence"
@@ -5113,7 +5919,8 @@ planetItemsTemplate
 				param ""
 			owner "RandomEncounterEmpire"
 			colonizeChance 1.0
-			items 42
+			items 51
+				item "Emp:Frigate:Light"
 				item "Emp:Frigate:Light"
 				item "Emp:Frigate:Light"
 				item "Emp:Frigate:Light"
@@ -5127,12 +5934,18 @@ planetItemsTemplate
 				item "Emp:Frigate:LongRange"
 				item "Emp:Frigate:LongRange"
 				item "Emp:Frigate:LongRange"
+				item "Emp:Frigate:LongRange"
+				item "Emp:Frigate:Enforcer"
 				item "Emp:Frigate:Enforcer"
 				item "Emp:Frigate:Enforcer"
 				item "Emp:Frigate:Enforcer"
 				item "Emp:Frigate:Siege"
 				item "Emp:Frigate:Siege"
 				item "Emp:Frigate:Siege"
+				item "Emp:Frigate:Arquitens"
+				item "Emp:Frigate:Arquitens"
+				item "Emp:Frigate:Antimodule"
+				item "Emp:Frigate:Antimodule"				
 				item "Emp:Capitalship:Venator"
 				item "Emp:Capitalship:Tector"
 				item "Emp:Capitalship:ImperialI"
@@ -5144,6 +5957,8 @@ planetItemsTemplate
 				item "Emp:Module:FrigateFactory"
 				item "Emp:Module:FrigateFactory"
 				item "Emp:Module:TitanFactory"
+				item "Emp:Module:GolanI"
+				item "Emp:Module:GolanI"				
 				item "Emp:Module:GolanIII"
 				item "Emp:Module:GolanIII"
 				item "Emp:Module:GolanIII"
@@ -5167,7 +5982,7 @@ planetItemsTemplate
 				param ""
 			owner "RandomEncounterEmpire"
 			colonizeChance 1.0
-			items 49
+			items 51
 				item "Emp:Frigate:Light"
 				item "Emp:Frigate:Light"
 				item "Emp:Frigate:Light"
@@ -5202,6 +6017,8 @@ planetItemsTemplate
 				item "Emp:Module:FrigateFactory"
 				item "Emp:Module:FrigateFactory"
 				item "Emp:Module:TitanFactory"
+				item "Emp:Module:GolanI"
+				item "Emp:Module:GolanI"				
 				item "Emp:Module:GolanIII"
 				item "Emp:Module:GolanIII"
 				item "Emp:Module:GolanIII"

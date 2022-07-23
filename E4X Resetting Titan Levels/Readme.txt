@@ -20,6 +20,8 @@ ABOVE the main Enhanced 4X Mod and ABOVE Interregnum if in use.
 
 If you are using the Deathmatch Minimod, make sure this minimod is below it in your mod order.
 
+For assistance with load order, see https://goafan77.github.io/E4XInterregnumModManager.html
+
 ---Mod Load Order---
 E4X/INT SinsRe (optional)
 E4X/INT Deathmatch Mode
@@ -34,5 +36,5 @@ TXT
 Version 0
 enabledModNameCount 3
 enabledModName "E4X Resetting Titan Levels"
-enabledModName "Star Wars Interregnum Beta 1"
-enabledModName "Enhanced 4X Mod 1.86"
+enabledModName "Star Wars Interregnum Beta 2"
+enabledModName "Enhanced 4X Mod 1.90"

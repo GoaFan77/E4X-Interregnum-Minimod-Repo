@@ -8,7 +8,7 @@ https://www.moddb.com/mods/sinsre
 If this mod is used, INT SinsRe and E4X SinsRe must also be used.
 
 ---Credits---
-This minimod was created and is maintained by Dolynick, the creator of the Sins:Remastered Mod, and inspired by Donos' sarcasm.
+This minimod was created and is maintained by Dolynick, the creator of the Sins:Remastered Mod, and inspired by Goa's poor taste.
 
 ---Compatible With---
 Enhanced 4X Mod
@@ -37,6 +37,6 @@ enabledModNameCount 6
 enabledModName "INT SinsRe GoaF Quality Assurance Patch"
 enabledModName "INT SinsRe"
 enabledModName "E4X SinsRe"
-enabledModName "Star Wars Interregnum Beta 1"
-enabledModName "Enhanced 4X Mod 1.86"
-enabledModName "SinsRemastered-v0.94b"
+enabledModName "Star Wars Interregnum Beta 2"
+enabledModName "Enhanced 4X Mod 1.90"
+enabledModName "SinsRemastered-v0.95b"

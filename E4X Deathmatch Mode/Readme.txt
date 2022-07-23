@@ -22,6 +22,8 @@ ABOVE the main Enhanced 4X Mod.
 
 If you are using the resetting titan levels minimod, make sure this minimod is above it in the mod order.
 
+For assistance with load order, see https://goafan77.github.io/E4XInterregnumModManager.html
+
 ---Mod Load Order---
 E4X SinsRe (optional)
 E4X Deathmatch Mode
@@ -35,4 +37,4 @@ TXT
 Version 0
 enabledModNameCount 2
 enabledModName "E4X Deathmatch Mode"
-enabledModName "Enhanced 4X Mod 1.86"
+enabledModName "Enhanced 4X Mod 1.90"

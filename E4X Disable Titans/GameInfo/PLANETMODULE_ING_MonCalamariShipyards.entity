@@ -1,0 +1,72 @@
+﻿TXT
+entityType "PlanetModuleStandard"
+minZoomDistanceMult 2.500000
+ability:0 ""
+ability:1 "Ability_ING_BuildMC80"
+ability:2 "Ability_ING_BuildMCFrigateFleet"
+ability:3 "Ability_E4X_AbandonStructure"
+ability:4 "Ability_REQ_NeutralStructure"
+MaxAntiMatter 0.000000
+AntiMatterRestoreRate 0.000000
+numRandomDebrisLarge 3
+numRandomDebrisSmall 19
+numSpecificDebris 0
+armorType "Module"
+hudIcon "HUDICON_ING_PLANETMODULE_AllCapitalshipFactory"
+smallHudIcon "MainViewIcon_ING_CapitalshipFactory"
+infoCardIcon "MainViewIcon_ING_CapitalshipFactory"
+planetUpgradeSlotType "Civilian"
+planetUpgradeSlotCount 0.000000
+basePrice
+	credits 0.000000
+	metal 0.000000
+	crystal 0.000000
+NameStringID "IDS_PLANETMODULE_ING_MonCalamariShipyards_NAME"
+DescriptionStringID "IDS_PLANETMODULE_ING_MonCalamariShipyards_DESC"
+planetModuleRoleType "NANOWEAPONJAMMER"
+statCountType "ModuleUtility"
+Prerequisites
+	NumResearchPrerequisites 0
+	RequiredFactionNameID ""
+	RequiredCompletedResearchSubjects 0
+MaxHullPoints 4500.000000
+HullPointRestoreRate 2.000000
+BaseArmorPoints 6.000000
+MaxShieldPoints 2000.000000
+ShieldPointRestoreRate 10.000000
+maxShieldMitigation 0.600000
+ExperiencePointsForDestroying 0.000000
+resourceExtractionType "Invalid"
+cultureSpreadRate 0.000000
+isAffectedBySimilarModuleCostResearch TRUE
+placementRadius 950.000000
+nearPlacementDistOffset 0.000000
+farPlacementDistOffset 9000.000000
+spawnCount 1
+swapMineType ""
+angularSpeed 0.000000
+rotateSoundName ""
+rotateFacingType "None"
+rotateConstantly FALSE
+ShieldMeshName ""
+renderShield TRUE
+NumSoundsFor:ONATTACKORDERISSUED 0
+NumSoundsFor:ONCREATION 0
+NumSoundsFor:ONGENERALORDERISSUED 0
+NumSoundsFor:ONSELECTED 1
+SoundID "PLANETMODULE_TECHORBITALCAPITALSHIPFACTORY_ONSELECTION_0"
+NumSoundsFor:ONSTARTPHASEJUMP 0
+MeshNameInfoCount 1
+MeshNameInfo
+	meshName "PLANETMODULE_ING_EmpRepairPlatform"
+	criteriaType "None"
+meshNameIncreasedEffectName ""
+meshNameDecreasedEffectName ""
+ExplosionName "PlanetModuleLarge"
+mainViewIcon "MainViewIcon_ING_CapitalshipFactory"
+picture "Picture_ING_CapitalshipFactory"
+minShadow 0.000000
+maxShadow 0.200000
+formationRank 3
+baseBuildTime 60.000000
+buildEffectName ""

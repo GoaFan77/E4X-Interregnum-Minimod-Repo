@@ -13,6 +13,8 @@ All E4X/INT Minimods
 ---Installation---
 To install this minimod, place this folder into your mod folder. In the mods tab of the main menu, enable this mod ABOVE the main Enhanced 4X Mod, and ABOVE Interregnum if in use. For best experience, this minimod should always be loaded BELOW other minimods.
 
+For assistance with load order, see https://goafan77.github.io/E4XInterregnumModManager.html
+
 ---Mod Load Order---
 Other E4X/INT Minimods (optional)
 E4X BGM Enhanced Graphics
@@ -25,5 +27,5 @@ TXT
 Version 0
 enabledModNameCount 3
 enabledModName "E4X BGM Enhanced Graphics"
-enabledModName "Star Wars Interregnum Beta 1"
-enabledModName "Enhanced 4X Mod 1.86"
+enabledModName "Star Wars Interregnum Beta 2"
+enabledModName "Enhanced 4X Mod 1.90"

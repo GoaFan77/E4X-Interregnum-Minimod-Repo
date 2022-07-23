@@ -26,6 +26,8 @@ INT Beskar
 To install the minimod, place this folder into your mod folder. In the mods tab of the main menu, enable this mod
 ABOVE the main Enhanced 4X Mod and Interregnum. For best experience, this minimod should be loaded at the top of the minimod stack, below only INT SinsRe if in use.
 
+For assistance with load order, see https://goafan77.github.io/E4XInterregnumModManager.html
+
 ---Mod Load Order---
 INT SinsRe (optional)
 E4X SinsRe (optional)
@@ -40,5 +42,5 @@ TXT
 Version 0
 enabledModNameCount 3
 enabledModName "INT All E4X Random Encounters"
-enabledModName "Star Wars Interregnum Beta 1"
-enabledModName "Enhanced 4X Mod 1.86"
+enabledModName "Star Wars Interregnum Beta 2"
+enabledModName "Enhanced 4X Mod 1.90"

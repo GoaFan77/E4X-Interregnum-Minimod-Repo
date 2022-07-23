@@ -14,6 +14,8 @@ All E4X Minimods
 To enable this mod, place this folder into your mod folder. Then, in the mods tab of the main menu, enable this mod
 ABOVE the main Enhanced 4X Mod.
 
+For assistance with load order, see https://goafan77.github.io/E4XInterregnumModManager.html
+
 ---Mod Load Order---
 Other E4X Minimods (optional)
 E4X Faster Combat
@@ -26,4 +28,4 @@ TXT
 Version 0
 enabledModNameCount 2
 enabledModName "E4X Faster Combat"
-enabledModName "Enhanced 4X Mod 1.86"
+enabledModName "Enhanced 4X Mod 1.90"
