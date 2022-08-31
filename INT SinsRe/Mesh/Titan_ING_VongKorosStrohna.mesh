@@ -7,11 +7,11 @@ MeshData
 	MinBoundingExtents [ -3250.163818 -559.288391 -3250.163818 ]
 	NumMaterials 1
 	Material
-		DiffuseTextureFileName "VongKorosStrohna-cl.dds"
-		SelfIlluminationTextureFileName "VongKorosStrohna-da.dds"
-		NormalTextureFileName "VongKorosStrohna-nm.dds"
+		DiffuseTextureFileName "Titan_ING_VongKorosStrohna-cl.dds"
+		SelfIlluminationTextureFileName "Titan_ING_VongKorosStrohna-da.dds"
+		NormalTextureFileName "Titan_ING_VongKorosStrohna-nm.dds"
 		DisplacementTextureFileName ""
-		TeamColorTextureFileName "VongKorosStrohna-il.dds"
+		TeamColorTextureFileName "Titan_ING_VongKorosStrohna-il.dds"
 		Diffuse ffffffff
 		Ambient 000018ff
 		Specular ffffffff
