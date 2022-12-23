@@ -12,11 +12,11 @@ MeshData
 		NormalTextureFileName "Planet_ING_Coruscant-nm.dds"
 		DisplacementTextureFileName ""
 		TeamColorTextureFileName ""
-		Diffuse 331c3d99
-		Ambient ffffffff
-		Specular ffffffff
+		Diffuse a35c6d99
+		Ambient f0ffffff
+		Specular ff0010c0
 		Emissive ffffffff
-		Glossiness 8000.010000
+		Glossiness 8000.035
 	NumPoints 3
 	Point
 		DataString "Above"

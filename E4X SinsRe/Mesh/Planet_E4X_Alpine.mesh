@@ -13,10 +13,10 @@ MeshData
 		DisplacementTextureFileName ""
 		TeamColorTextureFileName "Planet_E4X_Alpine-lh.dds"
 		Diffuse 334487ba
-		Ambient ffffffff
-		Specular ffffffff
+		Ambient f035525e
+		Specular ff4010a0
 		Emissive ffffffff
-		Glossiness 4500.0150000
+		Glossiness 4500.05
 	NumPoints 3
 	Point
 		DataString "Above"

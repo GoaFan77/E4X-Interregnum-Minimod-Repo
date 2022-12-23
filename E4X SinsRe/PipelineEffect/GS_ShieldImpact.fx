@@ -18,10 +18,11 @@
 #define TWOPI	6.283185307179586476925286766559
 
 //gravity wave function
-#define W(x,k,c) A*sin(k*(X=x-c*t))*exp(-X*X)
+//#define W(x,k,c) A*sin(k*(X=x-c*t))*exp(-X*X)
+
 
 float4x4 g_World : World;
-float4x4 g_WorldViewProjection	: WorldViewProjection;
+float4x4		g_WorldViewProjection	: WorldViewProjection;
 
 float g_Time;
 float3 g_ImpactPosition;
@@ -87,7 +88,6 @@ float4 Square(float4 X)
 	return X * X;
 }	
 	
-
 void
 RenderSceneVS_WithoutPixelShader( 
 	float3 iPosition					: POSITION, 
@@ -152,7 +152,6 @@ RenderSceneVS_WithPixelShader(
 
 float4 GetPixelColor( float4 iColor, float2 iTexCoord, float iDist, float3 iPos, float3 iView, float3 iNormWS, float3 iPosWS)
 {
-
 	
 	float3	ImpactPos		= iPos - g_ImpactPosition;
 	float	ImpactSqr		= dot(ImpactPos, ImpactPos);
@@ -165,7 +164,6 @@ float4 GetPixelColor( float4 iColor, float2 iTexCoord, float iDist, float3 iPos,
 	
 	float A			= .8;
 	float4 X; 
-	float4 y; 
 	float t			= g_Time * RIPPLE_SPEED;
 	
 	float3 ImpactPosX = ImpactPos - float3(RIPPLE_DERIVATIVE_WIDTH, 0.0, 0.0);
@@ -173,38 +171,37 @@ float4 GetPixelColor( float4 iColor, float2 iTexCoord, float iDist, float3 iPos,
 	float3 ImpactPosZ = ImpactPos - float3(0.0, 0.0, RIPPLE_DERIVATIVE_WIDTH);
 	
 	float4 g	= float4(float3(length(ImpactPosX), length(ImpactPosY), length(ImpactPosZ)) * inverseScale, ImpactDist)  * RIPPLE_SCALE; 
-	
+
 	float4 r;
-	
-	#ifdef USE_TURBULENCE
-		r.x			= tex3Dlod(NoiseSampler, float4(ImpactPosX.xyz * 0.005234 + g_Time * TURBULENCE_SPEED, 0)).r;
-		r.y			= tex3Dlod(NoiseSampler, float4(ImpactPosY.yzx * 0.004973 - g_Time * TURBULENCE_SPEED, 0)).r;
-		r.z			= tex3Dlod(NoiseSampler, float4(ImpactPosZ.zxy * 0.005011 + g_Time * TURBULENCE_SPEED, 0)).r;
-		r.a			= tex3Dlod(NoiseSampler, float4(ImpactPos.zyx  * 0.004948 - g_Time * TURBULENCE_SPEED, 0)).r;
+	#ifdef USE_TURBULENCE	
+		r.x			= tex3D(NoiseSampler, ImpactPosX.xyz * 0.005234 + g_Time * TURBULENCE_SPEED).r;
+		r.y			= tex3D(NoiseSampler, ImpactPosY.yzx * 0.004973 - g_Time * TURBULENCE_SPEED).r;
+		r.z			= tex3D(NoiseSampler, ImpactPosZ.zxy * 0.005011 + g_Time * TURBULENCE_SPEED).r;
+		r.a			= tex3D(NoiseSampler, ImpactPos.zyx  * 0.004948 - g_Time * TURBULENCE_SPEED).r;
 		r 			= float4(r.a - r.xyz, (rcp(1 + Square((r.x - r.y) * 20.0 * LinearFade)) * rcp(1 + Square((r.z - r.w) * 25.0 * LinearFade))) * 4 * LinearFade);
 	#else
 		r 			= 0;
-	#endif
-	
+	#endif	
+
 	float4 Y	= 0.; 
     for(float k = 1.; k < RIPPLE_REFINEMENT_ITERATION; k++)
 	{
+				
+		float4 c = rsqrt(k);
+		X = g - c * t;
 		
-     //   Y += y = W(abs(uv.x), k, sqrt(k))/k;   // dispertion for capillary waves
-		Y += y = W(g, k, rsqrt(k)) / k;// dispertion for gravity waves
+		float4 y = (A * sin(k * X) * exp(-X * X)) / k;// dispertion for gravity waves
+		Y += y;
     }
 	Y *= IMPACTFLARE_SCALE;
 
 	float3 Nws			= normalize(iNormWS + (Y.aaa - Y.xyz) + r.xyz * TURBULENCE_INTENSITY);
-//	return float4(r.www, 1);
+
 	float3 Vws 			= normalize(-iPosWS);
 	float NoV 			= dot(Vws, Nws);
 
 	float3 Rws = -(Vws - 2.0 * Nws * NoV);	
 	float3 color = texCUBElod(TextureEnvironmentCubeSampler, float4(Rws, 0)).rgb;	//sure it'll oversample a bit but the mips don't work for grad sampling.
-	
-//	return float4(color, /*saturate(LinearFade * (1-Pow5(1-saturate(abs(dot(Vws, iNormWS))))) * */rcp(1.0 + Square(g_Time * 2.0)));
-	
 
 	float lambda = .35f;
 	float3 shieldColor = iColor.rgb;
@@ -216,11 +213,9 @@ float4 GetPixelColor( float4 iColor, float2 iTexCoord, float iDist, float3 iPos,
 	color *= 1.0 + r.a + max(0.0, (rcp(1 + Square(ImpactDist * IMPACTFLARE_ATTENUATION)) - rcp(1.0 + Square(IMPACTFLARE_ATTENUATION))) * IMPACTFLARE_INTENSITY * rcp(0.1 + Square(g_Time * IMPACTFLARE_PULSE_SPEED)));
 	
 	return float4(color, LinearFade * rcp(1.0 + Square(g_Time * 2.0)) * 0.85);
-
 }
 
-void
-RenderScenePS( 
+void RenderScenePS( 
 	float4 iColor					: COLOR0,
 	float2 iTexCoord0				: TEXCOORD0,
 	float iDist						: TEXCOORD1,
@@ -267,7 +262,7 @@ technique RenderWithPixelShader
 {
     pass Pass0
     {          
-        VertexShader		= compile vs_1_1 RenderSceneVS_WithPixelShader();
+        VertexShader		= compile vs_3_0 RenderSceneVS_WithPixelShader();
         PixelShader			= compile ps_3_0 RenderScenePS();
         
         AlphaTestEnable		= false;

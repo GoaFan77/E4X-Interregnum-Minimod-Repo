@@ -11,12 +11,12 @@ MeshData
 		SelfIlluminationTextureFileName "Axeldude_Planet_Forest_4-da.dds"
 		NormalTextureFileName "Axeldude_Planet_Forest_4-nm.dds"
 		DisplacementTextureFileName ""
-		TeamColorTextureFileName ""
-		Diffuse 3317295a
-		Ambient c0ffffff
-		Specular ffffffff
+		TeamColorTextureFileName "Axeldude_Planet_Forest_4-lh.dds"
+		Diffuse 335759aa
+		Ambient f035585e
+		Specular ff6410a0
 		Emissive ffffffff
-		Glossiness 6000.010000
+		Glossiness 6000.035
 	NumPoints 3
 	Point
 		DataString "Above"

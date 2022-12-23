@@ -11,12 +11,12 @@ MeshData
 		SelfIlluminationTextureFileName "Planet_ING_Kessel-da.dds"
 		NormalTextureFileName "Planet_ING_Kessel-nm.dds"
 		DisplacementTextureFileName ""
-		TeamColorTextureFileName ""
-		Diffuse 3342798d
-		Ambient ffffffff
-		Specular ffffffff
+		TeamColorTextureFileName "Planet_ING_Kessel-lh.dds"
+		Diffuse a392795d
+		Ambient d0ffffff
+		Specular ff001050
 		Emissive ffffffff
-		Glossiness 4500.015000
+		Glossiness 4500.035
 	NumPoints 3
 	Point
 		DataString "Above"
