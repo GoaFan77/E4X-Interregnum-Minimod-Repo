@@ -291,7 +291,7 @@ squadAntiMatterCost:1 0.000000
 squadTypeEntityDef:2 "Squad_ING_EmpInterceptor"
 squadAntiMatterCost:2 50.000000
 squadTypeEntityDef:3 "Squad_ING_EmpDefender"
-squadAntiMatterCost:3 100.000000
+squadAntiMatterCost:3 85.000000
 NumSoundsFor:ONATTACKORDERISSUED 6
 SoundID "Dialog_ING_ISD_Attack"
 SoundID "Dialog_ING_ISD_Attack_2"
