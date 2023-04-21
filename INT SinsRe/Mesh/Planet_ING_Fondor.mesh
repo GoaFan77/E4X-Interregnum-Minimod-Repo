@@ -11,12 +11,12 @@ MeshData
 		SelfIlluminationTextureFileName "Planet_ING_Fondor-da.dds"
 		NormalTextureFileName "Planet_ING_Fondor-nm.dds"
 		DisplacementTextureFileName ""
-		TeamColorTextureFileName ""
-		Diffuse 33275566
-		Ambient ffffffff
-		Specular ffffffff
+		TeamColorTextureFileName "Planet_ING_Fondor-lh.dds"
+		Diffuse a3173b67
+		Ambient f02d5e4a
+		Specular ff4610a0
 		Emissive ffffffff
-		Glossiness 7500.010000
+		Glossiness 7500.035
 	NumPoints 3
 	Point
 		DataString "Above"

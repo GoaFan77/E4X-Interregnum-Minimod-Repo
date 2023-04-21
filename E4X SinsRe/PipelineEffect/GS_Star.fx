@@ -203,7 +203,7 @@ technique RenderWithPixelShader
 {
     pass Pass0
     {          
-        VertexShader = compile vs_1_1 RenderSceneVS();
+        VertexShader = compile vs_3_0 RenderSceneVS();
         PixelShader = compile ps_3_0 RenderScenePS_Color();
 		ZEnable = true;
 		ZWriteEnable = true;

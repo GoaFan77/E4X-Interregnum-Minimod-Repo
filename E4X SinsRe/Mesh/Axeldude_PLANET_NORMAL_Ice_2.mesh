@@ -12,11 +12,11 @@ MeshData
 		NormalTextureFileName "Axeldude_Planet_Ice_2-nm.dds"
 		DisplacementTextureFileName ""
 		TeamColorTextureFileName ""
-		Diffuse 33637591
+		Diffuse a3637591
 		Ambient ffffffff
-		Specular ffffffff
+		Specular ff0010a0
 		Emissive ffffffff
-		Glossiness 5000.01
+		Glossiness 5000.035
 	NumPoints 3
 	Point
 		DataString "Above"

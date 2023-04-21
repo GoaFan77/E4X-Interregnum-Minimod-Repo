@@ -11,12 +11,12 @@ MeshData
 		SelfIlluminationTextureFileName "Planet_ING_Byss-da.dds"
 		NormalTextureFileName "Planet_ING_Byss-nm.dds"
 		DisplacementTextureFileName ""
-		TeamColorTextureFileName ""
-		Diffuse 332a740c
-		Ambient ffffffff
-		Specular ffffffff
+		TeamColorTextureFileName "Planet_ING_Byss-lh.dds"
+		Diffuse a00c4c48
+		Ambient 7035525e
+		Specular ff4810a0
 		Emissive ffffffff
-		Glossiness 7500.015000
+		Glossiness 7500.035
 	NumPoints 3
 	Point
 		DataString "Above"

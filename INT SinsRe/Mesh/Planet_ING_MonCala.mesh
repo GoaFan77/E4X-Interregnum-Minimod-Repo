@@ -11,12 +11,12 @@ MeshData
 		SelfIlluminationTextureFileName "Planet_ING_MonCala-da.dds"
 		NormalTextureFileName "Planet_ING_MonCala-nm.dds"
 		DisplacementTextureFileName ""
-		TeamColorTextureFileName ""
-		Diffuse 331c3d99
-		Ambient ffffffff
-		Specular ffffffff
+		TeamColorTextureFileName "Planet_ING_MonCala-lh.dds"
+		Diffuse a31c3d99
+		Ambient f035525e
+		Specular ff4b10a0
 		Emissive ffffffff
-		Glossiness 7500.010000
+		Glossiness 7500.035
 	NumPoints 3
 	Point
 		DataString "Above"

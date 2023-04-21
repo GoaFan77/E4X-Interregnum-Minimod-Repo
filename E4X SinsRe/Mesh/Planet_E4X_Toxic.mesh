@@ -11,12 +11,12 @@ MeshData
 		SelfIlluminationTextureFileName "Planet_E4X_Toxic-da.dds"
 		NormalTextureFileName "Planet_E4X_Toxic-nm.dds"
 		DisplacementTextureFileName ""
-		TeamColorTextureFileName ""
-		Diffuse 334a1e44
-		Ambient 803fbcb8
-		Specular ffffffff
+		TeamColorTextureFileName "Planet_E4X_Toxic-lh.dds"
+		Diffuse d87a4e74
+		Ambient d04e6353
+		Specular ff6010a0
 		Emissive ffffffff
-		Glossiness 6000.050000
+		Glossiness 6000.065
 	NumPoints 3
 	Point
 		DataString "Above"

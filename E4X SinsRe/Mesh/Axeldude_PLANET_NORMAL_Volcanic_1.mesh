@@ -12,11 +12,11 @@ MeshData
 		NormalTextureFileName "Axeldude_Planet_Volcanic_1-nm.dds"
 		DisplacementTextureFileName ""
 		TeamColorTextureFileName "Axeldude_Planet_Volcanic_1-lh.dds"
-		Diffuse 20375282
-		Ambient ff808080
-		Specular 40ffffff
+		Diffuse 834a3b34
+		Ambient 40a09080
+		Specular 40000030
 		Emissive ffffffff
-		Glossiness 5000.015000
+		Glossiness 5000.035
 	NumPoints 3
 	Point
 		DataString "Above"

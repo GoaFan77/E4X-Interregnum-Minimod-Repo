@@ -12,11 +12,11 @@ MeshData
 		NormalTextureFileName "Axeldude_Planet_IceGiant_0-nm.dds"
 		DisplacementTextureFileName ""
 		TeamColorTextureFileName ""
-		Diffuse 33080e15
+		Diffuse a3080e15
 		Ambient ffffffff
-		Specular ffffffff
+		Specular 000010a0
 		Emissive ffffffff
-		Glossiness 50000.007500
+		Glossiness 50000.025
 	NumPoints 3
 	Point
 		DataString "Center"

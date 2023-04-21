@@ -2,9 +2,20 @@
 #define PI 		3.1415926535897932384626433832795
 #define INVPI 	0.3183098861837906715377675267450
 #define FRESNEL_CLAMP 0.0001 //variable that avoids caps a potenital near 0 division leading to infinitely bright fresnel effect
-#define LIGHTINTENSITY_FAR 0.8			// light intensity far from stars
-#define LIGHTINTENSITY_NEAR	8.0			// light intensity close to stars
-#define LIGHTINTENSITY_POST 0.8			//light intensity after remapping to 0-1 ranges
+#define ONETHIRD 0.333333333333333333333333333333
+
+#define LIGHTINTENSITY_FAR 0.8				// light intensity far from stars
+#define LIGHTINTENSITY_NEAR	8.0				// light intensity close to stars
+#define LIGHTINTENSITY_POST 1.0				// light intensity after remapping to 0-1 ranges
+//nice if you play with bloom on!
+#define AMBIENT_BOOST 10.0
+#define EMISSIVE_BOOST 1.0					// emissive intensity
+#define EMISSIVE_SELFILLUMINATION_BOOST 1.0	// emissive selfillumination intensity - will only do something if there is a lightmap
+#define EMISSIVE_BOOST_POST 1.0				// emissive intensity after remapping to 0-1 ranges
+#define IRIDESCENCE
+#define SELFILLUMINATON
+#define MULTISCATTER_IBL
+#define LINEARCOLOR
 
 float4x4 g_World : World;
 float4x4 g_WorldViewProjection : WorldViewProjection;
@@ -12,34 +23,71 @@ float4x4 g_WorldViewProjection : WorldViewProjection;
 texture	g_TextureDiffuse0 : Diffuse;
 texture g_TextureTeamColor;
 texture	g_TextureSelfIllumination;
+
+texture	g_TextureEnvironmentCube : Environment;
+texture g_EnvironmentIllumination : Environment;
+
+float4 g_MaterialSpecular:Specular;
+float4 g_MaterialAmbient:Ambient;
+float4 g_MaterialEmissive:Emissive;
+
 float4 g_TeamColor;
+
+
 float colorMultiplier = 1000.f;
 float3 g_Light0_Position: Position = float3( 0.f, 0.f, 0.f );
 float4 g_Light0_DiffuseLite: Diffuse;// = float4( 1.f, 1.f, 1.f, 1.f );
 
-sampler TextureColorSampler = 
-sampler_state
-{
-    Texture = < g_TextureDiffuse0 >;    
-    MipFilter = LINEAR;
-    MinFilter = LINEAR;
-    MagFilter = LINEAR;
+sampler TextureColorSampler = sampler_state{
+    Texture = <g_TextureDiffuse0>;
+#ifndef Anisotropy
+    Filter = LINEAR;
+#else
+	Filter = ANISOTROPIC;
+	MaxAnisotropy = AnisotropyLevel;
+#endif
 };
 
-sampler TextureDataSampler = 
-sampler_state
-{
-    Texture = < g_TextureSelfIllumination >;    
-    MipFilter = LINEAR;
-    MinFilter = LINEAR;
-    MagFilter = LINEAR;
+sampler TextureDataSampler = sampler_state{
+    Texture = <g_TextureSelfIllumination>;    
+#ifndef Anisotropy
+    Filter = LINEAR;
+#else
+	Filter = ANISOTROPIC;
+	MaxAnisotropy = AnisotropyLevel;
+#endif
 };
 
 sampler TexturetTeamSampler = sampler_state{
     Texture = <g_TextureTeamColor>;    
-    MipFilter = LINEAR;
-    MinFilter = LINEAR;
-    MagFilter = LINEAR;
+#ifndef Anisotropy
+    Filter = LINEAR;
+#else
+	Filter = ANISOTROPIC;
+	MaxAnisotropy = AnisotropyLevel;
+#endif
+};
+
+samplerCUBE TextureEnvironmentCubeSampler = sampler_state{
+    Texture = <g_TextureEnvironmentCube>;
+    MinFilter = ANISOTROPIC;
+    MagFilter = ANISOTROPIC;
+    MipFilter = ANISOTROPIC;
+    AddressU = CLAMP;
+    AddressV = CLAMP;
+    AddressW = CLAMP;
+	 
+};
+
+samplerCUBE EnvironmentIlluminationCubeSampler = sampler_state{
+    Texture = <g_EnvironmentIllumination>;
+    MinFilter = ANISOTROPIC;
+    MagFilter = ANISOTROPIC;
+    MipFilter = ANISOTROPIC;
+    AddressU = CLAMP;
+    AddressV = CLAMP;
+    AddressW = CLAMP;
+
 };
 
 struct VsOutput
@@ -69,11 +117,20 @@ RenderSceneVS(
 
     return o;
 }
+
+float GetMipRoughness(float Roughness, float MipCount)
+{
+	//return MipCount - 1 - (3 - 1.15 * log2(Roughness));
+	return sqrt(Roughness) * MipCount;
+}
+	
 struct PBRProperties
 {
 	float3 SpecularColor;
 	float3 DiffuseColor;
 	float Roughness;
+	float RoughnessMip;
+	float Metal;
 };
 
 struct Dots
@@ -95,81 +152,116 @@ void GetDots(inout Dots Dot, float3 normal, float3 view, float3 light)
 	Dot.VoH = (distInvHalfVec + distInvHalfVec * Dot.VoL);
 }
 
-inline float Square(float X)
+float Luminance(float3 X)
+{
+	return dot(float3(0.299, 0.587, 0.114), X);
+}
+
+float Square(float X)
 {
 	return X * X;
 }
-inline float2 Square(float2 X)
+float2 Square(float2 X)
 {
 	return X * X;
 }
-inline float3 Square(float3 X)
+float3 Square(float3 X)
 {
 	return X * X;
 }
-inline float4 Square(float4 X)
+float4 Square(float4 X)
 {
 	return X * X;
 }
 
-inline float Pow3(float X)
+float Pow3(float X)
 {
 	return Square(X) * X;
 }
-inline float2 Pow3(float2 X)
+float2 Pow3(float2 X)
 {
 	return Square(X) * X;
 }
-inline float3 Pow3(float3 X)
+float3 Pow3(float3 X)
 {
 	return Square(X) * X;
 }
-inline float4 Pow3(float4 X)
+float4 Pow3(float4 X)
 {
 	return Square(X) * X;
 }
 
-inline float Pow4(float X)
+float Pow4(float X)
 {
 	return Square(Square(X));
 }
-inline float2 Pow4(float2 X)
+float2 Pow4(float2 X)
 {
 	return Square(Square(X));
 }
-inline float3 Pow4(float3 X)
+float3 Pow4(float3 X)
 {
 	return Square(Square(X));
 }
-inline float4 Pow4(float4 X)
+float4 Pow4(float4 X)
 {
 	return Square(Square(X));
 }
 
-inline float Pow5(float X)
+float Pow5(float X)
 {
 	return Pow4(X) * X;
 }	
-inline float2 Pow5(float2 X)
+float2 Pow5(float2 X)
 {
 	return Pow4(X) * X;
 }	
-inline float3 Pow5(float3 X)
+float3 Pow5(float3 X)
 {
 	return Pow4(X) * X;
 }	
-inline float4 Pow5(float4 X)
+float4 Pow5(float4 X)
 {
 	return Pow4(X) * X;
 }	
 
-inline float ToLinear(float aGamma)
+float3 SRGBToLinear(float3 color)
 {
-	return pow(aGamma, 2.2);
+	#ifdef LINEARCOLOR	
+		//When external colors and the data texture are redone this can be reenabled.
+		return pow(abs(color), 2.2);
+	#else
+		return color;
+	#endif
+	
 }
-inline float3 ToLinear(float3 aGamma)
+
+float4 SRGBToLinear(float4 color)
 {
-	return pow(aGamma, (float3)2.2);
+	#ifdef LINEARCOLOR
+		//When external colors and the data texture are redone this can be reenabled.
+		return float4(SRGBToLinear(color.rgb), color.a);
+	#else
+		return color;
+	#endif
+}
+
+float3 LinearToSRGB(float3 color)
+{
+	#ifdef LINEARCOLOR
+		return pow(color, (float3)(1.0 / 2.2));
+	#else
+		return color;
+	#endif
+}
+
+float4 LinearToSRGB(float4 color)
+{
+	#ifdef LINEARCOLOR
+		return float4(LinearToSRGB(color.rgb), color.a);
+	#else
+		return color;
+	#endif
 }
 
 void GetSphereNoH(inout Dots Dot, float sphereSinAlpha)
@@ -333,13 +425,96 @@ void SphereLight(PBRProperties Properties, float3 normal, float3 view, float3 li
 	}
 }
 
+// ratio: 1/3 = neon, 1/4 = refracted, 1/5+ = approximate white
+float3 PhysHueToRGB(float Hue, float Ratio) {
+	//return smoothstep((float3)0.0,(float3)1.0, abs(frac(Hue + float3(0.0,1.0,2.0) * Ratio) * 2.0 - 1.0));
+	return smoothstep((float3)0.0,(float3)1.0, abs(frac(Hue + float3(0.0,1.0,2.0) * Ratio) * 2.0 - 1.0));
+	//return cos((Hue + float3(0.0,1.0,2.0) * Ratio) * TWOPI) * 0.5 + 0.5;
+}
 
+	// based on http://home.hiroshima-u.ac.jp/kin/publications/TVC01/examples.pdf
+	//and https://home.hiroshima-u.ac.jp/~kin/publications/EG00/rough_surface.pdf		
+	void Iridescence(inout PBRProperties Properties, float NoV)
+	{					
+		float IridescenceThickness = mad(Luminance(Properties.SpecularColor), g_MaterialSpecular.g, g_MaterialSpecular.r) * PI;
+		float Phase = 1.0 / 2.8;
+		
+		float3 IridescenceWeight = (Properties.SpecularColor * (1-Properties.SpecularColor));
+		IridescenceWeight *= (2 * (1-saturate(lerp(g_MaterialSpecular.b, g_MaterialSpecular.a, Properties.Metal))));
+		
+		Properties.SpecularColor += PhysHueToRGB(-0.5 * NoV + IridescenceThickness * 2.4, IridescenceThickness * Phase) * IridescenceWeight;
+	}
+
+// Brian Karis(Epic's) optimized unified term derived from Call of Duty metallic/dielectric term improved with https://bruop.github.io/ibl/
+void AmbientBRDF(inout float3 diffuse, inout float3 specular, float NoV, PBRProperties Properties, const float3 radiance = 1.0, const float3 irradiance = 1.0, const bool multiscatter = true)
+{
+
+	float4 r = Properties.Roughness * float4(-1.0, -0.0275, -0.572, 0.022) + float4(1.0, 0.0425, 1.04, -0.04);
+	float a004 = min(r.x * r.x, exp2(-9.28 * NoV)) * r.x + r.y;
+	float2 AB = float2(-1.04, 1.04) * a004 + r.zw;
+
+	AB.y *= (1.0 - 1.0 / (1.0 + max(0.0, 50.0))) * 3.0;
+	
+	if(multiscatter)
+	{
+
+	    // Roughness dependent fresnel, from Fdez-Aguera
+//		float3 Fr = max((float3)(1.0 - Properties.Roughness), NoV) - NoV;
+//		float3 k_S = Properties.SpecularColor * (NoV + Fr * Pow5(1.0 - NoV));
+	
+		float3 FssEss = Properties.SpecularColor * AB.x + AB.y;
+	
+		// Multiple scattering, from Fdez-Aguera
+		float Ems = (1.0 - (AB.x + AB.y));
+		float3 F_avg = NoV + (1.0 - NoV) * rcp(21.0);
+		float3 FmsEms = Ems * FssEss * F_avg / (1.0 - F_avg * Ems);
+		float3 k_D = Properties.DiffuseColor * (1.0 - FssEss - FmsEms);
+		
+		diffuse 	+= (FmsEms + k_D) * irradiance;
+		specular 	+= FssEss * radiance;
+	}
+	else
+	{
+		diffuse 	+= Properties.DiffuseColor * irradiance;
+		specular 	+= (Properties.SpecularColor * AB.x + AB.y) * radiance;
+	}
+	
+}
+
+
+// Fresnel term
+float3 F_GGX(PBRProperties Properties, float VoH)
+{
+	float Fc = Pow5(1.0 - VoH);
+
+	return saturate(50.0 * Properties.SpecularColor.g) * Fc + (1.0 - Fc) * Properties.SpecularColor;
+}
+
+// Specular lobe
+float D_GGX(float NoH, float Roughness)
+{
+	float a2 = Pow4(Roughness);	
+	float d = Square((NoH * a2 - NoH) * NoH + 1.0);
+	return a2 / (PI * d);	
+//		return a2 / d;	
+}
+	
+// Tweaked for Selfillumination
+float V_GGX_Selfillumination(float Roughness, float NoV, float NoL)
+{
+	float k = Square(Roughness) * 0.5f;
+	float G1V = NoV * (1.0 - k) + k;
+	float G1L = NoL * (1.0 - k) + k;
+	return 0.25f / (G1V * G1L);
+}
+	
 float4 GetPixelColor( float2 iTexCoord, float3 iNormal, float3 iPos)
 {
 	float4 illuminationSample = tex2D(TexturetTeamSampler, iTexCoord);
 	float4 colorSample = tex2D(TextureColorSampler, iTexCoord);
 	illuminationSample = colorSample * Square(illuminationSample);
-	float3 baseColor = ToLinear(colorSample.rgb);
+	
+	float3 baseColor = SRGBToLinear(colorSample.rgb);
     float4 dataSample = tex2D(TextureDataSampler, iTexCoord);
     
     //Team Color
@@ -356,14 +531,12 @@ float4 GetPixelColor( float2 iTexCoord, float3 iNormal, float3 iPos)
 #else
 	float bloomScalar = dataSample.g;
 #endif
-	colorSample = Square(colorSample) * bloomScalar;
-	colorSample.rgb = (colorSample + illuminationSample);
-	float4 oColor = colorSample * colorMultiplier;
-//	oColor.rgb = 1-exp(-oColor.rgb);
+	float3 emissive = (SRGBToLinear(colorSample) * bloomScalar * EMISSIVE_BOOST + illuminationSample * EMISSIVE_SELFILLUMINATION_BOOST);
+
 	float3 normal		= normalize(iNormal);
 	float3 view			= normalize(-iPos);
 	float3 lightPos		= g_Light0_Position - iPos;
-	float3 lightColor	= ToLinear(g_Light0_DiffuseLite.rgb);
+	float3 lightColor	= SRGBToLinear(g_Light0_DiffuseLite.rgb);
 	float NoL			= dot(normal, normalize(lightPos));
 	
 	float lightRad			= 25000;
@@ -376,11 +549,58 @@ float4 GetPixelColor( float2 iTexCoord, float3 iNormal, float3 iPos)
 	Properties.DiffuseColor		= baseColor * (1.0 - dataSample.r);
 	Properties.SpecularColor	= lerp((float3)0.04, baseColor, dataSample.r);
 	Properties.Roughness		= dataSample.a;
+	Properties.RoughnessMip 	= GetMipRoughness(dataSample.a, 5.0);
+	Properties.Metal			= dataSample.r;
 	
-	SphereLight(Properties, normal, view, lightPos, lightRad, float4(lightColor.rgb, 1.0), specular, diffuse, attenuation, NoL);
+	float NoV							= dot(normal, view);
+	float3 reflection			= -(view - 2.0 * normal * NoV);
+	NoV							= saturate(abs(NoV) * (1.0-FRESNEL_CLAMP) + FRESNEL_CLAMP);
+
+	#ifdef IRIDESCENCE
+		Iridescence(Properties, NoV);
+	#endif
+	
+//	return float4(Properties.SpecularColor, 1);
+
+	float3 ReflectionSample 	= SRGBToLinear(texCUBElod(TextureEnvironmentCubeSampler, float4(reflection, Properties.RoughnessMip))).rgb;// + max(0.04, dataSample.r) * lightmap;
+//	#ifdef PURE_ROUGNESSBIASED_REFLECTION
+//		return 					LinearToSRGB(float4(ReflectionSample, 0.0));
+//	#endif
+	float3 DiffuseSample		= SRGBToLinear(texCUBE(EnvironmentIlluminationCubeSampler, normal)).rgb;
+//	#ifdef PUREREFLECTION
+//		return 					float4(texCUBElod(TextureEnvironmentCubeSampler, float4(reflection, 0.0)).rgb, 0.0);
+//	#endif
+	#ifdef AMBIENT_BOOST
+		ReflectionSample  		= 1-exp(-(ReflectionSample  + Square(ReflectionSample)	* AMBIENT_BOOST));
+		DiffuseSample			= 1-exp(-(DiffuseSample		+ Square(DiffuseSample)		* AMBIENT_BOOST));
+	#endif
+
+	#ifdef MULTISCATTER_IBL
+		AmbientBRDF(diffuse, specular, NoV, Properties, ReflectionSample, DiffuseSample, true);
+	#else
+		AmbientBRDF(diffuse, specular, NoV, Properties, ReflectionSample, DiffuseSample, false);
+	#endif
+	
+	#ifdef SELFILLUMINATON 
+		float3 SampleSelfIllumination = SRGBToLinear(tex2D(TexturetTeamSampler, iTexCoord)).rgb;
+		float3 halfVec = normalize(reflection + view);
+		float VoH = max(0.0, dot(view, halfVec));
+		float3 F = F_GGX(Properties, VoH);
+		float3 A = (1.0 - F) * Properties.DiffuseColor;
+	
+		float D = max(0.0, D_GGX(pow(saturate(abs(dot(normalize(reflection + view), view)) * 2.0 - 1.0), 0.125), Properties.Roughness));
+
+		float3 V = saturate(V_GGX_Selfillumination(Properties.Roughness, NoV, dot(SampleSelfIllumination, SampleSelfIllumination)));
+		V = max((float3)0.0, V) * D;
+				
+		diffuse += (SampleSelfIllumination * Properties.DiffuseColor * (1.0 - F));
+		specular += SampleSelfIllumination * F * V;
+	#endif
+	
+//	SphereLight(Properties, normal, view, lightPos, lightRad, float4(lightColor.rgb, 1.0), specular, diffuse, attenuation, NoL);
 
 	//NOTE we are deliberately NOT outputting the lighting in gamma space!
-	return float4(max(oColor.rgb, (1.0 - exp(-(specular + diffuse))) * LIGHTINTENSITY_POST), oColor.a);
+	return float4((1.0 - exp(-(specular + diffuse))) * LIGHTINTENSITY_POST + (1.0 - exp(-emissive)) * EMISSIVE_BOOST_POST, 1);
 }
 
 void
@@ -395,7 +615,7 @@ technique RenderWithPixelShader
 {
     pass Pass0
     {          
-        VertexShader = compile vs_1_1 RenderSceneVS();
+        VertexShader = compile vs_3_0 RenderSceneVS();
         PixelShader = compile ps_3_0 RenderScenePS();
 		AlphaTestEnable = FALSE;
         AlphaBlendEnable = TRUE;

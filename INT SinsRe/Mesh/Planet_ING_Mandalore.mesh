@@ -11,12 +11,12 @@ MeshData
 		SelfIlluminationTextureFileName "Planet_ING_Mandalore_da.dds"
 		NormalTextureFileName "Planet_ING_Mandalore_nm.dds"
 		DisplacementTextureFileName ""
-		TeamColorTextureFileName ""
-		Diffuse 33928c47
-		Ambient ffffffff
-		Specular ffffffff
+		TeamColorTextureFileName "Planet_ING_Mandalore_lh.dds"
+		Diffuse a37a723a
+		Ambient d035525e
+		Specular ff001078
 		Emissive ffffffff
-		Glossiness 5500.010000
+		Glossiness 5500.035
 	NumPoints 3
 	Point
 		DataString "Above"

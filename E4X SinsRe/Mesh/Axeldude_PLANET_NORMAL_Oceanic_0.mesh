@@ -11,12 +11,12 @@ MeshData
 		SelfIlluminationTextureFileName "Axeldude_Planet_Oceanic_1-da.dds"
 		NormalTextureFileName "Axeldude_Planet_Oceanic_1-nm.dds"
 		DisplacementTextureFileName ""
-		TeamColorTextureFileName ""
-		Diffuse 331c3d99
-		Ambient 80ffffff
-		Specular ffffffff
+		TeamColorTextureFileName "Axeldude_Planet_Oceanic_1-lh.dds"
+		Diffuse 831c3d99
+		Ambient e835525e
+		Specular ff4010a0
 		Emissive ffffffff
-		Glossiness 6500.015000
+		Glossiness 6500.035
 	NumPoints 3
 	Point
 		DataString "Above"

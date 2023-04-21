@@ -1,37 +1,35 @@
-﻿TXT
+﻿TXT2
+SinsArchiveVersion 194
 entityType "Star"
-coronaStartColor 0
-coronaEndColor 0
+coronaStartColor 00000000
+coronaEndColor 00000000
 coronaStartColorDistance 0.000000
 coronaEndColorDistance 0.400000
 farIcon "HUDICON_SOLARSYSTEM_BLUE"
-coloredSkyboxMeshInfoCount 6
+coloredSkyboxMeshInfoCount 5
+meshInfo
+	meshName "SkyboxBackdrop2"
+	shouldPrefer TRUE
 meshInfo
 	meshName "SkyboxBackdrop4"
-	shouldPrefer TRUE
-meshInfo
-	meshName "Skybox_E4X_Green1"
-	shouldPrefer TRUE
-meshInfo
-	meshName "Skybox_E4X_BlueGreen1"
-	shouldPrefer TRUE	
-meshInfo
-	meshName "Skybox_E4X_Purple1"
-	shouldPrefer TRUE
-meshInfo
-	meshName "Skybox_E4X_Yellow1"
 	shouldPrefer FALSE
 meshInfo
-	meshName "Skybox_E4X_Backdrop6"
+	meshName "SkyboxBackdrop5"
 	shouldPrefer TRUE
+meshInfo
+	meshName "SkyboxBackdrop6"
+	shouldPrefer TRUE
+meshInfo
+	meshName "SkyboxBackdrop8"
+	shouldPrefer FALSE
 deepSpaceSkyboxMeshInfoCount 1
 meshInfo
-	meshName "Skybox_E4X_Backdrop4"
-	shouldPrefer TRUE
+	meshName "SkyboxBackdrop7"
+	shouldPrefer FALSE
 iconTextureName "starcore-blue"
 dlcID 255910
 ability:0 "AbilityStarBlackHole"
-ability:1 "Ability_E4X_Blackhole"
+ability:1 ""
 ability:2 ""
 ability:3 ""
 ability:4 ""
@@ -43,7 +41,7 @@ moveAreaRadius 60000.000000
 hyperspaceExitRadius 50000.000000
 isWormhole FALSE
 maxStarBaseCountPerPlayer 4
-maxSpaceMineCountPerPlayer 0
+maxSpaceMineCountPerPlayer 500
 mainViewIcon "MAINVIEWICON_STAR_BLACK_HOLE"
 picture "STARPICTURE_BLACK_HOLE"
 MeshName "BlackHole"

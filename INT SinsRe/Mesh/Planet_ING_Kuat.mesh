@@ -11,12 +11,12 @@ MeshData
 		SelfIlluminationTextureFileName "Planet_ING_Kuat-da.dds"
 		NormalTextureFileName "Planet_ING_Kuat-nm.dds"
 		DisplacementTextureFileName ""
-		TeamColorTextureFileName ""
-		Diffuse 333b699c
-		Ambient ffffffff
-		Specular ffffffff
+		TeamColorTextureFileName "Planet_ING_Kuat-lh.dds"
+		Diffuse a3133b6b
+		Ambient f035525e
+		Specular ffbf10a0
 		Emissive ffffffff
-		Glossiness 7500.010000
+		Glossiness 7500.035
 	NumPoints 3
 	Point
 		DataString "Above"
