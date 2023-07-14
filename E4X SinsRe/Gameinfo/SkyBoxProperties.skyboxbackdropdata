@@ -27,7 +27,7 @@ properties
 	textureName "galaxyspiral_orange2"
 	textureName "galaxyspiral_orange"
 	environmentMapName "skybox03environmentcube.dds"
-	environmentIlluminationMapName "skybox06irradiance.dds"
+	environmentIlluminationMapName "skybox03irradiance.dds"
 properties
 	meshName "SkyboxBackdrop4"
 	diffuseLiteColor ffc8f1d0
