@@ -13,7 +13,7 @@ MeshData
 		DisplacementTextureFileName ""
 		TeamColorTextureFileName "Frigate_ING_VongSlayerShip-lh.dds"
 		Diffuse ffffffff
-		Ambient ffffffff
+		Ambient 000018ff
 		Specular ffffffff
 		Emissive ffffffff
 		Glossiness 50.000000
