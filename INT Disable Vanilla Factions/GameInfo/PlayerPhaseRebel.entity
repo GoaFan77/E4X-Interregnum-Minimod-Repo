@@ -1,8 +1,9 @@
-﻿TXT
+﻿TXT2
+SinsArchiveVersion 193
 entityType "Player"
 raceNameStringID "IDS_PLAYERRACENAME_PHASEREBEL"
 canColonize TRUE
-isPsi FALSE
+playerRaceType "Phase"
 isSelectable FALSE
 selectablePriorty 0
 randomCapitalShipNamePrefix "IDS_CAPITALSHIPNAME_PHASE"
@@ -36,15 +37,13 @@ entities
 			entityDefName "TITAN_PHASEREBEL"
 	capitalShipInfo
 		Page:0
-			count 8
+			count 6
 			entityDefName "CAPITALSHIP_PHASEBATTLESHIP"
 			entityDefName "CAPITALSHIP_PHASECARRIER"
 			entityDefName "CAPITALSHIP_PHASECOLONY"
 			entityDefName "CAPITALSHIP_PHASESCOUT"
 			entityDefName "CAPITALSHIP_PHASESIEGE"
 			entityDefName "CAPITALSHIP_PHASEBATTLESHIP2"
-			entityDefName "CAPITALSHIP_ING_TATECHTRANSPORT"
-			entityDefName "CAPITALSHIP_ING_TAPSIBATTLESHIP2"
 	frigateInfo
 		Page:0
 			count 7
@@ -74,8 +73,9 @@ entities
 			entityDefName "FrigatePhaseGreaterNaniteSwarm"
 			entityDefName "Frigate_E4X_PhaseEnvoyAI"
 	researchInfo
-		count 167
-		entityDefName "Research_ING_TAMilitaryCooperation"
+		count 169
+		entityDefName "RESEARCH_E4X_WeaponMastery"
+		entityDefName "RESEARCH_E4X_SurvivabilityMastery"
 		entityDefName "RESEARCH_E4X_HeroScientistPhaseAccess"
 		entityDefName "RESEARCH_E4X_HeroCombatPhaseAccess"
 		entityDefName "RESEARCH_E4X_HeroLeaderPhaseAccess"
@@ -202,10 +202,9 @@ entities
 		entityDefName "RESEARCHSUBJECT_STARBASEENEMYORBITBODYBUILDRATE"
 		entityDefName "RESEARCHSUBJECT_STARBASEWEAPONBANKTARGETSPHASE"
 		entityDefName "RESEARCHSUBJECT_STARBASEUPGRADEACCESS_BLOCKCOLONIZEPHASE"
-		entityDefName "RESEARCHSUBJECT_STARBASEUPGRADEACCESS_CITYPOPULATION"
+		entityDefName "RESEARCHSUBJECT_STARBASEUPGRADEACCESS_PHASEGATE"
 		entityDefName "RESEARCHSUBJECT_STARBASEUPGRADEACCESS_DEBRISVACUUM"
 		entityDefName "RESEARCHSUBJECT_STARBASEUPGRADEACCESS_DIRECTIONALSHIELD"
-		entityDefName "RESEARCHSUBJECT_STARBASEUPGRADEACCESS_PHASEGATE"
 		entityDefName "RESEARCHSUBJECT_STARBASEUPGRADEACCESS_TRADEPORTPHASE"
 		entityDefName "RESEARCHSUBJECT_STRUCTUREWORK_RESOURCEEXTRACT0"
 		entityDefName "RESEARCHSUBJECT_STRUCTUREWORK_RESOURCEEXTRACT1"
@@ -215,10 +214,10 @@ entities
 		entityDefName "RESEARCHSUBJECT_XENO_MANIPULATION"
 		entityDefName "RESEARCHSUBJECT_ADVANCED_XENO_MANIPULATION"
 		entityDefName "RESEARCHSUBJECT_PACTUNLOCK_METALCRYSTAL"
-		entityDefName "RESEARCHSUBJECT_PACTUNLOCK_MARKET"
+		entityDefName "Research_E4X_PactUnlock_Recovery"
 		entityDefName "RESEARCHSUBJECT_PACTUNLOCK_PHASEJUMP"
-		entityDefName "RESEARCHSUBJECT_PACTUNLOCK_TACTICALSLOTS"
-		entityDefName "RESEARCHSUBJECT_PACTUNLOCK_ENERGY_WEAPON_COOLDOWN"
+		entityDefName "RESEARCHSUBJECT_PACTUNLOCK_TRADE"
+		entityDefName "Research_E4X_PactUnlock_Munitions"
 		entityDefName "RESEARCHSUBJECT_PACTUNLOCK_WEAPONCOOLDOWN"
 		entityDefName "RESEARCHSUBJECT_INTER_SPECIES_RELATIONS"
 		entityDefName "RESEARCHSUBJECT_IMPROVED_INTER_SPECIES_RELATIONS"
@@ -242,6 +241,8 @@ entities
 		entityDefName "RESEARCHSUBJECT_PLANETACCESS_OCEANICPHASE"
 		entityDefName "RESEARCHSUBJECT_POPULATIONCAPIRONPHASE0"
 		entityDefName "RESEARCHSUBJECT_POPULATIONCAPIRONPHASE1"
+		entityDefName "RESEARCHSUBJECT_MINORFACTIONABILITYLEVELPHASE0"
+		entityDefName "RESEARCHSUBJECT_MINORFACTIONABILITYLEVELPHASE1"		
 	starBaseInfo
 		count 2
 		entityDefName "StarBasePhase"
@@ -477,6 +478,7 @@ gameEventData
 	GameEventSound:UseAbilityUnmetConstraintCanSpreadWeaponDamage "UI_COMMON_DEFAULTERROR"
 	GameEventSound:UseAbilityUnmetConstraintCanPhaseDodge "UI_COMMON_DEFAULTERROR"
 	GameEventSound:UseAbilityUnmetConstraintHasAbilityWithCooldown "UI_COMMON_DEFAULTERROR"
+	GameEventSound:UseAbilityUnmetConstraintHasColonizeAbility "UI_COMMON_DEFAULTERROR"	
 	GameEventSound:UseAbilityUnmetConstraintHasAntimatter "UI_COMMON_DEFAULTERROR"
 	GameEventSound:UseAbilityUnmetConstraintHasPhaseMissiles "UI_COMMON_DEFAULTERROR"
 	GameEventSound:UseAbilityUnmetConstraintHasPopulation "UI_COMMON_DEFAULTERROR"
@@ -487,9 +489,11 @@ gameEventData
 	GameEventSound:UseAbilityUnmetConstraintHasWeapons "UI_COMMON_DEFAULTERROR"
 	GameEventSound:UseAbilityUnmetConstraintIsCargoShip "UI_COMMON_DEFAULTERROR"
 	GameEventSound:UseAbilityUnmetConstraintIsExplored "UI_COMMON_DEFAULTERROR"
+	GameEventSound:UseAbilityUnmetConstraintNotIsExplored "UI_COMMON_DEFAULTERROR"
 	GameEventSound:UseAbilityUnmetConstraintIsResourceExtractor "UI_COMMON_DEFAULTERROR"
 	GameEventSound:UseAbilityUnmetConstraintIsMovingToLocalOrbitBody "UI_COMMON_DEFAULTERROR"
 	GameEventSound:UseAbilityUnmetConstraintIsPsi "UI_COMMON_DEFAULTERROR"
+	GameEventSound:UseAbilityUnmetConstraintNotIsTech "UI_COMMON_DEFAULTERROR"
 	GameEventSound:UseAbilityUnmetConstraintLinkedCargoShip "UI_COMMON_DEFAULTERROR"
 	GameEventSound:UseAbilityUnmetConstraintLinkedSquad "UI_COMMON_DEFAULTERROR"
 	GameEventSound:UseAbilityUnmetConstraintNotSelf "UI_COMMON_DEFAULTERROR"
@@ -501,12 +505,15 @@ gameEventData
 	GameEventSound:UseAbilityUnmetConstraintNotInvulnerable "UI_COMMON_DEFAULTERROR"
 	GameEventSound:UseAbilityUnmetConstraintIsInFriendlyGravityWell "UI_COMMON_DEFAULTERROR"
 	GameEventSound:UseAbilityUnmetConstraintIsInNonFriendlyGravityWell "UI_COMMON_DEFAULTERROR"
+	GameEventSound:UseAbilityUnmetConstraintNotIsMinorFactionOwned "UI_COMMON_DEFAULTERROR"
+	GameEventSound:UseAbilityUnmetConstraintNotIsOutlaw "UI_COMMON_DEFAULTERROR"
 	GameEventSound:UseAbilityUnmetOwnerLinked "UI_COMMON_DEFAULTERROR"
 	GameEventSound:UseAbilityUnmetOwnerPlayer "UI_COMMON_DEFAULTERROR"
 	GameEventSound:UseAbilityUnmetOwnerFriendly "UI_COMMON_DEFAULTERROR"
 	GameEventSound:UseAbilityUnmetOwnerHostile "UI_COMMON_DEFAULTERROR"
 	GameEventSound:UseAbilityUnmetOwnerNoOwner "UI_COMMON_DEFAULTERROR"
 	GameEventSound:UseAbilityUnmetOwnerAlliedOrEnemy "UI_COMMON_DEFAULTERROR"
+	GameEventSound:UseAbilityUnmetOwnerUncontrolledMinorFaction "UI_COMMON_DEFAULTERROR"
 	GameEventSound:GameStart ""
 	GameEventSound:GameWin "EVENTPHASE_GAMEWIN"
 	GameEventSound:AllyGameWin "EVENTPHASE_ALLIEDGAMEWIN"
@@ -631,7 +638,7 @@ hudSkinData
 	TopWindowLeftCapLowRes "TopWindowLeftCapLowResPhase"
 	TopWindowLeftCapHighRes "TopWindowLeftCapHighResPhase"
 	TopWindowRightCapLowRes "TopWindowRightCapLowResPhase"
-	TopWindowRightCapHighRes ""
+	TopWindowRightCapHighRes "TopWindowRightCapHighResPhase"
 	EmpireWindowBackdrop "EmpireWindowOptionsWindowBackdropPhase"
 	EmpireWindowHighResBackdrop "EmpireWindowOptionsWindowHighResBackdropPhase"
 	QuickMarketBackdrop "QuickMarketBackdropPhase"
@@ -680,24 +687,24 @@ hudSkinData
 	AllianceHUDIconInternalVision "HUDIconAllianceTypeInternalVision"
 	AllianceHUDIconCeaseFire "HUDIconAllianceTypeCeaseFire"
 	AllianceHUDIconPeaceTreaty "HUDIconAllianceTypePeaceTreaty"
-	AllianceHUDIconResearchPact "PlayerScreenOfferResearchPact"
-	AllianceHUDIconEfficiencyPact "PlayerScreenOfferEfficiencyPact"
-	AllianceHUDIconAntimatterPact "PlayerScreenOfferAntimatterPact"
-	AllianceHUDIconArmorPact "PlayerScreenOfferArmorPact"
-	AllianceHUDIconBeamWeaponPact "PlayerScreenOfferBeamPact"
-	AllianceHUDIconCulturePact "PlayerScreenOfferCulturePact"
-	AllianceHUDIconMetalCrystlPact "PlayerScreenOfferMetalCrystalPact"
-	AllianceHUDIconThrusterPact "PlayerScreenOfferThrusterPact"
-	AllianceHUDIconPhaseJumpPact "PlayerScreenOfferPhaseJumpPact"
-	AllianceHUDIconPlanetBombingPact "PlayerScreenOfferPlanetBombingPact"
-	AllianceHUDIconShieldPact "PlayerScreenOfferShieldPact"
-	AllianceHUDIconMarketPact "PlayerScreenOfferMarketPact"
-	AllianceHUDIconEnergyWeaponCooldownPact "PlayerScreenOfferEnergyWeaponCooldownPact"
-	AllianceHUDIconMassReductionPact "PlayerScreenOfferMassReductionPact"
-	AllianceHUDIconSupplyPact "PlayerScreenOfferSupplyPact"
-	AllianceHUDIconTacticalSlotsPact "PlayerScreenOfferTacticalSlotsPact"
-	AllianceHUDIconWeaponCooldownPact "PlayerScreenOfferWeaponCooldownPact"
-	AllianceHUDIconTradeIncomePact "PlayerScreenOfferTradeIncomePact"
+	AllianceHUDIconResearchPact "PlayerScreen_E4X_OfferResearchPact"
+	AllianceHUDIconEfficiencyPact "PlayerScreen_E4X_OfferEfficiencyPact"
+	AllianceHUDIconAntimatterPact "PlayerScreen_E4X_OfferAntimatterPact"
+	AllianceHUDIconArmorPact "PlayerScreen_E4X_OfferArmorPact"
+	AllianceHUDIconBeamWeaponPact "PlayerScreen_E4X_OfferWeaponsPact"
+	AllianceHUDIconCulturePact "PlayerScreen_E4X_OfferCulturePact"
+	AllianceHUDIconMetalCrystlPact "PlayerScreen_E4X_OfferResourcePact"
+	AllianceHUDIconThrusterPact "PlayerScreen_E4X_OfferStrikecraftPact"
+	AllianceHUDIconPhaseJumpPact "PlayerScreen_E4X_OfferPhaseJumpPact"
+	AllianceHUDIconPlanetBombingPact "PlayerScreen_E4X_OfferSiegePact"
+	AllianceHUDIconShieldPact "PlayerScreen_E4X_OfferShieldPact"
+	AllianceHUDIconMarketPact "PlayerScreen_E4X_OfferUnderworldPact"
+	AllianceHUDIconEnergyWeaponCooldownPact "PlayerScreen_E4X_OfferMunitionsPact"
+	AllianceHUDIconMassReductionPact "PlayerScreen_E4X_OfferRecoveryPact"
+	AllianceHUDIconSupplyPact "PlayerScreen_E4X_OfferSupplyPact"
+	AllianceHUDIconTacticalSlotsPact "PlayerScreen_E4X_OfferTacticalSlotsPact"
+	AllianceHUDIconWeaponCooldownPact "PlayerScreen_E4X_OfferTargetingPact"
+	AllianceHUDIconTradeIncomePact "PlayerScreen_E4X_OfferTradePact"
 	ResourceHUDIconCredits "HUDIconCredits"
 	ResourceHUDIconMetal "HUDIconMetal"
 	ResourceHUDIconCrystal "HUDIconCrystal"
@@ -786,7 +793,7 @@ hudSkinData
 	UserActionIconUpgradePlanetTacticalModules "ActionIconPlanetUpgradeTacticalModules"
 	UserActionIconUpgradePlanetSocial "ActionIconPlanetUpgradeSocial"
 	UserActionIconUpgradePlanetIndustry "ActionIconPlanetUpgradeIndustry"
-	UserActionIconUpgradePlanetSmuggler "ActionIconPlanetUpgradeSmuggler"
+	UserActionIconUpgradePlanetSmuggler "ActionIconPlanetUpgradeSmuggler"	
 	UserActionIconBuildResourceAsteroidExtractor "ActionIconBuildResourceAsteroidExtractor"
 	UserActionIconPing "BottomWindowButtonPing"
 	UserActionIconPingAllyAttack "ActionIconPingAllyAttack"
@@ -858,7 +865,7 @@ researchScreenData
 	Diplomacy
 		blockCount 1
 		block
-			area [ 50 , 93 , 690 , 326 ]
+			area [ 50 , 93 , 690 , 380 ]
 			backdrop "ResearchScreenBlockBackdropDefense0Phase"
 			tierIndicatorBackdrop "ResearchScreenBlockTierIndicatorDefense0Phase"
 			title "IDSResearchScreenBlockTitleDiplomacy0Phase"
@@ -952,9 +959,9 @@ field "IDS_PHASE_RESEARCHFIELD_EMPIRE"
 field "IDS_PHASE_RESEARCHFIELD_DIPLOMACY"
 field "IDS_PHASE_RESEARCHFIELD_ARTIFACT"
 field "IDS_PHASE_RESEARCHFIELD_FLEET"
-playerThemeGroupName "PlayerTech"
+playerThemeGroupName "PlayerPhase"
 playerPictureGroupName "PlayerPhase"
-raceRelationsModCount 9
+raceRelationsModCount 6
 raceRelationsModifier
 	raceNameID "IDS_PLAYERRACENAME_TECHREBEL"
 	modifierMin -4.000000
@@ -1013,36 +1020,6 @@ raceRelationsModifier
 	factionRelationsModifier
 		factionNameID "IDS_PLAYERRACENAME_PHASEREBEL"
 		otherFactionNameID "IDS_PLAYERFACTIONNAME_LOYALIST"
-		modifierMin 0.000000
-		modifierMax 0.000000
-raceRelationsModifier
-	raceNameID "IDS_PLAYERRACENAME_ING_GalacticEmpire"
-	modifierMin -4.000000
-	modifierMax -3.000000
-	factionRelationsModCount 1
-	factionRelationsModifier
-		factionNameID "IDS_PLAYERRACENAME_PHASEREBEL"
-		otherFactionNameID "IDS_PLAYERFACTIONNAME_REBEL"
-		modifierMin 0.000000
-		modifierMax 0.000000
-raceRelationsModifier
-	raceNameID "IDS_PLAYERRACENAME_ING_Warlords"
-	modifierMin -3.000000
-	modifierMax -2.000000
-	factionRelationsModCount 1
-	factionRelationsModifier
-		factionNameID "IDS_PLAYERRACENAME_PHASEREBEL"
-		otherFactionNameID "IDS_PLAYERFACTIONNAME_REBEL"
-		modifierMin 0.000000
-		modifierMax 0.000000
-raceRelationsModifier
-	raceNameID "IDS_PLAYERRACENAME_ING_RebelAlliance"
-	modifierMin -2.000000
-	modifierMax -0.000000
-	factionRelationsModCount 1
-	factionRelationsModifier
-		factionNameID "IDS_PLAYERRACENAME_PHASEREBEL"
-		otherFactionNameID "IDS_PLAYERFACTIONNAME_REBEL"
 		modifierMin 0.000000
 		modifierMax 0.000000
 defaultFactionNameID "IDS_PLAYERRACENAME_PHASEREBEL"

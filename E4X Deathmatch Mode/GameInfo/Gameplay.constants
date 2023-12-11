@@ -30,11 +30,11 @@ GameplayConstants
 		buildCountLargePerButtonPress 5
 		minTimeBetweenResourcePickUps 90.0
 	PlanetData
-		allegiancePassiveGainRate 0.000500000
-		allegiancePassiveLossRate -0.000500000
-		allegianceFriendlyMaxGainRate 0.00140000
-		allegianceEnemyMaxLossRate -0.001400000
-		allegianceGainFromCultureMax 0.2
+		allegiancePassiveGainRate 0.000347222
+		allegiancePassiveLossRate -0.000347222
+		allegianceFriendlyMaxGainRate 0.000694444
+		allegianceEnemyMaxLossRate -0.000694444
+		allegianceGainFromCultureMax 0.1
 		startingPopulationPercOfMax 0.5
 		healthOnColonize 200.0
 		healthRegenRatePercWhenBombed .000
@@ -42,7 +42,7 @@ GameplayConstants
 		considerBeingBombedTimeForPopulationGrowth 240
 		populationGrowthPercWhenBombed 0.50
 		moduleConstructorRespawnTime 30
-		moduleConstructorRespawnTimeWithEnemies 60
+		moduleConstructorRespawnTimeWithEnemies 300
 		baseTaxRatePerPopulation 0.025
 		planetBaseAllegianceAtDistanceCount 11
 		allegiance 1.00
@@ -201,16 +201,16 @@ GameplayConstants
 			CAPITALSHIP 1.000000
 			INTERCEPTOR 0.650000
 			BOMBER 0.750000
-		DamagePercentBonus:ANTIVERYLIGHT:CapitalShip 0.5
+		DamagePercentBonus:ANTIVERYLIGHT:CapitalShip 0.35
 		DamagePercentBonus:ANTIVERYLIGHT:VeryLight 2.0
 		DamagePercentBonus:ANTIVERYLIGHT:Light 1.0
-		DamagePercentBonus:ANTIVERYLIGHT:Medium 0.5
-		DamagePercentBonus:ANTIVERYLIGHT:Heavy 0.5
-		DamagePercentBonus:ANTIVERYLIGHT:VeryHeavy 0.4
+		DamagePercentBonus:ANTIVERYLIGHT:Medium 0.50
+		DamagePercentBonus:ANTIVERYLIGHT:Heavy 0.40
+		DamagePercentBonus:ANTIVERYLIGHT:VeryHeavy 0.40
 		DamagePercentBonus:ANTIVERYLIGHT:Module 0.35
 		DamagePercentBonus:ANTIVERYLIGHT:Pirate 1.5
-		DamagePercentBonus:ANTIVERYLIGHT:Titan 0.45	
-		DamagePercentBonus:ANTILIGHT:CapitalShip 0.5
+		DamagePercentBonus:ANTIVERYLIGHT:Titan 0.30
+		DamagePercentBonus:ANTILIGHT:CapitalShip 0.50
 		DamagePercentBonus:ANTILIGHT:VeryLight 1.0 
 		DamagePercentBonus:ANTILIGHT:Light 2.0
 		DamagePercentBonus:ANTILIGHT:Medium 0.5
@@ -224,7 +224,7 @@ GameplayConstants
 		DamagePercentBonus:ANTIMEDIUM:Light 1.0
 		DamagePercentBonus:ANTIMEDIUM:Medium 1.33333
 		DamagePercentBonus:ANTIMEDIUM:Heavy 0.75
-		DamagePercentBonus:ANTIMEDIUM:VeryHeavy 0.75
+		DamagePercentBonus:ANTIMEDIUM:VeryHeavy 0.55
 		DamagePercentBonus:ANTIMEDIUM:Module 0.50	
 		DamagePercentBonus:ANTIMEDIUM:Pirate 0.45
 		DamagePercentBonus:ANTIMEDIUM:Titan 0.70	
@@ -241,7 +241,7 @@ GameplayConstants
 		DamagePercentBonus:ANTIVERYHEAVY:VeryLight 0.5
 		DamagePercentBonus:ANTIVERYHEAVY:Light 0.5
 		DamagePercentBonus:ANTIVERYHEAVY:Medium 0.5
-		DamagePercentBonus:ANTIVERYHEAVY:Heavy 0.5
+		DamagePercentBonus:ANTIVERYHEAVY:Heavy 0.4
 		DamagePercentBonus:ANTIVERYHEAVY:VeryHeavy 1.0
 		DamagePercentBonus:ANTIVERYHEAVY:Module 0.50
 		DamagePercentBonus:ANTIVERYHEAVY:Pirate 0.40
@@ -250,7 +250,7 @@ GameplayConstants
 		DamagePercentBonus:ANTIMODULE:VeryLight 0.01
 		DamagePercentBonus:ANTIMODULE:Light 0.05
 		DamagePercentBonus:ANTIMODULE:Medium 0.05
-		DamagePercentBonus:ANTIMODULE:Heavy 0.15
+		DamagePercentBonus:ANTIMODULE:Heavy 0.10
 		DamagePercentBonus:ANTIMODULE:VeryHeavy 0.20
 		DamagePercentBonus:ANTIMODULE:Module 2.0
 		DamagePercentBonus:ANTIMODULE:Pirate 0.02
@@ -731,20 +731,20 @@ GameplayConstants
 		breakRelationshipThreshold:PeaceTreaty 3.0
 		breakRelationshipThreshold:ResearchPact 6.0
 		breakRelationshipThreshold:EfficiencyPact 6.0
-		breakRelationshipThreshold:AntimatterPact 10.0 
-		breakRelationshipThreshold:ArmorPact 9.0
-		breakRelationshipThreshold:BeamWeaponPact 13.0
-		breakRelationshipThreshold:CulturePact 9.0
-		breakRelationshipThreshold:MetalCrystalPact 5.0
-		breakRelationshipThreshold:ThrusterPact 13.0
+		breakRelationshipThreshold:AntimatterPact 9.0 
+		breakRelationshipThreshold:ArmorPact 13.5
+		breakRelationshipThreshold:BeamWeaponPact 12.0
+		breakRelationshipThreshold:CulturePact 7.5
+		breakRelationshipThreshold:MetalCrystalPact 9.0
+		breakRelationshipThreshold:ThrusterPact 13.5
 		breakRelationshipThreshold:PhaseJumpPact 9.0
-		breakRelationshipThreshold:PlanetBombingPact 11.0
-		breakRelationshipThreshold:ShieldPact 11.0
-		breakRelationshipThreshold:MarketPact 5.0
-		breakRelationshipThreshold:EnergyWeaponCooldownPact 14.0
-		breakRelationshipThreshold:MassReductionPact 12.0
-		breakRelationshipThreshold:SupplyPact 14.0
-		breakRelationshipThreshold:TacticalSlotsPact 10.0
+		breakRelationshipThreshold:PlanetBombingPact 10.5
+		breakRelationshipThreshold:ShieldPact 13.5
+		breakRelationshipThreshold:MarketPact 7.5
+		breakRelationshipThreshold:EnergyWeaponCooldownPact 12.0
+		breakRelationshipThreshold:MassReductionPact 7.5
+		breakRelationshipThreshold:SupplyPact 15.0
+		breakRelationshipThreshold:TacticalSlotsPact 10.5
 		breakRelationshipThreshold:WeaponCooldownPact 15.0
 		breakRelationshipThreshold:TradeIncomePact 6.0
 		relationshipRequirement:Trade 2.0
@@ -752,24 +752,24 @@ GameplayConstants
 		relationshipRequirement:InternalVision 8.0
 		relationshipRequirement:CeaseFire 4.0
 		relationshipRequirement:PeaceTreaty 9.0
-		relationshipRequirement:ResearchPact 10.5
+		relationshipRequirement:ResearchPact 10.0
 		relationshipRequirement:EfficiencyPact 10.0
 		relationshipRequirement:AntimatterPact 13.0
-		relationshipRequirement:ArmorPact 13.0
-		relationshipRequirement:BeamWeaponPact 17.5
+		relationshipRequirement:ArmorPact 17.5
+		relationshipRequirement:BeamWeaponPact 16.0
 		relationshipRequirement:CulturePact 11.5
-		relationshipRequirement:MetalCrystalPact 11.0
-		relationshipRequirement:ThrusterPact 16.0
-		relationshipRequirement:PhaseJumpPact 14.0
+		relationshipRequirement:MetalCrystalPact 13.0
+		relationshipRequirement:ThrusterPact 17.5
+		relationshipRequirement:PhaseJumpPact 13.0
 		relationshipRequirement:PlanetBombingPact 14.5
-		relationshipRequirement:ShieldPact 18.0
-		relationshipRequirement:MarketPact 12.0
-		relationshipRequirement:EnergyWeaponCooldownPact 18.0
-		relationshipRequirement:MassReductionPact 15.0
-		relationshipRequirement:SupplyPact 18.0
-		relationshipRequirement:TacticalSlotsPact 15.0
+		relationshipRequirement:ShieldPact 17.5
+		relationshipRequirement:MarketPact 11.5
+		relationshipRequirement:EnergyWeaponCooldownPact 16.0
+		relationshipRequirement:MassReductionPact 11.5
+		relationshipRequirement:SupplyPact 19.0
+		relationshipRequirement:TacticalSlotsPact 14.5
 		relationshipRequirement:WeaponCooldownPact 19.0
-		relationshipRequirement:TradeIncomePact 10.5
+		relationshipRequirement:TradeIncomePact 10.0
 		breakRelationshipPenalty:Trade 0.0
 		breakRelationshipPenalty:ExternalVision 0.0
 		breakRelationshipPenalty:InternalVision 0.0

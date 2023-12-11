@@ -1,8 +1,9 @@
-﻿TXT
+﻿TXT2
+SinsArchiveVersion 193
 entityType "Player"
 raceNameStringID "IDS_PLAYERRACENAME_PSIREBEL"
 canColonize TRUE
-isPsi TRUE
+playerRaceType "Psi"
 isSelectable FALSE
 selectablePriorty 1
 randomCapitalShipNamePrefix "IDS_CAPITALSHIPNAME_PSI"
@@ -35,15 +36,13 @@ entities
 			entityDefName "TITAN_PSIREBEL"
 	capitalShipInfo
 		Page:0
-			count 8
+			count 6
 			entityDefName "CAPITALSHIP_PSIBATTLESHIP"
 			entityDefName "CAPITALSHIP_PSIPLANETPSIONIC"
 			entityDefName "CAPITALSHIP_PSICOLONY"
 			entityDefName "CAPITALSHIP_PSICARRIER"
 			entityDefName "CAPITALSHIP_PSIBATTLEPSIONIC"
 			entityDefName "CAPITALSHIP_PSIBATTLESHIP2"
-			entityDefName "CAPITALSHIP_ING_TATECHSUPPORT"
-			entityDefName "CAPITALSHIP_ING_TAPHASESIEGE"
 	frigateInfo
 		Page:0
 			count 7
@@ -70,9 +69,10 @@ entities
 			entityDefName "FrigatePsiRefineryShip"
 			entityDefName "Frigate_E4X_PsiEnvoyAI"
 	researchInfo
-		count 164
-		entityDefName "Research_ING_TAMilitaryCooperation"
-		entityDefName "RESEARCH_E4X_HeroTransPsiAccess"
+		count 166
+		entityDefName "RESEARCH_E4X_WeaponMastery"
+		entityDefName "RESEARCH_E4X_SurvivabilityMastery"		
+		entityDefName "RESEARCH_E4X_HeroTransPsiAccess"		
 		entityDefName "RESEARCH_E4X_HeroLeaderPsiAccess"
 		entityDefName "RESEARCH_E4X_HeroCombatPsiAccess"
 		entityDefName "RESEARCH_E4X_CapturePhaseGate"
@@ -183,7 +183,6 @@ entities
 		entityDefName "RESEARCHSUBJECT_STARBASEUPGRADEACCESS_BLOCKCOLONIZEPSI"
 		entityDefName "RESEARCHSUBJECT_STARBASEUPGRADEACCESS_CULTURE"
 		entityDefName "RESEARCHSUBJECT_STARBASEUPGRADEACCESS_MASSDISORIENTATION"
-		entityDefName "RESEARCHSUBJECT_STARBASEUPGRADEACCESS_MAXALLEGIANCE"
 		entityDefName "RESEARCHSUBJECT_STARBASEUPGRADEACCESS_METEORCONTROL"
 		entityDefName "RESEARCHSUBJECT_STARBASEUPGRADEACCESS_TRADEPORTPSI"
 		entityDefName "RESEARCHSUBJECT_STRUCTUREWORK_CRYSTALEXTRACTPSI0"
@@ -212,7 +211,7 @@ entities
 		entityDefName "RESEARCHSUBJECT_PACTUNLOCK_RESEARCH"
 		entityDefName "RESEARCHSUBJECT_PACTUNLOCK_CULTURE"
 		entityDefName "RESEARCHSUBJECT_PACTUNLOCK_ANTIMATTER"
-		entityDefName "RESEARCHSUBJECT_PACTUNLOCK_MASS_REDUCTION"
+		entityDefName "Research_E4X_PactUnlock_Recovery"
 		entityDefName "RESEARCHSUBJECT_PACTUNLOCK_BEAM"
 		entityDefName "RESEARCHSUBJECT_PACTUNLOCK_SHIELD"
 		entityDefName "RESEARCHSUBJECT_RESEARCHVICTORY_PSI"
@@ -235,6 +234,8 @@ entities
 		entityDefName "RESEARCHSUBJECT_PLANETACCESS_OCEANICPSI"
 		entityDefName "RESEARCHSUBJECT_POPULATIONCAPBARRENPSI0"
 		entityDefName "RESEARCHSUBJECT_POPULATIONCAPBARRENPSI1"
+		entityDefName "RESEARCHSUBJECT_MINORFACTIONABILITYLEVELPSI0"
+		entityDefName "RESEARCHSUBJECT_MINORFACTIONABILITYLEVELPSI1"
 	starBaseInfo
 		count 2
 		entityDefName "StarBasePsi"
@@ -472,6 +473,7 @@ gameEventData
 	GameEventSound:UseAbilityUnmetConstraintCanSpreadWeaponDamage "UI_COMMON_DEFAULTERROR"
 	GameEventSound:UseAbilityUnmetConstraintCanPhaseDodge "UI_COMMON_DEFAULTERROR"
 	GameEventSound:UseAbilityUnmetConstraintHasAbilityWithCooldown "UI_COMMON_DEFAULTERROR"
+	GameEventSound:UseAbilityUnmetConstraintHasColonizeAbility "UI_COMMON_DEFAULTERROR"
 	GameEventSound:UseAbilityUnmetConstraintHasAntimatter "UI_COMMON_DEFAULTERROR"
 	GameEventSound:UseAbilityUnmetConstraintHasPhaseMissiles "UI_COMMON_DEFAULTERROR"
 	GameEventSound:UseAbilityUnmetConstraintHasPopulation "UI_COMMON_DEFAULTERROR"
@@ -482,9 +484,11 @@ gameEventData
 	GameEventSound:UseAbilityUnmetConstraintHasWeapons "UI_COMMON_DEFAULTERROR"
 	GameEventSound:UseAbilityUnmetConstraintIsCargoShip "UI_COMMON_DEFAULTERROR"
 	GameEventSound:UseAbilityUnmetConstraintIsExplored "UI_COMMON_DEFAULTERROR"
+	GameEventSound:UseAbilityUnmetConstraintNotIsExplored "UI_COMMON_DEFAULTERROR"
 	GameEventSound:UseAbilityUnmetConstraintIsResourceExtractor "UI_COMMON_DEFAULTERROR"
 	GameEventSound:UseAbilityUnmetConstraintIsMovingToLocalOrbitBody "UI_COMMON_DEFAULTERROR"
 	GameEventSound:UseAbilityUnmetConstraintIsPsi "UI_COMMON_DEFAULTERROR"
+	GameEventSound:UseAbilityUnmetConstraintNotIsTech "UI_COMMON_DEFAULTERROR"
 	GameEventSound:UseAbilityUnmetConstraintLinkedCargoShip "UI_COMMON_DEFAULTERROR"
 	GameEventSound:UseAbilityUnmetConstraintLinkedSquad "UI_COMMON_DEFAULTERROR"
 	GameEventSound:UseAbilityUnmetConstraintNotSelf "UI_COMMON_DEFAULTERROR"
@@ -496,12 +500,15 @@ gameEventData
 	GameEventSound:UseAbilityUnmetConstraintNotInvulnerable "UI_COMMON_DEFAULTERROR"
 	GameEventSound:UseAbilityUnmetConstraintIsInFriendlyGravityWell "UI_COMMON_DEFAULTERROR"
 	GameEventSound:UseAbilityUnmetConstraintIsInNonFriendlyGravityWell "UI_COMMON_DEFAULTERROR"
+	GameEventSound:UseAbilityUnmetConstraintNotIsMinorFactionOwned "UI_COMMON_DEFAULTERROR"
+	GameEventSound:UseAbilityUnmetConstraintNotIsOutlaw "UI_COMMON_DEFAULTERROR"
 	GameEventSound:UseAbilityUnmetOwnerLinked "UI_COMMON_DEFAULTERROR"
 	GameEventSound:UseAbilityUnmetOwnerPlayer "UI_COMMON_DEFAULTERROR"
 	GameEventSound:UseAbilityUnmetOwnerFriendly "UI_COMMON_DEFAULTERROR"
 	GameEventSound:UseAbilityUnmetOwnerHostile "UI_COMMON_DEFAULTERROR"
 	GameEventSound:UseAbilityUnmetOwnerNoOwner "UI_COMMON_DEFAULTERROR"
 	GameEventSound:UseAbilityUnmetOwnerAlliedOrEnemy "UI_COMMON_DEFAULTERROR"
+	GameEventSound:UseAbilityUnmetOwnerUncontrolledMinorFaction "UI_COMMON_DEFAULTERROR"
 	GameEventSound:GameStart ""
 	GameEventSound:GameWin "EVENTPSI_GAMEWIN"
 	GameEventSound:AllyGameWin "EVENTPSI_ALLIEDGAMEWIN"
@@ -674,24 +681,24 @@ hudSkinData
 	AllianceHUDIconInternalVision "HUDIconAllianceTypeInternalVision"
 	AllianceHUDIconCeaseFire "HUDIconAllianceTypeCeaseFire"
 	AllianceHUDIconPeaceTreaty "HUDIconAllianceTypePeaceTreaty"
-	AllianceHUDIconResearchPact "PlayerScreenOfferResearchPact"
-	AllianceHUDIconEfficiencyPact "PlayerScreenOfferEfficiencyPact"
-	AllianceHUDIconAntimatterPact "PlayerScreenOfferAntimatterPact"
-	AllianceHUDIconArmorPact "PlayerScreenOfferArmorPact"
-	AllianceHUDIconBeamWeaponPact "PlayerScreenOfferBeamPact"
-	AllianceHUDIconCulturePact "PlayerScreenOfferCulturePact"
-	AllianceHUDIconMetalCrystlPact "PlayerScreenOfferMetalCrystalPact"
-	AllianceHUDIconThrusterPact "PlayerScreenOfferThrusterPact"
-	AllianceHUDIconPhaseJumpPact "PlayerScreenOfferPhaseJumpPact"
-	AllianceHUDIconPlanetBombingPact "PlayerScreenOfferPlanetBombingPact"
-	AllianceHUDIconShieldPact "PlayerScreenOfferShieldPact"
-	AllianceHUDIconMarketPact "PlayerScreenOfferMarketPact"
-	AllianceHUDIconEnergyWeaponCooldownPact "PlayerScreenOfferEnergyWeaponCooldownPact"
-	AllianceHUDIconMassReductionPact "PlayerScreenOfferMassReductionPact"
-	AllianceHUDIconSupplyPact "PlayerScreenOfferSupplyPact"
-	AllianceHUDIconTacticalSlotsPact "PlayerScreenOfferTacticalSlotsPact"
+	AllianceHUDIconResearchPact "PlayerScreen_E4X_OfferResearchPact"
+	AllianceHUDIconEfficiencyPact "PlayerScreen_E4X_OfferEfficiencyPact"
+	AllianceHUDIconAntimatterPact "PlayerScreen_E4X_OfferAntimatterPact"
+	AllianceHUDIconArmorPact "PlayerScreen_E4X_OfferArmorPact"
+	AllianceHUDIconBeamWeaponPact "PlayerScreen_E4X_OfferWeaponsPact"
+	AllianceHUDIconCulturePact "PlayerScreen_E4X_OfferCulturePact"
+	AllianceHUDIconMetalCrystlPact "PlayerScreen_E4X_OfferResourcePact"
+	AllianceHUDIconThrusterPact "PlayerScreen_E4X_OfferStrikecraftPact"
+	AllianceHUDIconPhaseJumpPact "PlayerScreen_E4X_OfferPhaseJumpPact"
+	AllianceHUDIconPlanetBombingPact "PlayerScreen_E4X_OfferSiegePact"
+	AllianceHUDIconShieldPact "PlayerScreen_E4X_OfferShieldPact"
+	AllianceHUDIconMarketPact "PlayerScreen_E4X_OfferUnderworldPact"
+	AllianceHUDIconEnergyWeaponCooldownPact "PlayerScreen_E4X_OfferMunitionsPact"
+	AllianceHUDIconMassReductionPact "PlayerScreen_E4X_OfferRecoveryPact"
+	AllianceHUDIconSupplyPact "PlayerScreen_E4X_OfferSupplyPact"
+	AllianceHUDIconTacticalSlotsPact "PlayerScreen_E4X_OfferTacticalSlotsPact"
 	AllianceHUDIconWeaponCooldownPact "PlayerScreenOfferWeaponCooldownPact"
-	AllianceHUDIconTradeIncomePact "PlayerScreenOfferTradeIncomePact"
+	AllianceHUDIconTradeIncomePact "PlayerScreen_E4X_OfferTradePact"
 	ResourceHUDIconCredits "HUDIconCredits"
 	ResourceHUDIconMetal "HUDIconMetal"
 	ResourceHUDIconCrystal "HUDIconCrystal"
@@ -780,7 +787,7 @@ hudSkinData
 	UserActionIconUpgradePlanetTacticalModules "ActionIconPlanetUpgradeTacticalModules"
 	UserActionIconUpgradePlanetSocial "ActionIconPlanetUpgradeSocial"
 	UserActionIconUpgradePlanetIndustry "ActionIconPlanetUpgradeIndustry"
-	UserActionIconUpgradePlanetSmuggler "ActionIconPlanetUpgradeSmuggler"
+	UserActionIconUpgradePlanetSmuggler "ActionIconPlanetUpgradeSmuggler"	
 	UserActionIconBuildResourceAsteroidExtractor "ActionIconBuildResourceAsteroidExtractor"
 	UserActionIconPing "BottomWindowButtonPing"
 	UserActionIconPingAllyAttack "ActionIconPingAllyAttack"
@@ -852,7 +859,7 @@ researchScreenData
 	Diplomacy
 		blockCount 1
 		block
-			area [ 50 , 93 , 690 , 326 ]
+			area [ 50 , 93 , 690 , 380 ]
 			backdrop "ResearchScreenBlockBackdropNonCombat0Psi"
 			tierIndicatorBackdrop "ResearchScreenBlockTierIndicatorNonCombat0Psi"
 			title "IDSResearchScreenBlockTitleDiplomacy0Psi"
@@ -946,9 +953,9 @@ field "IDS_PSI_RESEARCHFIELD_EMPIRE"
 field "IDS_PSI_RESEARCHFIELD_DIPLOMACY"
 field "IDS_PSI_RESEARCHFIELD_ARTIFACT"
 field "IDS_PSI_RESEARCHFIELD_FLEET"
-playerThemeGroupName "PlayerTech"
+playerThemeGroupName "PlayerPsi"
 playerPictureGroupName "PlayerPsi"
-raceRelationsModCount 9
+raceRelationsModCount 6
 raceRelationsModifier
 	raceNameID "IDS_PLAYERRACENAME_TECHREBEL"
 	modifierMin -5.000000
@@ -1007,36 +1014,6 @@ raceRelationsModifier
 	factionRelationsModifier
 		factionNameID "IDS_PLAYERRACENAME_PSIREBEL"
 		otherFactionNameID "IDS_PLAYERFACTIONNAME_LOYALIST"
-		modifierMin 0.000000
-		modifierMax 0.000000
-raceRelationsModifier
-	raceNameID "IDS_PLAYERRACENAME_ING_GalacticEmpire"
-	modifierMin -4.000000
-	modifierMax -3.000000
-	factionRelationsModCount 1
-	factionRelationsModifier
-		factionNameID "IDS_PLAYERRACENAME_PSIREBEL"
-		otherFactionNameID "IDS_PLAYERFACTIONNAME_REBEL"
-		modifierMin 0.000000
-		modifierMax 0.000000
-raceRelationsModifier
-	raceNameID "IDS_PLAYERRACENAME_ING_Warlords"
-	modifierMin -3.000000
-	modifierMax -2.000000
-	factionRelationsModCount 1
-	factionRelationsModifier
-		factionNameID "IDS_PLAYERRACENAME_PSIREBEL"
-		otherFactionNameID "IDS_PLAYERFACTIONNAME_REBEL"
-		modifierMin 0.000000
-		modifierMax 0.000000
-raceRelationsModifier
-	raceNameID "IDS_PLAYERRACENAME_ING_RebelAlliance"
-	modifierMin -2.000000
-	modifierMax -0.000000
-	factionRelationsModCount 1
-	factionRelationsModifier
-		factionNameID "IDS_PLAYERRACENAME_PSIREBEL"
-		otherFactionNameID "IDS_PLAYERFACTIONNAME_REBEL"
 		modifierMin 0.000000
 		modifierMax 0.000000
 defaultFactionNameID "IDS_PLAYERRACENAME_PSIREBEL"

@@ -81,7 +81,7 @@ starType
 	designStringId "IDSGalaxyScenarioTypeStarPulsar"
 	orbitBodyTypeCount 1
 	orbitBodyType "PulsarStar"
-planetTypeCount 114
+planetTypeCount 120
 planetType
 	designName "WeightedNonIce"
 	designStringId "IDSGalaxyScenarioTypePlanetWeightedNonIce"
@@ -707,39 +707,58 @@ planetType
 planetType
 	designName "RandomCrystal"
 	designStringId "IDSGalaxyScenarioTypeRandomCrystal"
-	orbitBodyTypeCount 7
+	orbitBodyTypeCount 6
 	orbitBodyType "Ice"	
 	orbitBodyType "Cyro"
 	orbitBodyType "Oceanic"
 	orbitBodyType "Ice"	
 	orbitBodyType "Cyro"
 	orbitBodyType "Oceanic"	
-	orbitBodyType "Toxic"
+planetType
+	designName "RandomCrystalFair"
+	designStringId "IDSGalaxyScenarioTypeRandomCrystalFair"
+	orbitBodyTypeCount 6
+	orbitBodyType "IceFair"	
+	orbitBodyType "CyroFair"
+	orbitBodyType "OceanicFair"
+	orbitBodyType "IceFair"	
+	orbitBodyType "CyroFair"
+	orbitBodyType "OceanicFair"	
 planetType
 	designName "RandomMetal"
 	designStringId "IDSGalaxyScenarioTypeRandomMetal"
-	orbitBodyTypeCount 11
+	orbitBodyTypeCount 8
 	orbitBodyType "Volcanic"	
-	orbitBodyType "Swamp"
+	orbitBodyType "Desolate"
 	orbitBodyType "Desert"
 	orbitBodyType "Volcanic"	
-	orbitBodyType "Swamp"
-	orbitBodyType "Desert"
-	orbitBodyType "Volcanic"	
-	orbitBodyType "Swamp"
+	orbitBodyType "Desolate"
 	orbitBodyType "Desert"
 	orbitBodyType "Ferrus"
-	orbitBodyType "Alpine"
+	orbitBodyType "Greenhouse"
+planetType
+	designName "RandomMetalFair"
+	designStringId "IDSGalaxyScenarioTypeRandomMetalFair"
+	orbitBodyTypeCount 8
+	orbitBodyType "VolcanicFair"	
+	orbitBodyType "DesolateFair"
+	orbitBodyType "DesertFair"
+	orbitBodyType "VolcanicFair"	
+	orbitBodyType "DesolateFair"
+	orbitBodyType "DesertFair"
+	orbitBodyType "FerrusFair"
+	orbitBodyType "GreenhouseFair"
 planetType
 	designName "RandomMixed"
 	designStringId "IDSGalaxyScenarioTypeRandomMixed"
-	orbitBodyTypeCount 6
+		orbitBodyTypeCount 7
 	orbitBodyType "Igneous"
-	orbitBodyType "Desolate"
+	orbitBodyType "Swamp"
 	orbitBodyType "Terran"
 	orbitBodyType "LowAtmosphere"
 	orbitBodyType "Hydrocarbon"
-	orbitBodyType "Greenhouse"
+	orbitBodyType "Alpine"
+	orbitBodyType "Toxic"
 planetType
 	designName "RandomExtra"
 	designStringId "IDSGalaxyScenarioTypeRandomExtra"
@@ -759,7 +778,7 @@ planetType
 	orbitBodyType "Alpine"	
 planetType
 	designName "RandomExtraFair"
-	designStringId "IDSGalaxyScenarioTypeRandomExtra"
+	designStringId "IDSGalaxyScenarioTypeRandomExtraFair"
 	orbitBodyTypeCount 13
 	orbitBodyType "ColonizeableGasGiantFair"
 	orbitBodyType "CyroFair"
@@ -777,17 +796,21 @@ planetType
 planetType
 	designName "RandomTier0"
 	designStringId "IDSGalaxyScenarioTypeRandomTier0"
-	orbitBodyTypeCount 6
+	orbitBodyTypeCount 3
 	orbitBodyType "Asteroid"
 	orbitBodyType "DeadAsteroid"	
-	orbitBodyType "LowAtmosphere"
-	orbitBodyType "ColonizeableGasGiant"
-	orbitBodyType "Toxic"
-	orbitBodyType "Alpine"	
+	orbitBodyType "Moon"
+planetType
+	designName "RandomTier0Fair"
+	designStringId "IDSGalaxyScenarioTypeRandomTier0Fair"
+	orbitBodyTypeCount 3
+	orbitBodyType "AsteroidFair"
+	orbitBodyType "DeadAsteroidFair"	
+	orbitBodyType "MoonFair"
 planetType
 	designName "RandomTier1"
 	designStringId "IDSGalaxyScenarioTypeRandomTier1"
-	orbitBodyTypeCount 9
+	orbitBodyTypeCount 12
 	orbitBodyType "Volcanic"	
 	orbitBodyType "Cyro"
 	orbitBodyType "Igneous"
@@ -797,6 +820,25 @@ planetType
 	orbitBodyType "Igneous"
 	orbitBodyType "Greenhouse"
 	orbitBodyType "Ferrus"
+	orbitBodyType "Alpine"
+	orbitBodyType "Toxic"
+	orbitBodyType "ColonizeableGasGiant"
+planetType
+	designName "RandomTier1Fair"
+	designStringId "IDSGalaxyScenarioTypeRandomTier1Fair"
+	orbitBodyTypeCount 12
+	orbitBodyType "VolcanicFair"	
+	orbitBodyType "CyroFair"
+	orbitBodyType "IgneousFair"
+	orbitBodyType "GreenhouseFair"
+	orbitBodyType "VolcanicFair"	
+	orbitBodyType "CyroFair"
+	orbitBodyType "IgneousFair"
+	orbitBodyType "GreenhouseFair"
+	orbitBodyType "FerrusFair"
+	orbitBodyType "AlpineFair"
+	orbitBodyType "ToxicFair"
+	orbitBodyType "ColonizeableGasGiantFair"	
 planetType
 	designName "RandomTier2"
 	designStringId "IDSGalaxyScenarioTypeRandomTier2"
@@ -807,6 +849,15 @@ planetType
 	orbitBodyType "Agricultural"
 	orbitBodyType "Hydrocarbon"
 planetType
+	designName "RandomTier2Fair"
+	designStringId "IDSGalaxyScenarioTypeRandomTier2Fair"
+	orbitBodyTypeCount 5
+	orbitBodyType "IceFair"	
+	orbitBodyType "SwampFair"
+	orbitBodyType "DesolateFair"
+	orbitBodyType "AgriculturalFair"
+	orbitBodyType "HydrocarbonFair"
+planetType
 	designName "RandomTier3"
 	designStringId "IDSGalaxyScenarioTypeRandomTier3"
 	orbitBodyTypeCount 5
@@ -816,13 +867,23 @@ planetType
 	orbitBodyType "Industrial"
 	orbitBodyType "Urban"	
 planetType
+	designName "RandomTier3Fair"
+	designStringId "IDSGalaxyScenarioTypeRandomTier3Fair"
+	orbitBodyTypeCount 5
+	orbitBodyType "DesertFair"	
+	orbitBodyType "OceanicFair"
+	orbitBodyType "TerranFair"
+	orbitBodyType "IndustrialFair"
+	orbitBodyType "UrbanFair"	
+planetType
 	designName "SecretRandomEncounters"
 	designStringId "IDSGalaxyScenarioTypeSecretRandomEncounters"
-	orbitBodyTypeCount 10
+	orbitBodyTypeCount 11
 	orbitBodyType "Desert"	
 	orbitBodyType "Oceanic"
 	orbitBodyType "Terran"
 	orbitBodyType "Industrial"
+	orbitBodyType "Urban"
 	orbitBodyType "Kuat"
 	orbitBodyType "MonCalamari"
 	orbitBodyType "Kessel"
@@ -1845,6 +1906,9 @@ planetItemType
 planetItemType
 	designName "Emp:Module:MetalExtractor"
 	entityDefName "PLANETMODULE_ING_EmpMetalExtractor"
+planetItemType
+	designName "Emp:Module:MetalExtractorWarlords"
+	entityDefName "PLANETMODULE_ING_EmpMetalExtractorWarlords"	
 planetItemType
 	designName "Emp:Module:NonCombatLab"
 	entityDefName "PLANETMODULE_ING_EmpCivicLab"
@@ -3241,9 +3305,6 @@ planetItemType
 	designName "Other:Flag:KillPlanet"
 	entityDefName "SpaceMine_E4X_KillPlanetFlag"
 planetItemType
-	designName "Other:Flag:Beacon"
-	entityDefName "Frigate_ING_Beacon"
-planetItemType
 	designName "Other:Holonet:Probe"
 	entityDefName "SpaceMine_ING_HolonetProbe"
 planetItemType
@@ -3253,6 +3314,9 @@ planetItemType
 	designName "Other:Flag:Grant1000XP"
 	entityDefName "SpaceMine_E4X_XP1000"
 planetItemType
+	designName "Other:Flag:MaxTitanXP"
+	entityDefName "SpaceMine_E4X_MaxTitanXPFlag"
+planetItemType
 	designName "Other:Flag:DefeatPlayerOnPlanetDeath"
 	entityDefName "SpaceMine_E4X_DefeatPlayerOnPlanetDeathFlag"
 planetItemType
@@ -3261,9 +3325,6 @@ planetItemType
 planetItemType
 	designName "Other:Flag:VictoryOnPlanetTaken"
 	entityDefName "SpaceMine_E4X_VictoryOnPlanetTakenFlag"		
-planetItemType
-	designName "Other:Flag:MaxTitanXP"
-	entityDefName "SpaceMine_E4X_MaxTitanXPFlag"
 planetItemType
 	designName "Other:Flag:TECPlanetaryDefenses"
 	entityDefName "SpaceMine_E4X_TECPlanetDefensesFlag"
@@ -3350,7 +3411,7 @@ planetItemType
 	entityDefName "PLANETMODULE_ING_ObjectiveOperationShadowHand"			
 planetItemType
 	designName "Other:Objective:WarOfTheSith"
-	entityDefName "SpaceMine_ING_ObjectiveWarOfTheSith"				
+	entityDefName "PlanetModule_ING_ObjectiveWarOfTheSith"			
 planetItemType
 	designName "Cosmetic:TitanTechLoyalist"	
 	entityDefName "TITAN_TECHLOYALIST_COSMETIC"
@@ -3409,7 +3470,7 @@ playerType
 playerType	
 	designName "MandalorianRaiders"
 	entityDefName "Player_ING_MandalorianRaiders"	
-planetItemsTemplateCount 99
+planetItemsTemplateCount 98
 planetItemsTemplate
 	templateName "Empty"
 	subTemplates 0
@@ -3418,7 +3479,7 @@ planetItemsTemplate
 	templateName "Template:DefaultHomePlanetSetup"
 	subTemplates 1
 		template "Template:DefaultMinorFaction"
-	groups 22
+	groups 20
 		group
 			condition
 				type "PlanetOwnerIsRaceNormalStart"
@@ -3722,8 +3783,8 @@ planetItemsTemplate
 				item "Emp:Module:FrigateFactory"
 				item "Emp:Module:FrigateFactory"
 				item "Emp:Module:CapitalShipFactory"
-				item "Emp:Module:MetalExtractor"
-				item "Emp:Module:MetalExtractor"
+				item "Emp:Module:MetalExtractorWarlords"
+				item "Emp:Module:MetalExtractorWarlords"
 				item "Emp:Module:CrystalExtractor"
 				item "Emp:Module:CrystalExtractor"
 				item "Emp:Frigate:Constructor"
@@ -3779,22 +3840,6 @@ planetItemsTemplate
 				item "Nr:Frigate:Scout"
 				item "Nr:Frigate:Scout"
 				item "Bonus:AllianceHomeworld"
-		group
-			condition
-				type "PlanetHasAnyOwner"
-				param ""
-			owner "PlanetOwner"
-			colonizeChance 0
-			items 1
-				item "Other:Flag:Beacon"	
-		group
-			condition
-				type "NoPlanetOwner"
-				param ""
-			owner "RandomMilitia"
-			colonizeChance 0
-			items 1
-				item "Other:Flag:Beacon"
 planetItemsTemplate
 	templateName "Template:AllExtractors"
 	subTemplates 0
@@ -4100,13 +4145,13 @@ planetItemsTemplate
 			owner "PlanetOwner"
 			colonizeChance 0
 			items 14
-				item "Emp:Module:MetalExtractor"
-				item "Emp:Module:MetalExtractor"
-				item "Emp:Module:MetalExtractor"
-				item "Emp:Module:MetalExtractor"
-				item "Emp:Module:MetalExtractor"
-				item "Emp:Module:MetalExtractor"
-				item "Emp:Module:MetalExtractor"				
+				item "Emp:Module:MetalExtractorWarlords"
+				item "Emp:Module:MetalExtractorWarlords"
+				item "Emp:Module:MetalExtractorWarlords"
+				item "Emp:Module:MetalExtractorWarlords"
+				item "Emp:Module:MetalExtractorWarlords"
+				item "Emp:Module:MetalExtractorWarlords"
+				item "Emp:Module:MetalExtractorWarlords"				
 				item "Emp:Module:CrystalExtractor"
 				item "Emp:Module:CrystalExtractor"
 				item "Emp:Module:CrystalExtractor"
@@ -4121,13 +4166,13 @@ planetItemsTemplate
 			owner "PlanetOwner"
 			colonizeChance 0
 			items 14
-				item "Emp:Module:MetalExtractor"
-				item "Emp:Module:MetalExtractor"
-				item "Emp:Module:MetalExtractor"
-				item "Emp:Module:MetalExtractor"
-				item "Emp:Module:MetalExtractor"
-				item "Emp:Module:MetalExtractor"
-				item "Emp:Module:MetalExtractor"				
+			item "Emp:Module:MetalExtractorWarlords"
+				item "Emp:Module:MetalExtractorWarlords"
+				item "Emp:Module:MetalExtractorWarlords"
+				item "Emp:Module:MetalExtractorWarlords"
+				item "Emp:Module:MetalExtractorWarlords"
+				item "Emp:Module:MetalExtractorWarlords"
+				item "Emp:Module:MetalExtractorWarlords"			
 				item "Emp:Module:CrystalExtractor"
 				item "Emp:Module:CrystalExtractor"
 				item "Emp:Module:CrystalExtractor"
@@ -4980,67 +5025,58 @@ planetItemsTemplate
 	groups 0
 planetItemsTemplate
 	templateName "Template:DefaultStart_DeadAsteroid"
-	subTemplates 3
+subTemplates 2
 		template "Template:DefaultHomePlanetSetup"
 		template "Template:LocalMilitia_DeadAsteroid"
-		template "Template:BeaconNetwork"
 	groups 0
 planetItemsTemplate
 	templateName "Template:DefaultStart_ShipGraveyard"
-	subTemplates 5
+	subTemplates 4
 		template "Template:LocalMilitia_RandomShipGraveyard"	
 		template "Template:LocalMilitiaShipGraveyard"
 		template "Template:ArtifactEntities"
-		template "Template:BeaconNetwork"
 		template "Template:KatanaFleet"
 	groups 0
 planetItemsTemplate
 	templateName "Template:DefaultStart_GasGiant"
-	subTemplates 3
+	subTemplates 2
 		template "Template:LocalMilitia_GasGiant"
-		template "Template:BeaconNetwork"
 		template "Template:KatanaFleet"
 	groups 0
 planetItemsTemplate
 	templateName "Template:DefaultStart_PlasmaStorm"
-	subTemplates 3
+	subTemplates 2
 		template "Template:LocalMilitia_PlasmaStorm"
-		template "Template:BeaconNetwork"
 		template "Template:KatanaFleet"
 	groups 0
 planetItemsTemplate
 	templateName "Template:DefaultStart_Comet"
-	subTemplates 3
+	subTemplates 2
 		template "Template:LocalMilitiaVeryWeak"
-		template "Template:BeaconNetwork"
 		template "Template:KatanaFleet"
 	groups 0
 planetItemsTemplate
 	templateName "Template:DefaultStart_IceField"
-	subTemplates 3
+	subTemplates 2
 		template "Template:LocalMilitiaWeak"
-		template "Template:BeaconNetwork"
 		template "Template:KatanaFleet"
 	groups 0
 planetItemsTemplate
 	templateName "Template:DefaultStart_ShatteredMoon"
-	subTemplates 3
+	subTemplates 2
 		template "Template:LocalMilitiaMediumUncolonizable"
-		template "Template:BeaconNetwork"
 		template "Template:KatanaFleet"
 	groups 0
 planetItemsTemplate
 	templateName "Template:DefaultStart_RadiationStorm"
-	subTemplates 3
+	subTemplates 2
 		template "Template:LocalMilitiaMediumUncolonizable"
-		template "Template:BeaconNetwork"
 		template "Template:KatanaFleet"
 	groups 0
 planetItemsTemplate
 	templateName "Template:DefaultStart_AntimatterFountain"
-	subTemplates 3
+	subTemplates 2
 		template "Template:LocalMilitiaVeryWeakUncolonizable"
-		template "Template:BeaconNetwork"
 		template "Template:KatanaFleet"
 	groups 0
 planetItemsTemplate
@@ -5075,15 +5111,13 @@ planetItemsTemplate
 	groups 0
 planetItemsTemplate
 	templateName "Template:DefaultStart_GasGiantFair"
-	subTemplates 2
+		subTemplates 1
 		template "Template:LocalMilitia_GasGiantFair"
-		template "Template:BeaconNetwork"
 	groups 0
 planetItemsTemplate
 	templateName "Template:DefaultStart_PlasmaStormFair"
-	subTemplates 2
+	subTemplates 1
 		template "Template:LocalMilitia_PlasmaStormFair"
-		template "Template:BeaconNetwork"
 	groups 0
 planetItemsTemplate
 	templateName "Template:DefaultStart_IceFair"
@@ -5118,18 +5152,15 @@ planetItemsTemplate
 	groups 0
 planetItemsTemplate
 	templateName "Template:DefaultStart_MagneticCloud"
-	subTemplates 1
-		template "Template:BeaconNetwork"
+	subTemplates 0
 	groups 0
 planetItemsTemplate
 	templateName "Template:DefaultStart_Wormhole"
-	subTemplates 1
-		template "Template:BeaconNetwork"
+	subTemplates 0
 	groups 0
 planetItemsTemplate
 	templateName "Template:DefaultStart_EmptyUncolonizeable"
-	subTemplates 2
-		template "Template:BeaconNetwork"
+	subTemplates 1
 		template "Template:KatanaFleet"
 	groups 0
 planetItemsTemplate
@@ -5335,18 +5366,6 @@ planetItemsTemplate
 				item "Other:Frigate:Dreadnaught"
 				item "Other:Frigate:Dreadnaught"
 				item "Other:Frigate:Dreadnaught"
-planetItemsTemplate
-	templateName "Template:BeaconNetwork"
-	subTemplates 0
-	groups 1
-		group
-			condition
-				type "Always"
-				param ""
-			owner "Unknown"
-			colonizeChance 0
-			items 1
-				item "Other:Flag:Beacon"
 planetItemsTemplate
 	templateName "Template:LocalMilitiaVeryWeakUncolonizable"
 	subTemplates 0
@@ -5793,8 +5812,7 @@ planetItemsTemplate
 				item "Other:Module:CloneWarsShipyard"	
 planetItemsTemplate
 	templateName "Template:Kessel"
-	subTemplates 1
-		template "Template:BeaconNetwork"
+	subTemplates 0
 	groups 1
 		group
 			condition
@@ -5910,8 +5928,7 @@ planetItemsTemplate
 				item "Bonus:LocalGovernment"		
 planetItemsTemplate
 	templateName "Template:RandomEncounterKuat"
-	subTemplates 1
-		template "Template:BeaconNetwork"
+	subTemplates 0
 	groups 1
 		group
 			condition
@@ -5973,8 +5990,7 @@ planetItemsTemplate
 				item "Other:Flag:Grant1000XP"
 planetItemsTemplate
 	templateName "Template:RandomEncounterFondor"
-	subTemplates 1
-		template "Template:BeaconNetwork"
+	subTemplates 0
 	groups 1
 		group
 			condition
@@ -6036,8 +6052,7 @@ planetItemsTemplate
 				item "Other:Flag:Grant1000XP"
 planetItemsTemplate
 	templateName "Template:RandomEncounterMonCalamari"
-	subTemplates 1
-		template "Template:BeaconNetwork"
+	subTemplates 0
 	groups 1
 		group
 			condition
@@ -6322,8 +6337,7 @@ planetItemsTemplate
 				item "Bonus:SpiceTrade"
 planetItemsTemplate
 	templateName "Template:PirateTradeSector"
-	subTemplates 2
-		template "Template:BeaconNetwork"
+	subTemplates 1
 		template "Template:KatanaFleet"
 	groups 1
 		group
@@ -6574,11 +6588,10 @@ planetItemsTemplate
 	groups 0
 planetItemsTemplate
 	templateName "Template:LocalMilitia_Tier1"
-	subTemplates 4
+	subTemplates 3
 		template "Template:DefaultHomePlanetSetup"
 		template "Template:LocalMilitiaMedium"
 		template "Template:ArtifactEntities"
-		template "Template:BeaconNetwork"
 	groups 0
 planetItemsTemplate
 	templateName "Template:LocalMilitia_Asteroid"
@@ -6612,9 +6625,8 @@ planetItemsTemplate
 	groups 0
 planetItemsTemplate
 	templateName "Template:DefaultStart_AsteroidBelt"
-	subTemplates 2
+	subTemplates 1
 		template "Template:RandomTechMilitaryDrill"
-		template "Template:BeaconNetwork"
 	groups 0
 planetItemsTemplate
 	templateName "Template:LocalMilitia_TerranFair"
@@ -6653,8 +6665,7 @@ planetItemsTemplate
 	groups 0
 planetItemsTemplate
 	templateName "Template:PirateBase"
-	subTemplates 1
-			template "Template:BeaconNetwork"
+	subTemplates 0
 	groups 1
 		group
 			condition
@@ -6750,8 +6761,7 @@ planetItemsTemplate
 				item "Other:Flag:Grant1000XP"	
 planetItemsTemplate
 	templateName "Template:Mandalore"
-	subTemplates 1
-			template "Template:BeaconNetwork"
+	subTemplates 0
 	groups 1
 		group
 			condition
@@ -6867,8 +6877,7 @@ planetItemsTemplate
 				item "Other:Flag:Grant200XP"		
 planetItemsTemplate
 	templateName "Template:MandalorianBase"
-	subTemplates 1
-			template "Template:BeaconNetwork"
+	subTemplates 0
 	groups 1
 		group
 			condition
@@ -6968,8 +6977,7 @@ planetItemsTemplate
 				item "Other:Flag:Grant1000XP"
 planetItemsTemplate
 	templateName "Template:CyberFortress"
-	subTemplates 1
-			template "Template:BeaconNetwork"
+	subTemplates 0
 	groups 1
 		group
 			condition
@@ -7009,8 +7017,7 @@ planetItemsTemplate
 				item "Phase:Module:MineExplosive"
 planetItemsTemplate
 	templateName "Template:OccupiedPlanet"
-	subTemplates 1
-			template "Template:BeaconNetwork"
+	subTemplates 0
 	groups 1
 		group
 			condition
@@ -7074,8 +7081,7 @@ planetItemsTemplate
 				item "Other:Flag:Grant1000XP"
 planetItemsTemplate
 	templateName "Template:Coruscant"
-	subTemplates 1
-			template "Template:BeaconNetwork"
+	subTemplates 0
 	groups 1
 		group
 			condition
@@ -7128,8 +7134,7 @@ planetItemsTemplate
 				item "Other:Flag:Grant1000XP"
 planetItemsTemplate
 	templateName "Template:Byss"
-	subTemplates 1
-			template "Template:BeaconNetwork"
+	subTemplates 0
 	groups 1
 		group
 			condition
@@ -7212,7 +7217,7 @@ planetItemsTemplate
 				param "DefaultTech"
 			owner "PlanetOwner"
 			colonizeChance 1
-			items 28
+			items 29
 				item "Tech:Module:FrigateFactory"
 				item "Tech:Module:CapitalShipFactory"
 				item "Tech:Module:TradePort"
@@ -7226,7 +7231,9 @@ planetItemsTemplate
 				item "Tech:Module:CrystalExtractor"
 				item "Tech:Module:CrystalExtractor"
 				item "Tech:Module:CrystalExtractor"
+				item "Tech:Module:CrystalExtractor"	
 				item "Tech:Module:CrystalExtractor"				
+				item "Tech:Module:MetalExtractor"			
 				item "Tech:Module:MetalExtractor"
 				item "Tech:Module:MetalExtractor"
 				item "Tech:Module:MetalExtractor"
@@ -7240,14 +7247,13 @@ planetItemsTemplate
 				item "Tech:Frigate:Heavy"
 				item "Tech:Frigate:Constructor"
 				item "Tech:Frigate:Constructor"	
-				item "Other:Flag:Beacon"
 		group
 			condition
 				type "PlanetOwnerIsMinorFactionWithFactionName"
 				param "DefaultPsi"
 			owner "PlanetOwner"
 			colonizeChance 1
-			items 26
+			items 27
 				item "Psi:Module:FrigateFactory"
 				item "Psi:Module:CapitalShipFactory"
 				item "Psi:Module:TradePort"
@@ -7260,6 +7266,8 @@ planetItemsTemplate
 				item "Psi:Module:CrystalExtractor"
 				item "Psi:Module:CrystalExtractor"
 				item "Psi:Module:CrystalExtractor"
+				item "Psi:Module:CrystalExtractor"
+				item "Psi:Module:MetalExtractor"
 				item "Psi:Module:MetalExtractor"
 				item "Psi:Module:MetalExtractor"
 				item "Psi:Module:MetalExtractor"
@@ -7273,14 +7281,13 @@ planetItemsTemplate
 				item "Psi:Frigate:Heavy"
 				item "Psi:Frigate:Constructor"
 				item "Psi:Frigate:Constructor"
-				item "Other:Flag:Beacon"
 		group
 			condition
 				type "PlanetOwnerIsMinorFactionWithFactionName"
 				param "DefaultPhase"
 			owner "PlanetOwner"
 			colonizeChance 1
-			items 35
+			items 36
 				item "Phase:Module:FrigateFactory"
 				item "Phase:Module:CapitalShipFactory"
 				item "Phase:Module:TradePort"
@@ -7295,6 +7302,8 @@ planetItemsTemplate
 				item "Phase:Module:CrystalExtractor"
 				item "Phase:Module:CrystalExtractor"
 				item "Phase:Module:CrystalExtractor"
+				item "Phase:Module:CrystalExtractor"
+				item "Phase:Module:MetalExtractor"
 				item "Phase:Module:MetalExtractor"
 				item "Phase:Module:MetalExtractor"
 				item "Phase:Module:MetalExtractor"
@@ -7315,14 +7324,13 @@ planetItemsTemplate
 				item "Phase:Corvette:Loyalist"
 				item "Phase:Frigate:Constructor"
 				item "Phase:Frigate:Constructor"
-				item "Other:Flag:Beacon"
 		group
 			condition
 				type "PlanetOwnerIsMinorFactionWithFactionName"
 				param "TechMiners"
 			owner "PlanetOwner"
 			colonizeChance 1
-			items 34
+			items 35
 				item "Tech:Module:FrigateFactory"
 				item "Tech:Module:CapitalShipFactory"
 				item "Tech:Module:TradePort"
@@ -7337,6 +7345,8 @@ planetItemsTemplate
 				item "Tech:Module:CrystalExtractor"
 				item "Tech:Module:CrystalExtractor"
 				item "Tech:Module:CrystalExtractor"
+				item "Tech:Module:CrystalExtractor"
+				item "Tech:Module:MetalExtractor"
 				item "Tech:Module:MetalExtractor"
 				item "Tech:Module:MetalExtractor"
 				item "Tech:Module:MetalExtractor"
@@ -7356,14 +7366,13 @@ planetItemsTemplate
 				item "Tech:Frigate:Utility1"
 				item "Tech:Frigate:Constructor"
 				item "Tech:Frigate:Constructor"
-				item "Other:Flag:Beacon"
 		group
 			condition
 				type "PlanetOwnerIsMinorFactionWithFactionName"
 				param "TechScrappers"
 			owner "PlanetOwner"
 			colonizeChance 1
-			items 31
+			items 32
 				item "Tech:Module:FrigateFactory"
 				item "Tech:Module:CapitalShipFactory"
 				item "Tech:Module:TradePort"
@@ -7377,6 +7386,8 @@ planetItemsTemplate
 				item "Tech:Module:CrystalExtractor"
 				item "Tech:Module:CrystalExtractor"
 				item "Tech:Module:CrystalExtractor"
+				item "Tech:Module:CrystalExtractor"
+				item "Tech:Module:MetalExtractor"
 				item "Tech:Module:MetalExtractor"
 				item "Tech:Module:MetalExtractor"
 				item "Tech:Module:MetalExtractor"
@@ -7394,14 +7405,13 @@ planetItemsTemplate
 				item "Tech:Frigate:Utility1"
 				item "Tech:Frigate:Constructor"
 				item "Tech:Frigate:Constructor"
-				item "Other:Flag:Beacon"
 		group
 			condition
 				type "PlanetOwnerIsMinorFactionWithFactionName"
 				param "TechSiegeRaiders"
 			owner "PlanetOwner"
 			colonizeChance 1
-			items 36
+			items 37
 				item "Tech:Module:FrigateFactory"
 				item "Tech:Module:CapitalShipFactory"
 				item "Tech:Module:TradePort"
@@ -7417,6 +7427,8 @@ planetItemsTemplate
 				item "Tech:Module:CrystalExtractor"
 				item "Tech:Module:CrystalExtractor"
 				item "Tech:Module:CrystalExtractor"
+				item "Tech:Module:CrystalExtractor"
+				item "Tech:Module:MetalExtractor"
 				item "Tech:Module:MetalExtractor"
 				item "Tech:Module:MetalExtractor"
 				item "Tech:Module:MetalExtractor"
@@ -7437,14 +7449,13 @@ planetItemsTemplate
 				item "Tech:Frigate:Utility0"
 				item "Tech:Frigate:Constructor"
 				item "Tech:Frigate:Constructor"
-				item "Other:Flag:Beacon"
 		group
 			condition
 				type "PlanetOwnerIsMinorFactionWithFactionName"
 				param "TechDemolitionists"
 			owner "PlanetOwner"
 			colonizeChance 1
-			items 33
+			items 34
 				item "Tech:Module:FrigateFactory"
 				item "Tech:Module:CapitalShipFactory"
 				item "Tech:Module:TradePort"
@@ -7458,6 +7469,8 @@ planetItemsTemplate
 				item "Tech:Module:CrystalExtractor"
 				item "Tech:Module:CrystalExtractor"
 				item "Tech:Module:CrystalExtractor"
+				item "Tech:Module:CrystalExtractor"
+				item "Tech:Module:MetalExtractor"
 				item "Tech:Module:MetalExtractor"
 				item "Tech:Module:MetalExtractor"
 				item "Tech:Module:MetalExtractor"
@@ -7477,14 +7490,13 @@ planetItemsTemplate
 				item "Tech:Frigate:AntiModule"
 				item "Tech:Frigate:Constructor"
 				item "Tech:Frigate:Constructor"
-				item "Other:Flag:Beacon"
 		group
 			condition
 				type "PlanetOwnerIsMinorFactionWithFactionName"
 				param "TechXenophobes"
 			owner "PlanetOwner"
 			colonizeChance 1
-			items 36
+			items 37
 				item "Tech:Module:FrigateFactory"
 				item "Tech:Module:CapitalShipFactory"
 				item "Tech:Module:TradePort"
@@ -7499,6 +7511,8 @@ planetItemsTemplate
 				item "Tech:Module:CrystalExtractor"
 				item "Tech:Module:CrystalExtractor"
 				item "Tech:Module:CrystalExtractor"
+				item "Tech:Module:CrystalExtractor"
+				item "Tech:Module:MetalExtractor"
 				item "Tech:Module:MetalExtractor"
 				item "Tech:Module:MetalExtractor"
 				item "Tech:Module:MetalExtractor"
@@ -7520,14 +7534,13 @@ planetItemsTemplate
 				item "Tech:Corvette:Rebel"
 				item "Tech:Frigate:Constructor"
 				item "Tech:Frigate:Constructor"
-				item "Other:Flag:Beacon"
 		group
 			condition
 				type "PlanetOwnerIsMinorFactionWithFactionName"
 				param "TechDefensive"
 			owner "PlanetOwner"
 			colonizeChance 1
-			items 36
+			items 37
 				item "Tech:Module:FrigateFactory"
 				item "Tech:Module:CapitalShipFactory"
 				item "Tech:Module:TradePort"
@@ -7543,6 +7556,8 @@ planetItemsTemplate
 				item "Tech:Module:CrystalExtractor"
 				item "Tech:Module:CrystalExtractor"
 				item "Tech:Module:CrystalExtractor"
+				item "Tech:Module:CrystalExtractor"
+				item "Tech:Module:MetalExtractor"
 				item "Tech:Module:MetalExtractor"
 				item "Tech:Module:MetalExtractor"
 				item "Tech:Module:MetalExtractor"
@@ -7563,14 +7578,13 @@ planetItemsTemplate
 				item "Tech:Frigate:Heavy"
 				item "Tech:Frigate:Constructor"
 				item "Tech:Frigate:Constructor"
-				item "Other:Flag:Beacon"
 		group
 			condition
 				type "PlanetOwnerIsMinorFactionWithFactionName"
 				param "TechUsedFrigates"
 			owner "PlanetOwner"
 			colonizeChance 1
-			items 35
+			items 36
 				item "Psi:Module:FrigateFactory"
 				item "Phase:Module:FrigateFactory"
 				item "Tech:Module:CapitalShipFactory"
@@ -7586,11 +7600,13 @@ planetItemsTemplate
 				item "Phase:Module:CrystalExtractor"
 				item "Psi:Module:CrystalExtractor"
 				item "Tech:Module:CrystalExtractor"
+				item "Phase:Module:CrystalExtractor"
 				item "Psi:Module:CrystalExtractor"
 				item "Phase:Module:MetalExtractor"
 				item "Psi:Module:MetalExtractor"
 				item "Tech:Module:MetalExtractor"
 				item "Phase:Module:MetalExtractor"
+				item "Psi:Module:MetalExtractor"
 				item "Tech:Module:MetalExtractor"
 				item "Tech:CapitalShip:Carrier"
 				item "Tech:Frigate:Light"
@@ -7605,14 +7621,13 @@ planetItemsTemplate
 				item "Phase:Frigate:Utility0"
 				item "Tech:Frigate:Constructor"
 				item "Tech:Frigate:Constructor"
-				item "Other:Flag:Beacon"
 		group
 			condition
 				type "PlanetOwnerIsMinorFactionWithFactionName"
 				param "PsiPacifists"
 			owner "PlanetOwner"
 			colonizeChance 1
-			items 30
+			items 31
 				item "Psi:Module:FrigateFactory"
 				item "Psi:Module:CapitalShipFactory"
 				item "Psi:Module:TradePort"
@@ -7626,6 +7641,8 @@ planetItemsTemplate
 				item "Psi:Module:CrystalExtractor"
 				item "Psi:Module:CrystalExtractor"
 				item "Psi:Module:CrystalExtractor"
+				item "Psi:Module:CrystalExtractor"
+				item "Psi:Module:MetalExtractor"
 				item "Psi:Module:MetalExtractor"
 				item "Psi:Module:MetalExtractor"
 				item "Psi:Module:MetalExtractor"
@@ -7642,14 +7659,13 @@ planetItemsTemplate
 				item "Psi:Frigate:Carrier"
 				item "Psi:Frigate:Constructor"
 				item "Psi:Frigate:Constructor"
-				item "Other:Flag:Beacon"
 		group
 			condition
 				type "PlanetOwnerIsMinorFactionWithFactionName"
 				param "PsiCulture"
 			owner "PlanetOwner"
 			colonizeChance 1
-			items 34
+			items 35
 				item "Psi:Module:FrigateFactory"
 				item "Psi:Module:CapitalShipFactory"
 				item "Psi:Module:TradePort"
@@ -7663,6 +7679,8 @@ planetItemsTemplate
 				item "Psi:Module:CrystalExtractor"
 				item "Psi:Module:CrystalExtractor"
 				item "Psi:Module:CrystalExtractor"
+				item "Psi:Module:CrystalExtractor"
+				item "Psi:Module:MetalExtractor"
 				item "Psi:Module:MetalExtractor"
 				item "Psi:Module:MetalExtractor"
 				item "Psi:Module:MetalExtractor"
@@ -7683,14 +7701,13 @@ planetItemsTemplate
 				item "Psi:Corvette:Loyalist"
 				item "Psi:Frigate:Constructor"
 				item "Psi:Frigate:Constructor"
-				item "Other:Flag:Beacon"
 		group
 			condition
 				type "PlanetOwnerIsMinorFactionWithFactionName"
 				param "PsiDoomCult"
 			owner "PlanetOwner"
 			colonizeChance 1
-			items 31
+			items 32
 				item "Psi:Module:FrigateFactory"
 				item "Psi:Module:CapitalShipFactory"
 				item "Psi:Module:TradePort"
@@ -7703,6 +7720,8 @@ planetItemsTemplate
 				item "Psi:Module:CrystalExtractor"
 				item "Psi:Module:CrystalExtractor"
 				item "Psi:Module:CrystalExtractor"
+				item "Psi:Module:CrystalExtractor"
+				item "Psi:Module:MetalExtractor"
 				item "Psi:Module:MetalExtractor"
 				item "Psi:Module:MetalExtractor"
 				item "Psi:Module:MetalExtractor"
@@ -7721,14 +7740,13 @@ planetItemsTemplate
 				item "Psi:Frigate:Utility1"
 				item "Psi:Frigate:Constructor"
 				item "Psi:Frigate:Constructor"
-				item "Other:Flag:Beacon"
 		group
 			condition
 				type "PlanetOwnerIsMinorFactionWithFactionName"
 				param "PsiSiegeRaiders"
 			owner "PlanetOwner"
 			colonizeChance 1
-			items 34
+			items 35
 				item "Psi:Module:FrigateFactory"
 				item "Psi:Module:CapitalShipFactory"
 				item "Psi:Module:TradePort"
@@ -7742,6 +7760,8 @@ planetItemsTemplate
 				item "Psi:Module:CrystalExtractor"
 				item "Psi:Module:CrystalExtractor"
 				item "Psi:Module:CrystalExtractor"
+				item "Psi:Module:CrystalExtractor"
+				item "Psi:Module:MetalExtractor"
 				item "Psi:Module:MetalExtractor"
 				item "Psi:Module:MetalExtractor"
 				item "Psi:Module:MetalExtractor"
@@ -7762,14 +7782,13 @@ planetItemsTemplate
 				item "Psi:Frigate:Siege"
 				item "Psi:Frigate:Constructor"
 				item "Psi:Frigate:Constructor"
-				item "Other:Flag:Beacon"
 		group
 			condition
 				type "PlanetOwnerIsMinorFactionWithFactionName"
 				param "PhaseTransporters"
 			owner "PlanetOwner"
 			colonizeChance 1
-			items 31
+			items 32
 				item "Phase:Module:FrigateFactory"
 				item "Phase:Module:CapitalShipFactory"
 				item "Phase:Module:TradePort"
@@ -7781,8 +7800,10 @@ planetItemsTemplate
 				item "Phase:Module:CrystalExtractor"
 				item "Phase:Module:CrystalExtractor"
 				item "Phase:Module:CrystalExtractor"
-				item "Phase:Module:CrystalExtractor"				
-				item "Phase:Module:MetalExtractor"
+				item "Phase:Module:CrystalExtractor"	
+				item "Phase:Module:CrystalExtractor"
+				item "Phase:Module:MetalExtractor"	
+				item "Phase:Module:MetalExtractor"		
 				item "Phase:Module:MetalExtractor"
 				item "Phase:Module:MetalExtractor"
 				item "Phase:Module:MetalExtractor"
@@ -7800,14 +7821,13 @@ planetItemsTemplate
 				item "Phase:Corvette:Rebel"
 				item "Phase:Frigate:Constructor"
 				item "Phase:Frigate:Constructor"
-				item "Other:Flag:Beacon"
 		group
 			condition
 				type "PlanetOwnerIsMinorFactionWithFactionName"
 				param "PhaseExpedition"
 			owner "PlanetOwner"
 			colonizeChance 1
-			items 35
+			items 36
 				item "Phase:Module:FrigateFactory"
 				item "Phase:Module:CapitalShipFactory"
 				item "Phase:Module:TradePort"
@@ -7820,7 +7840,9 @@ planetItemsTemplate
 				item "Phase:Module:CrystalExtractor"
 				item "Phase:Module:CrystalExtractor"
 				item "Phase:Module:CrystalExtractor"
+				item "Phase:Module:CrystalExtractor"	
 				item "Phase:Module:CrystalExtractor"				
+				item "Phase:Module:MetalExtractor"			
 				item "Phase:Module:MetalExtractor"
 				item "Phase:Module:MetalExtractor"
 				item "Phase:Module:MetalExtractor"
@@ -7842,14 +7864,13 @@ planetItemsTemplate
 				item "Phase:Corvette:Loyalist"			
 				item "Phase:Frigate:Constructor"
 				item "Phase:Frigate:Constructor"
-				item "Other:Flag:Beacon"
 		group
 			condition
 				type "PlanetOwnerIsMinorFactionWithFactionName"
 				param "PhaseArmsDealers"
 			owner "PlanetOwner"
 			colonizeChance 1
-			items 32
+			items 33
 				item "Phase:Module:FrigateFactory"
 				item "Phase:Module:CapitalShipFactory"
 				item "Phase:Module:TradePort"
@@ -7863,7 +7884,9 @@ planetItemsTemplate
 				item "Phase:Module:CrystalExtractor"
 				item "Phase:Module:CrystalExtractor"
 				item "Phase:Module:CrystalExtractor"
+				item "Phase:Module:CrystalExtractor"
 				item "Phase:Module:CrystalExtractor"				
+				item "Phase:Module:MetalExtractor"				
 				item "Phase:Module:MetalExtractor"
 				item "Phase:Module:MetalExtractor"
 				item "Phase:Module:MetalExtractor"
@@ -7881,14 +7904,13 @@ planetItemsTemplate
 				item "Phase:Frigate:Siege"
 				item "Phase:Frigate:Constructor"
 				item "Phase:Frigate:Constructor"
-				item "Other:Flag:Beacon"
 		group
 			condition
 				type "PlanetOwnerIsMinorFactionWithFactionName"
 				param "AllIndependent"
 			owner "PlanetOwner"
 			colonizeChance 1
-			items 33
+			items 34
 				item "All:Module:FrigateFactory"
 				item "All:Module:CapitalShipFactory"
 				item "Nr:Module:TradePort"
@@ -7902,7 +7924,9 @@ planetItemsTemplate
 				item "All:Module:CrystalExtractor"
 				item "All:Module:CrystalExtractor"
 				item "All:Module:CrystalExtractor"
+				item "All:Module:CrystalExtractor"	
 				item "All:Module:CrystalExtractor"				
+				item "All:Module:MetalExtractor"			
 				item "All:Module:MetalExtractor"
 				item "All:Module:MetalExtractor"
 				item "All:Module:MetalExtractor"
@@ -7921,14 +7945,13 @@ planetItemsTemplate
 				item "All:Frigate:Constructor"
 				item "All:Frigate:Constructor"
 				item "Bonus:LocalGovernment"
-				item "Other:Flag:Beacon"
 		group
 			condition
 				type "PlanetOwnerIsMinorFactionWithFactionName"
 				param "AllCorellia"
 			owner "PlanetOwner"
 			colonizeChance 1
-			items 39
+			items 48
 				item "All:Module:FrigateFactory"
 				item "All:Module:FrigateFactory"
 				item "All:Module:CapitalShipFactory"
@@ -7945,6 +7968,8 @@ planetItemsTemplate
 				item "All:Module:CrystalExtractor"
 				item "All:Module:CrystalExtractor"
 				item "All:Module:CrystalExtractor"
+				item "All:Module:CrystalExtractor"
+				item "All:Module:MetalExtractor"
 				item "All:Module:MetalExtractor"
 				item "All:Module:MetalExtractor"
 				item "All:Module:MetalExtractor"
@@ -7958,8 +7983,16 @@ planetItemsTemplate
 				item "Mil:Frigate:Light"
 				item "Mil:Frigate:Light"
 				item "Mil:Frigate:Light"
+				item "Mil:Frigate:Light"
+				item "Mil:Frigate:Light"
+				item "Mil:Frigate:Light"
 				item "Man:Frigate:LongRange"
 				item "Man:Frigate:LongRange"
+				item "Man:Frigate:LongRange"
+				item "Man:Frigate:LongRange"
+				item "All:Frigate:AntiFighter"
+				item "All:Frigate:AntiFighter"
+				item "All:Frigate:AntiFighter"
 				item "All:Frigate:AntiFighter"
 				item "All:Frigate:AntiFighter"
 				item "All:Frigate:AntiFighter"
@@ -7967,14 +8000,13 @@ planetItemsTemplate
 				item "Nr:Frigate:Proficient"
 				item "All:Frigate:Constructor"
 				item "All:Frigate:Constructor"
-				item "Other:Flag:Beacon"
-			group
+		group
 			condition
 				type "PlanetOwnerIsMinorFactionWithFactionName"
 				param "AllSullust"
 			owner "PlanetOwner"
 			colonizeChance 1
-			items 37
+			items 38
 				item "All:Module:FrigateFactory"
 				item "All:Module:FrigateFactory"
 				item "All:Module:CapitalShipFactory"
@@ -7992,6 +8024,8 @@ planetItemsTemplate
 				item "All:Module:CrystalExtractor"
 				item "All:Module:CrystalExtractor"
 				item "All:Module:CrystalExtractor"
+				item "All:Module:CrystalExtractor"
+				item "All:Module:MetalExtractor"
 				item "All:Module:MetalExtractor"
 				item "All:Module:MetalExtractor"
 				item "All:Module:MetalExtractor"
@@ -8011,14 +8045,13 @@ planetItemsTemplate
 				item "Nr:Frigate:Liberator"
 				item "All:Frigate:Constructor"
 				item "All:Frigate:Constructor"
-				item "Other:Flag:Beacon"
 		group
 			condition
 				type "PlanetOwnerIsMinorFactionWithFactionName"
 				param "AllPartisans"
 			owner "PlanetOwner"
 			colonizeChance 1
-			items 36
+			items 37
 				item "All:Module:FrigateFactory"
 				item "All:Module:CapitalShipFactory"
 				item "Nr:Module:TradePort"
@@ -8033,7 +8066,9 @@ planetItemsTemplate
 				item "All:Module:CrystalExtractor"
 				item "All:Module:CrystalExtractor"
 				item "All:Module:CrystalExtractor"
+				item "All:Module:CrystalExtractor"	
 				item "All:Module:CrystalExtractor"				
+				item "All:Module:MetalExtractor"			
 				item "All:Module:MetalExtractor"
 				item "All:Module:MetalExtractor"
 				item "All:Module:MetalExtractor"
@@ -8054,14 +8089,13 @@ planetItemsTemplate
 				item "Mil:Frigate:Siege"
 				item "All:Frigate:Constructor"
 				item "All:Frigate:Constructor"
-				item "Other:Flag:Beacon"
 		group
 			condition
 				type "PlanetOwnerIsMinorFactionWithFactionName"
 				param "EmpCiutric"
 			owner "PlanetOwner"
 			colonizeChance 1
-			items 32
+			items 33
 				item "Emp:Module:FrigateFactory"
 				item "Emp:Module:CapitalShipFactory"
 				item "Emp:Module:TradePort"
@@ -8073,6 +8107,8 @@ planetItemsTemplate
 				item "Emp:Module:CrystalExtractor"
 				item "Emp:Module:CrystalExtractor"
 				item "Emp:Module:CrystalExtractor"
+				item "Emp:Module:CrystalExtractor"
+				item "Emp:Module:MetalExtractor"
 				item "Emp:Module:MetalExtractor"
 				item "Emp:Module:MetalExtractor"
 				item "Emp:Module:MetalExtractor"
@@ -8093,14 +8129,13 @@ planetItemsTemplate
 				item "Emp:Frigate:Support"
 				item "Emp:Frigate:Constructor"
 				item "Emp:Frigate:Constructor"
-				item "Other:Flag:Beacon"
 		group
 			condition
 				type "PlanetOwnerIsMinorFactionWithFactionName"
 				param "EmpMaldrood"
 			owner "PlanetOwner"
 			colonizeChance 1
-			items 32
+			items 33
 				item "Emp:Module:FrigateFactory"
 				item "Emp:Module:CapitalShipFactory"
 				item "Emp:Module:TradePort"
@@ -8112,6 +8147,8 @@ planetItemsTemplate
 				item "Emp:Module:CrystalExtractor"
 				item "Emp:Module:CrystalExtractor"
 				item "Emp:Module:CrystalExtractor"
+				item "Emp:Module:CrystalExtractor"
+				item "Emp:Module:MetalExtractor"
 				item "Emp:Module:MetalExtractor"
 				item "Emp:Module:MetalExtractor"
 				item "Emp:Module:MetalExtractor"
@@ -8132,14 +8169,13 @@ planetItemsTemplate
 				item "Emp:Frigate:Interdictor"
 				item "Emp:Frigate:Constructor"
 				item "Emp:Frigate:Constructor"
-				item "Other:Flag:Beacon"
 		group
 			condition
 				type "PlanetOwnerIsMinorFactionWithFactionName"
 				param "EmpKaarenth"
 			owner "PlanetOwner"
 			colonizeChance 1
-			items 36
+			items 37
 				item "Emp:Module:FrigateFactory"
 				item "Emp:Module:CapitalShipFactory"
 				item "Emp:Module:TradePort"
@@ -8152,6 +8188,8 @@ planetItemsTemplate
 				item "Emp:Module:CrystalExtractor"
 				item "Emp:Module:CrystalExtractor"
 				item "Emp:Module:CrystalExtractor"
+				item "Emp:Module:CrystalExtractor"
+				item "Emp:Module:MetalExtractor"
 				item "Emp:Module:MetalExtractor"
 				item "Emp:Module:MetalExtractor"
 				item "Emp:Module:MetalExtractor"
@@ -8175,14 +8213,13 @@ planetItemsTemplate
 				item "Emp:Frigate:Siege"
 				item "Emp:Frigate:Constructor"
 				item "Emp:Frigate:Constructor"
-				item "Other:Flag:Beacon"
 		group
 			condition
 				type "PlanetOwnerIsMinorFactionWithFactionName"
 				param "EmpYevetha"
 			owner "PlanetOwner"
 			colonizeChance 1
-			items 34
+			items 35
 				item "Emp:Module:FrigateFactory"
 				item "Emp:Module:FrigateFactory"
 				item "Emp:Module:CapitalShipFactory"
@@ -8198,6 +8235,8 @@ planetItemsTemplate
 				item "Emp:Module:CrystalExtractor"
 				item "Emp:Module:CrystalExtractor"
 				item "Emp:Module:CrystalExtractor"
+				item "Emp:Module:CrystalExtractor"
+				item "Emp:Module:MetalExtractor"
 				item "Emp:Module:MetalExtractor"
 				item "Emp:Module:MetalExtractor"
 				item "Emp:Module:MetalExtractor"
@@ -8216,19 +8255,18 @@ planetItemsTemplate
 				item "Emp:Frigate:Support"
 				item "Emp:Frigate:Constructor"
 				item "Emp:Frigate:Constructor"
-				item "Other:Flag:Beacon"
 		group
 			condition
 				type "PlanetOwnerIsMinorFactionWithFactionName"
 				param "ManDxunMercs"
 			owner "PlanetOwner"
 			colonizeChance 1
-			items 38
+			items 39
 				item "Man:Module:FrigateFactory"
 				item "Man:Module:CapitalShipFactory"
 				item "Man:Module:TradePort"
 				item "Man:Module:Refinery"
-				item "Man:Module:RepairPlatform"
+				item "Man:Module:RepairPlatform"				
 				item "Man:Module:TurbolaserTurret"
 				item "Man:Module:TurbolaserTurret"
 				item "Man:Module:TurbolaserTurret"
@@ -8240,6 +8278,8 @@ planetItemsTemplate
 				item "Man:Module:CrystalExtractor"
 				item "Man:Module:CrystalExtractor"
 				item "Man:Module:CrystalExtractor"
+				item "Man:Module:CrystalExtractor"
+				item "Man:Module:MetalExtractor"
 				item "Man:Module:MetalExtractor"
 				item "Man:Module:MetalExtractor"
 				item "Man:Module:MetalExtractor"
@@ -8261,14 +8301,13 @@ planetItemsTemplate
 				item "Man:Frigate:Antimodule"
 				item "Man:Frigate:Constructor"
 				item "Man:Frigate:Constructor"
-				item "Other:Flag:Beacon"
 		group
 			condition
 				type "PlanetOwnerIsMinorFactionWithFactionName"
 				param "ManSkirata"
 			owner "PlanetOwner"
 			colonizeChance 1
-			items 38
+			items 39
 				item "Man:Module:FrigateFactory"
 				item "Man:Module:CapitalShipFactory"
 				item "Man:Module:TradePort"
@@ -8285,6 +8324,8 @@ planetItemsTemplate
 				item "Man:Module:CrystalExtractor"
 				item "Man:Module:CrystalExtractor"
 				item "Man:Module:CrystalExtractor"
+				item "Man:Module:CrystalExtractor"
+				item "Man:Module:MetalExtractor"
 				item "Man:Module:MetalExtractor"
 				item "Man:Module:MetalExtractor"
 				item "Man:Module:MetalExtractor"
@@ -8306,14 +8347,13 @@ planetItemsTemplate
 				item "Man:Frigate:Siege"
 				item "Man:Frigate:Constructor"
 				item "Man:Frigate:Constructor"
-				item "Other:Flag:Beacon"
 		group
 			condition
 				type "PlanetOwnerIsMinorFactionWithFactionName"
 				param "HuttCartel"
 			owner "PlanetOwner"
 			colonizeChance 1
-			items 34
+			items 35
 				item "Mil:Module:FrigateFactory"
 				item "Mil:Module:CapitalShipFactory"
 				item "Mil:Module:AllTradePort"
@@ -8327,7 +8367,9 @@ planetItemsTemplate
 				item "Mil:Module:CrystalExtractor"
 				item "Mil:Module:CrystalExtractor"
 				item "Mil:Module:CrystalExtractor"
+				item "Mil:Module:CrystalExtractor"	
 				item "Mil:Module:CrystalExtractor"				
+				item "Mil:Module:MetalExtractor"			
 				item "Mil:Module:MetalExtractor"
 				item "Mil:Module:MetalExtractor"
 				item "Mil:Module:MetalExtractor"
@@ -8347,14 +8389,13 @@ planetItemsTemplate
 				item "Mil:Corvette:Skipray"
 				item "Mil:Frigate:Constructor"
 				item "Mil:Frigate:Constructor"
-				item "Other:Flag:Beacon"
 		group
 			condition
 				type "PlanetOwnerIsMinorFactionWithFactionName"
 				param "CSA"
 			owner "PlanetOwner"
 			colonizeChance 1
-			items 36
+			items 37
 				item "Mil:Module:FrigateFactory"
 				item "Mil:Module:CapitalShipFactory"
 				item "Mil:Module:EmpTradePort"
@@ -8369,7 +8410,9 @@ planetItemsTemplate
 				item "Mil:Module:CrystalExtractor"
 				item "Mil:Module:CrystalExtractor"
 				item "Mil:Module:CrystalExtractor"
+				item "Mil:Module:CrystalExtractor"		
 				item "Mil:Module:CrystalExtractor"				
+				item "Mil:Module:MetalExtractor"		
 				item "Mil:Module:MetalExtractor"
 				item "Mil:Module:MetalExtractor"
 				item "Mil:Module:MetalExtractor"
@@ -8390,14 +8433,13 @@ planetItemsTemplate
 				item "Mil:Corvette:Skipray"
 				item "Mil:Frigate:Constructor"
 				item "Mil:Frigate:Constructor"
-				item "Other:Flag:Beacon"
 		group
 			condition
 				type "PlanetOwnerIsMinorFactionWithFactionName"
 				param "IGBC"
 			owner "PlanetOwner"
 			colonizeChance 1
-			items 34
+			items 35
 				item "Mil:Module:FrigateFactory"
 				item "Mil:Module:CapitalShipFactory"
 				item "Mil:Module:EmpTradePort"
@@ -8412,7 +8454,9 @@ planetItemsTemplate
 				item "Mil:Module:CrystalExtractor"
 				item "Mil:Module:CrystalExtractor"
 				item "Mil:Module:CrystalExtractor"
+				item "Mil:Module:CrystalExtractor"	
 				item "Mil:Module:CrystalExtractor"				
+				item "Mil:Module:MetalExtractor"			
 				item "Mil:Module:MetalExtractor"
 				item "Mil:Module:MetalExtractor"
 				item "Mil:Module:MetalExtractor"
@@ -8431,14 +8475,13 @@ planetItemsTemplate
 				item "Other:Frigate:Munificent"
 				item "Mil:Frigate:Constructor"
 				item "Mil:Frigate:Constructor"
-				item "Other:Flag:Beacon"
 		group
 			condition
 				type "PlanetOwnerIsMinorFactionWithFactionName"
 				param "CZA"
 			owner "PlanetOwner"
 			colonizeChance 1
-			items 37
+			items 38
 				item "Mil:Module:FrigateFactory"
 				item "Mil:Module:CapitalShipFactory"
 				item "Mil:Module:EmpTradePort"
@@ -8454,7 +8497,9 @@ planetItemsTemplate
 				item "Mil:Module:CrystalExtractor"
 				item "Mil:Module:CrystalExtractor"
 				item "Mil:Module:CrystalExtractor"
+				item "Mil:Module:CrystalExtractor"	
 				item "Mil:Module:CrystalExtractor"				
+				item "Mil:Module:MetalExtractor"			
 				item "Mil:Module:MetalExtractor"
 				item "Mil:Module:MetalExtractor"
 				item "Mil:Module:MetalExtractor"
@@ -8475,14 +8520,13 @@ planetItemsTemplate
 				item "Mil:Corvette:Skipray"
 				item "Mil:Frigate:Constructor"
 				item "Mil:Frigate:Constructor"
-				item "Other:Flag:Beacon"
 		group
 			condition
 				type "PlanetOwnerIsMinorFactionWithFactionName"
 				param "Zann"
 			owner "PlanetOwner"
 			colonizeChance 1
-			items 38
+			items 39
 				item "Mil:Module:FrigateFactory"
 				item "Mil:Module:CapitalShipFactory"
 				item "Mil:Module:EmpTradePort"
@@ -8498,7 +8542,9 @@ planetItemsTemplate
 				item "Mil:Module:CrystalExtractor"
 				item "Mil:Module:CrystalExtractor"
 				item "Mil:Module:CrystalExtractor"
+				item "Mil:Module:CrystalExtractor"	
 				item "Mil:Module:CrystalExtractor"				
+				item "Mil:Module:MetalExtractor"			
 				item "Mil:Module:MetalExtractor"
 				item "Mil:Module:MetalExtractor"
 				item "Mil:Module:MetalExtractor"
@@ -8520,14 +8566,13 @@ planetItemsTemplate
 				item "Mil:Corvette:Skipray"
 				item "Mil:Frigate:Constructor"
 				item "Mil:Frigate:Constructor"
-				item "Other:Flag:Beacon"
 		group
 			condition
 				type "PlanetOwnerIsMinorFactionWithFactionName"
 				param "BlackSun"
 			owner "PlanetOwner"
 			colonizeChance 1
-			items 38
+			items 39
 				item "Mil:Module:FrigateFactory"
 				item "Mil:Module:CapitalShipFactory"
 				item "Mil:Module:EmpTradePort"
@@ -8544,7 +8589,9 @@ planetItemsTemplate
 				item "Mil:Module:CrystalExtractor"
 				item "Mil:Module:CrystalExtractor"
 				item "Mil:Module:CrystalExtractor"
+				item "Mil:Module:CrystalExtractor"	
 				item "Mil:Module:CrystalExtractor"				
+				item "Mil:Module:MetalExtractor"			
 				item "Mil:Module:MetalExtractor"
 				item "Mil:Module:MetalExtractor"
 				item "Mil:Module:MetalExtractor"
@@ -8565,14 +8612,13 @@ planetItemsTemplate
 				item "Mil:Corvette:Skipray"
 				item "Mil:Frigate:Constructor"
 				item "Mil:Frigate:Constructor"
-				item "Other:Flag:Beacon"
 		group
 			condition
 				type "PlanetOwnerIsMinorFactionWithFactionName"
 				param "BalmorranArms"
 			owner "PlanetOwner"
 			colonizeChance 1
-			items 38
+			items 39
 				item "Mil:Module:FrigateFactory"
 				item "Mil:Module:CapitalShipFactory"
 				item "Mil:Module:EmpTradePort"
@@ -8590,7 +8636,9 @@ planetItemsTemplate
 				item "Mil:Module:CrystalExtractor"
 				item "Mil:Module:CrystalExtractor"
 				item "Mil:Module:CrystalExtractor"
+				item "Mil:Module:CrystalExtractor"		
 				item "Mil:Module:CrystalExtractor"				
+				item "Mil:Module:MetalExtractor"		
 				item "Mil:Module:MetalExtractor"
 				item "Mil:Module:MetalExtractor"
 				item "Mil:Module:MetalExtractor"
@@ -8610,14 +8658,13 @@ planetItemsTemplate
 				item "Mil:Corvette:Skipray"
 				item "Mil:Frigate:Constructor"
 				item "Mil:Frigate:Constructor"
-				item "Other:Flag:Beacon"
 		group
 			condition
 				type "PlanetOwnerIsMinorFactionWithFactionName"
 				param "Hapes"
 			owner "PlanetOwner"
 			colonizeChance 1
-			items 39
+			items 40
 				item "Psi:Module:FrigateFactory"
 				item "Psi:Module:CapitalShipFactory"
 				item "Psi:Module:TradePort"
@@ -8636,6 +8683,8 @@ planetItemsTemplate
 				item "Psi:Module:CrystalExtractor"
 				item "Psi:Module:CrystalExtractor"
 				item "Psi:Module:CrystalExtractor"
+				item "Psi:Module:CrystalExtractor"
+				item "Psi:Module:MetalExtractor"
 				item "Psi:Module:MetalExtractor"
 				item "Psi:Module:MetalExtractor"
 				item "Psi:Module:MetalExtractor"
@@ -8656,7 +8705,6 @@ planetItemsTemplate
 				item "Other:Frigate:HapanBattleDragon"				
 				item "Psi:Frigate:Constructor"
 				item "Psi:Frigate:Constructor"
-				item "Other:Flag:Beacon"
 validPictureGroups 3
 pictureGroup "PlayerPhase"
 pictureGroup "PlayerPsi"

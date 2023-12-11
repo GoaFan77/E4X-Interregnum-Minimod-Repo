@@ -1,8 +1,9 @@
-﻿TXT
+﻿TXT2
+SinsArchiveVersion 193
 entityType "Player"
 raceNameStringID "IDS_PLAYERRACENAME_ING_Warlords"
 canColonize TRUE
-isPsi FALSE
+playerRaceType "Other"
 isSelectable FALSE
 selectablePriorty 0
 randomCapitalShipNamePrefix "IDS_CAPITALSHIPNAME_Emp"
@@ -11,7 +12,7 @@ entities
 	planetModuleInfo
 		Page:0
 			count 9
-			entityDefName "PLANETMODULE_ING_EmpMetalExtractor"
+			entityDefName "PLANETMODULE_ING_EmpMetalExtractorWarlords"
 			entityDefName "PLANETMODULE_ING_EmpFrigateFactory"
 			entityDefName "PLANETMODULE_ING_EmpMilitaryLabWarlords"
 			entityDefName "PLANETMODULE_ING_EmpTradePort"
@@ -21,7 +22,8 @@ entities
 			entityDefName "PLANETMODULE_ING_EmpCivicLab"
 			entityDefName "PLANETMODULE_ING_EmpRefinery"
 		Page:1
-			count 8
+			count 9
+			entityDefName "PLANETMODULE_ING_EmpGolanI"
 			entityDefName "PLANETMODULE_ING_EmpGolanIII"
 			entityDefName "PLANETMODULE_ING_EmpRepairPlatform"
 			entityDefName "PLANETMODULE_ING_EmpJumpBlocker"
@@ -41,10 +43,11 @@ entities
 			entityDefName "TITAN_ING_EmpIronFist"
 	capitalShipInfo
 		Page:0
-			count 7
+			count 8
 			entityDefName "CAPITALSHIP_ING_EmpVSD1Warlords"
 			entityDefName "CAPITALSHIP_ING_EmpVSD2"
 			entityDefName "CAPITALSHIP_ING_EmpVenator"
+			entityDefName "CAPITALSHIP_ING_EmpProcursator"
 			entityDefName "CAPITALSHIP_ING_EmpISD1"
 			entityDefName "CAPITALSHIP_ING_EmpISD2"
 			entityDefName "CAPITALSHIP_ING_EmpInterdictorSD"
@@ -53,22 +56,23 @@ entities
 		Page:0
 			count 7
 			entityDefName "Frigate_ING_EmpScout"
-			entityDefName "Frigate_ING_EmpLight"
+			entityDefName "Frigate_ING_EmpVigil"
 			entityDefName "Frigate_ING_EmpLongRange"
 			entityDefName "Frigate_ING_EmpSiege"
 			entityDefName "Frigate_ING_EmpRaider"
 			entityDefName "Frigate_ING_EmpColonyWarlords"
 			entityDefName "Corvette_ING_EmpCorvette"
 		Page:1
-			count 8
+			count 9
 			entityDefName "Frigate_ING_EmpCarrier"
 			entityDefName "Frigate_ING_EmpSupport"
+			entityDefName "Frigate_ING_EmpArquitens"
 			entityDefName "Frigate_ING_EmpDreadnaught"
 			entityDefName "Frigate_ING_EmpInterdictor"
 			entityDefName "Frigate_ING_EmpEnforcer"
 			entityDefName "Frigate_ING_EmpStarBaseConstructor"
 			entityDefName "Frigate_ING_EmpAntiModule"
-			entityDefName "Frigate_ING_EmpEnvoy"
+			entityDefName "Frigate_ING_EmpWarlordEnvoy"
 		NotOnPage
 			count 5
 			entityDefName "Frigate_ING_EmpModuleConstructor"
@@ -77,7 +81,7 @@ entities
 			entityDefName "Frigate_E4X_TechEnvoyAI"
 			entityDefName "Frigate_ING_EmpSiegeAI"
 	researchInfo
-		count 160
+		count 163
 		entityDefName "RESEARCH_E4X_WeaponMastery"
 		entityDefName "RESEARCH_E4X_SurvivabilityMastery"			
 		entityDefName "Research_ING_EmpAIBonus"
@@ -104,6 +108,7 @@ entities
 		entityDefName "Research_ING_AbilityAccess_ImperialRetaliation"
 		entityDefName "Research_ING_AbilityAccess_ImportedLabor"
 		entityDefName "Research_ING_AbilityAccess_Informants"
+		entityDefName "Research_ING_AbilityAccess_SignalJamming"
 		entityDefName "Research_ING_HeroScreedEmpAccess"
 		entityDefName "Research_ING_HeroCommandEmpAccess"
 		entityDefName "Research_ING_HeroHarrskEmpAccess"
@@ -128,7 +133,6 @@ entities
 		entityDefName "Research_ING_BaseDeltaZero"
 		entityDefName "Research_ING_CapitalshipMultipleTargets"
 		entityDefName "Research_ING_FighterAccess_EmpInterceptor"
-		entityDefName "Research_ING_FighterAccess_EmpAntimoduleBomber"
 		entityDefName "Research_ING_FrigateAccess_EmpRaider"
 		entityDefName "Research_ING_FrigateAccess_EmpAntimodule"
 		entityDefName "Research_ING_FrigateAccess_EmpCarrier"
@@ -138,6 +142,7 @@ entities
 		entityDefName "Research_ING_FrigateAccess_EmpLongRange"
 		entityDefName "Research_ING_FrigateAccess_EmpSiege"
 		entityDefName "Research_ING_FrigateAccess_EmpSupport"
+		entityDefName "Research_ING_FrigateAccess_EmpArquitens"
 		entityDefName "Research_ING_HullEmp1"
 		entityDefName "Research_ING_HullEmp2"
 		entityDefName "Research_ING_HullEmp3"
@@ -197,7 +202,7 @@ entities
 		entityDefName "Research_ING_TerraformingDroids"
 		entityDefName "Research_ING_TradeBonusEmp1"
 		entityDefName "Research_ING_WormholeNavigationEmp"
-		entityDefName "Research_ING_AbilityAccess_AreaShields"
+		entityDefName "Research_ING_AbilityAccess_OpenTheGate"
 		entityDefName "Research_ING_AbilityAccess_CallReinforcements"
 		entityDefName "Research_ING_AbilityAccess_ResupplyFleet"
 		entityDefName "Research_ING_AbilityAccess_SecureSociety"
@@ -206,6 +211,7 @@ entities
 		entityDefName "Research_ING_FrigateAccess_StarbaseConstructor"
 		entityDefName "Research_ING_GolanIIIHangarBay"
 		entityDefName "Research_ING_GolanIIIMissiles"
+		entityDefName "Research_ING_PlanetModuleAccess_EmpGolanIII"
 		entityDefName "Research_ING_PlanetModuleAccess_EmpGalaxyGun"
 		entityDefName "Research_ING_PlanetModuleAccess_EmpRepairYard"
 		entityDefName "Research_ING_PlanetModuleAccess_EmpShieldGenerator"
@@ -221,23 +227,24 @@ entities
 		entityDefName "Research_ING_EmpRank4"
 		entityDefName "Research_ING_EmpRank5"
 		entityDefName "Research_ING_EmpRank6"
-		entityDefName "Research_ING_FrigateAccess_Lambda"
+		entityDefName "Research_ING_FrigateAccess_WarlordLambda"
 		entityDefName "Research_ING_DemandTribute"
 		entityDefName "Research_ING_EmpOtherMissions"
-		entityDefName "RESEARCHSUBJECT_PACTUNLOCK_TRADE"
-		entityDefName "RESEARCHSUBJECT_PACTUNLOCK_EFFICIENCY"
+		entityDefName "RESEARCHSUBJECT_PACTUNLOCK_RESEARCH"
+		entityDefName "RESEARCHSUBJECT_PACTUNLOCK_ANTIMATTER"
 		entityDefName "RESEARCHSUBJECT_PACTUNLOCK_ARMOR"
 		entityDefName "RESEARCHSUBJECT_PACTUNLOCK_PLANETBOMBING"
-		entityDefName "RESEARCHSUBJECT_PACTUNLOCK_THRUSTER"
-		entityDefName "RESEARCHSUBJECT_PACTUNLOCK_SUPPLY"
+		entityDefName "RESEARCHSUBJECT_PACTUNLOCK_BEAM"
+		entityDefName "RESEARCHSUBJECT_PACTUNLOCK_WEAPONCOOLDOWN"
 		entityDefName "Research_ING_EmpRelations1"
 		entityDefName "Research_ING_EmpPirateMissions"
 		entityDefName "Research_ING_EmpRelations2"
 		entityDefName "Research_ING_EmpRelations3"
 		entityDefName "Research_ING_InterRegimeRelations"
 		entityDefName "Research_ING_SecretGifts"
-		entityDefName "Research_ING_WarshipModernization"
-		entityDefName "Research_ING_ImproveAIEmp"			
+		entityDefName "Research_ING_ImproveAIEmp"
+		entityDefName "Research_ING_MinorFactionAbilityLevelEmp0"
+		entityDefName "Research_ING_MinorFactionAbilityLevelEmp1"
 	starBaseInfo
 		count 2
 		entityDefName "StarBase_ING_Emp"
@@ -470,6 +477,7 @@ gameEventData
 	GameEventSound:UseAbilityUnmetConstraintCanSpreadWeaponDamage "UI_COMMON_DEFAULTERROR"
 	GameEventSound:UseAbilityUnmetConstraintCanPhaseDodge "UI_COMMON_DEFAULTERROR"
 	GameEventSound:UseAbilityUnmetConstraintHasAbilityWithCooldown "UI_COMMON_DEFAULTERROR"
+	GameEventSound:UseAbilityUnmetConstraintHasColonizeAbility "UI_COMMON_DEFAULTERROR"
 	GameEventSound:UseAbilityUnmetConstraintHasAntimatter "UI_COMMON_DEFAULTERROR"
 	GameEventSound:UseAbilityUnmetConstraintHasPhaseMissiles "UI_COMMON_DEFAULTERROR"
 	GameEventSound:UseAbilityUnmetConstraintHasPopulation "UI_COMMON_DEFAULTERROR"
@@ -480,9 +488,11 @@ gameEventData
 	GameEventSound:UseAbilityUnmetConstraintHasWeapons "UI_COMMON_DEFAULTERROR"
 	GameEventSound:UseAbilityUnmetConstraintIsCargoShip "UI_COMMON_DEFAULTERROR"
 	GameEventSound:UseAbilityUnmetConstraintIsExplored "UI_COMMON_DEFAULTERROR"
+	GameEventSound:UseAbilityUnmetConstraintNotIsExplored "UI_COMMON_DEFAULTERROR"	
 	GameEventSound:UseAbilityUnmetConstraintIsResourceExtractor "UI_COMMON_DEFAULTERROR"
 	GameEventSound:UseAbilityUnmetConstraintIsMovingToLocalOrbitBody "UI_COMMON_DEFAULTERROR"
 	GameEventSound:UseAbilityUnmetConstraintIsPsi "UI_COMMON_DEFAULTERROR"
+	GameEventSound:UseAbilityUnmetConstraintNotIsTech "UI_COMMON_DEFAULTERROR"
 	GameEventSound:UseAbilityUnmetConstraintLinkedCargoShip "UI_COMMON_DEFAULTERROR"
 	GameEventSound:UseAbilityUnmetConstraintLinkedSquad "UI_COMMON_DEFAULTERROR"
 	GameEventSound:UseAbilityUnmetConstraintNotSelf "UI_COMMON_DEFAULTERROR"
@@ -494,12 +504,15 @@ gameEventData
 	GameEventSound:UseAbilityUnmetConstraintNotInvulnerable "UI_COMMON_DEFAULTERROR"
 	GameEventSound:UseAbilityUnmetConstraintIsInFriendlyGravityWell "UI_COMMON_DEFAULTERROR"
 	GameEventSound:UseAbilityUnmetConstraintIsInNonFriendlyGravityWell "UI_COMMON_DEFAULTERROR"
+	GameEventSound:UseAbilityUnmetConstraintNotIsMinorFactionOwned "UI_COMMON_DEFAULTERROR"
+	GameEventSound:UseAbilityUnmetConstraintNotIsOutlaw "UI_COMMON_DEFAULTERROR"
 	GameEventSound:UseAbilityUnmetOwnerLinked "UI_COMMON_DEFAULTERROR"
 	GameEventSound:UseAbilityUnmetOwnerPlayer "UI_COMMON_DEFAULTERROR"
 	GameEventSound:UseAbilityUnmetOwnerFriendly "UI_COMMON_DEFAULTERROR"
 	GameEventSound:UseAbilityUnmetOwnerHostile "UI_COMMON_DEFAULTERROR"
 	GameEventSound:UseAbilityUnmetOwnerNoOwner "UI_COMMON_DEFAULTERROR"
 	GameEventSound:UseAbilityUnmetOwnerAlliedOrEnemy "UI_COMMON_DEFAULTERROR"
+	GameEventSound:UseAbilityUnmetOwnerUncontrolledMinorFaction "UI_COMMON_DEFAULTERROR"
 	GameEventSound:GameStart ""
 	GameEventSound:GameWin "EVENTTECH_GAMEWIN"
 	GameEventSound:AllyGameWin "EVENTTECH_ALLIEDGAMEWIN"
@@ -533,14 +546,15 @@ planetElevatorData
 	elevatorMeshName:GoodsFactory "PlanetElevator-Tech-GoodsFactory"
 	elevatorMeshName:ProductionCenter "PlanetElevator-Tech-ProductionCenter"
 musicThemeData
-	startupMusicThemeCount 6
+	startupMusicThemeCount 7
 	musicTheme "MUSIC_ING_Empire_1"
 	musicTheme "MUSIC_ING_Empire_2"
 	musicTheme "MUSIC_ING_Emp_QUIET_4"
 	musicTheme "MUSIC_ING_EMP_Rebels_1"
 	musicTheme "MUSIC_ING_EMP_Rebels_2"
 	musicTheme "MUSIC_ING_EMP_Rebels_3"
-	neutralMusicThemeCount 58
+	musicTheme "MUSIC_ING_EMP_Rebels_4"
+	neutralMusicThemeCount 60
 	musicTheme "MUSIC_ING_Empire_1"
 	musicTheme "MUSIC_ING_Empire_2"
 	musicTheme "MUSIC_ING_Empire_3"
@@ -548,6 +562,7 @@ musicThemeData
 	musicTheme "MUSIC_ING_EMP_Rebels_1"
 	musicTheme "MUSIC_ING_EMP_Rebels_2"
 	musicTheme "MUSIC_ING_EMP_Rebels_3"
+	musicTheme "MUSIC_ING_EMP_Rebels_4"
 	musicTheme "MUSIC_ING_Emp_Battle_1"
 	musicTheme "MUSIC_ING_Emp_QUIET_1"
 	musicTheme "MUSIC_ING_Emp_QUIET_2"
@@ -556,6 +571,7 @@ musicThemeData
 	musicTheme "MUSIC_ING_Emp_Sad_1"
 	musicTheme "MUSIC_ING_Emp_Sad_2"
 	musicTheme "MUSIC_ING_Emp_TROUBLE_1"
+	musicTheme "MUSIC_ING_Emp_TROUBLE_2"
 	musicTheme "MUSIC_ING_BATTLE_1"
 	musicTheme "MUSIC_ING_BATTLE_2"
 	musicTheme "MUSIC_ING_BATTLE_3"
@@ -599,7 +615,7 @@ musicThemeData
 	musicTheme "MUSIC_ING_Upbeat_2"
 	musicTheme "MUSIC_ING_Upbeat_3"
 	musicTheme "MUSIC_ING_Upbeat_4"
-	scareThemeCount 8
+	scareThemeCount 9
 	musicTheme "MUSIC_ING_TROUBLE_1"
 	musicTheme "MUSIC_ING_TROUBLE_2"
 	musicTheme "MUSIC_ING_TROUBLE_3"
@@ -608,21 +624,22 @@ musicThemeData
 	musicTheme "MUSIC_ING_TROUBLE_6"
 	musicTheme "MUSIC_ING_TROUBLE_8"
 	musicTheme "MUSIC_ING_TROUBLE_9"
+	musicTheme "MUSIC_ING_Emp_TROUBLE_2"
 	announcementCount 1
 	musicTheme "MUSIC_ING_Emp_ANNOUNCEMENT"
 hudSkinData
-	loadScreenCharacterBrush "LoadScreen_ING_CharacterEmp"
+	loadScreenCharacterBrush "LoadScreen_ING_CharacterWar"
 	fleetIconCount 10
-	fleetIcon "MainViewIconFleetTech0"
-	fleetIcon "MainViewIconFleetTech1"
-	fleetIcon "MainViewIconFleetTech2"
-	fleetIcon "MainViewIconFleetTech3"
-	fleetIcon "MainViewIconFleetTech4"
-	fleetIcon "MainViewIconFleetTech5"
-	fleetIcon "MainViewIconFleetTech6"
-	fleetIcon "MainViewIconFleetTech7"
-	fleetIcon "MainViewIconFleetTech8"
-	fleetIcon "MainViewIconFleetTech9"
+	fleetIcon "MainViewIconFleet_EMP0"
+	fleetIcon "MainViewIconFleet_EMP1"
+	fleetIcon "MainViewIconFleet_EMP2"
+	fleetIcon "MainViewIconFleet_EMP3"
+	fleetIcon "MainViewIconFleet_EMP4"
+	fleetIcon "MainViewIconFleet_EMP5"
+	fleetIcon "MainViewIconFleet_EMP6"
+	fleetIcon "MainViewIconFleet_EMP7"
+	fleetIcon "MainViewIconFleet_EMP8"
+	fleetIcon "MainViewIconFleet_EMP9"
 	Bandbox "BANDBOX"
 	FogOfWar "FogOfWar"
 	ActionGridSlotBackdrop "ActionGridSlotBackdropTech"
@@ -684,24 +701,24 @@ hudSkinData
 	AllianceHUDIconInternalVision "HUDIconAllianceTypeInternalVision"
 	AllianceHUDIconCeaseFire "HUDIconAllianceTypeCeaseFire"
 	AllianceHUDIconPeaceTreaty "HUDIconAllianceTypePeaceTreaty"
-	AllianceHUDIconResearchPact "PlayerScreenOfferResearchPact"
-	AllianceHUDIconEfficiencyPact "PlayerScreenOfferEfficiencyPact"
-	AllianceHUDIconAntimatterPact "PlayerScreenOfferAntimatterPact"
-	AllianceHUDIconArmorPact "PlayerScreenOfferArmorPact"
-	AllianceHUDIconBeamWeaponPact "PlayerScreenOfferBeamPact"
-	AllianceHUDIconCulturePact "PlayerScreenOfferCulturePact"
-	AllianceHUDIconMetalCrystlPact "PlayerScreenOfferMetalCrystalPact"
-	AllianceHUDIconThrusterPact "PlayerScreenOfferThrusterPact"
-	AllianceHUDIconPhaseJumpPact "PlayerScreenOfferPhaseJumpPact"
-	AllianceHUDIconPlanetBombingPact "PlayerScreenOfferPlanetBombingPact"
-	AllianceHUDIconShieldPact "PlayerScreenOfferShieldPact"
-	AllianceHUDIconMarketPact "PlayerScreenOfferMarketPact"
-	AllianceHUDIconEnergyWeaponCooldownPact "PlayerScreenOfferEnergyWeaponCooldownPact"
-	AllianceHUDIconMassReductionPact "PlayerScreenOfferMassReductionPact"
-	AllianceHUDIconSupplyPact "PlayerScreenOfferSupplyPact"
-	AllianceHUDIconTacticalSlotsPact "PlayerScreenOfferTacticalSlotsPact"
-	AllianceHUDIconWeaponCooldownPact "PlayerScreenOfferWeaponCooldownPact"
-	AllianceHUDIconTradeIncomePact "PlayerScreenOfferTradeIncomePact"
+	AllianceHUDIconResearchPact "PlayerScreen_E4X_OfferResearchPact"
+	AllianceHUDIconEfficiencyPact "PlayerScreen_E4X_OfferEfficiencyPact"
+	AllianceHUDIconAntimatterPact "PlayerScreen_E4X_OfferAntimatterPact"
+	AllianceHUDIconArmorPact "PlayerScreen_E4X_OfferArmorPact"
+	AllianceHUDIconBeamWeaponPact "PlayerScreen_E4X_OfferWeaponsPact"
+	AllianceHUDIconCulturePact "PlayerScreen_E4X_OfferCulturePact"
+	AllianceHUDIconMetalCrystlPact "PlayerScreen_E4X_OfferResourcePact"
+	AllianceHUDIconThrusterPact "PlayerScreen_E4X_OfferStrikecraftPact"
+	AllianceHUDIconPhaseJumpPact "PlayerScreen_E4X_OfferPhaseJumpPact"
+	AllianceHUDIconPlanetBombingPact "PlayerScreen_E4X_OfferSiegePact"
+	AllianceHUDIconShieldPact "PlayerScreen_E4X_OfferShieldPact"
+	AllianceHUDIconMarketPact "PlayerScreen_E4X_OfferUnderworldPact"
+	AllianceHUDIconEnergyWeaponCooldownPact "PlayerScreen_E4X_OfferMunitionsPact"
+	AllianceHUDIconMassReductionPact "PlayerScreen_E4X_OfferRecoveryPact"
+	AllianceHUDIconSupplyPact "PlayerScreen_E4X_OfferSupplyPact"
+	AllianceHUDIconTacticalSlotsPact "PlayerScreen_E4X_OfferTacticalSlotsPact"
+	AllianceHUDIconWeaponCooldownPact "PlayerScreen_E4X_OfferTargetingPact"
+	AllianceHUDIconTradeIncomePact "PlayerScreen_E4X_OfferTradePact"
 	ResourceHUDIconCredits "HUDIcon_ING_Credits"
 	ResourceHUDIconMetal "HUDIconMetal"
 	ResourceHUDIconCrystal "HUDIcon_ING_Crystal"
@@ -790,7 +807,7 @@ hudSkinData
 	UserActionIconUpgradePlanetTacticalModules "ActionIconPlanetUpgradeTacticalModules"
 	UserActionIconUpgradePlanetSocial "ActionIconPlanetUpgradeSocial"
 	UserActionIconUpgradePlanetIndustry "ActionIconPlanetUpgradeIndustry"
-	UserActionIconUpgradePlanetSmuggler "ActionIconPlanetUpgradeSmuggler"	
+	UserActionIconUpgradePlanetSmuggler "ActionIconPlanetUpgradeSmuggler"
 	UserActionIconBuildResourceAsteroidExtractor "ActionIconBuildResourceAsteroidExtractor"
 	UserActionIconPing "BottomWindowButtonPing"
 	UserActionIconPingAllyAttack "ActionIconPingAllyAttack"
@@ -862,7 +879,7 @@ researchScreenData
 	Diplomacy
 		blockCount 1
 		block
-			area [ 50 , 93 , 690 , 326 ]
+			area [ 50 , 93 , 690 , 380 ]
 			backdrop "ResearchScreenBlockBackdropDefense0Tech"
 			tierIndicatorBackdrop "ResearchScreenBlockTierIndicatorDefense0Tech"
 			title "IDS_Research_ING_ScreenBlockTitleDiplomacy0Emp"
@@ -958,7 +975,7 @@ field "IDS_TECH_RESEARCHFIELD_ARTIFACT"
 field "IDS_Research_ING_ScreenBlockTitleFleet0Emp"
 playerThemeGroupName "PlayerTech"
 playerPictureGroupName "Player_ING_Emp"
-raceRelationsModCount 9
+raceRelationsModCount 10
 raceRelationsModifier
 	raceNameID "IDS_PLAYERRACENAME_TECHREBEL"
 	modifierMin -2.000000
@@ -1049,4 +1066,14 @@ raceRelationsModifier
 		otherFactionNameID "IDS_PLAYERFACTIONNAME_REBEL"
 		modifierMin 0.000000
 		modifierMax 0.000000
+raceRelationsModifier
+	raceNameID "IDS_PLAYERRACENAME_ING_NewRepublic"
+	modifierMin -6.00000
+	modifierMax -6.000000
+	factionRelationsModCount 1
+	factionRelationsModifier
+		factionNameID "IDS_PLAYERRACENAME_ING_ImperialWarlords"
+		otherFactionNameID "IDS_PLAYERFACTIONNAME_REBEL"
+		modifierMin 0.000000
+		modifierMax 0.000000		
 defaultFactionNameID "IDS_ING_PLAYERFACTIONNAME_Unaligned"

@@ -1,4 +1,5 @@
-﻿TXT
+﻿TXT2
+SinsArchiveVersion 194
 entityType "ResearchSubject"
 hudIcon "HUDICON_RESEARCHSUBJECT_EXTREMEXENOPHOBIA"
 smallHudIcon "HUDICON_RESEARCHSUBJECT_EXTREMEXENOPHOBIA"
@@ -7,7 +8,7 @@ NameStringID "IDS_RESEARCHSUBJECT_EXTREME_XENOPHOBIA_NAME"
 DescriptionStringID "IDS_RESEARCHSUBJECT_EXTREME_XENOPHOBIA_DESCRIPTION"
 researchWindowLocation
 	block 0
-	pos [ 4 , 2 ]
+	pos [ 4 , 1 ]
 ResearchField "Diplomacy"
 Prerequisites
 	NumResearchPrerequisites 0

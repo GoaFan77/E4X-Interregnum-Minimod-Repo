@@ -1,8 +1,9 @@
-﻿TXT
+﻿TXT2
+SinsArchiveVersion 193
 entityType "Player"
 raceNameStringID "IDS_PLAYERRACENAME_PSIREBEL"
 canColonize TRUE
-isPsi TRUE
+playerRaceType "Psi"
 isSelectable FALSE
 selectablePriorty 1
 randomCapitalShipNamePrefix "IDS_CAPITALSHIPNAME_PSI"
@@ -68,7 +69,7 @@ entities
 			entityDefName "FrigatePsiRefineryShip"
 			entityDefName "Frigate_E4X_PsiEnvoyAI"
 	researchInfo
-		count 164		
+		count 166
 		entityDefName "RESEARCH_E4X_WeaponMastery"
 		entityDefName "RESEARCH_E4X_SurvivabilityMastery"		
 		entityDefName "RESEARCH_E4X_HeroTransPsiAccess"		
@@ -210,7 +211,7 @@ entities
 		entityDefName "RESEARCHSUBJECT_PACTUNLOCK_RESEARCH"
 		entityDefName "RESEARCHSUBJECT_PACTUNLOCK_CULTURE"
 		entityDefName "RESEARCHSUBJECT_PACTUNLOCK_ANTIMATTER"
-		entityDefName "RESEARCHSUBJECT_PACTUNLOCK_MASS_REDUCTION"
+		entityDefName "Research_E4X_PactUnlock_Recovery"
 		entityDefName "RESEARCHSUBJECT_PACTUNLOCK_BEAM"
 		entityDefName "RESEARCHSUBJECT_PACTUNLOCK_SHIELD"
 		entityDefName "RESEARCHSUBJECT_RESEARCHVICTORY_PSI"
@@ -233,6 +234,8 @@ entities
 		entityDefName "RESEARCHSUBJECT_PLANETACCESS_OCEANICPSI"
 		entityDefName "RESEARCHSUBJECT_POPULATIONCAPBARRENPSI0"
 		entityDefName "RESEARCHSUBJECT_POPULATIONCAPBARRENPSI1"
+		entityDefName "RESEARCHSUBJECT_MINORFACTIONABILITYLEVELPSI0"
+		entityDefName "RESEARCHSUBJECT_MINORFACTIONABILITYLEVELPSI1"
 	starBaseInfo
 		count 2
 		entityDefName "StarBasePsi"
@@ -470,6 +473,7 @@ gameEventData
 	GameEventSound:UseAbilityUnmetConstraintCanSpreadWeaponDamage "UI_COMMON_DEFAULTERROR"
 	GameEventSound:UseAbilityUnmetConstraintCanPhaseDodge "UI_COMMON_DEFAULTERROR"
 	GameEventSound:UseAbilityUnmetConstraintHasAbilityWithCooldown "UI_COMMON_DEFAULTERROR"
+	GameEventSound:UseAbilityUnmetConstraintHasColonizeAbility "UI_COMMON_DEFAULTERROR"
 	GameEventSound:UseAbilityUnmetConstraintHasAntimatter "UI_COMMON_DEFAULTERROR"
 	GameEventSound:UseAbilityUnmetConstraintHasPhaseMissiles "UI_COMMON_DEFAULTERROR"
 	GameEventSound:UseAbilityUnmetConstraintHasPopulation "UI_COMMON_DEFAULTERROR"
@@ -480,9 +484,11 @@ gameEventData
 	GameEventSound:UseAbilityUnmetConstraintHasWeapons "UI_COMMON_DEFAULTERROR"
 	GameEventSound:UseAbilityUnmetConstraintIsCargoShip "UI_COMMON_DEFAULTERROR"
 	GameEventSound:UseAbilityUnmetConstraintIsExplored "UI_COMMON_DEFAULTERROR"
+	GameEventSound:UseAbilityUnmetConstraintNotIsExplored "UI_COMMON_DEFAULTERROR"
 	GameEventSound:UseAbilityUnmetConstraintIsResourceExtractor "UI_COMMON_DEFAULTERROR"
 	GameEventSound:UseAbilityUnmetConstraintIsMovingToLocalOrbitBody "UI_COMMON_DEFAULTERROR"
 	GameEventSound:UseAbilityUnmetConstraintIsPsi "UI_COMMON_DEFAULTERROR"
+	GameEventSound:UseAbilityUnmetConstraintNotIsTech "UI_COMMON_DEFAULTERROR"
 	GameEventSound:UseAbilityUnmetConstraintLinkedCargoShip "UI_COMMON_DEFAULTERROR"
 	GameEventSound:UseAbilityUnmetConstraintLinkedSquad "UI_COMMON_DEFAULTERROR"
 	GameEventSound:UseAbilityUnmetConstraintNotSelf "UI_COMMON_DEFAULTERROR"
@@ -494,12 +500,15 @@ gameEventData
 	GameEventSound:UseAbilityUnmetConstraintNotInvulnerable "UI_COMMON_DEFAULTERROR"
 	GameEventSound:UseAbilityUnmetConstraintIsInFriendlyGravityWell "UI_COMMON_DEFAULTERROR"
 	GameEventSound:UseAbilityUnmetConstraintIsInNonFriendlyGravityWell "UI_COMMON_DEFAULTERROR"
+	GameEventSound:UseAbilityUnmetConstraintNotIsMinorFactionOwned "UI_COMMON_DEFAULTERROR"
+	GameEventSound:UseAbilityUnmetConstraintNotIsOutlaw "UI_COMMON_DEFAULTERROR"
 	GameEventSound:UseAbilityUnmetOwnerLinked "UI_COMMON_DEFAULTERROR"
 	GameEventSound:UseAbilityUnmetOwnerPlayer "UI_COMMON_DEFAULTERROR"
 	GameEventSound:UseAbilityUnmetOwnerFriendly "UI_COMMON_DEFAULTERROR"
 	GameEventSound:UseAbilityUnmetOwnerHostile "UI_COMMON_DEFAULTERROR"
 	GameEventSound:UseAbilityUnmetOwnerNoOwner "UI_COMMON_DEFAULTERROR"
 	GameEventSound:UseAbilityUnmetOwnerAlliedOrEnemy "UI_COMMON_DEFAULTERROR"
+	GameEventSound:UseAbilityUnmetOwnerUncontrolledMinorFaction "UI_COMMON_DEFAULTERROR"
 	GameEventSound:GameStart ""
 	GameEventSound:GameWin "EVENTPSI_GAMEWIN"
 	GameEventSound:AllyGameWin "EVENTPSI_ALLIEDGAMEWIN"
@@ -672,24 +681,24 @@ hudSkinData
 	AllianceHUDIconInternalVision "HUDIconAllianceTypeInternalVision"
 	AllianceHUDIconCeaseFire "HUDIconAllianceTypeCeaseFire"
 	AllianceHUDIconPeaceTreaty "HUDIconAllianceTypePeaceTreaty"
-	AllianceHUDIconResearchPact "PlayerScreenOfferResearchPact"
-	AllianceHUDIconEfficiencyPact "PlayerScreenOfferEfficiencyPact"
-	AllianceHUDIconAntimatterPact "PlayerScreenOfferAntimatterPact"
-	AllianceHUDIconArmorPact "PlayerScreenOfferArmorPact"
-	AllianceHUDIconBeamWeaponPact "PlayerScreenOfferBeamPact"
-	AllianceHUDIconCulturePact "PlayerScreenOfferCulturePact"
-	AllianceHUDIconMetalCrystlPact "PlayerScreenOfferMetalCrystalPact"
-	AllianceHUDIconThrusterPact "PlayerScreenOfferThrusterPact"
-	AllianceHUDIconPhaseJumpPact "PlayerScreenOfferPhaseJumpPact"
-	AllianceHUDIconPlanetBombingPact "PlayerScreenOfferPlanetBombingPact"
-	AllianceHUDIconShieldPact "PlayerScreenOfferShieldPact"
-	AllianceHUDIconMarketPact "PlayerScreenOfferMarketPact"
-	AllianceHUDIconEnergyWeaponCooldownPact "PlayerScreenOfferEnergyWeaponCooldownPact"
-	AllianceHUDIconMassReductionPact "PlayerScreenOfferMassReductionPact"
-	AllianceHUDIconSupplyPact "PlayerScreenOfferSupplyPact"
-	AllianceHUDIconTacticalSlotsPact "PlayerScreenOfferTacticalSlotsPact"
+	AllianceHUDIconResearchPact "PlayerScreen_E4X_OfferResearchPact"
+	AllianceHUDIconEfficiencyPact "PlayerScreen_E4X_OfferEfficiencyPact"
+	AllianceHUDIconAntimatterPact "PlayerScreen_E4X_OfferAntimatterPact"
+	AllianceHUDIconArmorPact "PlayerScreen_E4X_OfferArmorPact"
+	AllianceHUDIconBeamWeaponPact "PlayerScreen_E4X_OfferWeaponsPact"
+	AllianceHUDIconCulturePact "PlayerScreen_E4X_OfferCulturePact"
+	AllianceHUDIconMetalCrystlPact "PlayerScreen_E4X_OfferResourcePact"
+	AllianceHUDIconThrusterPact "PlayerScreen_E4X_OfferStrikecraftPact"
+	AllianceHUDIconPhaseJumpPact "PlayerScreen_E4X_OfferPhaseJumpPact"
+	AllianceHUDIconPlanetBombingPact "PlayerScreen_E4X_OfferSiegePact"
+	AllianceHUDIconShieldPact "PlayerScreen_E4X_OfferShieldPact"
+	AllianceHUDIconMarketPact "PlayerScreen_E4X_OfferUnderworldPact"
+	AllianceHUDIconEnergyWeaponCooldownPact "PlayerScreen_E4X_OfferMunitionsPact"
+	AllianceHUDIconMassReductionPact "PlayerScreen_E4X_OfferRecoveryPact"
+	AllianceHUDIconSupplyPact "PlayerScreen_E4X_OfferSupplyPact"
+	AllianceHUDIconTacticalSlotsPact "PlayerScreen_E4X_OfferTacticalSlotsPact"
 	AllianceHUDIconWeaponCooldownPact "PlayerScreenOfferWeaponCooldownPact"
-	AllianceHUDIconTradeIncomePact "PlayerScreenOfferTradeIncomePact"
+	AllianceHUDIconTradeIncomePact "PlayerScreen_E4X_OfferTradePact"
 	ResourceHUDIconCredits "HUDIconCredits"
 	ResourceHUDIconMetal "HUDIconMetal"
 	ResourceHUDIconCrystal "HUDIconCrystal"
@@ -850,7 +859,7 @@ researchScreenData
 	Diplomacy
 		blockCount 1
 		block
-			area [ 50 , 93 , 690 , 326 ]
+			area [ 50 , 93 , 690 , 380 ]
 			backdrop "ResearchScreenBlockBackdropNonCombat0Psi"
 			tierIndicatorBackdrop "ResearchScreenBlockTierIndicatorNonCombat0Psi"
 			title "IDSResearchScreenBlockTitleDiplomacy0Psi"

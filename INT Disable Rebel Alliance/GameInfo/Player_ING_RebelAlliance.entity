@@ -1,8 +1,9 @@
-﻿TXT
+﻿TXT2
+SinsArchiveVersion 193
 entityType "Player"
 raceNameStringID "IDS_PLAYERRACENAME_ING_RebelAlliance"
 canColonize TRUE
-isPsi FALSE
+playerRaceType "Other"
 isSelectable FALSE
 selectablePriorty 8
 randomCapitalShipNamePrefix "IDS_CAPITALSHIPNAME_All"
@@ -43,7 +44,7 @@ entities
 			entityDefName "CAPITALSHIP_ING_AllWingedMC80"
 			entityDefName "CAPITALSHIP_ING_AllMC80B"
 			entityDefName "CAPITALSHIP_ING_AllDauntless"
-			entityDefName "CAPITALSHIP_ING_AllProvidence"
+			entityDefName "CAPITALSHIP_ING_AllRebelOne"
 	frigateInfo
 		Page:0
 			count 7
@@ -72,15 +73,17 @@ entities
 			entityDefName "Frigate_E4X_TechEnvoyAI"
 			entityDefName "Frigate_ING_AllSiegeAI"
 	researchInfo
-		count 163
+		count 167
 		entityDefName "RESEARCH_E4X_WeaponMastery"
 		entityDefName "RESEARCH_E4X_SurvivabilityMastery"			
 		entityDefName "Research_ING_ImproveAIAll"
+		entityDefName "Research_ING_ImproveAIAllRebels"
 		entityDefName "Research_ING_AbilityAccess_Harass"
 		entityDefName "Research_ING_AbilityAccess_ClusterBombs"
 		entityDefName "Research_ING_AbilityAccess_GunshipTorpedoes"
 		entityDefName "Research_ING_AbilityAccess_CR90Mines"
 		entityDefName "Research_ING_AbilityAccess_PowerTransfer"
+		entityDefName "Research_ING_AbilityAccess_RebelFighterTorpedoes"		
 		entityDefName "Research_ING_HeroIblisAllAccess"
 		entityDefName "Research_ING_HeroKrefeyAccess"
 		entityDefName "Research_ING_HeroSoloAccess"
@@ -103,11 +106,9 @@ entities
 		entityDefName "Research_ING_AbilityAccess_TargetAnalysis"		
 		entityDefName "RESEARCH_ING_ABILITYACCESS_UnlockUpgradesAll"
 		entityDefName "RESEARCH_E4X_ABILITYACCESS_DeployEmbassyAI"
-		entityDefName "Research_ING_CapitalAccess_AllProvidence"
 		entityDefName "Research_ING_CapitalAccess_AllWingedMC80"
 		entityDefName "Research_ING_CapitalAccess_AllMC80B"
 		entityDefName "Research_ING_FighterAccess_AllInterceptor"
-		entityDefName "Research_ING_FighterAccess_AllAntimoduleBomber"
 		entityDefName "Research_ING_FrigateAccess_AllAntifighter"
 		entityDefName "Research_ING_FrigateAccess_AllAntimodule"
 		entityDefName "Research_ING_FrigateAccess_AllBulkCruiser"
@@ -215,11 +216,11 @@ entities
 		entityDefName "Research_ING_FrigateAccess_AllEnvoy"
 		entityDefName "Research_ING_AllDonations"
 		entityDefName "Research_ING_AllOtherMissions"
-		entityDefName "RESEARCHSUBJECT_PACTUNLOCK_RESEARCH"
-		entityDefName "RESEARCHSUBJECT_PACTUNLOCK_CULTURE"
-		entityDefName "RESEARCHSUBJECT_PACTUNLOCK_ANTIMATTER"
-		entityDefName "RESEARCHSUBJECT_PACTUNLOCK_MASS_REDUCTION"
-		entityDefName "RESEARCHSUBJECT_PACTUNLOCK_BEAM"
+		entityDefName "RESEARCHSUBJECT_PACTUNLOCK_TRADE"
+		entityDefName "RESEARCHSUBJECT_PACTUNLOCK_MARKET"
+		entityDefName "RESEARCHSUBJECT_PACTUNLOCK_PHASEJUMP"
+		entityDefName "Research_E4X_PactUnlock_Munitions"
+		entityDefName "RESEARCHSUBJECT_PACTUNLOCK_STRIKECRAFT"
 		entityDefName "RESEARCHSUBJECT_PACTUNLOCK_SHIELD"
 		entityDefName "Research_ING_AllRelations1"
 		entityDefName "Research_ING_AllPirateMissions"
@@ -236,6 +237,10 @@ entities
 		entityDefName "Research_ING_AbilityAccess_Revolt"
 		entityDefName "RESEARCH_E4X_CapturePhaseGate"
 		entityDefName "Research_ING_ResearchVictoryAll"
+		entityDefName "Research_ING_MinorFactionAbilityLevelAll0"
+		entityDefName "Research_ING_MinorFactionAbilityLevelAll1"
+		entityDefName "Research_ING_RebelTactics"
+		entityDefName "Research_ING_Volunteers"
 	starBaseInfo
 		count 2
 		entityDefName "StarBase_ING_All"
@@ -468,6 +473,7 @@ gameEventData
 	GameEventSound:UseAbilityUnmetConstraintCanSpreadWeaponDamage "UI_COMMON_DEFAULTERROR"
 	GameEventSound:UseAbilityUnmetConstraintCanPhaseDodge "UI_COMMON_DEFAULTERROR"
 	GameEventSound:UseAbilityUnmetConstraintHasAbilityWithCooldown "UI_COMMON_DEFAULTERROR"
+	GameEventSound:UseAbilityUnmetConstraintHasColonizeAbility "UI_COMMON_DEFAULTERROR"
 	GameEventSound:UseAbilityUnmetConstraintHasAntimatter "UI_COMMON_DEFAULTERROR"
 	GameEventSound:UseAbilityUnmetConstraintHasPhaseMissiles "UI_COMMON_DEFAULTERROR"
 	GameEventSound:UseAbilityUnmetConstraintHasPopulation "UI_COMMON_DEFAULTERROR"
@@ -478,9 +484,11 @@ gameEventData
 	GameEventSound:UseAbilityUnmetConstraintHasWeapons "UI_COMMON_DEFAULTERROR"
 	GameEventSound:UseAbilityUnmetConstraintIsCargoShip "UI_COMMON_DEFAULTERROR"
 	GameEventSound:UseAbilityUnmetConstraintIsExplored "UI_COMMON_DEFAULTERROR"
+	GameEventSound:UseAbilityUnmetConstraintNotIsExplored "UI_COMMON_DEFAULTERROR"	
 	GameEventSound:UseAbilityUnmetConstraintIsResourceExtractor "UI_COMMON_DEFAULTERROR"
 	GameEventSound:UseAbilityUnmetConstraintIsMovingToLocalOrbitBody "UI_COMMON_DEFAULTERROR"
 	GameEventSound:UseAbilityUnmetConstraintIsPsi "UI_COMMON_DEFAULTERROR"
+	GameEventSound:UseAbilityUnmetConstraintNotIsTech "UI_COMMON_DEFAULTERROR"
 	GameEventSound:UseAbilityUnmetConstraintLinkedCargoShip "UI_COMMON_DEFAULTERROR"
 	GameEventSound:UseAbilityUnmetConstraintLinkedSquad "UI_COMMON_DEFAULTERROR"
 	GameEventSound:UseAbilityUnmetConstraintNotSelf "UI_COMMON_DEFAULTERROR"
@@ -492,12 +500,15 @@ gameEventData
 	GameEventSound:UseAbilityUnmetConstraintNotInvulnerable "UI_COMMON_DEFAULTERROR"
 	GameEventSound:UseAbilityUnmetConstraintIsInFriendlyGravityWell "UI_COMMON_DEFAULTERROR"
 	GameEventSound:UseAbilityUnmetConstraintIsInNonFriendlyGravityWell "UI_COMMON_DEFAULTERROR"
+	GameEventSound:UseAbilityUnmetConstraintNotIsMinorFactionOwned "UI_COMMON_DEFAULTERROR"
+	GameEventSound:UseAbilityUnmetConstraintNotIsOutlaw "UI_COMMON_DEFAULTERROR"
 	GameEventSound:UseAbilityUnmetOwnerLinked "UI_COMMON_DEFAULTERROR"
 	GameEventSound:UseAbilityUnmetOwnerPlayer "UI_COMMON_DEFAULTERROR"
 	GameEventSound:UseAbilityUnmetOwnerFriendly "UI_COMMON_DEFAULTERROR"
 	GameEventSound:UseAbilityUnmetOwnerHostile "UI_COMMON_DEFAULTERROR"
 	GameEventSound:UseAbilityUnmetOwnerNoOwner "UI_COMMON_DEFAULTERROR"
 	GameEventSound:UseAbilityUnmetOwnerAlliedOrEnemy "UI_COMMON_DEFAULTERROR"
+	GameEventSound:UseAbilityUnmetOwnerUncontrolledMinorFaction "UI_COMMON_DEFAULTERROR"
 	GameEventSound:GameStart ""
 	GameEventSound:GameWin "EVENTTECH_GAMEWIN"
 	GameEventSound:AllyGameWin "EVENTTECH_ALLIEDGAMEWIN"
@@ -613,16 +624,16 @@ musicThemeData
 hudSkinData
 	loadScreenCharacterBrush "LoadScreen_ING_CharacterAll"
 	fleetIconCount 10
-	fleetIcon "MainViewIconFleetTech0"
-	fleetIcon "MainViewIconFleetTech1"
-	fleetIcon "MainViewIconFleetTech2"
-	fleetIcon "MainViewIconFleetTech3"
-	fleetIcon "MainViewIconFleetTech4"
-	fleetIcon "MainViewIconFleetTech5"
-	fleetIcon "MainViewIconFleetTech6"
-	fleetIcon "MainViewIconFleetTech7"
-	fleetIcon "MainViewIconFleetTech8"
-	fleetIcon "MainViewIconFleetTech9"
+	fleetIcon "MainViewIconFleet_ALL0"
+	fleetIcon "MainViewIconFleet_ALL1"
+	fleetIcon "MainViewIconFleet_ALL2"
+	fleetIcon "MainViewIconFleet_ALL3"
+	fleetIcon "MainViewIconFleet_ALL4"
+	fleetIcon "MainViewIconFleet_ALL5"
+	fleetIcon "MainViewIconFleet_ALL6"
+	fleetIcon "MainViewIconFleet_ALL7"
+	fleetIcon "MainViewIconFleet_ALL8"
+	fleetIcon "MainViewIconFleet_ALL9"
 	Bandbox "BANDBOX"
 	FogOfWar "FogOfWar"
 	ActionGridSlotBackdrop "ActionGridSlotBackdropTech"
@@ -684,24 +695,24 @@ hudSkinData
 	AllianceHUDIconInternalVision "HUDIconAllianceTypeInternalVision"
 	AllianceHUDIconCeaseFire "HUDIconAllianceTypeCeaseFire"
 	AllianceHUDIconPeaceTreaty "HUDIconAllianceTypePeaceTreaty"
-	AllianceHUDIconResearchPact "PlayerScreenOfferResearchPact"
-	AllianceHUDIconEfficiencyPact "PlayerScreenOfferEfficiencyPact"
-	AllianceHUDIconAntimatterPact "PlayerScreenOfferAntimatterPact"
-	AllianceHUDIconArmorPact "PlayerScreenOfferArmorPact"
-	AllianceHUDIconBeamWeaponPact "PlayerScreenOfferBeamPact"
-	AllianceHUDIconCulturePact "PlayerScreenOfferCulturePact"
-	AllianceHUDIconMetalCrystlPact "PlayerScreenOfferMetalCrystalPact"
-	AllianceHUDIconThrusterPact "PlayerScreenOfferThrusterPact"
-	AllianceHUDIconPhaseJumpPact "PlayerScreenOfferPhaseJumpPact"
-	AllianceHUDIconPlanetBombingPact "PlayerScreenOfferPlanetBombingPact"
-	AllianceHUDIconShieldPact "PlayerScreenOfferShieldPact"
-	AllianceHUDIconMarketPact "PlayerScreenOfferMarketPact"
-	AllianceHUDIconEnergyWeaponCooldownPact "PlayerScreenOfferEnergyWeaponCooldownPact"
-	AllianceHUDIconMassReductionPact "PlayerScreenOfferMassReductionPact"
-	AllianceHUDIconSupplyPact "PlayerScreenOfferSupplyPact"
-	AllianceHUDIconTacticalSlotsPact "PlayerScreenOfferTacticalSlotsPact"
-	AllianceHUDIconWeaponCooldownPact "PlayerScreenOfferWeaponCooldownPact"
-	AllianceHUDIconTradeIncomePact "PlayerScreenOfferTradeIncomePact"
+	AllianceHUDIconResearchPact "PlayerScreen_E4X_OfferResearchPact"
+	AllianceHUDIconEfficiencyPact "PlayerScreen_E4X_OfferEfficiencyPact"
+	AllianceHUDIconAntimatterPact "PlayerScreen_E4X_OfferAntimatterPact"
+	AllianceHUDIconArmorPact "PlayerScreen_E4X_OfferArmorPact"
+	AllianceHUDIconBeamWeaponPact "PlayerScreen_E4X_OfferWeaponsPact"
+	AllianceHUDIconCulturePact "PlayerScreen_E4X_OfferCulturePact"
+	AllianceHUDIconMetalCrystlPact "PlayerScreen_E4X_OfferResourcePact"
+	AllianceHUDIconThrusterPact "PlayerScreen_E4X_OfferStrikecraftPact"
+	AllianceHUDIconPhaseJumpPact "PlayerScreen_E4X_OfferPhaseJumpPact"
+	AllianceHUDIconPlanetBombingPact "PlayerScreen_E4X_OfferSiegePact"
+	AllianceHUDIconShieldPact "PlayerScreen_E4X_OfferShieldPact"
+	AllianceHUDIconMarketPact "PlayerScreen_E4X_OfferUnderworldPact"
+	AllianceHUDIconEnergyWeaponCooldownPact "PlayerScreen_E4X_OfferMunitionsPact"
+	AllianceHUDIconMassReductionPact "PlayerScreen_E4X_OfferRecoveryPact"
+	AllianceHUDIconSupplyPact "PlayerScreen_E4X_OfferSupplyPact"
+	AllianceHUDIconTacticalSlotsPact "PlayerScreen_E4X_OfferTacticalSlotsPact"
+	AllianceHUDIconWeaponCooldownPact "PlayerScreen_E4X_OfferTargetingPact"
+	AllianceHUDIconTradeIncomePact "PlayerScreen_E4X_OfferTradePact"
 	ResourceHUDIconCredits "HUDIcon_ING_Credits"
 	ResourceHUDIconMetal "HUDIconMetal"
 	ResourceHUDIconCrystal "HUDIcon_ING_Crystal"
@@ -820,13 +831,13 @@ researchScreenData
 			title "IDS_ResearchScreenBlock_ING_TitleCombat1All"
 			picture "ResearchScreen_ING_BlockPictureCombatAll1"
 		block
-			area [ 50 , 271 , 690 , 144 ]
+			area [ 50 , 271 , 690 , 192 ]
 			backdrop "ResearchScreenBlockBackdropCombat1Tech"
 			tierIndicatorBackdrop "ResearchScreenBlockTierIndicatorCombat1Tech"
 			title "IDS_ResearchScreenBlock_ING_TitleCombat2All"
 			picture "ResearchScreen_ING_BlockPictureCombatAll2"
 		block
-			area [ 50 , 425 , 690 , 240 ]
+			area [ 50 , 473 , 690 , 240 ]
 			backdrop "ResearchScreenBlockBackdropCombat2Tech"
 			tierIndicatorBackdrop "ResearchScreenBlockTierIndicatorCombat2Tech"
 			title "IDS_ResearchScreenBlock_ING_TitleCombat3All"
@@ -862,7 +873,7 @@ researchScreenData
 	Diplomacy
 		blockCount 1
 		block
-			area [ 50 , 93 , 690 , 326 ]
+			area [ 50 , 93 , 690 , 380 ]
 			backdrop "ResearchScreenBlockBackdropDefense0Tech"
 			tierIndicatorBackdrop "ResearchScreenBlockTierIndicatorDefense0Tech"
 			title "IDS_Research_ING_ScreenBlockTitleDiplomacy0All"
@@ -958,7 +969,7 @@ field "IDS_TECH_RESEARCHFIELD_ARTIFACT"
 field "IDS_Research_ING_ScreenBlockTitleFleet0All"
 playerThemeGroupName "PlayerTech"
 playerPictureGroupName "Player_ING_All"
-raceRelationsModCount 9
+raceRelationsModCount 10
 raceRelationsModifier
 	raceNameID "IDS_PLAYERRACENAME_TECHREBEL"
 	modifierMin -5.000000
@@ -1049,4 +1060,14 @@ raceRelationsModifier
 		otherFactionNameID "IDS_PLAYERFACTIONNAME_REBEL"
 		modifierMin 0.000000
 		modifierMax 0.000000
+raceRelationsModifier
+	raceNameID "IDS_PLAYERRACENAME_ING_NewRepublic"
+	modifierMin 0.50000
+	modifierMax 2.000000
+	factionRelationsModCount 1
+	factionRelationsModifier
+		factionNameID "IDS_PLAYERRACENAME_ING_RebelAlliance"
+		otherFactionNameID "IDS_PLAYERFACTIONNAME_REBEL"
+		modifierMin 0.000000
+		modifierMax 0.000000		
 defaultFactionNameID "IDS_PLAYERRACENAME_ING_RebelAlliance"

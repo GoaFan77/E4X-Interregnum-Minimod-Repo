@@ -17,12 +17,12 @@ Prerequisites
 	RequiredFactionNameID ""
 	RequiredCompletedResearchSubjects 0
 MinimumArtifactLevel -1
-BaseUpgradeTime 135.000000
+BaseUpgradeTime 250.000000
 PerLevelUpgradeTime 5.000000
 BaseCost
-	credits 4800.000000
-	metal 900.000000
-	crystal 1250.000000
+	credits 5200.000000
+	metal 1200.000000
+	crystal 2000.000000
 PerLevelCostIncrease
 	credits 100.000000
 	metal 0.000000
