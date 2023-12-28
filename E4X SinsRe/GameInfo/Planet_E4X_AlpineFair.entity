@@ -22,31 +22,31 @@ ringColor ffffffff
 cloudLayerTextureName "Axeldude_Cloudmap_Fair"
 planetResourceSetupInfo
 	asteroidSpawnAngleVariance 3.141593
-	totalMaxResourceAsteroids 4
+	totalMaxResourceAsteroids 6
 	metalResourceAsteroidSetup
-		minCount 5
-		maxCount 5
+		minCount 4
+		maxCount 4
 		extractionRate 0.400000
 		refineryRate 0.060000
 		maxRefineryCount 3
 	crystalResourceAsteroidSetup
-		minCount 0
-		maxCount 0
+		minCount 2
+		maxCount 2
 		extractionRate 0.400000
 		refineryRate 0.060000
-		maxRefineryCount 0
+		maxRefineryCount 3
 	neutralMetalResourceAsteroidSetup
 		minCount 0
 		maxCount 0
 		extractionRate 0.000000
 		refineryRate 0.000000
-		maxRefineryCount 0
+        maxRefineryCount 6
 	neutralCrystalResourceAsteroidSetup
 		minCount 0
 		maxCount 0
 		extractionRate 0.000000
 		refineryRate 0.000000
-		maxRefineryCount 0
+        maxRefineryCount 6
 isAsteroid FALSE
 healthRegenRate 6.000000
 planetUpgradeDef
@@ -186,7 +186,7 @@ planetUpgradeDef
 				crystal 90.000000
 			upgradeTime 75.000000
 	path:Infrastructure
-		stageCount 4
+		stageCount 5
 		stage
 			price
 				credits 0.000000
@@ -215,8 +215,15 @@ planetUpgradeDef
 				crystal 175.000000
 			upgradeTime 75.000000
 			maxHealth 6000.000000
+		stage
+			price
+				credits 750.000000
+				metal 225.000000
+				crystal 225.000000
+			upgradeTime 90.000000
+			maxHealth 7500.000000			
 	path:Social
-		stageCount 2
+		stageCount 5
 		stage
 			price
 				credits 0.000000
@@ -234,13 +241,46 @@ planetUpgradeDef
 				metal 150.000000
 				crystal 75.000000
 			upgradeTime 45.000000
-			maxPopulation 20.000000
+			maxPopulation 10.000000
 			populationGrowthRate 0.125000
-			tradeIncomeModifier -0.150000
-			shipBuildRateModifier -0.120000
-			cultureSpreadRateModifier 0.12000
+			tradeIncomeModifier -0.100000
+			shipBuildRateModifier -0.1500000
+			cultureSpreadRateModifier 0.166667
+		stage
+			price
+				credits 550.000000
+				metal 175.000000
+				crystal 125.000000
+			upgradeTime 60.000000
+			maxPopulation 30.000000
+			populationGrowthRate 0.138000
+			tradeIncomeModifier -0.200000
+			shipBuildRateModifier -0.300000
+			cultureSpreadRateModifier 0.333333
+		stage
+			price
+				credits 650.000000
+				metal 200.000000
+				crystal 175.000000
+			upgradeTime 75.000000
+			maxPopulation 70.000000
+			populationGrowthRate 0.151000
+			tradeIncomeModifier -0.300000
+			shipBuildRateModifier -0.450000
+			cultureSpreadRateModifier 0.500000
+		stage
+			price
+				credits 750.000000
+				metal 225.000000
+				crystal 225.000000
+			upgradeTime 90.000000
+			maxPopulation 160.000000
+			populationGrowthRate 0.169000
+			tradeIncomeModifier -0.400000
+			shipBuildRateModifier -0.600000
+			cultureSpreadRateModifier 0.666666
 	path:Industry
-		stageCount 4
+		stageCount 3
 		stage
 			price
 				credits 0.000000
@@ -271,16 +311,6 @@ planetUpgradeDef
 			tradeIncomeModifier 0.300000
 			shipBuildRateModifier 0.270836
 			cultureSpreadRateModifier -0.312500
-		stage
-			price
-				credits 650.000000
-				metal 200.000000
-				crystal 175.000000
-			upgradeTime 75.000000
-			maxPopulation -21.000000
-			tradeIncomeModifier 0.400000
-			shipBuildRateModifier 0.406254
-			cultureSpreadRateModifier -0.416667
 	path:Smuggler
 		stageCount 4
 		stage
@@ -317,7 +347,7 @@ planetUpgradeDef
 			smugglingPercent 0.045			
 ringsChance 0.100000
 isColonizable TRUE
-planetTypeForResearch "Iron"
+planetTypeForResearch "Ice"
 skyboxScalarsCount 5
 skyboxScalars
 	diffuseScalar 0.910000
