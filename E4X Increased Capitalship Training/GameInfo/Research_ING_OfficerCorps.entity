@@ -1,0 +1,39 @@
+﻿TXT
+entityType "ResearchSubject"
+hudIcon "HUDICON_ING_OfficerCorps"
+smallHudIcon "HUDICON_ING_OfficerCorps"
+infoCardIcon ""
+NameStringID "IDS_Research_ING_OfficerCorps_NAME"
+DescriptionStringID "IDS_Research_ING_OfficerCorps_DESC"
+researchWindowLocation
+	block 1
+	pos [ 3 , 0 ]
+ResearchField "NonCombat"
+Prerequisites
+	NumResearchPrerequisites 0
+	RequiredFactionNameID ""
+	RequiredCompletedResearchSubjects 0
+MinimumArtifactLevel -1
+BaseUpgradeTime 60.000000
+PerLevelUpgradeTime 5.000000
+BaseCost
+	credits 1000.000000
+	metal 150.000000
+	crystal 250.000000
+PerLevelCostIncrease
+	credits 100.000000
+	metal 25.000000
+	crystal 25.000000
+Tier 3
+onlyWorksIfTierLabsExist FALSE
+MaxNumResearchLevels 3
+priority 1.000000
+researchBoolModifiers 0
+researchFloatModifiers 1
+researchModifier
+	modifierType "CapitalShipMaxTrainableLevel"
+	baseValue 2.000000
+	perLevelValue 1.000000
+artifactPicture ""
+uniqueOverlayBrush "RebellionResearchOverlay"
+dlcId 204880
