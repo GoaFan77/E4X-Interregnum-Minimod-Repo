@@ -36,8 +36,8 @@ researchModifier
 	perLevelValue 0.200000
 researchModifier
 	modifierType "CapitalShipMaxTrainableLevel"
-	baseValue 3.000000
-	perLevelValue 0.000000
+	baseValue 1.000000
+	perLevelValue 2.000000
 artifactPicture ""
 uniqueOverlayBrush "RebellionResearchOverlay"
 dlcId 204880
