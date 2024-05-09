@@ -3478,7 +3478,7 @@ planetItemsTemplate
 	templateName "Template:DefaultHomePlanetSetup"
 	subTemplates 1
 		template "Template:DefaultMinorFaction"
-	groups 20
+	groups 22
 		group
 			condition
 				type "PlanetOwnerIsRaceNormalStart"
@@ -3592,6 +3592,19 @@ planetItemsTemplate
 				item "Emp:Frigate:Constructor"
 				item "Emp:Module:CommandCenterWarlords"
 				item "Bonus:EmpireHomeworld"
+		group
+			condition
+				type "PlanetOwnerIsRaceNormalStart"
+				param "DarkEmpire"
+			owner "PlanetOwner"
+			colonizeChance 1
+			items 6
+				item "Emp:Module:FrigateFactory"
+				item "Emp:Module:FrigateFactory"
+				item "Emp:Frigate:Constructor"
+				item "Emp:Frigate:Constructor"
+				item "Emp:Module:CommandCenterDarkEmpire"
+				item "Bonus:EmpireHomeworld"				
 		group
 			condition
 				type "PlanetOwnerIsRaceNormalStart"
@@ -3793,6 +3806,26 @@ planetItemsTemplate
 				item "Emp:Frigate:Scout"
 				item "Emp:Frigate:Scout"
 				item "Bonus:EmpireHomeworld"
+		group
+			condition
+				type "PlanetOwnerIsRaceQuickStart"
+				param "DarkEmpire"
+			owner "PlanetOwner"
+			colonizeChance 1
+			items 13
+				item "Emp:Module:FrigateFactory"
+				item "Emp:Module:FrigateFactory"
+				item "Emp:Module:CapitalShipFactory"
+				item "Emp:Module:MetalExtractor"
+				item "Emp:Module:MetalExtractor"
+				item "Emp:Module:CrystalExtractor"
+				item "Emp:Module:CrystalExtractor"
+				item "Emp:Frigate:Constructor"
+				item "Emp:Frigate:Constructor"
+				item "Emp:Module:CommandCenterDarkEmpire"
+				item "Emp:Frigate:Scout"
+				item "Emp:Frigate:Scout"
+				item "Bonus:EmpireHomeworld"				
 		group
 			condition
 				type "PlanetOwnerIsRaceQuickStart"
@@ -5030,11 +5063,10 @@ subTemplates 2
 	groups 0
 planetItemsTemplate
 	templateName "Template:DefaultStart_ShipGraveyard"
-	subTemplates 4
+	subTemplates 3
 		template "Template:LocalMilitia_RandomShipGraveyard"	
 		template "Template:LocalMilitiaShipGraveyard"
 		template "Template:ArtifactEntities"
-		template "Template:KatanaFleet"
 	groups 0
 planetItemsTemplate
 	templateName "Template:DefaultStart_GasGiant"

@@ -29,7 +29,12 @@ onlyWorksIfTierLabsExist FALSE
 MaxNumResearchLevels 4
 priority 1.000000
 researchBoolModifiers 0
-researchFloatModifiers 4
+researchFloatModifiers 5
+researchModifier
+	modifierType "WeaponDamageAdjustment"
+	baseValue 0.000000
+	perLevelValue 0.050000
+	linkedWeaponClass "SPIRITBLADE"
 researchModifier
 	modifierType "CultureSpreadRateAdjustment"
 	baseValue 0.000000
@@ -39,9 +44,9 @@ researchModifier
 	baseValue 0.000000
 	perLevelValue 0.005000
 researchModifier
-	modifierType "ShieldPointsRegenAdjustment"
+	modifierType "CultureShieldRegenAmount"
 	baseValue 0.000000
-	perLevelValue 0.050000
+	perLevelValue 0.100000	
 researchModifier
 	modifierType "AllegianceFromCultureMaxPerc"
 	baseValue 0.000000
