@@ -3479,7 +3479,7 @@ planetItemsTemplate
 	templateName "Template:DefaultHomePlanetSetup"
 	subTemplates 1
 		template "Template:DefaultMinorFaction"
-	groups 20
+	groups 22
 		group
 			condition
 				type "PlanetOwnerIsRaceNormalStart"
