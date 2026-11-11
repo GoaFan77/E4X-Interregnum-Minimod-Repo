@@ -95,15 +95,15 @@ Weapon
 		burstCount 1
 		burstDelay 0.000000
 		fireDelay 0.000000
-		muzzleEffectName "Weapon_Tech_MissileFighter_Muzzle"
+		muzzleEffectName "Particle_E4X_Null"
 		muzzleSoundMinRespawnTime 0.100000
 		muzzleSounds
 			soundCount 1
-			sound "Weapon ING ALL PROTON"
+			sound "Weapon ING Bomb Launch"
 		hitEffectName "WEAPON_TIE_BOMB_HIT"
 		hitHullEffectSounds
 			soundCount 1
-			sound "WEAPONIMPACT_MISSILELIGHT_HITGENERIC"
+			sound "Weapon ING Bomb Hull Impact"
 		hitShieldsEffectSounds
 			soundCount 1
 			sound "WEAPONIMPACT_MISSILELIGHT_HITGENERIC"

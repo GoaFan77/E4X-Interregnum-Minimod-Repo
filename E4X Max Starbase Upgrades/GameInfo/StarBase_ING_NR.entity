@@ -34,14 +34,14 @@ Weapon
 	PreBuffCooldownTime 5.000000
 	CanFireAtFighter FALSE
 	SynchronizedTargeting FALSE
-	PointStaggerDelay 0.600000
+	PointStaggerDelay 0.500000
 	TravelSpeed 5500.000000
 	Duration 0.000000
 	fireConstraintType "CanAlwaysFire"
 	WeaponEffects
 		weaponType "Projectile"
-		burstCount 2
-		burstDelay 1.300000
+		burstCount 1
+		burstDelay 0.000000
 		fireDelay 0.000000
 		muzzleEffectName "WEAPON_RED_TL_SHEAVY_MUZZLE"
 		muzzleSoundMinRespawnTime 0.400000
@@ -79,14 +79,14 @@ Weapon
 	PreBuffCooldownTime 8.000000
 	CanFireAtFighter FALSE
 	SynchronizedTargeting TRUE
-	PointStaggerDelay 1.600000
+	PointStaggerDelay 0.700000
 	TravelSpeed 5000.000000
 	Duration 0.000000
 	fireConstraintType "StarBaseUpgradeLevel"
 	requiredStarBaseWeaponLevel 1
 	WeaponEffects
 		weaponType "Projectile"
-		burstCount 3
+		burstCount 2
 		burstDelay 0.400000
 		fireDelay 0.000000
 		muzzleEffectName "Weapon_BlueIonCannon_Muzzle"
@@ -119,14 +119,14 @@ Weapon
 	PreBuffCooldownTime 10.000000
 	CanFireAtFighter FALSE
 	SynchronizedTargeting FALSE
-	PointStaggerDelay 2.000000
+	PointStaggerDelay 0.333333
 	TravelSpeed 1000.000000
 	Duration 0.000000
 	fireConstraintType "StarBaseUpgradeLevel"
 	requiredStarBaseWeaponLevel 2
 	WeaponEffects
 		weaponType "Missile"
-		burstCount 2
+		burstCount 1
 		burstDelay 0.6000000
 		fireDelay 0.000000
 		muzzleEffectName "Weapon_Tech_MissileCapShip_Muzzle"

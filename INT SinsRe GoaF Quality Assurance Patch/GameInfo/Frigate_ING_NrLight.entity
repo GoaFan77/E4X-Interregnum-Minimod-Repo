@@ -49,7 +49,7 @@ Weapon
 		DamageApplyType "BACKLOADED"
 		DamageType "ENERGY"
 		WeaponClassType "PHASECANNON"
-	DamagePerBank:FRONT 94.500000
+	DamagePerBank:FRONT 95.000000
 	DamagePerBank:BACK 0.000000
 	DamagePerBank:LEFT 0.000000
 	DamagePerBank:RIGHT 0.000000

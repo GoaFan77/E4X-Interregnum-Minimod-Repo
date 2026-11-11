@@ -78,7 +78,7 @@ entities
 			entityDefName "Frigate_E4X_TechEnvoyAI"
 			entityDefName "Frigate_ING_EmpSiegeAI"
 	researchInfo
-		count 154
+		count 155
 		entityDefName "RESEARCH_E4X_WeaponMastery"
 		entityDefName "RESEARCH_E4X_SurvivabilityMastery"		
 		entityDefName "Research_ING_DefendersOfTheEmpire"
@@ -233,6 +233,7 @@ entities
 		entityDefName "Research_ING_ImproveAIEmp"	
 		entityDefName "Research_ING_MinorFactionAbilityLevelEmp0"
 		entityDefName "Research_ING_MinorFactionAbilityLevelEmp1"
+		entityDefName "Research_ING_OrbitalDeterrence"
 	starBaseInfo
 		count 2
 		entityDefName "StarBase_ING_Emp"
@@ -541,7 +542,7 @@ musicThemeData
 	musicTheme "MUSIC_ING_Emp_QUIET_4"
 	musicTheme "MUSIC_ING_EMP_LOYALIST_1"
 	musicTheme "MUSIC_ING_EMP_LOYALIST_3"
-	neutralMusicThemeCount 59
+	neutralMusicThemeCount 60
 	musicTheme "MUSIC_ING_Empire_1"
 	musicTheme "MUSIC_ING_Empire_2"
 	musicTheme "MUSIC_ING_Empire_3"
@@ -556,6 +557,7 @@ musicThemeData
 	musicTheme "MUSIC_ING_Emp_QUIET_4"
 	musicTheme "MUSIC_ING_Emp_Sad_1"
 	musicTheme "MUSIC_ING_Emp_Sad_2"
+	musicTheme "MUSIC_ING_Emp_Sad_3"
 	musicTheme "MUSIC_ING_Emp_TROUBLE_1"
 	musicTheme "MUSIC_ING_Emp_TROUBLE_2"
 	musicTheme "MUSIC_ING_BATTLE_1"
@@ -941,8 +943,8 @@ gameOverWindowData
 aiNameData
 	nameCount 10
 	name "IDS_ING_PlayerAINameEmp0"
-	name "IDS_ING_PlayerAINameEmp1"
-	name "IDS_ING_PlayerAINameEmp2"
+	name "IDS_ING_PlayerAINameEmp11"
+	name "IDS_ING_PlayerAINameEmp12"
 	name "IDS_ING_PlayerAINameEmp3"
 	name "IDS_ING_PlayerAINameEmp4"
 	name "IDS_ING_PlayerAINameEmp5"

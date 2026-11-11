@@ -25,8 +25,8 @@ hasLevels FALSE
 ExperiencePointsForDestroying 8.000000
 MaxHullPoints 407.000000
 MaxShieldPoints 355.000000
-HullPointRestoreRate 1.000000
-ShieldPointRestoreRate 2.000000
+HullPointRestoreRate 2.000000
+ShieldPointRestoreRate 4.000000
 BaseArmorPoints 1.000000
 maxMitigation 0.600000
 Prerequisites
@@ -45,7 +45,7 @@ NumWeapons 1
 Weapon
 	WeaponType "Projectile"
 	damageEnums
-		AttackType "ANTILIGHT"
+		AttackType "ANTIVERYLIGHT"
 		DamageAffectType "AFFECTS_SHIELDS_AND_HULL"
 		DamageApplyType "BACKLOADED"
 		DamageType "ENERGY"

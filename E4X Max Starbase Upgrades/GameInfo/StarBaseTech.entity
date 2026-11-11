@@ -99,12 +99,12 @@ Weapon
 		beamEffectSounds
 			soundCount 1
 			sound "WEAPON_TECHSTARBASEBEAMHEAVY_TRAVEL"
-		beamGlowTextureName "TechStarBaseBeam_Glow"
-		beamCoreTextureName "TechStarBaseBeam_Core"
-		beamWidth 80.000000
+		beamGlowTextureName "NewBeams_Glow"
+		beamCoreTextureName "TechKolBeam_Core"
+		beamWidth 500.000000
 		beamGlowColor ffffffff
 		beamCoreColor ffffffff
-		beamTilingRate 8.000000
+		beamTilingRate 0.300000
 Weapon
 	WeaponType "Missile"
 	damageEnums

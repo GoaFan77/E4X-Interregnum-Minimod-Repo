@@ -211,7 +211,7 @@ TargetCountPerBank:BACK 4
 TargetCountPerBank:LEFT 4
 TargetCountPerBank:RIGHT 4
 canOnlyTargetStructures FALSE
-ShieldMeshName "Shield_ING_Starbase"
+ShieldMeshName "StarBase_ING_Jovanshield"
 renderShield TRUE
 squadTypeEntityDef:0 "Squad_ING_EmpCombat"
 squadAntiMatterCost:0 0.000000

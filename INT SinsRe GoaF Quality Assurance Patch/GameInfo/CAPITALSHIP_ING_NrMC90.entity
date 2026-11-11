@@ -294,7 +294,7 @@ squadTypeEntityDef:1 "Squad_ING_AllBomber"
 squadAntiMatterCost:1 0.000000
 squadTypeEntityDef:2 "Squad_ING_AllKwing"
 squadAntiMatterCost:2 100.000000
-squadTypeEntityDef:3 "Squad_ING_AllInterceptor"
+squadTypeEntityDef:3 "Squad_ING_AllEwing"
 squadAntiMatterCost:3 85.000000
 NumSoundsFor:ONATTACKORDERISSUED 5
 SoundID "Dialog_ING_MonCalCruiserAttack1"

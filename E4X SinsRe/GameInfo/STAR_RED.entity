@@ -31,11 +31,11 @@ hudIcon "HUDICON_STAR_RED"
 smallHudIcon "HUDICONSMALL_STAR_RED"
 infoCardIcon "INFOCARDICON_STAR_RED"
 minZoomDistanceMult 2.000000
-moveAreaRadius 60000.000000
-hyperspaceExitRadius 50000.000000
+moveAreaRadius 100000.000000
+hyperspaceExitRadius 90000.000000
 isWormhole FALSE
-maxStarBaseCountPerPlayer 4
-maxSpaceMineCountPerPlayer 500
+maxStarBaseCountPerPlayer 2
+maxSpaceMineCountPerPlayer 30
 mainViewIcon "MAINVIEWICON_STAR_RED"
 picture "STARPICTURE_RED"
 MeshName "Star_Red"

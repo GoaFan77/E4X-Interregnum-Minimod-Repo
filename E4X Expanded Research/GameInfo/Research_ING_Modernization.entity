@@ -19,7 +19,7 @@ PerLevelUpgradeTime 10.000000
 BaseCost
 	credits 1800.000000
 	metal 350.000000
-	crystal 650.000000
+	crystal 550.000000
 PerLevelCostIncrease
 	credits 100.000000
 	metal 25.000000
@@ -41,11 +41,11 @@ researchModifier
 researchModifier
 	modifierType "ShieldPointsMaxAdjustment"
 	baseValue 0.000000
-	perLevelValue 0.050000
+	perLevelValue 0.075000
 researchModifier
 	modifierType "WeaponDamageAdjustment"
 	baseValue 0.000000
-	perLevelValue 0.050000
+	perLevelValue 0.075000
 	linkedWeaponClass "Invalid"
 researchModifier
 	modifierType "ShieldMaxMitigationAdjustment"
@@ -54,7 +54,7 @@ researchModifier
 researchModifier
 	modifierType "HullPointsMaxAdjustment"
 	baseValue 0.000000
-	perLevelValue 0.050000
+	perLevelValue 0.075000
 artifactPicture ""
 uniqueOverlayBrush "RebellionResearchOverlay"
 dlcId 204880

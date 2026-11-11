@@ -83,7 +83,7 @@ picture "Picture_ING_EmpISDII"
 Prerequisites
 	NumResearchPrerequisites 1
 	ResearchPrerequisite
-		Subject "Research_ING_HeroCommandEmpAccess"
+		Subject "Research_ING_HeroSedrissEmpAccess"
 		Level 1
 	RequiredFactionNameID ""
 	RequiredCompletedResearchSubjects 0

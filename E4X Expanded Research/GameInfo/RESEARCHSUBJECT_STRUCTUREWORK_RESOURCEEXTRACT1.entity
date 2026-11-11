@@ -32,13 +32,17 @@ onlyWorksIfTierLabsExist FALSE
 MaxNumResearchLevels 4
 priority 1.000000
 researchBoolModifiers 0
-researchFloatModifiers 2
+researchFloatModifiers 3
 researchModifier
 	modifierType "ExtractionRateMetalAdjustment"
 	baseValue 0.000000
 	perLevelValue 0.050000
 researchModifier
 	modifierType "ExtractionRateCrystalAdjustment"
+	baseValue 0.000000
+	perLevelValue 0.050000
+researchModifier
+	modifierType "RefineryShipCapacityAdjustment"
 	baseValue 0.000000
 	perLevelValue 0.050000
 artifactPicture ""

@@ -228,7 +228,7 @@ EngineSoundID "ENGINE_TECHCAPITALSHIP"
 ability:0 "Ability_ING_PlanetBombingMinor"
 ability:1 "Ability_ING_SpareParts"
 ability:2 ""
-ability:3 ""
+ability:3 "Ability_ING_AscendedCleanseOnCopy"
 ability:4 "Ability_ING_DerelictShip"
 MaxAntiMatter 180.000000
 AntiMatterRestoreRate 1.000000

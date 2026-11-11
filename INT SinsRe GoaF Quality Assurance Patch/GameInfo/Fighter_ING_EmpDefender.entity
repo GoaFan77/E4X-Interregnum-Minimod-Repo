@@ -165,7 +165,7 @@ exhaustTrailWidth 0.000001
 engineSoundID "Effect ING TIE ENGINE"
 maxHullPoints 200.000000
 hullPointRestoreRate 2.500000
-armorPoints 2.500000
+armorPoints 4.000000
 maxMitigation 0.600000
 experiencePointsForDestroying 12.000000
 minShadow 0.000000

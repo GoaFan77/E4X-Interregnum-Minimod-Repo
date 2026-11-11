@@ -29,7 +29,12 @@ onlyWorksIfTierLabsExist FALSE
 MaxNumResearchLevels 6
 priority 1.000000
 researchBoolModifiers 0
-researchFloatModifiers 1
+researchFloatModifiers 2
+researchModifier
+	modifierType "WeaponRateOfFireAdjustment"
+	baseValue 0.000000
+	perLevelValue 0.050000
+	linkedWeaponClass "RAILGUN"
 researchModifier
 	modifierType "WeaponRateOfFireAdjustment"
 	baseValue 0.000000

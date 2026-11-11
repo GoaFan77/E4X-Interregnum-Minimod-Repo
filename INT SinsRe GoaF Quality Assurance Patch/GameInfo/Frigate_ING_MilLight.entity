@@ -149,8 +149,8 @@ ability:1 ""
 ability:2 ""
 ability:3 ""
 ability:4 ""
-MaxAntiMatter 200.000000
-AntiMatterRestoreRate 0.500000
+MaxAntiMatter 0.000000
+AntiMatterRestoreRate 0.000000
 cargoType "Invalid"
 maxCargoCapacity 0.000000
 formationRank 0

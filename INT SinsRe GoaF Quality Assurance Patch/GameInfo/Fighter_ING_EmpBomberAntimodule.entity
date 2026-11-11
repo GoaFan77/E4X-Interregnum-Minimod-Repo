@@ -8,21 +8,21 @@ numRandomDebrisLarge 0
 numRandomDebrisSmall 0
 numSpecificDebris 0
 armorType "VeryLight"
-hudIcon "HUDICON_ING_FighterEmpBomber"
-smallHudIcon "MainViewIcon_ING_EmpBomber"
-infoCardIcon "MainViewIcon_ING_EmpBomber"
+hudIcon "HUDICON_ING_FighterEmpHeavyBomber"
+smallHudIcon "MainViewIcon_ING_EmpHeavyBomber"
+infoCardIcon "MainViewIcon_ING_EmpHeavyBomber"
 minZoomDistanceMult 8.000000
 nameStringID "IDS_Fighter_ING_EmpBomberAntimodule"
 counterDescriptionStringID "IDS_COUNTERDESC_FRIGATE_ANTIMODULE"
 statCountType "FighterBomber"
 formationOffsetDistance 50.000000
-mass 150.000000
-maxAccelerationLinear 205.000000
+mass 152.000000
+maxAccelerationLinear 185.000000
 maxAccelerationStrafe 100.000000
 maxDecelerationLinear 1000.000000
 maxAccelerationAngular 49.999992
 maxDecelerationAngular 99.999985
-maxSpeedLinear 1550.000000
+maxSpeedLinear 1350.000000
 maxRollRate 2.000000
 maxRollAngle 35.000000
 NumWeapons 1
@@ -34,7 +34,7 @@ Weapon
 		DamageApplyType "BACKLOADED"
 		DamageType "PHYSICAL"
 		WeaponClassType "DART"
-	DamagePerBank:FRONT 87.50000
+	DamagePerBank:FRONT 104.000000
 	DamagePerBank:BACK 0.000000
 	DamagePerBank:LEFT 0.000000
 	DamagePerBank:RIGHT 0.000000
@@ -42,7 +42,7 @@ Weapon
 	PreBuffCooldownTime 13.500000
 	CanFireAtFighter FALSE
 	SynchronizedTargeting FALSE
-	PointStaggerDelay 0.500000
+	PointStaggerDelay 0.300000
 	TravelSpeed 850.000000
 	Duration 0.000000
 	fireConstraintType "CanAlwaysFire"
@@ -51,15 +51,15 @@ Weapon
 		burstCount 1
 		burstDelay 0.000000
 		fireDelay 0.000000
-		muzzleEffectName "Weapon_Tech_MissileFighter_Muzzle"
+		muzzleEffectName "Particle_E4X_Null"
 		muzzleSoundMinRespawnTime 0.100000
 		muzzleSounds
 			soundCount 1
-			sound "Weapon ING ALL PROTON"
+			sound "Weapon ING Bomb Launch"
 		hitEffectName "WEAPON_TIE_BOMB_HIT"
 		hitHullEffectSounds
 			soundCount 1
-			sound "WEAPONIMPACT_MISSILELIGHT_HITGENERIC"
+			sound "Weapon ING Bomb Hull Impact"
 		hitShieldsEffectSounds
 			soundCount 1
 			sound "WEAPONIMPACT_MISSILELIGHT_HITGENERIC"
@@ -80,10 +80,10 @@ ExplosionName "Explosion_ING_TIEFIGHTER"
 exhaustTrailTextureName ""
 exhaustTrailWidth 0.000001
 engineSoundID "Effect ING TIE ENGINE"
-maxHullPoints 170.000000
+maxHullPoints 210.000000
 hullPointRestoreRate 0.689000
-armorPoints 2.500000
+armorPoints 3.500000
 maxMitigation 0.600000
-experiencePointsForDestroying 10.500000
+experiencePointsForDestroying 14.500000
 minShadow 0.000000
 maxShadow 0.500000

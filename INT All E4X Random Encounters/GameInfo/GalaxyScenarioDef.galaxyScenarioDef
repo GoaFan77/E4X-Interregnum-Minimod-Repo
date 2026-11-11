@@ -81,7 +81,7 @@ starType
 	designStringId "IDSGalaxyScenarioTypeStarPulsar"
 	orbitBodyTypeCount 1
 	orbitBodyType "PulsarStar"
-planetTypeCount 120
+planetTypeCount 121
 planetType
 	designName "WeightedNonIce"
 	designStringId "IDSGalaxyScenarioTypePlanetWeightedNonIce"
@@ -693,9 +693,9 @@ planetType
 	designName "RandomIceVolcanicFair"
 	designStringId "IDSGalaxyScenarioTypeRandomIceVolcanicFair"
 	orbitBodyTypeCount 5
-	orbitBodyType "IceFair"	
+	orbitBodyType "IceFair"
 	orbitBodyType "VolcanicFair"
-	orbitBodyType "CyroFair"	
+	orbitBodyType "CyroFair"
 	orbitBodyType "IgneousFair"
 	orbitBodyType "AlpineFair"
 planetType
@@ -751,7 +751,7 @@ planetType
 planetType
 	designName "RandomMixed"
 	designStringId "IDSGalaxyScenarioTypeRandomMixed"
-		orbitBodyTypeCount 7
+	orbitBodyTypeCount 7
 	orbitBodyType "Igneous"
 	orbitBodyType "Swamp"
 	orbitBodyType "Terran"
@@ -1276,7 +1276,7 @@ planetType
 	designName "Kessel"
 	designStringId "IDS_PLANETTYPE_ING_KESSEL"
 	orbitBodyTypeCount 1
-	orbitBodyType "Kessel"		
+	orbitBodyType "Kessel"
 planetType
 	designName "Byss"
 	designStringId "IDS_PLANETTYPE_ING_Byss"
@@ -1287,7 +1287,12 @@ planetType
 	designStringId "IDS_PLANETTYPE_ING_Fondor"
 	orbitBodyTypeCount 1
 	orbitBodyType "Fondor"
-orbitBodyTypeCount 98
+planetType
+	designName "VongVectorPrime"
+	designStringId "IDS_PLANETTYPE_CYRO"
+	orbitBodyTypeCount 1
+	orbitBodyType "VongVectorPrime"			
+orbitBodyTypeCount 99
 orbitBodyType
 	typeName "BlueStar"
 	entityDefName "STAR_BLUE"
@@ -1671,7 +1676,7 @@ orbitBodyType
 orbitBodyType
 	typeName "Kessel"
 	entityDefName "Planet_ING_Kessel"
-	defaultTemplateName "Template:Kessel"	
+	defaultTemplateName "Template:Kessel"
 orbitBodyType
 	typeName "Byss"
 	entityDefName "Planet_ING_Byss"
@@ -1679,8 +1684,12 @@ orbitBodyType
 orbitBodyType
 	typeName "Fondor"
 	entityDefName "Planet_ING_Fondor"
-	defaultTemplateName "Template:RandomEncounterFondor"	
-planetItemTypeCount 583
+	defaultTemplateName "Template:RandomEncounterFondor"
+orbitBodyType
+	typeName "VongVectorPrime"
+	entityDefName "Planet_ING_VongVectorPrime"
+	defaultTemplateName "Template:VongVectorPrime"
+planetItemTypeCount 594
 planetItemType
 	designName "All:Module:CapitalShipFactory"
 	entityDefName "PLANETMODULE_ING_AllCapitalshipFactory"
@@ -2080,7 +2089,7 @@ planetItemType
 planetItemType
 	designName "Emp:Frigate:Constructor"
 	entityDefName "Frigate_ING_EmpModuleConstructor"
-planetItemType 
+planetItemType
 	designName "Man:Module:CapitalShipFactory"
 	entityDefName "PLANETMODULE_ING_ManCapitalshipFactory"
 planetItemType
@@ -2101,7 +2110,7 @@ planetItemType
 planetItemType 
 	designName "Man:Module:Hangar"
 	entityDefName "PLANETMODULE_ING_ManHangar"
-planetItemType 
+planetItemType
 	designName "Man:Module:Refinery"
 	entityDefName "PLANETMODULE_ING_ManRefinery"
 planetItemType
@@ -2448,7 +2457,7 @@ planetItemType
 	entityDefName "FrigatePhaseUtility1"
 planetItemType
 	designName "Phase:Frigate:Constructor"
-	entityDefName "FrigatePhaseModuleConstructor"	
+	entityDefName "FrigatePhaseModuleConstructor"
 planetItemType
 	designName "Phase:Frigate:MineLayer"
 	entityDefName "FrigatePhaseMineLayer"	
@@ -2700,10 +2709,10 @@ planetItemType
 	entityDefName "PlanetBonus_ING_AllHome"	
 planetItemType
 	designName "Bonus:Byss"
-	entityDefName "PlanetBonus_ING_Byss"	
+	entityDefName "PlanetBonus_ING_Byss"
 planetItemType
 	designName "Bonus:Coruscant"
-	entityDefName "PlanetBonus_ING_Coruscant"	
+	entityDefName "PlanetBonus_ING_Coruscant"
 planetItemType
 	designName "Bonus:Kuat"
 	entityDefName "PlanetBonus_ING_KuatShipyards"		
@@ -2715,7 +2724,7 @@ planetItemType
 	entityDefName "PlanetBonus_ING_ImperialBase"	
 planetItemType
 	designName "Bonus:LocalGovernment"
-	entityDefName "PlanetBonus_ING_LocalGovernment"				
+	entityDefName "PlanetBonus_ING_LocalGovernment"
 planetItemType
 	designName "Bonus:FW:AbandonedNaniteFactory"
 	entityDefName "PlanetBonusAbandonedNaniteFactory"
@@ -2964,7 +2973,7 @@ planetItemType
 	entityDefName "PlanetBonus_E4X_Design"	
 planetItemType
 	designName "Bonus:DesolateSubterranianFactory"
-	entityDefName "PlanetBonus_E4X_DesolateSubterranianFactory"	
+	entityDefName "PlanetBonus_E4X_DesolateSubterranianFactory"
 planetItemType
 	designName "Bonus:FreshWater"
 	entityDefName "PlanetBonus_E4X_FreshWater"
@@ -3027,7 +3036,10 @@ planetItemType
 	entityDefName "PlanetBonus_E4X_Shield2"	
 planetItemType
 	designName "Bonus:SmugglerBase"
-	entityDefName "PlanetBonus_E4X_SmugglerBase"	
+	entityDefName "PlanetBonus_E4X_SmugglerBase"
+planetItemType
+	designName "Bonus:MajorShipyard"
+	entityDefName "PlanetBonus_E4X_MajorShipyard"			
 planetItemType
 	designName "Bonus:SwampSuperAlgae"
 	entityDefName "PlanetBonus_E4X_SwampSuperAlgae"	
@@ -3192,7 +3204,7 @@ planetItemType
 	entityDefName "PlanetBonus_E4X_PsiHome"	
 planetItemType
 	designName "Bonus:VasariHomeworld"
-	entityDefName "PlanetBonus_E4X_PhaseHome"	
+	entityDefName "PlanetBonus_E4X_PhaseHome"
 planetItemType
 	designName "Bonus:JediTemple"
 	entityDefName "PlanetBonus_ING_JediTemple"	
@@ -3278,6 +3290,27 @@ planetItemType
 	designName "Ancient:Entity:ShieldGenerator"
 	entityDefName "Frigate_E4X_AncientShieldGeneratorStructure"
 planetItemType
+	designName "Vong:Titan:Worldship"
+	entityDefName "Titan_ING_VongKorosStrohna"
+planetItemType
+	designName "Vong:Capitalship:MiidRoik"
+	entityDefName "Capitalship_ING_VongMiidRoik"	
+planetItemType
+	designName "Vong:Capitalship:Seedship"
+	entityDefName "Capitalship_ING_VongShripShpa"	
+planetItemType
+	designName "Vong:Frigate:Light"
+	entityDefName "Frigate_ING_VongLight"	
+planetItemType
+	designName "Vong:Frigate:Carrier"
+	entityDefName "Frigate_ING_VongCarrier"	
+planetItemType
+	designName "Vong:Frigate:Scout"
+	entityDefName "Frigate_ING_VongScout"
+planetItemType
+	designName "Vong:Corvette:Vong"
+	entityDefName "Corvette_ING_VongCorvette"							
+planetItemType
 	designName "Ancient:Entity:StarbaseConstructor"
 	entityDefName "Frigate_E4X_AncientStarBase"
 planetItemType
@@ -3305,6 +3338,12 @@ planetItemType
 	designName "Other:Flag:KillPlanet"
 	entityDefName "SpaceMine_E4X_KillPlanetFlag"
 planetItemType
+	designName "Other:Flag:VongColonization"
+	entityDefName "SpaceMine_ING_FlagVongColonization"	
+planetItemType
+	designName "Other:Flag:VongInvasionPoint"
+	entityDefName "SpaceMine_ING_FlagVongInvasionPoint"
+planetItemType
 	designName "Other:Holonet:Probe"
 	entityDefName "SpaceMine_ING_HolonetProbe"
 planetItemType
@@ -3315,16 +3354,16 @@ planetItemType
 	entityDefName "SpaceMine_E4X_XP1000"
 planetItemType
 	designName "Other:Flag:MaxTitanXP"
-	entityDefName "SpaceMine_E4X_MaxTitanXPFlag"
+	entityDefName "SpaceMine_E4X_MaxTitanXPFlag"	
 planetItemType
 	designName "Other:Flag:DefeatPlayerOnPlanetDeath"
 	entityDefName "SpaceMine_E4X_DefeatPlayerOnPlanetDeathFlag"
 planetItemType
 	designName "Other:Flag:DefeatPlayerOnTitanDeath"
-	entityDefName "SpaceMine_E4X_DefeatPlayerOnTitanDeathFlag"	
+	entityDefName "SpaceMine_E4X_DefeatPlayerOnTitanDeathFlag"
 planetItemType
 	designName "Other:Flag:VictoryOnPlanetTaken"
-	entityDefName "SpaceMine_E4X_VictoryOnPlanetTakenFlag"		
+	entityDefName "SpaceMine_E4X_VictoryOnPlanetTakenFlag"			
 planetItemType
 	designName "Other:Flag:TECPlanetaryDefenses"
 	entityDefName "SpaceMine_E4X_TECPlanetDefensesFlag"
@@ -3332,11 +3371,14 @@ planetItemType
 	designName "Other:Flag:RevealMapFlag"
 	entityDefName "SpaceMine_E4X_RevealMapFlag"
 planetItemType
+	designName "Other:Flag:MaxPopFlag"
+	entityDefName "SpaceMine_E4X_MaxPopFlag"		
+planetItemType
 	designName "Other:Capitalship:Venator"
 	entityDefName "CAPITALSHIP_ING_N_Venator"	
 planetItemType
 	designName "Other:Capitalship:Providence"
-	entityDefName "CAPITALSHIP_ING_N_Providence"		
+	entityDefName "CAPITALSHIP_ING_N_Providence"
 planetItemType
 	designName "Other:Capitalship:Lucrehulk"
 	entityDefName "CAPITALSHIP_ING_N_Lucrehulk"
@@ -3393,7 +3435,7 @@ planetItemType
 	entityDefName "StarBase_E4X_NeutralTradeStation"
 planetItemType
 	designName "Other:Starbase:CyberDefenseFortress"
-	entityDefName "Starbase_E4X_CyberDefensePlatform"	
+	entityDefName "Starbase_E4X_CyberDefensePlatform"
 planetItemType
 	designName "Other:Objective:BattleOfCalamari"
 	entityDefName "PLANETMODULE_ING_ObjectiveBattleOfCalamari"		
@@ -3411,7 +3453,7 @@ planetItemType
 	entityDefName "PLANETMODULE_ING_ObjectiveOperationShadowHand"			
 planetItemType
 	designName "Other:Objective:WarOfTheSith"
-	entityDefName "PlanetModule_ING_ObjectiveWarOfTheSith"			
+	entityDefName "PlanetModule_ING_ObjectiveWarOfTheSith"		
 planetItemType
 	designName "Cosmetic:TitanTechLoyalist"	
 	entityDefName "TITAN_TECHLOYALIST_COSMETIC"
@@ -3430,7 +3472,7 @@ planetItemType
 planetItemType
 	designName "Cosmetic:TitanPhaseRebel"
 	entityDefName "TITAN_PHASEREBEL_COSMETIC"
-playerTypeCount 13
+playerTypeCount 14
 playerType
 	designName "TechLoyalist"
 	entityDefName "PlayerTechLoyalist"
@@ -3469,8 +3511,11 @@ playerType
 	entityDefName "PlayerPirate"
 playerType	
 	designName "MandalorianRaiders"
-	entityDefName "Player_ING_MandalorianRaiders"	
-planetItemsTemplateCount 98
+	entityDefName "Player_ING_MandalorianRaiders"
+playerType	
+	designName "Vong"
+	entityDefName "Player_ING_YuuzhanVong"		
+planetItemsTemplateCount 99
 planetItemsTemplate
 	templateName "Empty"
 	subTemplates 0
@@ -3619,13 +3664,13 @@ planetItemsTemplate
 				item "All:Frigate:Constructor"
 				item "All:Module:TradePortStart"
 				item "All:Frigate:Light"
- 				item "All:Frigate:Light"	
- 				item "All:Frigate:Support"
+				item "All:Frigate:Light"
+				item "All:Frigate:Support"
 				item "All:Module:CommandCenter"
 				item "Bonus:AllianceHomeworld"
 		group
 			condition
-			type "PlanetOwnerIsRaceNormalStart"
+				type "PlanetOwnerIsRaceNormalStart"
 				param "NewRepublic"
 			owner "PlanetOwner"
 			colonizeChance 1
@@ -3635,8 +3680,8 @@ planetItemsTemplate
 				item "All:Frigate:Constructor"
 				item "All:Frigate:Constructor"
 				item "All:Module:CivicLabNrStart"
-				item "Nr:Module:CommandCenter"	
-				item "Nr:Flag:LocalDefenseForces"			
+				item "Nr:Module:CommandCenter"
+				item "Nr:Flag:LocalDefenseForces"		
 				item "Bonus:AllianceHomeworld"
 		group
 			condition
@@ -3846,14 +3891,14 @@ planetItemsTemplate
 				item "All:Module:CommandCenter"
 				item "All:Module:TradePortStart"
 				item "All:Frigate:Light"
- 				item "All:Frigate:Light"	
- 				item "All:Frigate:Support"
+				item "All:Frigate:Light"
+				item "All:Frigate:Support"
 				item "All:Frigate:Scout"
 				item "All:Frigate:Scout"
 				item "Bonus:AllianceHomeworld"
 		group
 			condition
-			type "PlanetOwnerIsRaceQuickStart"
+				type "PlanetOwnerIsRaceQuickStart"
 				param "NewRepublic"
 			owner "PlanetOwner"
 			colonizeChance 1
@@ -4199,13 +4244,13 @@ planetItemsTemplate
 			owner "PlanetOwner"
 			colonizeChance 0
 			items 14
-			item "Emp:Module:MetalExtractorWarlords"
 				item "Emp:Module:MetalExtractorWarlords"
 				item "Emp:Module:MetalExtractorWarlords"
 				item "Emp:Module:MetalExtractorWarlords"
 				item "Emp:Module:MetalExtractorWarlords"
 				item "Emp:Module:MetalExtractorWarlords"
-				item "Emp:Module:MetalExtractorWarlords"			
+				item "Emp:Module:MetalExtractorWarlords"
+				item "Emp:Module:MetalExtractorWarlords"				
 				item "Emp:Module:CrystalExtractor"
 				item "Emp:Module:CrystalExtractor"
 				item "Emp:Module:CrystalExtractor"
@@ -4338,7 +4383,7 @@ planetItemsTemplate
 				item "All:Module:CrystalExtractor"
 				item "All:Module:CrystalExtractor"
 				item "All:Module:CrystalExtractor"
-				item "All:Module:CrystalExtractor"							
+				item "All:Module:CrystalExtractor"
 planetItemsTemplate
 	templateName "Template:ResearchLabs"
 	subTemplates 0
@@ -5014,7 +5059,7 @@ planetItemsTemplate
 			items 3
 				item "All:Module:CapitalShipFactory"
 				item "All:Module:FrigateFactory"
-				item "All:Module:FrigateFactory"	
+				item "All:Module:FrigateFactory"									
 planetItemsTemplate
 	templateName "Template:DefaultStart_Terran"
 	subTemplates 4
@@ -5058,7 +5103,7 @@ planetItemsTemplate
 	groups 0
 planetItemsTemplate
 	templateName "Template:DefaultStart_DeadAsteroid"
-subTemplates 2
+	subTemplates 2
 		template "Template:DefaultHomePlanetSetup"
 		template "Template:LocalMilitia_DeadAsteroid"
 	groups 0
@@ -5114,7 +5159,7 @@ planetItemsTemplate
 planetItemsTemplate
 	templateName "Template:DefaultStart_Ice"
 	subTemplates 2
-		template "Template:DefaultHomePlanetSetup"
+		template "Template:DefaultHomePlanetSetup"	
 		template "Template:LocalMilitia_Ice"
 	groups 0
 planetItemsTemplate
@@ -5143,7 +5188,7 @@ planetItemsTemplate
 	groups 0
 planetItemsTemplate
 	templateName "Template:DefaultStart_GasGiantFair"
-		subTemplates 1
+	subTemplates 1
 		template "Template:LocalMilitia_GasGiantFair"
 	groups 0
 planetItemsTemplate
@@ -5783,8 +5828,8 @@ planetItemsTemplate
 				item "Emp:Module:GolanIII"
 				item "Emp:Module:MetalExtractor"
 				item "Emp:Module:MetalExtractor"
-				item "Emp:Module:CrystalExtractor"					
-				item "Bonus:ImperialBase"
+				item "Emp:Module:CrystalExtractor"
+				item "Bonus:ImperialBase"				
 planetItemsTemplate
 	templateName "Template:LocalMilitia_EmpireIndustrialShipyard"
 	subTemplates 0
@@ -5808,7 +5853,7 @@ planetItemsTemplate
 				item "Emp:Corvette:Skipray"
 				item "Emp:Corvette:Skipray"
 				item "Emp:Corvette:Skipray"
-			    item "Emp:Corvette:Skipray"
+				item "Emp:Corvette:Skipray"
 				item "Emp:Module:GolanIII"
 				item "Other:Module:CloneWarsShipyard"				
 planetItemsTemplate
@@ -5856,7 +5901,7 @@ planetItemsTemplate
 				item "Other:Capitalship:Providence"
 				item "Other:Capitalship:Lucrehulk"
 				item "Other:Capitalship:Venator"
-				item "Other:Capitalship:HuttAssaultCruiser"								
+				item "Other:Capitalship:HuttAssaultCruiser"				
 				item "Mil:Frigate:AntiFighter"
 				item "Mil:Frigate:AntiFighter"
 				item "Mil:Frigate:AntiFighter"
@@ -5865,7 +5910,7 @@ planetItemsTemplate
 				item "Mil:Frigate:AntiFighter"
 				item "Mil:Frigate:AntiFighter"
 				item "Mil:Frigate:AntiFighter"
-				item "Mil:Frigate:AntiFighter"
+				item "Mil:Frigate:AntiFighter"																
 				item "Mil:Frigate:Dreadnaught"	
 				item "Mil:Frigate:Dreadnaught"
 				item "Mil:Frigate:Dreadnaught"	
@@ -5873,7 +5918,6 @@ planetItemsTemplate
 				item "Mil:Frigate:Dreadnaught"	
 				item "Mil:Frigate:Dreadnaught"								
 				item "Mil:Frigate:Light"
-				item "Mil:Frigate:Light" 
 				item "Mil:Frigate:Light"
 				item "Mil:Frigate:Light"
 				item "Mil:Frigate:Light" 
@@ -5885,7 +5929,8 @@ planetItemsTemplate
 				item "Mil:Frigate:Light" 
 				item "Mil:Frigate:Light"
 				item "Mil:Frigate:Light"
-				item "Mil:Frigate:Light" 																
+				item "Mil:Frigate:Light" 
+				item "Mil:Frigate:Light"																
 				item "Mil:Corvette:Skipray"
 				item "Mil:Corvette:Skipray"
 				item "Mil:Corvette:Skipray"
@@ -5902,13 +5947,13 @@ planetItemsTemplate
 				item "Mil:Corvette:Skipray"
 				item "Mil:Corvette:Skipray"
 				item "Mil:Corvette:Skipray"
-				item "Mil:Frigate:Siege"
 				item "Mil:Frigate:Siege"	
 				item "Mil:Frigate:Siege"
 				item "Mil:Frigate:Siege"
 				item "Mil:Frigate:Siege"
 				item "Mil:Frigate:Siege"
 				item "Mil:Frigate:Siege"
+				item "Mil:Frigate:Siege"															
 				item "Mil:Module:MetalExtractor"
 				item "Mil:Module:CrystalExtractor"	
 				item "Mil:Module:AllTradePort"	
@@ -5927,7 +5972,7 @@ planetItemsTemplate
 				item "Mil:Module:Hangar"	
 				item "Mil:Module:Hangar"	
 				item "Mil:Module:Hangar"	
-				item "Mil:Module:Hangar"		
+				item "Mil:Module:Hangar"
 				item "Other:Flag:Grant1000XP"		
 planetItemsTemplate
 	templateName "Template:LocalMilitia_AllianceStrong"
@@ -5956,8 +6001,8 @@ planetItemsTemplate
 				item "All:Module:TradePort"
 				item "All:Module:Refinery"				
 				item "All:Module:CrystalExtractor"
-				item "All:Module:CrystalExtractor"			
-				item "Bonus:LocalGovernment"		
+				item "All:Module:CrystalExtractor"
+				item "Bonus:LocalGovernment"			
 planetItemsTemplate
 	templateName "Template:RandomEncounterKuat"
 	subTemplates 0
@@ -6081,7 +6126,7 @@ planetItemsTemplate
 				item "Emp:Module:RepairPlatform"				
 				item "Emp:Module:NPCStarbase"
 				item "Other:Module:FondorShipyards"
-				item "Other:Flag:Grant1000XP"
+				item "Other:Flag:Grant1000XP"				
 planetItemsTemplate
 	templateName "Template:RandomEncounterMonCalamari"
 	subTemplates 0
@@ -6147,7 +6192,7 @@ planetItemsTemplate
 				item "All:Module:RepairPlatform"
 				item "All:Module:RepairPlatform"
 				item "Nr:Module:NPCStarbase"
-				item "Other:Flag:Grant1000XP"				
+				item "Other:Flag:Grant1000XP"								
 planetItemsTemplate
 	templateName "Template:LocalMilitiaStrongFair"
 	subTemplates 0
@@ -6158,7 +6203,7 @@ planetItemsTemplate
 				param ""
 			owner "PlanetOwner"
 			colonizeChance 0
-		items 23
+			items 23
 				item "Mil:Corvette:Skipray"
 				item "Mil:Corvette:Skipray"
 				item "Mil:Corvette:Skipray"
@@ -6906,7 +6951,7 @@ planetItemsTemplate
 				item "Man:Module:MetalExtractor"				
 				item "Other:Module:MandalMotors"
 				item "Other:Flag:Grant1000XP"
-				item "Other:Flag:Grant200XP"		
+				item "Other:Flag:Grant200XP"
 planetItemsTemplate
 	templateName "Template:MandalorianBase"
 	subTemplates 0
@@ -7005,7 +7050,7 @@ planetItemsTemplate
 				item "Man:Module:TradePort"				
 				item "Man:Module:MetalExtractor"
 				item "Man:Module:MetalExtractor"					
-				item "Man:Module:CrystalExtractor"				
+				item "Man:Module:CrystalExtractor"
 				item "Other:Flag:Grant1000XP"
 planetItemsTemplate
 	templateName "Template:CyberFortress"
@@ -7122,7 +7167,6 @@ planetItemsTemplate
 			owner "Occupation"
 			colonizeChance 1
 			items 42
-				item "Emp:Module:NPCStarbase"
 				item "Emp:Titan:Bellator"
 				item "Emp:Capitalship:ImperialII"
 				item "Emp:Frigate:LongRange"
@@ -7141,6 +7185,7 @@ planetItemsTemplate
 				item "Emp:Frigate:Light"
 				item "Emp:Frigate:Light"
 				item "Emp:Frigate:Light"
+				item "Emp:Frigate:Heavy"
 				item "Emp:Frigate:Heavy"
 				item "Emp:Frigate:Heavy"
 				item "Emp:Frigate:Support"
@@ -7174,8 +7219,7 @@ planetItemsTemplate
 				param ""
 			owner "RandomEncounterEmpire"
 			colonizeChance 1
-			items 64
-				item "Emp:Module:NPCStarbase"
+			items 69
 				item "Emp:Module:NPCStarbase"
 				item "Emp:Module:NPCStarbase"
 				item "Emp:Titan:Palpatine"
@@ -7186,6 +7230,7 @@ planetItemsTemplate
 				item "Emp:Capitalship:Procursator"
 				item "Emp:Capitalship:Allegiance"
 				item "Emp:Capitalship:Allegiance"
+				item "Emp:Frigate:LongRange"
 				item "Emp:Frigate:LongRange"
 				item "Emp:Frigate:LongRange"
 				item "Emp:Frigate:LongRange"
@@ -7202,6 +7247,8 @@ planetItemsTemplate
 				item "Emp:Frigate:Heavy"
 				item "Emp:Frigate:Heavy"
 				item "Emp:Frigate:Heavy"
+				item "Emp:Frigate:Heavy"
+				item "Emp:Frigate:Vigil"
 				item "Emp:Frigate:Vigil"
 				item "Emp:Frigate:Vigil"
 				item "Emp:Frigate:Vigil"
@@ -7230,6 +7277,9 @@ planetItemsTemplate
 				item "Emp:Module:GolanIII"
 				item "Emp:Module:GolanIII"
 				item "Emp:Module:GolanIII"
+				item "Emp:Module:GolanI"
+				item "Emp:Module:GolanI"
+				item "Emp:Module:GolanI"
 				item "Emp:Module:GalaxyGun"
 				item "Emp:Frigate:Siege"
 				item "Emp:Frigate:Siege"
@@ -7240,9 +7290,37 @@ planetItemsTemplate
 				item "Other:Flag:Grant1000XP"	
 				item "Other:Flag:MaxTitanXP"
 planetItemsTemplate
+	templateName "Template:VongVectorPrime"
+	subTemplates 0	
+	groups 2
+		group
+			condition
+				type "Always"
+				param ""
+			owner "YuuzhanVong"
+			colonizeChance 1
+			items 2
+				item "Other:Flag:KillPlanet"
+				item "Other:Flag:VongInvasionPoint"
+		group
+			condition
+				type "Always"
+				param ""
+			owner "RandomMilitia"
+			colonizeChance 0
+			items 8
+				item "Mil:Corvette:Skipray"
+				item "Mil:Corvette:Skipray"
+				item "Mil:Frigate:Light"
+				item "Mil:Frigate:Light"
+				item "Mil:Frigate:LongRange"
+				item "Mil:Frigate:AntiFighter"
+				item "Mil:Frigate:Siege"
+				item "Mil:Frigate:Siege"				
+planetItemsTemplate
 	templateName "Template:DefaultMinorFaction"
 	subTemplates 0
-	groups 35
+	groups 38
 		group
 			condition
 				type "PlanetOwnerIsMinorFactionWithFactionName"
@@ -7352,7 +7430,7 @@ planetItemsTemplate
 				item "Phase:Frigate:Heavy"
 				item "Phase:Frigate:Heavy"
 				item "Phase:Corvette:Loyalist"
-				item "Phase:Corvette:Loyalist""
+				item "Phase:Corvette:Loyalist"
 				item "Phase:Corvette:Loyalist"
 				item "Phase:Frigate:Constructor"
 				item "Phase:Frigate:Constructor"
@@ -7718,7 +7796,7 @@ planetItemsTemplate
 				item "Psi:Module:MetalExtractor"
 				item "Psi:Module:MetalExtractor"
 				item "Psi:Module:MetalExtractor"
-				item "Psi:CapitalShip:Colony"
+				item "Psi:CapitalShip:BattlePsionic"
 				item "Psi:Module:CultureCenter"
 				item "Psi:Frigate:Light"
 				item "Psi:Frigate:Light"
@@ -7834,8 +7912,8 @@ planetItemsTemplate
 				item "Phase:Module:CrystalExtractor"
 				item "Phase:Module:CrystalExtractor"	
 				item "Phase:Module:CrystalExtractor"
-				item "Phase:Module:MetalExtractor"	
-				item "Phase:Module:MetalExtractor"		
+				item "Phase:Module:MetalExtractor"			
+				item "Phase:Module:MetalExtractor"
 				item "Phase:Module:MetalExtractor"
 				item "Phase:Module:MetalExtractor"
 				item "Phase:Module:MetalExtractor"
@@ -7872,16 +7950,16 @@ planetItemsTemplate
 				item "Phase:Module:CrystalExtractor"
 				item "Phase:Module:CrystalExtractor"
 				item "Phase:Module:CrystalExtractor"
-				item "Phase:Module:CrystalExtractor"	
+				item "Phase:Module:CrystalExtractor"
 				item "Phase:Module:CrystalExtractor"				
-				item "Phase:Module:MetalExtractor"			
+				item "Phase:Module:MetalExtractor"
 				item "Phase:Module:MetalExtractor"
 				item "Phase:Module:MetalExtractor"
 				item "Phase:Module:MetalExtractor"
 				item "Phase:Module:MetalExtractor"
 				item "Phase:Module:MetalExtractor"	
 				item "Phase:Module:NonCombatLab"			
-				item "Phase:CapitalShip:Colony"
+				item "Phase:CapitalShip:Carrier"
 				item "Phase:Frigate:Light"
 				item "Phase:Frigate:Light"
 				item "Phase:Frigate:Light"
@@ -7956,9 +8034,9 @@ planetItemsTemplate
 				item "All:Module:CrystalExtractor"
 				item "All:Module:CrystalExtractor"
 				item "All:Module:CrystalExtractor"
-				item "All:Module:CrystalExtractor"	
+				item "All:Module:CrystalExtractor"
 				item "All:Module:CrystalExtractor"				
-				item "All:Module:MetalExtractor"			
+				item "All:Module:MetalExtractor"
 				item "All:Module:MetalExtractor"
 				item "All:Module:MetalExtractor"
 				item "All:Module:MetalExtractor"
@@ -8437,7 +8515,7 @@ planetItemsTemplate
 				item "Mil:Module:TurbolaserTurret"	
 				item "Mil:Module:TurbolaserTurret"
 				item "Mil:Module:TurbolaserTurret"
-				item "Mil:Module:TurbolaserTurret"
+				item "Emp:Module:ShieldGenerator"
 				item "Mil:Module:CrystalExtractor"
 				item "Mil:Module:CrystalExtractor"
 				item "Mil:Module:CrystalExtractor"
@@ -8737,6 +8815,137 @@ planetItemsTemplate
 				item "Other:Frigate:HapanBattleDragon"				
 				item "Psi:Frigate:Constructor"
 				item "Psi:Frigate:Constructor"
+		group
+			condition
+				type "PlanetOwnerIsMinorFactionWithFactionName"
+				param "Quarren"
+			owner "PlanetOwner"
+			colonizeChance 1
+			items 37
+				item "Mil:Module:FrigateFactory"
+				item "Mil:Module:CapitalShipFactory"
+				item "Mil:Module:CapitalShipFactory"
+				item "Mil:Module:AllTradePort"
+				item "Mil:Module:AllRefinery"
+				item "Mil:Module:TurbolaserTurret"	
+				item "Mil:Module:TurbolaserTurret"
+				item "Mil:Module:RepairPlatform"
+				item "Mil:Module:RepairPlatform"
+				item "Mil:Module:TorpedoTurret"
+				item "Mil:Module:TorpedoTurret"
+				item "Mil:Module:Hangar"
+				item "Mil:Module:Hangar"
+				item "Mil:Module:CrystalExtractor"
+				item "Mil:Module:CrystalExtractor"
+				item "Mil:Module:CrystalExtractor"
+				item "Mil:Module:CrystalExtractor"
+				item "Mil:Module:CrystalExtractor"	
+				item "Mil:Module:CrystalExtractor"				
+				item "Mil:Module:MetalExtractor"			
+				item "Mil:Module:MetalExtractor"
+				item "Mil:Module:MetalExtractor"
+				item "Mil:Module:MetalExtractor"
+				item "Mil:Module:MetalExtractor"
+				item "Mil:Module:MetalExtractor"	
+				item "Other:Capitalship:Providence"
+				item "Other:Capitalship:Providence"	
+				item "Other:Frigate:Munificent"
+				item "Other:Frigate:Munificent"
+				item "Other:Frigate:Dreadnaught"
+				item "Other:Frigate:Dreadnaught"
+				item "Mil:Frigate:LongRange"
+				item "Mil:Frigate:LongRange"
+				item "Mil:Frigate:AntiFighter"
+				item "Mil:Frigate:AntiFighter"
+				item "Mil:Frigate:Constructor"
+				item "Mil:Frigate:Constructor"
+		group
+			condition
+				type "PlanetOwnerIsMinorFactionWithFactionName"
+				param "EmpInvids"
+			owner "PlanetOwner"
+			colonizeChance 1
+			items 39
+				item "Mil:Module:FrigateFactory"
+				item "Emp:Module:CapitalShipFactory"
+				item "Mil:Module:AllTradePort"
+				item "Mil:Module:AllTradePort"
+				item "Emp:Module:GolanI"
+				item "Mil:Module:TurbolaserTurret"
+				item "Mil:Module:TurbolaserTurret"
+				item "Emp:Module:RepairPlatform"
+				item "Emp:Module:RepairPlatform"
+				item "Mil:Module:Hangar"
+				item "Mil:Module:Hangar"
+				item "Mil:Module:CrystalExtractor"
+				item "Mil:Module:CrystalExtractor"
+				item "Mil:Module:CrystalExtractor"
+				item "Mil:Module:CrystalExtractor"
+				item "Mil:Module:CrystalExtractor"
+				item "Mil:Module:CrystalExtractor"
+				item "Mil:Module:MetalExtractor"
+				item "Mil:Module:MetalExtractor"
+				item "Mil:Module:MetalExtractor"
+				item "Mil:Module:MetalExtractor"
+				item "Mil:Module:MetalExtractor"
+				item "Mil:Module:MetalExtractor"
+				item "Emp:Capitalship:ImperialII"
+				item "Mil:Frigate:Light"
+				item "Mil:Frigate:Light"
+				item "Emp:Frigate:AntiFighter"
+				item "Emp:Frigate:AntiFighter"
+				item "Mil:Frigate:Dreadnaught"
+				item "Mil:Frigate:Dreadnaught"
+				item "Mil:Frigate:Light"
+				item "Mil:Frigate:Light"
+				item "Mil:Frigate:LongRange"
+				item "Mil:Frigate:LongRange"
+				item "Emp:Corvette:Skipray"
+				item "Emp:Corvette:Skipray"
+				item "Emp:Corvette:Skipray"
+				item "Emp:Corvette:Skipray"
+				item "Emp:Corvette:Skipray"
+		group
+			condition
+				type "PlanetOwnerIsMinorFactionWithFactionName"
+				param "RogueShapers"
+			owner "PlanetOwner"
+			colonizeChance 1
+			items 34
+				item "Phase:Module:FrigateFactory"
+				item "Phase:Module:CapitalShipFactory"
+				item "Phase:Module:TradePort"
+				item "Phase:Module:CrystalExtractor"
+				item "Phase:Module:CrystalExtractor"
+				item "Phase:Module:CrystalExtractor"
+				item "Phase:Module:CrystalExtractor"
+				item "Phase:Module:CrystalExtractor"
+				item "Phase:Module:CrystalExtractor"				
+				item "Phase:Module:MetalExtractor"
+				item "Phase:Module:MetalExtractor"
+				item "Phase:Module:MetalExtractor"
+				item "Phase:Module:MetalExtractor"
+				item "Phase:Module:MetalExtractor"
+				item "Phase:Module:MetalExtractor"	
+				item "Phase:Module:NonCombatLab"			
+				item "Vong:Capitalship:MiidRoik"
+				item "Vong:Frigate:Light"
+				item "Vong:Frigate:Light"
+				item "Vong:Frigate:Light"
+				item "Vong:Frigate:Light"
+				item "Vong:Frigate:Light"
+				item "Vong:Frigate:Scout"
+				item "Vong:Frigate:Carrier"
+				item "Vong:Frigate:Carrier"
+				item "Vong:Frigate:Carrier"
+				item "Vong:Corvette:Vong"
+				item "Vong:Corvette:Vong"	
+				item "Vong:Corvette:Vong"
+				item "Vong:Corvette:Vong"
+				item "Vong:Corvette:Vong"	
+				item "Vong:Corvette:Vong"										
+				item "Phase:Frigate:Constructor"
+				item "Phase:Frigate:Constructor"						
 validPictureGroups 3
 pictureGroup "PlayerPhase"
 pictureGroup "PlayerPsi"
@@ -8746,7 +8955,7 @@ themeGroup "PlayerPhase"
 themeGroup "PlayerPsi"
 themeGroup "PlayerTech"
 themeGroup "NPC"
-npcPlayers 46
+npcPlayers 50
 player
 	designName "Pirate"
 	inGameName "IDSScenarioPlayerNamePirates"
@@ -9167,9 +9376,9 @@ player
 	themeGroup "ING_NPC"
 	themeIndex 18
 	pictureGroup "NPC"
-	pictureIndex 0	
+	pictureIndex 0
 player
-		designName "MinorFaction_ING_All3"
+	designName "MinorFaction_ING_All3"
 	inGameName "IDS_ING_ScenarioPlayerNameMinorFaction_All3"
 	overrideRaceName "RebelAlliance"
 	teamIndex -1
@@ -9211,7 +9420,7 @@ player
 	pictureGroup "NPC"
 	pictureIndex 0
 player
-designName "MinorFaction_ING_Emp2"
+	designName "MinorFaction_ING_Emp2"
 	inGameName "IDS_ING_ScenarioPlayerNameMinorFaction_Emp2"
 	overrideRaceName "ImperialWarlords"
 	teamIndex -1
@@ -9239,6 +9448,20 @@ player
 	pictureGroup "NPC"
 	pictureIndex 0
 player
+	designName "MinorFaction_ING_Invids"
+	inGameName "IDS_ING_ScenarioPlayerNameMinorFaction_Invids"
+	overrideRaceName "ImperialWarlords"
+	teamIndex -1
+	startingCredits 1000
+	startingMetal 300
+	startingCrystal 100
+	playerType "NPCMinorFaction"
+	minorFactionPlayerDefName "EmpInvids"
+	themeGroup "ING_NPC"
+	themeIndex 27
+	pictureGroup "NPC"
+	pictureIndex 0	
+player
 	designName "MinorFaction_ING_Man0"
 	inGameName "IDS_ING_ScenarioPlayerNameMinorFaction_Man0"
 	overrideRaceName "MandalorianRaiders"
@@ -9253,7 +9476,7 @@ player
 	pictureGroup "NPC"
 	pictureIndex 0
 player
-designName "MinorFaction_ING_Man1"
+	designName "MinorFaction_ING_Man1"
 	inGameName "IDS_ING_ScenarioPlayerNameMinorFaction_Man1"
 	overrideRaceName "MandalorianRaiders"
 	teamIndex -1
@@ -9308,6 +9531,20 @@ player
 	themeIndex 23
 	pictureGroup "NPC"
 	pictureIndex 0
+player
+	designName "MinorFaction_ING_Quarren"
+	inGameName "IDS_ING_ScenarioPlayerNameMinorFaction_Quarren"
+	overrideRaceName "Pirate"
+	teamIndex -1
+	startingCredits 1000
+	startingMetal 300
+	startingCrystal 100
+	playerType "NPCMinorFaction"
+	minorFactionPlayerDefName "Quarren"
+	themeGroup "ING_NPC"
+	themeIndex 26
+	pictureGroup "NPC"
+	pictureIndex 0	
 player
 	designName "MinorFaction_ING_CZA"
 	inGameName "IDS_ING_ScenarioPlayerNameMinorFaction_CZA"
@@ -9377,5 +9614,32 @@ player
 	themeGroup "ING_NPC"
 	themeIndex 24
 	pictureGroup "NPC"
-	pictureIndex 0	
+	pictureIndex 0
+player
+	designName "MinorFaction_ING_RogueShapers"
+	inGameName "IDS_ING_ScenarioPlayerNameMinorFaction_RogueShapers"
+	overrideRaceName "Vong"
+	teamIndex -1
+	startingCredits 1000
+	startingMetal 300
+	startingCrystal 100
+	playerType "NPCMinorFaction"
+	minorFactionPlayerDefName "RogueShapers"
+	themeGroup "ING_NPC"
+	themeIndex 9
+	pictureGroup "NPC"
+	pictureIndex 0		
+player
+	designName "YuuzhanVong"
+	inGameName "IDS_PLAYERRACENAME_ING_YuuzhanVong"
+	overrideRaceName "Vong"
+	teamIndex -1
+	startingCredits 0
+	startingMetal 0
+	startingCrystal 0
+	playerType "NPCMadVasari"
+	themeGroup "ING_NPC"
+	themeIndex 25
+	pictureGroup "NPC"
+	pictureIndex 15	
 npcMiltiaPlayerCountPerGalaxy 4

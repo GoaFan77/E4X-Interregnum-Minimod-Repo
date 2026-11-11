@@ -189,7 +189,7 @@ ability:0 ""
 ability:1 ""
 ability:2 ""
 ability:3 ""
-ability:4 "Ability_ING_TemporaryShip"
+ability:4 "Ability_ING_TemporaryShipLocal"
 MaxAntiMatter 125.000000
 AntiMatterRestoreRate 1.000000
 cargoType "Invalid"

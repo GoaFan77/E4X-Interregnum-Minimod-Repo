@@ -33,7 +33,7 @@ researchFloatModifiers 1
 researchModifier
 	modifierType "WeaponDamageAdjustment"
 	baseValue 0.000000
-	perLevelValue 0.050000
+	perLevelValue 0.100000
 	linkedWeaponClass "BEAM"
 artifactPicture ""
 uniqueOverlayBrush ""

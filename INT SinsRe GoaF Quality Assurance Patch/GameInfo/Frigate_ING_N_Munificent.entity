@@ -90,7 +90,7 @@ Weapon
 	WeaponType "Projectile"
 	damageEnums
 		AttackType "COMPOSITE"
-		DamageAffectType "AFFECTS_ONLY_SHIELDS"
+		DamageAffectType "AFFECTS_SHIELDS_AND_HULL"
 		DamageApplyType "BACKLOADED"
 		DamageType "ENERGY"
 		WeaponClassType "ION"

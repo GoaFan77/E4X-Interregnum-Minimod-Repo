@@ -104,7 +104,7 @@ Weapon
 	DamagePerBank:BACK 21.500000
 	DamagePerBank:LEFT 21.500000
 	DamagePerBank:RIGHT 21.500000
-	Range 4400.000000
+	Range 4700.000000
 	PreBuffCooldownTime 6.000000
 	CanFireAtFighter TRUE
 	SynchronizedTargeting FALSE

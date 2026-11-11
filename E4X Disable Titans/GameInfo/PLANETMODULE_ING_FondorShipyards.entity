@@ -1,5 +1,5 @@
 ﻿TXT
-entityType "PlanetModuleStandard"
+entityType "PlanetModuleShipFactory"
 minZoomDistanceMult 2.000000
 ability:0 ""
 ability:1 "Ability_ING_BuildAllegiance"
@@ -23,7 +23,7 @@ basePrice
 	crystal 0.000000
 NameStringID "IDS_PLANETMODULE_ING_FondorShipyards_NAME"
 DescriptionStringID "IDS_PLANETMODULE_ING_FondorShipyards_DESC"
-planetModuleRoleType "NANOWEAPONJAMMER"
+planetModuleRoleType "TITANFACTORY"
 statCountType "ModuleUtility"
 Prerequisites
 	NumResearchPrerequisites 0

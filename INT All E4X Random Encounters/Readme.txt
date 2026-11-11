@@ -12,6 +12,7 @@ Encounters readded by this minimod.
 * Fucanglong Hyper-Reactor
 * Behemoth Fortress/Constructor
 * Cybernetic Planet
+* Mad Vasari Titan
 
 ---Compatible With---
 Enhanced 4X Mod

@@ -1415,7 +1415,7 @@ minorFactionsData
 			planetCultureRepelAdditiveBonus 1.5
 			spawnTime 600
 			spawnTimeVariance 120
-			minorFactionPlayerDefCount 35
+			minorFactionPlayerDefCount 38
 			minorFactionPlayerDef
 				name "DefaultTech"
 				planetAbilities
@@ -1696,6 +1696,30 @@ minorFactionsData
 					ability:2 "AbilityMinorFactionTradeCreditsForCrystal"
 					ability:3 "Ability_ING_MinorFactionSpawnDefenseRaidHapes"
 					ability:4 ""
+			minorFactionPlayerDef
+				name "Quarren"
+				planetAbilities
+					ability:0 "Ability_ING_MinorFactionSellProvidence"
+					ability:1 "AbilityMinorFactionRepairShips"
+					ability:2 "AbilityMinorFactionTradeMetalForCredits"
+					ability:3 ""
+					ability:4 ""
+			minorFactionPlayerDef
+				name "EmpInvids"
+				planetAbilities
+					ability:0 "Ability_ING_MinorFactionSpawnAttackRaidInvids"
+					ability:1 "Ability_ING_MinorFactionEmbargoInvids"
+					ability:2 "AbilityMinorFactionTradeCrystalForCredits"
+					ability:3 ""
+					ability:4 ""
+			minorFactionPlayerDef
+				name "RogueShapers"
+				planetAbilities
+					ability:0 "Ability_ING_MinorFactionSpawnSiegeRaidVong"
+					ability:1 "AbilityMinorFactionRepairShips"
+					ability:2 "Ability_ING_MinorFactionYammoskSupport"
+					ability:3 ""
+					ability:4 ""										
 	miscEntityDefNames
 		weaponDefName = "Weapon"
 		debrisDefName = "Debris"

@@ -546,15 +546,14 @@ planetElevatorData
 	elevatorMeshName:GoodsFactory "PlanetElevator-Tech-GoodsFactory"
 	elevatorMeshName:ProductionCenter "PlanetElevator-Tech-ProductionCenter"
 musicThemeData
-	startupMusicThemeCount 7
+	startupMusicThemeCount 6
 	musicTheme "MUSIC_ING_Empire_1"
 	musicTheme "MUSIC_ING_Empire_2"
-	musicTheme "MUSIC_ING_Emp_QUIET_4"
 	musicTheme "MUSIC_ING_EMP_Rebels_1"
 	musicTheme "MUSIC_ING_EMP_Rebels_2"
 	musicTheme "MUSIC_ING_EMP_Rebels_3"
 	musicTheme "MUSIC_ING_EMP_Rebels_4"
-	neutralMusicThemeCount 60
+	neutralMusicThemeCount 61
 	musicTheme "MUSIC_ING_Empire_1"
 	musicTheme "MUSIC_ING_Empire_2"
 	musicTheme "MUSIC_ING_Empire_3"
@@ -570,6 +569,7 @@ musicThemeData
 	musicTheme "MUSIC_ING_Emp_QUIET_4"
 	musicTheme "MUSIC_ING_Emp_Sad_1"
 	musicTheme "MUSIC_ING_Emp_Sad_2"
+	musicTheme "MUSIC_ING_Emp_Sad_3"
 	musicTheme "MUSIC_ING_Emp_TROUBLE_1"
 	musicTheme "MUSIC_ING_Emp_TROUBLE_2"
 	musicTheme "MUSIC_ING_BATTLE_1"
@@ -954,10 +954,10 @@ gameOverWindowData
 	hasLostOccupationPhraseStringId "IDSGameOverDialogHasLostPhraseEmpOccupation"
 aiNameData
 	nameCount 10
-	name "IDS_ING_PlayerAINameEmp0"
+	name "IDS_ING_PlayerAINameEmp10"
 	name "IDS_ING_PlayerAINameEmp1"
 	name "IDS_ING_PlayerAINameEmp2"
-	name "IDS_ING_PlayerAINameEmp3"
+	name "IDS_ING_PlayerAINameEmp13"
 	name "IDS_ING_PlayerAINameEmp4"
 	name "IDS_ING_PlayerAINameEmp5"
 	name "IDS_ING_PlayerAINameEmp6"

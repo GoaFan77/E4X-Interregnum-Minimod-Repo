@@ -151,7 +151,7 @@ ability:2 "Ability_ING_BuildIonCannon"
 ability:3 "Ability_ING_BuildConstructionBase"
 ability:4 "Ability_ING_AllColonyFrigate"
 MaxAntiMatter 180.000000
-AntiMatterRestoreRate 1.000000
+AntiMatterRestoreRate 0.500000
 cargoType "Invalid"
 maxCargoCapacity 0.000000
 formationRank 2

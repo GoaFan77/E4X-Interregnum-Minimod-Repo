@@ -81,7 +81,10 @@ NameStringID "IDS_Capitalship_ING_EmpAllegiance_NAME"
 DescriptionStringID "IDS_Capitalship_ING_EmpAllegiance_DESC"
 picture "Picture_ING_EmpAllegiance"
 Prerequisites
-	NumResearchPrerequisites 0
+	NumResearchPrerequisites 1
+	ResearchPrerequisite
+		Subject "Research_ING_EmpRank3"
+		Level 1
 	RequiredFactionNameID ""
 	RequiredCompletedResearchSubjects 0
 roleType "Invalid"

@@ -91,7 +91,7 @@ numRandomDebrisLarge 6
 numRandomDebrisSmall 12
 numSpecificDebris 0
 armorType "CapitalShip"
-hudIcon "HUDICON_ING_CAPITALSHIP_AllProvidence"
+hudIcon "HUDICON_ING_CAPITALSHIP_N_Providence"
 smallHudIcon "MainViewIcon_ING_AllProvidence"
 infoCardIcon "MainViewIcon_ING_AllProvidence"
 minZoomDistanceMult 1.750000

@@ -146,7 +146,7 @@ ability:0 "Ability_ING_TargetEngines"
 ability:1 "Ability_ING_FrigateTractorBeam"
 ability:2 ""
 ability:3 ""
-ability:4 "Ability_ING_TemporaryShip"
+ability:4 "Ability_ING_TemporaryShipLocal"
 MaxAntiMatter 200.000000
 AntiMatterRestoreRate 0.500000
 cargoType "Invalid"

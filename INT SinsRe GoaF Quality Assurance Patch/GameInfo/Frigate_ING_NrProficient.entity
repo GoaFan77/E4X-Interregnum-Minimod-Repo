@@ -97,7 +97,7 @@ Weapon
 		DamageApplyType "BACKLOADED"
 		DamageType "ENERGY"
 		WeaponClassType "ION"
-	DamagePerBank:FRONT 170.000000
+	DamagePerBank:FRONT 229.500000
 	DamagePerBank:BACK 0.000000
 	DamagePerBank:LEFT 0.000000
 	DamagePerBank:RIGHT 0.000000
@@ -136,7 +136,7 @@ Weapon
 		DamageApplyType "BACKLOADED"
 		DamageType "ENERGY"
 		WeaponClassType "ION"
-	DamagePerBank:FRONT 60.000000
+	DamagePerBank:FRONT 153.000000
 	DamagePerBank:BACK 0.000000
 	DamagePerBank:LEFT 0.000000
 	DamagePerBank:RIGHT 0.000000
@@ -231,8 +231,8 @@ ability:1 "Ability_ING_ProficientIonBolt"
 ability:2 ""
 ability:3 "Ability_ING_CR90SpeedBoost"
 ability:4 "Ability_ING_AntimissileSystem"
-MaxAntiMatter 350.000000
-AntiMatterRestoreRate 1.000000
+MaxAntiMatter 450.000000
+AntiMatterRestoreRate 1.500000
 cargoType "Invalid"
 maxCargoCapacity 0.000000
 formationRank 2
