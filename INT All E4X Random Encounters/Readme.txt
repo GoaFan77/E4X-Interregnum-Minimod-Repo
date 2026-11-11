@@ -12,7 +12,6 @@ Encounters readded by this minimod.
 * Fucanglong Hyper-Reactor
 * Behemoth Fortress/Constructor
 * Cybernetic Planet
-* Mad Vasari Titan
 
 ---Compatible With---
 Enhanced 4X Mod
@@ -22,6 +21,7 @@ Most E4X/INT Minimods
 
 ---Not Compatible With---
 INT Beskar
+INT Disable Vong Invasion
 
 ---Installation---
 To install the minimod, place this folder into your mod folder. In the mods tab of the main menu, enable this mod

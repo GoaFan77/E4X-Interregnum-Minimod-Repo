@@ -8955,7 +8955,7 @@ themeGroup "PlayerPhase"
 themeGroup "PlayerPsi"
 themeGroup "PlayerTech"
 themeGroup "NPC"
-npcPlayers 50
+npcPlayers 49
 player
 	designName "Pirate"
 	inGameName "IDSScenarioPlayerNamePirates"
@@ -9008,19 +9008,6 @@ player
 	themeIndex 13
 	pictureGroup "NPC"
 	pictureIndex 0
-player
-	designName "MadVasari"
-	inGameName "IDSScenarioPlayerNameMadVasari"
-	overrideRaceName "PhaseLoyalist"
-	teamIndex -1
-	startingCredits 0
-	startingMetal 0
-	startingCrystal 0
-	playerType "NPCMadVasari"
-	themeGroup "PlayerPhase"
-	themeIndex 15
-	pictureGroup "PlayerPhase"
-	pictureIndex 15
 player
 	designName "RandomEncounterTEC"
 	inGameName "IDS_E4X_TECRandomEncounterPlayer"

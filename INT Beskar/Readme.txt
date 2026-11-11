@@ -19,6 +19,7 @@ Most E4X/INT Minimods
 ---Not Compatible With---
 INT Deathmatch
 INT All E4X Random Encounters
+INT Disable Vong Invasion
 E4X Alternate Main Menu Music
 
 ---Installation---
